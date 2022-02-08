@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OnBoardingMainComponent implements OnInit {
   btnRoutes: btnRoutes[] = [
-    { name: 'Home', path: '/' },
-    { name: 'Contat Us', path: '/' },
+    { name: 'Home', path: './join-us' },
+    { name: 'Contat Us', path: './contact-us' },
     { name: 'GitHub', path: '/' },
   ];
 

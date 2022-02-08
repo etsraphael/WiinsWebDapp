@@ -1,6 +1,5 @@
 <div class="container-fluid bg-container h-100">
 
-
     <!-- Navbar -->
     <div class="row p-4">
   
@@ -18,7 +17,7 @@
   
           <!-- Button -->
           <div class="container-nav-btn" *ngFor="let item of btnRoutes">
-            <button class="btn btn-sm mx-2 text-light">
+            <button class="btn btn-sm mx-2 text-light" [routerLink]="item.path">
               <span>{{item.name}}</span>
             </button>
           </div>
@@ -33,20 +32,10 @@
     </div>
   
   
-    <!-- Body -->
+    <!-- Router container -->    
     <div class="container">
-      <div class="row">
-  
-        <div class="col-xl-6">
-  
-        </div>
-        <div class="col-xl-6">
-  
-        </div>
-      </div>
+      <router-outlet></router-outlet>
     </div>
   
-  
-  
-  
+    
   </div>
