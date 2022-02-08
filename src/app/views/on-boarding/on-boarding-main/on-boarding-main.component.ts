@@ -9,7 +9,7 @@ export class OnBoardingMainComponent implements OnInit {
   btnRoutes: btnRoutes[] = [
     { name: 'Home', path: './join-us' },
     { name: 'Contat Us', path: './contact-us' },
-    { name: 'GitHub', path: '/' },
+    { name: 'GitHub', path: './github' },
   ];
 
   constructor() {}
