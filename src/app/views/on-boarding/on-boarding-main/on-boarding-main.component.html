@@ -1,0 +1,52 @@
+<div class="container-fluid bg-container h-100">
+
+
+    <!-- Navbar -->
+    <div class="row p-4">
+  
+      <!-- Brand -->
+      <div class="col-12 col-md-6 my-auto">
+        <a class="navbar-brand d-inline-block">
+          <img class="brand-icon-img" src="./../assets/img/brand-icon.png" alt="logo">
+        </a>
+        <h2 class="d-inline-block mb-0 align-middle text-light">Wiins</h2>
+      </div>
+  
+      <!-- Button List -->
+      <div class="col-12 col-md-6 row my-auto">
+        <div class="d-flex justify-content-end">
+  
+          <!-- Button -->
+          <div class="container-nav-btn" *ngFor="let item of btnRoutes">
+            <button class="btn btn-sm mx-2 text-light">
+              <span>{{item.name}}</span>
+            </button>
+          </div>
+          <div class="container-nav-btn">
+            <button class="btn btn-sm mx-2 text-light signIn-btn px-4">
+              <span>SignIn</span>
+            </button>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  
+  
+    <!-- Body -->
+    <div class="container">
+      <div class="row">
+  
+        <div class="col-xl-6">
+  
+        </div>
+        <div class="col-xl-6">
+  
+        </div>
+      </div>
+    </div>
+  
+  
+  
+  
+  </div>

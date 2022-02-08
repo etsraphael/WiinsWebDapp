@@ -1,0 +1,24 @@
+.brand-icon-img {
+    width: 3rem;
+    object-fit: contain;
+  }
+  
+  .bg-container {
+    background: linear-gradient(111.68deg, #5ABCF7 3.86%, #4D82DE 42.27%, #8965C3 91.66%);
+  }
+  
+  .container-nav-btn {
+  
+    button span {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 1.2rem;
+      line-height: 35px
+    }
+  
+    .signIn-btn {
+      background: linear-gradient(90deg, #345AA4 -28.35%, rgba(63, 0, 156, 0) 153.96%);
+      border-radius: 11px;
+      border: 0;
+    }
+  }
