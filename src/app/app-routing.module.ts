@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './views/home/home.component';
 import { ContactUsComponent } from './views/on-boarding/contact-us/contact-us.component';
 import { JoinUsComponent } from './views/on-boarding/join-us/join-us.component';
 import { OnBoardingMainComponent } from './views/on-boarding/on-boarding-main/on-boarding-main.component';
@@ -18,6 +19,9 @@ const routes: Routes = [
       { path: 'contact-us', component: ContactUsComponent },
     ],
   },
+
+  // home page
+  { path: 'home', component: HomeComponent },
 ];
 
 @NgModule({
