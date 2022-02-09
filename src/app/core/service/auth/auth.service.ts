@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-// import Web3 from 'web3';
+import Web3 from 'web3';
 
 @Injectable({
   providedIn: 'root',
