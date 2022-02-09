@@ -13,20 +13,24 @@
 
     <!-- Button List -->
     <div class="col-12 col-md-6 row my-auto">
-      <div class="d-flex justify-content-end">
+      <div class="d-flex justify-content-end container-nav-btn">
 
         <!-- Button -->
-        <div class="container-nav-btn" *ngFor="let item of btnRoutes">
-          <button class="btn btn-sm mx-2 text-light" [routerLink]="item.path" routerLinkActive="route-active">
+        <!-- <div class="container-nav-btn" *ngFor="let item of btnRoutes"> -->
+          <button class="btn btn-sm mx-2 text-light" [routerLink]="item.path" routerLinkActive="route-active" *ngFor="let item of btnRoutes">
             <span>{{item.name}}</span>
             <div class="underline mx-auto"></div>
           </button>
-        </div>
-        <div class="container-nav-btn">
+        <!-- </div> -->
+        <button class="btn btn-sm mx-2 text-light" (click)="goToGitHub()">
+          <span>GitHub</span>
+          <div class="underline mx-auto"></div>
+        </button>
+        <!-- <div class="container-nav-btn"> -->
           <button class="btn btn-sm mx-2 text-light signIn-btn px-4">
             <span>SignIn</span>
           </button>
-        </div>
+        <!-- </div> -->
       </div>
     </div>
 

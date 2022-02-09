@@ -9,12 +9,15 @@ export class OnBoardingMainComponent implements OnInit {
   btnRoutes: btnRoutes[] = [
     { name: 'Home', path: './join-us' },
     { name: 'Contat Us', path: './contact-us' },
-    { name: 'GitHub', path: './github' },
   ];
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  goToGitHub(): Window | null {
+    return window.open('https://github.com/etsraphael/WiinsWebDapp', '_blank');
+  }
 }
 
 export interface btnRoutes {
