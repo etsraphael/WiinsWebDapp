@@ -7,7 +7,7 @@ import { OnBoardingMainComponent } from './views/on-boarding/on-boarding-main/on
 
 const routes: Routes = [
   // by default
-  { path: '', redirectTo: 'sign', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 
   // sign in page
   {
