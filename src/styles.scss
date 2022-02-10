@@ -2,9 +2,12 @@
 @import "~bootstrap/scss/bootstrap";
 @import "~bootstrap/scss/utilities";
 
+// Bootstrap Icon
+@import "~bootstrap-icons/font/bootstrap-icons.css";
 
 // global
-.btn-check:focus+.btn, .btn:focus {
-    outline: 0;
-    box-shadow: none !important
+.btn-check:focus+.btn,
+.btn:focus {
+  outline: 0;
+  box-shadow: none !important
 }
