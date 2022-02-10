@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './core/guard/auth.guard';
 import { HomeComponent } from './views/home/home.component';
 import { ContactUsComponent } from './views/on-boarding/contact-us/contact-us.component';
 import { JoinUsComponent } from './views/on-boarding/join-us/join-us.component';
@@ -21,11 +22,12 @@ const routes: Routes = [
   },
 
   // home page
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
+  providers: [AuthGuard],
 })
 export class AppRoutingModule {}

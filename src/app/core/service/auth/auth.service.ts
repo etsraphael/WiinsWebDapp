@@ -6,20 +6,20 @@ import Web3 from 'web3';
   providedIn: 'root',
 })
 export class AuthService {
-  // web3: Web3 = new Web3(window.web3.currentProvider);
+  web3: Web3 = new Web3(window.web3.currentProvider);
 
   constructor(private router: Router) {}
 
-  // async getAccountConnected(): Promise<string> {
-  //   if (localStorage.getItem('myProfileAddress') === null) {
-  //     return null!;
-  //   }
+  async getAccountConnected(): Promise<string> {
+    if (localStorage.getItem('accountConnected') === null) {
+      return null!;
+    }
 
-  //   return this.web3.eth
-  //     .getAccounts()
-  //     .then((response: string[]) => response[0])
-  //     .catch(() => null!);
-  // }
+    return this.web3.eth
+      .getAccounts()
+      .then((response: string[]) => response[0])
+      .catch(() => null!);
+  }
 
   login() {
     if (window.ethereum.isMetaMask) {
@@ -33,6 +33,11 @@ export class AuthService {
           console.log('requested accounts error');
         });
     }
+  }
+
+  logout(): void {
+    this.router.navigate(['/sign']);
+    return localStorage.removeItem('accountConnected');
   }
 
   saveAccountConnected(account: string): void {
