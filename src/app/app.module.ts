@@ -7,6 +7,8 @@ import { OnBoardingMainComponent } from './views/on-boarding/on-boarding-main/on
 import { JoinUsComponent } from './views/on-boarding/join-us/join-us.component';
 import { ContactUsComponent } from './views/on-boarding/contact-us/contact-us.component';
 import { HomeComponent } from './views/home/home.component';
+import { MainSearchBarComponent } from './core/component/main-search-bar/main-search-bar.component';
+import { MainNavBarComponent } from './core/component/main-nav-bar/main-nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -14,13 +16,12 @@ import { HomeComponent } from './views/home/home.component';
     OnBoardingMainComponent,
     JoinUsComponent,
     ContactUsComponent,
-    HomeComponent
+    HomeComponent,
+    MainSearchBarComponent,
+    MainNavBarComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
