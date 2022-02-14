@@ -12,7 +12,7 @@ export class OnBoardingMainComponent implements OnInit {
     { name: 'Contat Us', path: './contact-us' },
   ];
 
-  constructor(private router: Router, public authService: AuthService) {}
+  constructor(public authService: AuthService) {}
 
   ngOnInit(): void {}
 
