@@ -9,7 +9,6 @@ import { ContactUsComponent } from './views/on-boarding/contact-us/contact-us.co
 import { HomeComponent } from './views/home/home.component';
 import { MainSearchBarComponent } from './core/component/main-search-bar/main-search-bar.component';
 import { MainNavBarComponent } from './core/component/main-nav-bar/main-nav-bar.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -21,7 +20,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MainSearchBarComponent,
     MainNavBarComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FontAwesomeModule],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
