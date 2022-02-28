@@ -13,6 +13,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
+import { RootStoreModule } from './core/store';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { EffectsModule } from '@ngrx/effects';
     MainNavBarComponent,
   ],
   imports: [
+    RootStoreModule,
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot({}, {}),
