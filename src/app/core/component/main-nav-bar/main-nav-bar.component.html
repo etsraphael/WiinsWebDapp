@@ -27,17 +27,24 @@
         <i class="bi bi-bell"></i>
       </button>
 
-
       <!-- Avatar -->
-      <div class="px-3 container-my-profile">
-        <button class="avatar-nav-bar nav-link py-0 my-auto ml-auto w-100" id="navbarDropdown"
-        role="button" aria-haspopup="true" aria-expanded="false">
-        <img src="https://images.unsplash.com/photo-1644788131846-520564d7bd8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1310&q=80" class="rounded-circle z-depth-0 my-avatar" alt="avatar">
-      </button>
+      <div class="px-3 container-my-profile btn-group dropstart">
+        <button class="avatar-nav-bar nav-link py-0 my-auto ml-auto w-100" data-bs-toggle="dropdown"
+          data-bs-display="static" aria-expanded="false">
+          <img
+            src="https://images.unsplash.com/photo-1644788131846-520564d7bd8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1310&q=80"
+            class="rounded-circle z-depth-0 my-avatar" alt="avatar">
+        </button>
+        <ul class="dropdown-menu border-0 shadow">
+          <li>
+            <button (click)="logOut()" class="dropdown-item" type="button">
+              <i class="bi bi-box-arrow-left"></i>
+              <span class="ps-2">Log Out</span>
+            </button>
+          </li>
+        </ul>
       </div>
-      <!-- <button class="px-3" (click)="logOut()">
-        <span>logOut</span>
-      </button> -->
+
     </div>
 
   </div>
