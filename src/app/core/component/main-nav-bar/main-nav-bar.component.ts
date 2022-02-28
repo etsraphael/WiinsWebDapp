@@ -1,13 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { navbarButton, navigationRoute } from '../../data/navigation';
 import { AuthService } from '../../service/auth/auth.service';
-
-const navigationRoute: navbarButton[] = [
-  { icon: 'bi-house', link: '', fontSize: '2rem' },
-  { icon: 'bi-music-note-beamed', link: '', fontSize: '2rem' },
-  { icon: 'bi-chat-right-text', link: '', fontSize: '1.7rem' },
-  { icon: 'bi-collection-play', link: '', fontSize: '2rem' },
-  { icon: 'bi-people-fill', link: '', fontSize: '2rem' },
-];
 
 @Component({
   selector: 'app-main-nav-bar',
@@ -24,10 +17,4 @@ export class MainNavBarComponent implements OnInit {
   logOut(): void {
     return this.authService.logout();
   }
-}
-
-interface navbarButton {
-  icon: string;
-  link: string;
-  fontSize: string;
 }
