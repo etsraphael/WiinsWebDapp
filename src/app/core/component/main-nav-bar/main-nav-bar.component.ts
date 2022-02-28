@@ -17,4 +17,8 @@ export class MainNavBarComponent implements OnInit {
   logOut(): void {
     return this.authService.logout();
   }
+
+  reportIssueToDiscord(): Window | null {
+    return window.open('https://discord.gg/QBuJvnn', '_blank');
+  }
 }

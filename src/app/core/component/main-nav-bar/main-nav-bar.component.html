@@ -36,10 +36,16 @@
             class="rounded-circle z-depth-0 my-avatar" alt="avatar">
         </button>
         <ul class="dropdown-menu border-0 shadow">
+
+          <li>
+            <button (click)="reportIssueToDiscord()" class="dropdown-item" type="button">
+              <span class="text-primary">Report a problem</span>
+            </button>
+          </li>
+
           <li>
             <button (click)="logOut()" class="dropdown-item" type="button">
-              <i class="bi bi-box-arrow-left"></i>
-              <span class="ps-2">Log Out</span>
+              <span class="text-primary">Log Out</span>
             </button>
           </li>
         </ul>
