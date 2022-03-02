@@ -11,6 +11,6 @@ export class ContactUsComponent implements OnInit {
   ngOnInit(): void {}
 
   goToDiscord(): Window | null {
-    return window.open('https://discord.gg/zkw5QaBbfR', '_blank');
+     return window.open('https://discord.gg/zkw5QaBbfR', '_blank');
   }
 }
