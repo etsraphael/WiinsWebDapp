@@ -2,9 +2,9 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ dev ]
+    branches: [ prod ]
   pull_request:
-    branches: [ dev ]
+    branches: [ prod ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -64,12 +64,12 @@ jobs:
             context: ./
             file: ./Dockerfile
             push: true
-            tags: ${{ secrets.DOCKERHUB_USERNAME }}/wiins-web-frontend-env:latest
+            tags: ${{ secrets.DOCKERHUB_USERNAME }}/wiins-web-frontend-prod:latest
           
         - name: Run the image in a container
           uses: addnab/docker-run-action@v3
           with:
-            image: ${{ secrets.DOCKERHUB_USERNAME }}/wiins-web-frontend-env:latest
+            image: ${{ secrets.DOCKERHUB_USERNAME }}/wiins-web-frontend-prod:latest
             run: |
               echo "runing the docker image"
               echo "Testing the nodejs  app endpoints"
