@@ -4,7 +4,7 @@ import { StoreModule } from '@ngrx/store';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { environment } from 'src/environments/environment';
-import { UserConnetedStoreModule } from '.';
+import { UserConnetedStoreModule } from './user-connected-store';
 
 @NgModule({
   declarations: [],
