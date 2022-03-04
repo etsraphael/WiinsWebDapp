@@ -9,6 +9,11 @@ import { ContactUsComponent } from './views/on-boarding/contact-us/contact-us.co
 import { HomeComponent } from './views/home/home.component';
 import { MainSearchBarComponent } from './core/component/main-search-bar/main-search-bar.component';
 import { MainNavBarComponent } from './core/component/main-nav-bar/main-nav-bar.component';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { RootStoreModule } from './core/store';
 
 @NgModule({
   declarations: [
@@ -20,7 +25,17 @@ import { MainNavBarComponent } from './core/component/main-nav-bar/main-nav-bar.
     MainSearchBarComponent,
     MainNavBarComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [
+    RootStoreModule,
+    BrowserModule,
+    AppRoutingModule,
+    StoreModule.forRoot({}, {}),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
+    EffectsModule.forRoot([]),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
