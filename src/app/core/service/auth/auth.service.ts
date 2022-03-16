@@ -21,7 +21,7 @@ export class AuthService {
       .catch(() => null!);
   }
 
-  login() {
+  login(): void {
     if (window.ethereum.isMetaMask) {
       return window.ethereum
         .request({ method: 'eth_requestAccounts' })
@@ -33,6 +33,25 @@ export class AuthService {
           console.log('requested accounts error');
         });
     }
+  }
+
+  async verifyAccount(): Promise<void> {
+    return this.web3.eth.personal
+      .sign(
+        'Please verify your account',
+        '0x9571A4C51Ae37976c3A6F8b0E781688b686d253a',
+        null!
+      )
+      .then(
+        (response: string) => {
+          console.log('response ');
+          console.log(response)
+        },
+        (error: string) => {
+          console.log('error: ');
+          console.log(error)
+        },
+      );
   }
 
   logout(): void {
