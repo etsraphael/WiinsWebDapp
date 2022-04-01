@@ -1,46 +1,61 @@
-<div class="container-fluid bg-container h-100">
-
+<div class="container-fluid bg-container p-0 overflow-hidden">
   <!-- Navbar -->
-  <div class="row p-4">
-
+  <nav class="row p-2 align-items-center position-fixed w-100 m-0">
     <!-- Brand -->
-    <div class="col-12 col-md-6 my-auto">
+    <div class="col-10 col-xl-3 my-auto">
       <a class="navbar-brand d-inline-block">
         <img class="brand-icon-img" src="./../assets/img/brand-icon.png" alt="logo">
       </a>
-      <h2 class="d-inline-block mb-0 align-middle text-light">Wiins</h2>
+      <h2 class="d-inline-block mb-0 align-middle text-light">
+        <img class="brand-typo-img" src="../../../../assets/img/wiinsTypo.svg" alt="Typo WIins">
+      </h2>
     </div>
-
     <!-- Button List -->
-    <div class="col-12 col-md-6 row my-auto">
-      <div class="d-flex justify-content-end container-nav-btn">
-
+    <div class="col-xl-9 d-none d-xl-flex row my-auto">
+      <div class="d-flex justify-content-end align-items-baseline container-nav-btn">
         <!-- Button -->
-        <button class="btn btn-sm mx-2 text-light" [routerLink]="item.path" routerLinkActive="route-active"
-          *ngFor="let item of btnRoutes">
-          <span>{{item.name}}</span>
+        <button class="btn btn-sm text-light" (click)="onNavigateTo(item.fragment)"
+          *ngFor="let item of btnTabs">
+            <span>{{item.title | translate}}</span>
+        </button>
+        <!-- Button [Externe] -->
+        <button class="btn btn-sm mx-2 me-5 text-light" (click)="goToGitHub()">
+          <span>Github</span>
           <div class="underline mx-auto"></div>
         </button>
-        <!-- </div> -->
-        <button class="btn btn-sm mx-2 text-light" (click)="goToGitHub()">
-          <span>GitHub</span>
-          <div class="underline mx-auto"></div>
+        <!-- Langue -->
+        <button class="btn btn-sm text-light" mat-icon-button (click)="onOpenLang()"
+        [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <span>{{defaultLang}} <i class="bi bi-arrow-down"></i></span>
         </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item *ngFor="let item of filteredLang ? filteredLang : btnLanguages; let i = index" (click)="onChangeLang(item)"
+          [ngClass]="{'cursor-not-allow': item.available === 'not-available'}">
+            <span>{{item.language}}</span>
+          </button>
+        </mat-menu>
         <!-- <div class="container-nav-btn"> -->
         <button class="btn btn-sm mx-2 text-light signIn-btn px-4" (click)="authService.login()">
-          <span>SignIn</span>
+          <span>{{'LANDING_PAGE.on-boarding.sign-in' | translate}}</span>
         </button>
         <!-- </div> -->
       </div>
     </div>
-
-  </div>
-
-
+    <!-- Menu Hamburger [< 992px] -->
+    <div class="dropdown col-2 text-end d-xl-none">
+      <button class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-list text-white" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+        </svg>
+      </button>
+      <ul class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton1">
+        <li *ngFor="let item of btnTabs"><a class="dropdown-item" (click)="onNavigateTo(item.fragment)">{{item.name}}</a></li>
+        <li><a class="dropdown-item" href="#">Sign in</a></li>
+      </ul>
+    </div>
+  </nav>
   <!-- Router container -->
-  <div class="container">
+  <div class="container-fluid min-vh-100 p-0 m-0">
     <router-outlet></router-outlet>
   </div>
-
-
 </div>

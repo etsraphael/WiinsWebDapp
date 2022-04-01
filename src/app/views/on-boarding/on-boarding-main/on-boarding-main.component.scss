@@ -1,25 +1,65 @@
+// Navbar
+nav {
+  background: linear-gradient(90deg, #58aed2, #4a85d1, #8965c3);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  z-index: 999;
+}
+
+// Brand
 .brand-icon-img {
-  width: 3rem;
+  width: 65px;
   object-fit: contain;
 }
 
-.bg-container {
-  background: linear-gradient(111.68deg, #5ABCF7 3.86%, #4D82DE 42.27%, #8965C3 91.66%);
+.brand-typo-img {
+  height: 50px;
 }
 
+// Language
+.bi-arrow-down {
+  font-size: 15px;
+}
+
+.active-lang {
+  color: red;
+}
+
+::ng-deep .mat-menu-panel {
+  max-height: 150px !important;
+}
+
+// Navbar Button
 .container-nav-btn {
+  button:not(:nth-last-of-type(1)) {
+    margin-right: 2em;
+  }
 
   button span {
     font-style: normal;
     font-weight: 500;
-    font-size: 1.2rem;
-    line-height: 35px
+    font-size: 20px;
+    line-height: 35px;
+    transition: all 0.2s;
+    color: #ebebeb;
+  }
+
+  button span:hover:not(.signIn-btn span) {
+    border-bottom: 3px solid #fff;
   }
 
   .signIn-btn {
-    background: linear-gradient(90deg, #345AA4 -28.35%, rgba(63, 0, 156, 0) 153.96%);
+    background: linear-gradient(
+      90deg,
+      #345aa4 -28.35%,
+      rgba(63, 0, 156, 0) 153.96%
+    );
     border-radius: 11px;
-    border: 0;
+    border: 2px solid transparent;
+  }
+
+  .signIn-btn:hover {
+    border: 2px solid #fff;
   }
 
   .underline {
@@ -27,8 +67,30 @@
   }
 }
 
+// Menu Hamburger
+.dropdown  {
+
+  button {
+    background: transparent;
+    border: none;
+  }
+
+  ul li a {
+    cursor: pointer;
+  }
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+// Background
+.bg-container {
+  background: linear-gradient(90deg, #58aed2, #4a85d1, #8965c3);
+}
+
+// Route
 .route-active {
-  
   .underline {
     display: block;
   }
@@ -39,4 +101,8 @@
   height: 5px;
   border-radius: 50px;
   background-color: #fff;
+}
+
+.cursor-not-allow {
+  cursor: not-allowed;
 }
