@@ -1,0 +1,79 @@
+// Team
+.team {
+    margin-top: 10em;
+  }
+  
+  // Collaborator
+  .descript {
+  
+    span {
+      font-weight: 400;
+    }
+  
+    p {
+      font-size: 24px;
+    }
+  
+  }
+  
+  // Founder
+  .ceo h4,
+  .manager h4,
+  .developper h4 {
+    font-size: 27px;
+    color: #fff;
+  }
+  
+  .ceo p,
+  .manager p,
+  .developper p {
+    font-size: 19px;
+  }
+  
+  .ceo .avatar img,
+  .manager .avatar img,
+  .developper .avatar img {
+    width: 140px;
+    height: 141px;
+  }
+  
+  // Responsive
+  @media screen and (min-width: 992px) and (max-width: 1200px) {
+    .ceo .avatar img,
+    .manager .avatar img,
+    .developper .avatar img {
+      width: 100px;
+      height: 100px;
+    }
+  }
+  
+  // Default Position Animation (left)
+  .slide-component .left-slide {
+    position: relative;
+    transform: translateX(-50em);
+    opacity: 0;
+    transition: all 1s;
+  }
+  
+  // Next Position Animation (Left Side - Scroll Event)
+  .animation_component .slide-component .left-slide {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 1s;
+  }
+  
+  // Default Position Animation (right)
+  .slide-component .right-slide {
+    position: relative;
+    transform: translateX(50em);
+    opacity: 0;
+    transition: all 1s;
+  }
+  
+  // Next Position Animation (Right Side - Scroll Event)
+  .animation_component .slide-component .right-slide {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 1s;
+  }
+  
