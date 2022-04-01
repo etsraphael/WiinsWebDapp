@@ -1,0 +1,91 @@
+// More We Are
+.more-we-are .card {
+    width: 300px;
+    height: 200px;
+    background-color: #2f3136;
+    border-radius: 20px;
+  
+    //   Header
+    header {
+      position: relative;
+      height: 100px;
+      background-color: #202225;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+  
+      .title {
+        h4 {
+          font-size: 14px;
+          color: #fff;
+        }
+  
+        span {
+          font-size: 14px;
+          margin-right: 0.2rem;
+          color: #73767d;
+        }
+  
+        p {
+          font-size: 10px;
+          color: #fff;
+          color: #73767d;
+        }
+      }
+  
+      .join-chat button,
+      .join-project button {
+        background-color: #768ad4;
+        border-radius: 20px;
+        color: #fff;
+      }
+    }
+  
+    //   Body
+    .lists-community,
+    .lists-devs {
+      background-color: #2f3136;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+  
+      ul {
+        list-style: none;
+      }
+  
+      ul li {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        text-align: center;
+      }
+  
+      ul li .bi-discord {
+        font-size: 25px;
+      }
+  
+      ul li img:not(.admin) {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+  
+      ul li:not(:nth-of-type(5)) {
+        margin-right: 0.6rem;
+      }
+  
+      ul li:nth-of-type(2) {
+        background-color: #ed5b61;
+      }
+      ul li:nth-of-type(3) {
+        background-color: #a259ff;
+      }
+      ul li:nth-of-type(4) {
+        background-color: #ff7262;
+      }
+      ul li:nth-of-type(5) {
+        background-color: #0acf83;
+      }
+    }
+  }
+  
