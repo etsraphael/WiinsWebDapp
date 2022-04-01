@@ -1,0 +1,122 @@
+// Zion
+.zion {
+    margin-top: 10em;
+  }
+  
+  // Token
+  .main-container {
+    position: relative;
+    background: none;
+  }
+  
+  .token {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    transform-style: preserve-3d;
+    transition: all 0.8s ease;
+    animation: tokenAnimation 1s linear infinite alternate;
+    z-index: 999;
+  }
+  
+  @keyframes tokenAnimation {
+    from {
+      transform: rotateY(0deg);
+    }
+  
+    to {
+      transform: rotateY(180deg);
+    }
+  }
+  
+  .front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    background: url(../../../../../assets/img/h-Zion/tokenFront.svg);
+    background-size: cover;
+  }
+  
+  .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    background: url(../../../../../assets/img/h-Zion/tokenBack.svg);
+    background-size: cover;
+    transform: rotateY(180deg);
+  }
+  
+  .link {
+    position: absolute;
+    top: 0;
+    left: 6em;
+    z-index: 1;
+  }
+  
+  // Description
+  .descript  {
+  
+    span {
+      font-weight: 400;
+    }
+  
+    p {
+      font-size: 24px;
+    }
+  
+    button {
+      transition: all 0.3s;
+      outline: 2px solid transparent;
+    }
+  
+    button:hover {
+      outline: 2px solid #fff;
+    }
+  
+  }
+  
+  // Button
+  .btn-action {
+    background: linear-gradient(90deg, #ec6569, #3e009c33);
+    border-radius: 13px;
+    border: 0;
+    cursor: not-allowed;
+  }
+  
+  // Default Position Animation (left)
+  .slide-component .left-slide {
+    position: relative;
+    transform: translateX(-50em);
+    opacity: 0;
+    transition: all 1s;
+  }
+  
+  // Next Position Animation (Left Side - Scroll Event)
+  .animation_component .slide-component .left-slide {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 1s;
+  }
+  
+  // Default Position Animation (right)
+  .slide-component .right-slide {
+    position: relative;
+    transform: translateX(50em);
+    opacity: 0;
+    transition: all 1s;
+  }
+  
+  // Next Position Animation (Right Side - Scroll Event)
+  .animation_component .slide-component .right-slide {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 1s;
+  }
+  
