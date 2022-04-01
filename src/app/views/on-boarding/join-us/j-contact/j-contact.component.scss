@@ -1,0 +1,50 @@
+// Contact Us
+.contact-us {
+    margin-top: 10em;
+  }
+  
+  // Social Lists
+  .social-lists {
+    height: 110px;
+    background-color: rgba(0, 0, 0, 0.1);
+  
+    ul li {
+      list-style: none;
+      cursor: pointer;
+    }
+  
+    ul li:not(:last-of-type) {
+      margin-right: 3em;
+    }
+  }
+  
+  // Default Position Animation (left)
+  .slide-component .left-slide {
+    position: relative;
+    transform: translateX(-50em);
+    opacity: 0;
+    transition: all 1s;
+  }
+  
+  // Next Position Animation (Left Side - Scroll Event)
+  .animation_component .slide-component .left-slide {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 1s;
+  }
+  
+  // Default Position Animation (right)
+  .slide-component .right-slide {
+    position: relative;
+    transform: translateX(50em);
+    opacity: 0;
+    transition: all 1s;
+  }
+  
+  // Next Position Animation (Right Side - Scroll Event)
+  .animation_component .slide-component .right-slide {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 1s;
+  }
+  
