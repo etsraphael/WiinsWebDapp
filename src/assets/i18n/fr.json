@@ -1,0 +1,56 @@
+{
+  "LANDING_PAGE": {
+    "on-boarding": {
+      "ecosystem": "Écosystème",
+      "token-zion": "Token ZION",
+      "team": "Équipe",
+      "contact": "Contact",
+      "sign-in": "Explorer"
+    },
+    "a-lets-build-future": {
+      "title": "Construisons ensemble l’avenir",
+      "text": "Wiin’s veut centraliser de manière intuitive le partage, la communication, le divertissement et les aides au plus grand nombre tout en respectant les droits des utilisateurs.",
+      "button-join-us": "Rejoignez-nous"
+    },
+    "b-imagine-early-access": {
+      "title": "Imaginez un espace infini",
+      "text": "Un espace accessible avec un seul compte, un seul mot de passe, un seul wallet. Un espace intuitif, sans publicités intrusives où les contenus image, vidéo, texte et audio se côtoient et où les créateurs de contenu profiteront d’un système de rémunération inédit."
+    },
+    "c-news-feed-disover": {
+      "title": "Fil d’actualités & Découverte",
+      "text": "Cette fonctionnalité met en avant les dernières tendances de vos amis et de la communauté. La plateforme ne vend pas d’espace publicitaire et dans cette philosohie elle n’a pas à vous rendre dépendant. Par exemple, le nombre de “j’aime” n’est pas indiqué pour limiter l’aspect de récompenses."
+    },
+    "d-messenger": {
+      "title": "Messagerie",
+      "text": "Discutez avec vos amis et créez des groupes d'intérêt en partageant des contenus de différents formats tels que vidéo, audio, image et texte. Les messages sont éphémères et disparaissent après deux semaines pour améliorer la protection de vos données. De plus, vos discussions peuvent être réparties, selon vos priorités. Les messages s'effacent, les liens que vous avez créés perdurent."
+    },
+    "e-profil": {
+      "title": "Profil",
+      "text": "Valoriser son profil, c'est d'abord publier des contenus et communiquer sur ses intérêts sous plusieurs formats (image, vidéo, audio, storie à la une). Vous pouvez aussi décider de mettre votre profil en privé afin de garder des relations sociales intimes avec vos proches. Pour les artistes en tout genre, mettez en lumière votre créativité, qu'il s’agisse d’art visuel, de littérature, de musique, de vidéo ou autres. "
+    },
+    "f-music-video": {
+      "title": "Musique & Video",
+      "text": "Écoutez et visionnez les contenus audio et vidéo tout en envoyant de la force à vos créateurs de contenus certifiés avec un tout nouveau système de rémunération basé sur vos écoutes réels et des cadeaux monétaires. Switchez rapidement entre les formats et profitez des contenus quel que soit l'onglet où vous êtes."
+    },
+    "g-team": {
+      "title": "Équipe",
+      "main-founder": "CEO",
+      "fullstack-developper": "Développeur Full Stack",
+      "front-end-developper": "Développeur Front-End",
+      "manager": "Responsable Manager",
+      "founder": "Fondateur"
+    },
+    "h-zion": {
+      "title": "Zion",
+      "text": "Grâce à cette cryptomonnaie, pour le moment, vous pourrez staker. Par la suite, vous pourrez utiliser à 100% la platforme avec les contenus des artistes, etc. Grâce à l'acquisition d'un abonnement. Vous pourrez faire également des cadeaux monétaires aux artistes certifiés de Wiin's. Aujourd'hui Zion débute et grâce à vous, elle va valoir combien demain ?",
+      "button-buy-zion": "Acheter Zion"
+    },
+    "i-white-paper": {
+      "title": "Informations techniques"
+    },
+    "j-more-we-are": {
+      "title": "Rejoignez -nous",
+      "text": "Suivez nos mises à jour sur nos différents réseaux et participez à la conception du projet grâce à notre Discord et notre GitHub."
+    }
+  }
+}
