@@ -1,0 +1,58 @@
+    <!-- Music & Video -->
+    <div [class.animation_component]="slide_change">
+        <div class="col-12 d-flex flex-column flex-lg-row justify-content-between px-5 music-video slide-component">
+          <div class="col-12 col-lg-6 d-flex align-items-center left-slide">
+            <div class="container-fluid descript">
+              <!-- Description -->
+              <div class="row mx-0 mt-5 mt-lg-0">
+                <span class="display-3 text-light col-12 text-center text-lg-start">
+                  <strong>{{'LANDING_PAGE.f-music-video.title' | translate}}</strong>
+                </span>
+                <p class="text-light col-12 py-3 mt-3 text-center text-lg-start">{{'LANDING_PAGE.f-music-video.text' | translate}}</p>
+              </div>
+            </div>
+          </div>
+           <!-- Phone Image (animation) -->
+          <div class="container-img d-flex col-12 col-lg-6 mt-5 mb-lg-5 pb-lg-5 right-slide">
+              <svg xmlns="http://www.w3.org/2000/svg" 
+              (click)="onPrevious()" 
+              [ngClass]="count === 0 ? 'color-inactive' : 'text-white'"
+              width="70" 
+              height="70" 
+              fill="currentColor" 
+              class="bi bi-arrow-left-circle" 
+              viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" 
+              (click)="onNext()" 
+              [ngClass]="count === 3 ? 'color-inactive' : 'text-white'"
+              width="70" 
+              height="70" 
+              fill="currentColor" 
+              class="bi bi-arrow-right-circle" 
+              viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+                </svg>
+            <div class="d-flex align-items-baseline" [@onboardingState]="default">
+              <div class="col-12 d-flex justify-content-center">
+                  <img class="w-100 h-100" [ngClass]="default === 'default' ? 'phone-active' : 'phone-inactive'" 
+                  src="../../../../../assets/img/f - Music Video/phone-music-1.svg" alt="Music Phone">
+              </div>
+              <div class="col-12 d-flex justify-content-center">
+                  <img class="w-100 h-100" [ngClass]="default === 'step-1' ? 'phone-active' : 'phone-inactive'" 
+                  src="../../../../../assets/img/f - Music Video/phone-music-2.svg" alt="Music Phone">
+              </div>
+              <div class="col-12 d-flex justify-content-center">
+                  <img class="w-100 h-100" [ngClass]="default === 'step-2' ? 'phone-active' : 'phone-inactive'" 
+                  src="../../../../../assets/img/f - Music Video/phone-video-1.svg" alt="Video Phone">
+              </div>
+              <div class="col-12 d-flex justify-content-center">
+                  <img class="w-100 h-100" [ngClass]="default === 'final-step' ? 'phone-active' : 'phone-inactive'" 
+                  src="../../../../../assets/img/f - Music Video/phone-video-2.svg" alt="Video Phone">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
