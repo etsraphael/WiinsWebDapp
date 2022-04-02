@@ -18,6 +18,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SpaceStoryComponent } from './views/space-story/space-story.component';
+import { NgxMasonryModule } from 'ngx-masonry';
+import { MainSidebarComponent } from './core/component/main-sidebar/main-sidebar.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     MainSearchBarComponent,
     MainNavBarComponent,
+    SpaceStoryComponent,
+    MainSidebarComponent,
   ],
   imports: [
     RootStoreModule,
@@ -34,6 +40,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     MatMenuModule,
     HttpClientModule,
+    NgxMasonryModule,
+    MatSidenavModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

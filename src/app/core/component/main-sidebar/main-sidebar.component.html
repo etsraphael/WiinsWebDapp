@@ -1,0 +1,62 @@
+<nav class="sidebar close" #sidebar>
+    <div class="menu-bar">
+        <i class='bx bx-chevron-right toggle' (click)="onOpenSidebar()"></i>
+        <div class="menu mt-auto">
+            <ul class="menu-links">
+                <li class="nav-link">
+                    <a href="#" style="width: 25px;height: 25px;">
+                        <img class="icon" src="../../../../assets/img/Sidebar button/Home.svg" alt="Home">
+                        <span class="text nav-text">Home</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="#" style="width: 25px;height: 25px;">
+                        <img class="icon" src="../../../../assets/img/Sidebar button/Music.svg" alt="Music">
+                        <span class="text nav-text">Music</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="#" style="width: 25px;height: 25px;">
+                        <img class="icon" src="../../../../assets/img/Sidebar button/Comment.svg" alt="Comment">
+                        <span class="text nav-text">Comment</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="#" style="width: 25px;height: 25px;">
+                        <img class="icon" src="../../../../assets/img/Sidebar button/Profile.svg" alt="Profile">
+                        <span class="text nav-text">Profile</span>
+                    </a>
+                </li>
+
+                <li class="nav-link">
+                    <a href="#" style="width: 25px;height: 25px;">
+                        <img class="icon" src="../../../../assets/img/Sidebar button/Add-Button.svg" alt="Add-Button">
+                        <span class="text nav-text">Add-Publication</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="bottom-content mt-auto">
+            <li class="">
+                <a href="#">
+                    <i class='bx bx-log-out icon' ></i>
+                    <span class="text nav-text" (click)="onLogOut()">Logout</span>
+                </a>
+            </li>
+
+            <li class="">
+                <a href="#" style="width: 25px;height: 25px;">
+                    <img class="icon" src="../../../../assets/img/Sidebar button/Setting.svg" alt="Setting">
+                    <span class="text nav-text">Setting</span>
+                </a>
+            </li>
+            
+        </div>
+    </div>
+
+</nav>

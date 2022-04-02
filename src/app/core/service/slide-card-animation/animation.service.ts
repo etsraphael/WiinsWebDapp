@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 @Injectable({ providedIn: 'root' })
 export class slideAnimationService {
 
-    // Default State
+    // Default State Landing Page
     defaultNewsDisc: string = 'previous';
     defaultMessenger: string = 'previous';
     defaultMusVid: string = 'default';
