@@ -1,24 +1,24 @@
 export const landingPageNavData: btnLandingPageInterface[] = [
   {
     name: 'Ecosystem',
-    title: 'LANDING_PAGE.on-boarding.ecosystem',
-    fragment: 'ecosystem',
+    id: 'ecosystem',
+    title: 'LANDING_PAGE.on-boarding.ecosystem'
   },
-  { name: 'Team', title: 'LANDING_PAGE.on-boarding.team', fragment: 'team' },
+  { name: 'Team', id: 'team', title: 'LANDING_PAGE.on-boarding.team' },
   {
-    name: 'Token ZION',
-    title: 'LANDING_PAGE.on-boarding.token-zion',
-    fragment: 'token',
+    name: 'Token',
+    id: 'token',
+    title: 'LANDING_PAGE.on-boarding.token'
   },
   {
     name: 'Contact',
-    title: 'LANDING_PAGE.on-boarding.contact',
-    fragment: 'contact',
+    id: 'contact',
+    title: 'LANDING_PAGE.on-boarding.contact'
   },
 ];
 
 export interface btnLandingPageInterface {
   name: string;
+  id: string;
   title: string;
-  fragment: string;
 }
