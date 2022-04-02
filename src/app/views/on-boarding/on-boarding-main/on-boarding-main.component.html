@@ -29,7 +29,7 @@
         </button>
         <mat-menu #menu="matMenu">
           <button mat-menu-item *ngFor="let item of filteredLang ? filteredLang : btnLanguages; let i = index"
-            (click)="onChangeLang(item)" [ngClass]="{'cursor-not-allow': item.available === 'not-available'}">
+            (click)="onChangeLang(item)" [ngClass]="{'cursor-not-allow': !item.available}">
             <span>{{item.language}}</span>
           </button>
         </mat-menu>

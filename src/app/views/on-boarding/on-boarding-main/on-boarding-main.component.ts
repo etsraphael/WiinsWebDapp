@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { btnLandingPageInterface, landingPageNavData } from 'src/app/core/data/landing-page-nav';
+import { lgInterface, lgListData } from 'src/app/core/data/language-list';
 import { AuthService } from 'src/app/core/service/auth/auth.service';
 import { FragmentService } from 'src/app/core/service/fragment/fragment.service';
 import { TraductionService } from 'src/app/core/service/translate/translate.service';
@@ -10,26 +12,11 @@ import { TraductionService } from 'src/app/core/service/translate/translate.serv
 })
 export class OnBoardingMainComponent implements OnInit {
 
-  btnTabs: btnTabs[] = [
-    { name: 'Ecosystem', title: 'LANDING_PAGE.on-boarding.ecosystem', fragment: 'ecosystem' },
-    { name: 'Team', title: 'LANDING_PAGE.on-boarding.team', fragment: 'team' },
-    { name: 'Token ZION', title: 'LANDING_PAGE.on-boarding.token-zion', fragment: 'token' },
-    { name: 'Contact', title: 'LANDING_PAGE.on-boarding.contact', fragment: 'contact' }
-  ];
+  btnTabs: btnLandingPageInterface[] = landingPageNavData;
 
   defaultLang: string = 'En';
-  filteredLang: btnLanguages[] = [];
-  btnLanguages: btnLanguages[] = [
-    { language: 'Français', abbr: 'Fr', available: "available" },
-    { language: 'English', abbr: 'En', available: "available" },
-    { language: 'Deutsch', abbr: 'De', available: "not-available" },
-    { language: '日本語', abbr: 'Ja', available: "not-available" },
-    { language: '한국어', abbr: 'Ko', available: "not-available" },
-    { language: 'Português', abbr: 'Pt', available: "not-available" },
-    { language: 'ਪੰਜਾਬੀ', abbr: 'Pa', available: "not-available" },
-    { language: 'русский', abbr: 'Ru', available: "not-available" },
-    { language: 'Español', abbr: 'Es', available: "not-available" }
-  ]
+  filteredLang: lgInterface[] = [];
+  btnLanguages: lgInterface[] = lgListData
 
   constructor(
     public authService: AuthService,
@@ -51,7 +38,7 @@ export class OnBoardingMainComponent implements OnInit {
   }
 
   // This method does nothing but change the text
-  onChangeLang(item: btnLanguages) {
+  onChangeLang(item: lgInterface) {
     this.defaultLang = item.abbr;
     this.translate.setNewLang(item.abbr.toLowerCase());
   }
@@ -62,17 +49,3 @@ export class OnBoardingMainComponent implements OnInit {
   }
 
 }
-
-export interface btnTabs {
-  name: string;
-  title: string;
-  fragment: string;
-}
-
-export interface btnLanguages {
-  language: string;
-  abbr: string;
-  available: string;
-}
-
-
