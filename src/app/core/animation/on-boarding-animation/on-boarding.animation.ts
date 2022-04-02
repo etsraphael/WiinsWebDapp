@@ -1,7 +1,7 @@
 import { state, style, trigger } from "@angular/animations";
 
-export const NewsFeedAnimation = [
-    trigger('onboardingState', [
+export const SlidePhoneAnimation = [
+    trigger('onNewsDiscState', [
         state('previous', style({
             transform: 'translateX(0)',
             transition: 'all 1s'
@@ -10,11 +10,8 @@ export const NewsFeedAnimation = [
             transform: 'translateX(-100%)',
             transition: 'all 1s'
         }))
-    ])
-];
-
-export const MessengerAnimation = [
-    trigger('onboardingState', [
+    ]),
+    trigger('onMessengerState', [
         state('previous', style({
             transform: 'translateX(0)',
             transition: 'all 1s'
@@ -23,11 +20,8 @@ export const MessengerAnimation = [
             transform: 'translateX(-100%)',
             transition: 'all 1s'
         }))
-    ])
-];
-
-export const MusicVideoAnimation = [
-    trigger('onboardingState', [
+    ]),
+    trigger('onMusVidState', [
         state('default', style({
             transform: 'translateX(0)',
             transition: 'all 1s'
