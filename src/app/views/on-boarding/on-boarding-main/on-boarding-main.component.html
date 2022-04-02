@@ -1,5 +1,5 @@
 <div class="container-fluid bg-container p-0 overflow-hidden">
-  <!-- Navbar -->
+  <!-- [Navbar] -->
   <nav class="row p-2 align-items-center position-fixed w-100 m-0">
     <!-- Brand -->
     <div class="col-10 col-xl-3 my-auto">
@@ -13,16 +13,13 @@
     <!-- Button List -->
     <div class="col-xl-9 d-none d-xl-flex row my-auto">
       <div class="d-flex justify-content-end align-items-baseline container-nav-btn">
-        <!-- Button -->
-        <button class="btn btn-sm text-light" (click)="onNavigateTo(item.fragment)" *ngFor="let item of btnTabs">
-          <span>{{item.title | translate}}</span>
+        <button class="btn btn-sm text-light" *ngFor="let item of btnTabs">
+          <a href="#{{item.id}}"><span>{{item.title | translate}}</span></a>
         </button>
-        <!-- Button [Externe] -->
         <button class="btn btn-sm mx-2 me-5 text-light" (click)="goToGitHub()">
           <span>Github</span>
           <div class="underline mx-auto"></div>
         </button>
-        <!-- Langue -->
         <button class="btn btn-sm text-light" mat-icon-button (click)="onOpenLang()" [matMenuTriggerFor]="menu"
           aria-label="Example icon-button with a menu">
           <span>{{defaultLang}} <i class="bi bi-arrow-down"></i></span>
@@ -33,11 +30,9 @@
             <span>{{item.language}}</span>
           </button>
         </mat-menu>
-        <!-- <div class="container-nav-btn"> -->
         <button class="btn btn-sm border-0 mx-2 text-light signIn-btn px-4" (click)="authService.login()">
           <span>{{'LANDING_PAGE.on-boarding.sign-in' | translate}}</span>
         </button>
-        <!-- </div> -->
       </div>
     </div>
     <!-- Menu Hamburger [< 992px] -->
@@ -51,14 +46,445 @@
         </svg>
       </button>
       <ul class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton1">
-        <li *ngFor="let item of btnTabs"><a class="dropdown-item"
-            (click)="onNavigateTo(item.fragment)">{{item.name}}</a></li>
-        <li><a class="dropdown-item" href="#">Sign in</a></li>
+        <li *ngFor="let item of btnTabs"><a class="dropdown-item">{{item.name}}</a></li>
+        <li><a class="dropdown-item" (click)="authService.login()">{{'LANDING_PAGE.on-boarding.sign-in' |
+            translate}}</a></li>
       </ul>
     </div>
   </nav>
-  <!-- Router container -->
   <div class="container">
-    <router-outlet></router-outlet>
+
+    <!-- [Space - Let's Build the future] -->
+    <div class="col-12 d-flex flex-column flex-lg-row build">
+      <div class="col-12 col-lg-6 d-flex align-items-center">
+        <div class="container-fluid descript">
+          <!-- Description -->
+          <div class="row mx-0 mt-5 mt-lg-0">
+            <span class="display-3 text-light col-12 text-center text-lg-start">
+              <strong>{{ 'LANDING_PAGE.space-lets-build-future.title' | translate}}</strong>
+            </span>
+            <p class="text-light col-12 py-3 mt-3 text-center text-lg-start">
+              {{'LANDING_PAGE.space-lets-build-future.text' |
+              translate}}</p>
+          </div>
+          <!-- Button -->
+          <div class="mt-3 text-center text-lg-start ms-lg-3 mb-lg-5 pb-lg-5">
+            <button class="btn btn-lg btn-block btn-primary btn-action-join-us px-5 border-0"
+              (click)="authService.login()">{{'LANDING_PAGE.space-lets-build-future.button-join-us' |
+              translate}}</button>
+          </div>
+        </div>
+      </div>
+      <!-- Phone Image -->
+      <div class="col-12 col-lg-6 mt-5 mb-lg-5 pb-lg-5">
+        <div class="justify-content-center align-items-center">
+          <img class="w-100 h-100" src="./../../../../../assets/img/a - Let's Build/phone-element.svg" alt="Phone">
+        </div>
+      </div>
+    </div>
+
+    <!-- [Space - Imagine an Infinite Space] -->
+    <div class="col-12 d-flex flex-column flex-lg-row justify-content-between margin-component">
+      <div class="col-12 col-lg-6 d-flex align-items-center" data-aos="fade-right">
+        <div class="container-fluid descript">
+          <!-- Description -->
+          <div class="row mx-0 mt-5 mt-lg-0">
+            <span class="display-3 text-light col-12 text-center text-lg-start">
+              <strong>{{'LANDING_PAGE.space-imagine-early-access.title' | translate}}</strong>
+            </span>
+            <p class="text-light col-12 py-3 mt-3 text-center text-lg-start">
+              {{'LANDING_PAGE.space-imagine-early-access.text' | translate}}</p>
+          </div>
+          <!-- Button -->
+          <div
+            class="appBtn-container d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 text-center text-lg-start mb-lg-5 pb-lg-5">
+            <button class="btn-lg btn-block btn-action p-lg-0" (click)="goToGooglePlay()">
+              <img src="../../../../../assets/img/b - Imagine Early/google-play.svg" alt="Google Play">
+            </button>
+            <button class="btn-lg btn-block btn-action p-lg-0 appStore">
+              <img src="../../../../../assets/img/b - Imagine Early/app-store.svg" alt="App Store">
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Phone Image -->
+      <div class="col-12 col-lg-6 mb-lg-5 pb-lg-5" data-aos="fade-left">
+        <div class="justify-content-center align-items-start">
+          <img class="w-100 h-100" src="../../../../../assets/img/b - Imagine Early/nav-early-acces.svg"
+            alt="Navigation">
+        </div>
+      </div>
+    </div>
+
+    <!-- [Space - News Feed & Discover] -->
+    <div class="col-12 d-flex flex-column flex-lg-row justify-content-between margin-component" id="ecosystem">
+      <div class="col-12 col-lg-6 d-flex align-items-center" data-aos="fade-right">
+        <div class="container-fluid descript">
+          <!-- Description -->
+          <div class="row mx-0 mt-5 mt-lg-0">
+            <span class="display-3 text-light col-12 text-center text-lg-start">
+              <strong>{{'LANDING_PAGE.space-news-feed-disover.title' | translate}}</strong>
+            </span>
+            <p class="text-light col-12 py-3 mt-3 text-center text-lg-start">
+              {{'LANDING_PAGE.space-news-feed-disover.text' |
+              translate}}</p>
+          </div>
+        </div>
+      </div>
+      <!-- Phone Image (animation) -->
+      <div class="container-img d-flex col-12 col-lg-6 mt-5 mb-lg-5 pb-lg-5" data-aos="fade-left">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor"
+          class="bi bi-arrow-left-circle" viewBox="0 0 16 16" (click)="slideAnimation.onPreviousNewsDisc()"
+          [ngClass]="slideAnimation.defaultNewsDisc === 'previous' ? 'color-inactive' : 'text-white'">
+          <path fill-rule="evenodd"
+            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor"
+          class="bi bi-arrow-right-circle" viewBox="0 0 16 16" (click)="slideAnimation.onNextNewsDisc()"
+          [ngClass]="slideAnimation.defaultNewsDisc === 'next' ? 'color-inactive' : 'text-white'">
+          <path fill-rule="evenodd"
+            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
+        </svg>
+        <div class="d-flex align-items-baseline" [@onNewsDiscState]="slideAnimation.defaultNewsDisc">
+          <div class="col-12 d-flex justify-content-center">
+            <img class="w-100 h-100" src="../../../../../assets/img/c - NewsFeed Discover/news-feed.svg"
+              alt="New's Feed" [ngClass]="slideAnimation.defaultNewsDisc == 'next' ? 'phone-inactive' : 'phone-active'">
+          </div>
+          <div class="col-12 d-flex justify-content-center">
+            <img class="w-100 h-100" src="../../../../../assets/img/c - NewsFeed Discover/news-feed.svg"
+              alt="New's Feed"
+              [ngClass]="slideAnimation.defaultNewsDisc == 'previous' ? 'phone-inactive' : 'phone-active'">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- [Space - Messenger] -->
+    <div class="col-12 d-flex flex-column flex-lg-row justify-content-between margin-component">
+      <div class="col-12 col-lg-6 d-flex align-items-center" data-aos="fade-right">
+        <div class="container-fluid descript">
+          <!-- Description -->
+          <div class="row mx-0 mt-5 mt-lg-0">
+            <span class="display-3 text-light col-12 text-center text-lg-start">
+              <strong>{{'LANDING_PAGE.space-messenger.title' | translate}}</strong>
+            </span>
+            <p class="text-light col-12 py-3 mt-3 text-center text-lg-start">{{'LANDING_PAGE.space-messenger.text' |
+              translate}}</p>
+          </div>
+        </div>
+      </div>
+      <!-- Phone Image (animation) -->
+      <div class="container-img d-flex col-12 col-lg-6 mt-5 mb-lg-5 pb-lg-5" data-aos="fade-left">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor"
+          class="bi bi-arrow-left-circle" viewBox="0 0 16 16" (click)="slideAnimation.onPreviousMessenger()"
+          [ngClass]="slideAnimation.defaultMessenger === 'previous' ? 'color-inactive' : 'text-white'">
+          <path fill-rule="evenodd"
+            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor"
+          class="bi bi-arrow-right-circle" viewBox="0 0 16 16" (click)="slideAnimation.onNextMessenger()"
+          [ngClass]="slideAnimation.defaultMessenger === 'next' ? 'color-inactive' : 'text-white'">
+          <path fill-rule="evenodd"
+            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
+        </svg>
+        <div class="d-flex align-items-baseline" [@onMessengerState]="slideAnimation.defaultMessenger">
+          <div class="col-12 d-flex justify-content-center">
+            <img class="w-100 h-100" src="../../../../../assets/img/d - Messenger/messenger-phone-1.svg" alt="Messenger"
+              [ngClass]="slideAnimation.defaultMessenger == 'next' ? 'phone-inactive' : 'phone-active'">
+          </div>
+          <div class="col-12 d-flex justify-content-center">
+            <img class="w-100 h-100" src="../../../../../assets/img/d - Messenger/messenger-phone-2.svg" alt="Messenger"
+              [ngClass]="slideAnimation.defaultMessenger == 'previous' ? 'phone-inactive' : 'phone-active'">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- [Space - Profile] -->
+    <div class="col-12 d-flex flex-column flex-lg-row justify-content-between margin-component">
+      <div class="col-12 col-lg-6 d-flex align-items-center" data-aos="fade-right">
+        <div class="container-fluid descript">
+          <!-- Description -->
+          <div class="row mx-0 mt-5 mt-lg-0">
+            <span class="display-3 text-light col-12 text-center text-lg-start">
+              <strong>{{'LANDING_PAGE.space-profil.title' | translate}}</strong>
+            </span>
+            <p class="text-light col-12 py-3 mt-3 text-center text-lg-start">{{'LANDING_PAGE.space-profil.text' |
+              translate}}</p>
+          </div>
+        </div>
+      </div>
+      <!-- Phone Image -->
+      <div class="container-img d-flex col-12 col-lg-6 mt-5 mb-lg-5 pb-lg-5" data-aos="fade-left">
+        <div class="d-flex align-items-baseline">
+          <div class="col-12 d-flex justify-content-center">
+            <img class="w-100 h-100" src="../../../../../assets/img/e - Profile/profile-phone.svg" alt="Profile">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- [Space - Music & Video] -->
+    <div class="col-12 d-flex flex-column flex-lg-row justify-content-between margin-component">
+      <div class="col-12 col-lg-6 d-flex align-items-center" data-aos="fade-right">
+        <div class="container-fluid descript">
+          <!-- Description -->
+          <div class="row mx-0 mt-5 mt-lg-0">
+            <span class="display-3 text-light col-12 text-center text-lg-start">
+              <strong>{{'LANDING_PAGE.space-music-video.title' | translate}}</strong>
+            </span>
+            <p class="text-light col-12 py-3 mt-3 text-center text-lg-start">{{'LANDING_PAGE.space-music-video.text' |
+              translate}}</p>
+          </div>
+        </div>
+      </div>
+      <!-- Phone Image (animation) -->
+      <div class="container-img d-flex col-12 col-lg-6 mt-5 mb-lg-5 pb-lg-5" data-aos="fade-left">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor"
+          class="bi bi-arrow-left-circle" viewBox="0 0 16 16" (click)="slideAnimation.onPreviousMusVid()"
+          [ngClass]="slideAnimation.count === 0 ? 'color-inactive' : 'text-white'">
+          <path fill-rule="evenodd"
+            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor"
+          class="bi bi-arrow-right-circle" viewBox="0 0 16 16" (click)="slideAnimation.onNextMusVid()"
+          [ngClass]="slideAnimation.count === 3 ? 'color-inactive' : 'text-white'">
+          <path fill-rule="evenodd"
+            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
+        </svg>
+        <div class="d-flex align-items-baseline" [@onMusVidState]="slideAnimation.defaultMusVid">
+          <div class="col-12 d-flex justify-content-center">
+            <img class="w-100 h-100" src="../../../../../assets/img/f - Music Video/phone-music-1.svg" alt="Music Phone"
+              [ngClass]="slideAnimation.defaultMusVid === 'default' ? 'phone-active' : 'phone-inactive'">
+          </div>
+          <div class="col-12 d-flex justify-content-center">
+            <img class="w-100 h-100" src="../../../../../assets/img/f - Music Video/phone-music-2.svg" alt="Music Phone"
+              [ngClass]="slideAnimation.defaultMusVid === 'step-1' ? 'phone-active' : 'phone-inactive'">
+          </div>
+          <div class="col-12 d-flex justify-content-center">
+            <img class="w-100 h-100" src="../../../../../assets/img/f - Music Video/phone-video-1.svg" alt="Video Phone"
+              [ngClass]="slideAnimation.defaultMusVid === 'step-2' ? 'phone-active' : 'phone-inactive'">
+          </div>
+          <div class="col-12 d-flex justify-content-center">
+            <img class="w-100 h-100" src="../../../../../assets/img/f - Music Video/phone-video-2.svg" alt="Video Phone"
+              [ngClass]="slideAnimation.defaultMusVid === 'final-step' ? 'phone-active' : 'phone-inactive'">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- [Space - Team] -->
+    <div class="col-12 d-flex flex-column flex-lg-row justify-content-between margin-component">
+      <a class="anchor" id="team"></a>
+      <div class="col-12 col-lg-6 d-lg-flex text-center" data-aos="fade-right">
+        <div class="row descript mx-0 mt-5 mt-lg-0 text-lg-start">
+          <div>
+            <span class="display-3 text-light col-12 text-center text-lg-start">
+              <strong>{{'LANDING_PAGE.space-team.title' | translate}}</strong>
+            </span>
+            <!-- Collaborator -->
+            <p class="text-light col-12 py-3 mt-3 text-center text-lg-start">1st Wiin’ser : Richard R. Hakim D.
+              Méryline D.
+              Thierry T. Josh, Celine D. Tony...</p>
+          </div>
+          <!-- Wiin's Team -->
+          <div class="d-flex align-items-baseline align-items-lg-end mb-5 py-5">
+            <img class="w-100" src="../../../../../assets/img/g - Team/team.svg" alt="Wiin's Team">
+          </div>
+        </div>
+      </div>
+      <!-- Founder -->
+      <div class="container-img d-flex flex-column mt-5 col-12 col-lg-6 mb-lg-5 pb-lg-5" data-aos="fade-left">
+        <div class="ceo d-flex flex-column align-items-center text-center mb-5">
+          <div class="avatar">
+            <img src="../../../../../assets/img/g - Team/raphael.svg" alt="CEO">
+          </div>
+          <div class="info">
+            <h4>Raphaël</h4>
+            <p class="text-white">{{'LANDING_PAGE.space-team.main-founder' | translate}}<br />
+              {{'LANDING_PAGE.space-team.fullstack-developper' | translate}}</p>
+          </div>
+        </div>
+        <div class="manager d-flex flex-column align-items-center text-center mb-5">
+          <div class="avatar">
+            <img src="../../../../../assets/img/g - Team/levine.svg" alt="Manager">
+          </div>
+          <div class="info">
+            <h4>Lévine</h4>
+            <p class="text-white">
+              {{'LANDING_PAGE.space-team.founder' | translate}}<br />
+              {{'LANDING_PAGE.space-team.manager' | translate}}
+            </p>
+          </div>
+        </div>
+        <div class="developper d-flex flex-column align-items-center text-center">
+          <div class="avatar">
+            <img src="../../../../../assets/img/g - Team/nathanael.svg" alt="Developper">
+          </div>
+          <div class="info">
+            <h4>Nathanaël</h4>
+            <p class="text-white"> {{'LANDING_PAGE.space-team.founder' | translate}}<br />
+              {{'LANDING_PAGE.space-team.front-end-developper' | translate}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- [Space - Token] -->
+    <div class="col-12 d-flex flex-column flex-lg-row justify-content-between margin-component">
+      <a class="anchor" id="token"></a>
+      <div
+        class="col-12 col-lg-6 mt-5 mb-lg-6 pb-lg-5 d-flex justify-content-center justify-content-lg-start align-items-center position-relative left-slide"
+        data-aos="fade-right">
+        <div class="justify-content-center align-items-center">
+          <!-- Token -->
+          <div class="main-container d-flex justify-content-between align-items-center">
+            <div class="token">
+              <div class="front w-100 h-100"></div>
+              <div class="back w-100 h-100"></div>
+            </div>
+          </div>
+        </div>
+        <img class="link d-none d-xl-block" src="../../../../assets/img/h-Zion/link.svg" alt="Link">
+      </div>
+      <div class="col-12 col-lg-6 col-xl-5 d-flex align-items-center" data-aos="fade-left">
+        <div class="container-fluid descript">
+          <!-- Description -->
+          <div class="row mx-0 mt-5 mt-lg-0">
+            <span class="display-3 text-light col-12 text-center text-lg-end">
+              <strong>{{'LANDING_PAGE.space-token.title' | translate}}</strong>
+            </span>
+            <p class="text-light col-12 py-3 mt-3 text-center text-lg-end">{{'LANDING_PAGE.space-token.text' |
+              translate}}
+            </p>
+          </div>
+          <!-- Button -->
+          <div class="mt-3 text-center text-lg-end ms-md-3 mb-lg-5 pb-lg-5 pe-lg-2">
+            <button
+              class="btn btn-lg btn-block btn-primary btn-action-token px-5">{{'LANDING_PAGE.space-token.button-buy-token'
+              |
+              translate}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- [Space - White Paper] -->
+    <div class="col-12 d-flex flex-column flex-lg-row justify-content-between margin-component">
+      <div class="col-12 col-lg-6 d-flex align-items-center" data-aos="fade-right">
+        <div class="container-fluid descript px-xl-0">
+          <!-- Description -->
+          <div class="row mx-0 mt-5 mt-lg-0">
+            <span class="display-3 text-light col-12 text-center text-lg-start">
+              <strong>{{'LANDING_PAGE.space-white-paper.title' | translate}}</strong>
+            </span>
+            <ul class="text-light col-12 py-3 mt-3 text-start">
+              <li>Web : Web3, Angular, NgrxStore, Bootstrap (OpenSource)</li>
+              <li>App : Web3, React Native, Redux (OpenSource)</li>
+              <li>Backend : ApisRest, NodeJs (Private)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Phone Image -->
+      <div class="container-img d-flex col-12 col-lg-6 mt-5 mb-lg-5 pb-lg-5" data-aos="fade-left">
+        <div class="d-flex align-items-baseline">
+          <div class="col-12 d-flex justify-content-center">
+            <img class="w-100 h-100" src="../../../../../assets/img/i - White Paper/internet-phone-element.svg"
+              alt="Internet Phone">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- [Space - Contact-Us] -->
+    <div class="col-12 d-flex flex-column flex-lg-row justify-content-between align-items-center margin-component"
+      id="contact">
+      <!-- Text -->
+      <div class="col-12 col-md-5 d-flex align-items-center" data-aos="fade-right">
+        <!-- Text -->
+        <div class="row mx-0 mt-5 mt-lg-0 descript">
+          <span class="display-3 text-light col-12 text-center text-lg-start">
+            <strong>{{'LANDING_PAGE.space-more-we-are.title' | translate}}</strong>
+          </span>
+          <p class="text-light col-12 py-3 mt-3 text-center text-lg-start">
+            {{'LANDING_PAGE.space-more-we-are.text' | translate}}
+          </p>
+        </div>
+      </div>
+      <div class="col-12 col-md-7" data-aos="fade-left">
+        <!-- Cards -->
+        <div class="row mx-0 mt-5 mt-lg-0 more-we-are">
+          <div class="d-flex flex-column flex-xl-row align-items-center justify-content-xl-end">
+            <!-- Community Card -->
+            <div class="card">
+              <!-- Header -->
+              <header class="d-flex align-items-center justify-content-between px-2 w-100">
+                <div class="community">
+                  <img src="../../../../../../assets/img/j-contact/community-avatar.svg" alt="Community Avatar">
+                </div>
+                <div class="title">
+                  <h4>Wiins Community</h4>
+                  <p><span>#</span>Annoucement</p>
+                </div>
+                <div class="join-chat">
+                  <button class="btn p-2" (click)="onJoinChat()">
+                    Join Chat
+                  </button>
+                </div>
+              </header>
+              <!-- Body -->
+
+              <body class="lists-community">
+                <ul class="d-flex px-2 mt-2">
+                  <li>
+                    <img class="admin" src="../../../../../../assets/img/j-contact/administrator-community.svg"
+                      alt="Admin Community">
+                  </li>
+                  <li><i class="bi bi-discord text-white"></i></li>
+                  <li><i class="bi bi-discord text-white"></i></li>
+                  <li><i class="bi bi-discord text-white"></i></li>
+                  <li><i class="bi bi-discord text-white"></i></li>
+                </ul>
+              </body>
+            </div>
+            <!-- Github Card -->
+            <div class="card mt-5 mt-xl-0 ms-xl-5">
+              <!-- Header -->
+              <header class="d-flex align-items-center justify-content-between w-100 px-2">
+                <div class="github">
+                  <img src="../../../../../../assets/img/j-contact/github-avatar.svg" alt="Github Avatar">
+                </div>
+                <div class="title">
+                  <h4>WiinsWeb</h4>
+                  <p><span>#</span>Readme</p>
+                </div>
+                <div class="join-project">
+                  <button class="btn p-2" (click)="onWiinsWeb()">
+                    Join Project
+                  </button>
+                </div>
+              </header>
+              <!-- Body -->
+
+              <body class="lists-devs">
+                <ul class="d-flex px-2 mt-2">
+                  <li *ngFor="let dev of pageDevs" (click)="goToGitHubDev(dev.path)">
+                    <img [src]="dev.avatar" alt="{{dev.name}}">
+                  </li>
+                </ul>
+              </body>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Social Lists -->
+  <div class="social-lists w-100 my-5 d-flex justify-content-center justify-content-lg-start" data-aos="fade-up">
+    <ul class="d-flex justify-content-center justify-content-lg-start align-items-center h-100 p-0">
+      <li *ngFor="let social of socialLists" (click)="goToSocial(social.path)"><img [src]="social.src"
+          [alt]="social.name"></li>
+    </ul>
   </div>
 </div>
