@@ -38,7 +38,7 @@ nav {
   button span {
     font-style: normal;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 1rem;
     line-height: 35px;
     transition: all 0.2s;
     color: #ebebeb;
@@ -49,13 +49,10 @@ nav {
   }
 
   .signIn-btn {
-    background: linear-gradient(
-      90deg,
-      #345aa4 -28.35%,
-      rgba(63, 0, 156, 0) 153.96%
-    );
+    background: linear-gradient(90deg,
+        #345aa4 -28.35%,
+        rgba(63, 0, 156, 0) 153.96%);
     border-radius: 11px;
-    border: 2px solid transparent;
   }
 
   .signIn-btn:hover {
@@ -68,7 +65,7 @@ nav {
 }
 
 // Menu Hamburger
-.dropdown  {
+.dropdown {
 
   button {
     background: transparent;
