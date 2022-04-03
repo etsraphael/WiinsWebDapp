@@ -8,10 +8,7 @@ import { NgxMasonryOptions } from 'ngx-masonry';
   styleUrls: ['./space-story.component.scss']
 })
 export class SpaceStoryComponent implements OnInit {
-  // Masonry Options
-  public masonryOptions: NgxMasonryOptions = { gutter: 10, };
-
-  // Image & Limit
+  // Image & Limit => Must be deleted when we have all User Data
   masonryImages = [];
   limit = 15;
 
