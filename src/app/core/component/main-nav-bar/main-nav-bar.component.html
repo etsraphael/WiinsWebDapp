@@ -1,22 +1,24 @@
+<!-- [Main Navbar] -->
 <div class="nav-bar-container position-fixed">
   <div class="row px-4 py-2">
 
-    <!-- Search Bar -->
-    <div class="col-7 col-sm-7 col-md-4 col-xl-4 my-auto">
-      Column
+    <!-- Brand -->
+    <div class="brand-icon col-7 col-md-2 my-auto">
+      <img src="../../../../assets/img/Logo.svg" alt="Logo">
     </div>
 
     <!-- Navigation -->
-    <div class="col-xl-4 col-md-5 row px-0 d-none d-sm-block d-md-block d-xl-block container-menu-icon">
-      <div class="d-flex flex-row justify-content-center">
-        <div class="d-inline-flex justify-content-center my-auto container-icon" *ngFor="let item of navigationRoute">
-          <i class="bi px-4" [ngClass]="item.icon" [style.fontSize]="item.fontSize"></i>
+    <div class="col-md-7 row px-0 d-none d-md-flex container-menu-icon">
+      <div class="search-input d-flex flex-row justify-content-center py-1">
+        <input class="w-100 ps-5" type="search" placeholder="Search">
+        <div class="search-icon">
+          <i class="bi bi-search"></i>
         </div>
       </div>
     </div>
 
-    <!-- Avatar -->
-    <div class="col-5 col-sm-5 col-md-3 col-xl-4 my-auto d-flex justify-content-end">
+    <!-- Profile -->
+    <div class="col-5 col-md-3 my-auto d-flex justify-content-end">
 
       <!-- Notification -->
       <button class="notif-btn px-3">

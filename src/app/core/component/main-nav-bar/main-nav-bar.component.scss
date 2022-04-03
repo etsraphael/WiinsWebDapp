@@ -1,3 +1,4 @@
+// [Main Navbar]
 .nav-bar-container {
   position: relative;
   width: 100%;
@@ -8,11 +9,37 @@
   z-index: 999;
 }
 
-
+// Navigation
 .container-menu-icon .bi {
   color: #5e5e5e;
 }
 
+.container-menu-icon {
+  .container-icon {
+    cursor: pointer;
+  }
+}
+
+.container-menu-icon .search-input {position: relative;}
+.container-menu-icon .search-input input {
+  background: #F2F2F2;
+  border-radius: 17px;
+  border: none;
+}
+
+.container-menu-icon .search-input input:focus {
+  border: none;
+  outline: none;
+}
+
+.container-menu-icon .search-input .search-icon {
+  position: absolute;
+  top: .6rem;
+  left: 1.8rem;
+  font-size: 20px;
+}
+
+// Notification
 .notif-btn {
   border: 0;
   background-color: transparent;
@@ -22,18 +49,12 @@
   }
 }
 
-.container-menu-icon {
-  .container-icon {
-    cursor: pointer;
-  }
-}
-
 .notif-btn {
   color: #5e5e5e;
 }
 
+// Avatar
 .container-my-profile {
-
   .avatar-nav-bar {
     border: 0;
     background: none;
@@ -42,7 +63,6 @@
     height: 45px;
     padding-left: 7.5px;
   }
-
 
   .my-avatar {
     width: 40px;
@@ -63,5 +83,4 @@
     right: 80%;
     border-radius: 10px;
   }
-
 }
