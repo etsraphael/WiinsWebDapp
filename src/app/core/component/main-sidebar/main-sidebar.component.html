@@ -1,51 +1,47 @@
-<nav class="sidebar close" #sidebar>
+<!-- [Main Sidebar] -->
+<nav class="sidebar close d-none d-md-block" #sidebar>
     <div class="menu-bar">
         <i class='bx bx-chevron-right toggle' (click)="onOpenSidebar()"></i>
+        <!-- Main Icon -->
         <div class="menu mt-auto">
             <ul class="menu-links">
                 <li class="nav-link">
-                    <a href="#" style="width: 25px;height: 25px;">
+                    <a href="#">
                         <img class="icon" src="../../../../assets/img/Sidebar button/Home.svg" alt="Home">
                         <span class="text nav-text">Home</span>
                     </a>
                 </li>
 
                 <li class="nav-link">
-                    <a href="#" style="width: 25px;height: 25px;">
+                    <a href="#">
                         <img class="icon" src="../../../../assets/img/Sidebar button/Music.svg" alt="Music">
                         <span class="text nav-text">Music</span>
                     </a>
                 </li>
 
                 <li class="nav-link">
-                    <a href="#" style="width: 25px;height: 25px;">
+                    <a href="#">
                         <img class="icon" src="../../../../assets/img/Sidebar button/Comment.svg" alt="Comment">
-                        <span class="text nav-text">Comment</span>
+                        <span class="text nav-text">Messenger</span>
                     </a>
                 </li>
 
                 <li class="nav-link">
-                    <a href="#" style="width: 25px;height: 25px;">
-                        <img class="icon" src="../../../../assets/img/Sidebar button/Profile.svg" alt="Profile">
-                        <span class="text nav-text">Profile</span>
-                    </a>
-                </li>
-
-                <li class="nav-link">
-                    <a href="#" style="width: 25px;height: 25px;">
+                    <a href="#">
                         <img class="icon" src="../../../../assets/img/Sidebar button/Add-Button.svg" alt="Add-Button">
-                        <span class="text nav-text">Add-Publication</span>
+                        <span class="text nav-text">Add-Post</span>
                     </a>
                 </li>
 
             </ul>
         </div>
 
+        <!-- Main Icon Bottom -->
         <div class="bottom-content mt-auto">
             <li class="">
                 <a href="#">
-                    <i class='bx bx-log-out icon' ></i>
-                    <span class="text nav-text" (click)="onLogOut()">Logout</span>
+                    <i class='bx bx-log-out icon' (click)="onLogOut()"></i>
+                    <span class="text nav-text">Logout</span>
                 </a>
             </li>
 
@@ -55,8 +51,7 @@
                     <span class="text nav-text">Setting</span>
                 </a>
             </li>
-            
+
         </div>
     </div>
-
 </nav>

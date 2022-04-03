@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SidebarAnimation } from '../../animation/on-boarding-animation/main-sidebar-animation';
 import { sidebarAnimationService } from '../../service/slide-navbar-animation/animation.service';
 import { Renderer2, ElementRef, ViewChild } from '@angular/core';
 import { AuthService } from '../../service/auth/auth.service';
@@ -7,8 +6,7 @@ import { AuthService } from '../../service/auth/auth.service';
 @Component({
   selector: 'app-main-sidebar',
   templateUrl: './main-sidebar.component.html',
-  styleUrls: ['./main-sidebar.component.scss'],
-  animations: [SidebarAnimation]
+  styleUrls: ['./main-sidebar.component.scss']
 })
 export class MainSidebarComponent implements OnInit {
   @ViewChild('sidebar') sidebar: ElementRef;
