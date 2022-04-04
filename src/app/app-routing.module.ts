@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/guard/auth.guard';
 import { HomeComponent } from './views/home/home.component';
 import { ContactUsComponent } from './views/on-boarding/contact-us/contact-us.component';
-import { JoinUsComponent } from './views/on-boarding/join-us/join-us.component';
 import { OnBoardingMainComponent } from './views/on-boarding/on-boarding-main/on-boarding-main.component';
 
 const routes: Routes = [
@@ -16,7 +15,6 @@ const routes: Routes = [
     component: OnBoardingMainComponent,
     children: [
       { path: '', redirectTo: 'join-us', pathMatch: 'full' },
-      { path: 'join-us', component: JoinUsComponent },
       { path: 'contact-us', component: ContactUsComponent },
     ],
   },
@@ -24,10 +22,16 @@ const routes: Routes = [
   // home page
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
 ];
+const routerOPtions: ExtraOptions = {
+  scrollPositionRestoration: 'enabled',
+  anchorScrolling: 'enabled',
+  scrollOffset: [0, 200],
+  useHash: true,
+};
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash: true})],
+  imports: [RouterModule.forRoot(routes, routerOPtions)],
   exports: [RouterModule],
   providers: [AuthGuard],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
