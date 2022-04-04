@@ -1,5 +1,6 @@
 <div class="container-fluid bg-container p-0 overflow-hidden">
-  <!-- [Navbar] -->
+
+  <!-- Header -->
   <nav class="row p-2 align-items-center position-fixed w-100 m-0">
     <!-- Brand -->
     <div class="col-10 col-xl-3 my-auto">
@@ -52,9 +53,11 @@
       </ul>
     </div>
   </nav>
+
+  <!-- Body -->
   <div class="container">
 
-    <!-- [Space - Let's Build the future] -->
+    <!-- Section 1 -->
     <div class="col-12 d-flex flex-column flex-lg-row build">
       <div class="col-12 col-lg-6 d-flex align-items-center">
         <div class="container-fluid descript">
@@ -83,7 +86,7 @@
       </div>
     </div>
 
-    <!-- [Space - Imagine an Infinite Space] -->
+    <!-- Section 2 -->
     <div class="col-12 d-flex flex-column flex-lg-row justify-content-between margin-component">
       <div class="col-12 col-lg-6 d-flex align-items-center" data-aos="fade-right">
         <div class="container-fluid descript">
@@ -116,7 +119,7 @@
       </div>
     </div>
 
-    <!-- [Space - News Feed & Discover] -->
+    <!-- Section 3 -->
     <div class="col-12 d-flex flex-column flex-lg-row justify-content-between margin-component" id="ecosystem">
       <div class="col-12 col-lg-6 d-flex align-items-center" data-aos="fade-right">
         <div class="container-fluid descript">
@@ -159,7 +162,7 @@
       </div>
     </div>
 
-    <!-- [Space - Messenger] -->
+    <!-- Section 4 -->
     <div class="col-12 d-flex flex-column flex-lg-row justify-content-between margin-component">
       <div class="col-12 col-lg-6 d-flex align-items-center" data-aos="fade-right">
         <div class="container-fluid descript">
@@ -200,7 +203,7 @@
       </div>
     </div>
 
-    <!-- [Space - Profile] -->
+    <!-- Section 5 -->
     <div class="col-12 d-flex flex-column flex-lg-row justify-content-between margin-component">
       <div class="col-12 col-lg-6 d-flex align-items-center" data-aos="fade-right">
         <div class="container-fluid descript">
@@ -224,7 +227,7 @@
       </div>
     </div>
 
-    <!-- [Space - Music & Video] -->
+    <!-- Section 6 -->
     <div class="col-12 d-flex flex-column flex-lg-row justify-content-between margin-component">
       <div class="col-12 col-lg-6 d-flex align-items-center" data-aos="fade-right">
         <div class="container-fluid descript">
@@ -273,7 +276,7 @@
       </div>
     </div>
 
-    <!-- [Space - Team] -->
+    <!-- Section 7 -->
     <div class="col-12 d-flex flex-column flex-lg-row justify-content-between margin-component">
       <a class="anchor" id="team"></a>
       <div class="col-12 col-lg-6 d-lg-flex text-center" data-aos="fade-right">
@@ -330,7 +333,7 @@
       </div>
     </div>
 
-    <!-- [Space - Token] -->
+    <!-- Section 8 -->
     <div class="col-12 d-flex flex-column flex-lg-row justify-content-between margin-component">
       <a class="anchor" id="token"></a>
       <div
@@ -369,7 +372,7 @@
       </div>
     </div>
 
-    <!-- [Space - White Paper] -->
+    <!-- Section 9 -->
     <div class="col-12 d-flex flex-column flex-lg-row justify-content-between margin-component">
       <div class="col-12 col-lg-6 d-flex align-items-center" data-aos="fade-right">
         <div class="container-fluid descript px-xl-0">
@@ -397,7 +400,7 @@
       </div>
     </div>
 
-    <!-- [Space - Contact-Us] -->
+    <!-- Section 10 -->
     <div class="col-12 d-flex flex-column flex-lg-row justify-content-between align-items-center margin-component"
       id="contact">
       <!-- Text -->
@@ -480,7 +483,8 @@
       </div>
     </div>
   </div>
-  <!-- Social Lists -->
+
+  <!-- Footer  -->
   <div class="social-lists w-100 my-5 d-flex justify-content-center justify-content-lg-start" data-aos="fade-up">
     <ul class="d-flex justify-content-center justify-content-lg-start align-items-center h-100 p-0">
       <li *ngFor="let social of socialLists" (click)="goToSocial(social.path)"><img [src]="social.src"
