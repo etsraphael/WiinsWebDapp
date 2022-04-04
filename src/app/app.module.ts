@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OnBoardingMainComponent } from './views/on-boarding/on-boarding-main/on-boarding-main.component';
-import { JoinUsComponent } from './views/on-boarding/join-us/join-us.component';
 import { ContactUsComponent } from './views/on-boarding/contact-us/contact-us.component';
 import { HomeComponent } from './views/home/home.component';
 import { MainSearchBarComponent } from './core/component/main-search-bar/main-search-bar.component';
@@ -14,12 +13,16 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { RootStoreModule } from './core/store';
+import { MatMenuModule } from '@angular/material/menu';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
     OnBoardingMainComponent,
-    JoinUsComponent,
     ContactUsComponent,
     HomeComponent,
     MainSearchBarComponent,
@@ -29,14 +32,28 @@ import { RootStoreModule } from './core/store';
     RootStoreModule,
     BrowserModule,
     AppRoutingModule,
+    MatMenuModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
     }),
     EffectsModule.forRoot([]),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
