@@ -1,5 +1,6 @@
 # WiinsWebDapp
 
+![This is an image](https://i.ibb.co/gSPd86K/Wiins-Dapp.png)
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.2.
 
 ## Development server
