@@ -1,13 +1,14 @@
 <div class="container-fluid bg-container p-0 overflow-hidden">
-  <!-- [Navbar] -->
+
+  <!-- Header -->
   <nav class="row p-2 align-items-center position-fixed w-100 m-0">
     <!-- Brand -->
     <div class="col-10 col-xl-3 my-auto">
       <a class="navbar-brand d-inline-block">
-        <img class="brand-icon-img" src="../../../../assets/img/landing-page/logo/brand-icon.png" alt="Logo Wiin's">
+        <img class="brand-icon-img" src="./../assets/img/core/brand-icon.png" alt="logo">
       </a>
       <h2 class="d-inline-block mb-0 align-middle text-light">
-        <img class="brand-typo-img" src="../../../../assets/img/landing-page/logo/brand-typo.svg" alt="Typo WIins">
+        <img class="brand-typo-img" src="../../../../assets/img/core/wiinsTypo.svg" alt="Typo WIins">
       </h2>
     </div>
     <!-- Button List -->
@@ -52,9 +53,11 @@
       </ul>
     </div>
   </nav>
+
+  <!-- Body -->
   <div class="container">
 
-    <!-- [Space - Let's Build the future] -->
+    <!-- Section 1 -->
     <div class="col-12 d-flex flex-column flex-lg-row build">
       <div class="col-12 col-lg-6 d-flex align-items-center">
         <div class="container-fluid descript">
@@ -78,12 +81,12 @@
       <!-- Phone Image -->
       <div class="col-12 col-lg-6 mt-5 mb-lg-5 pb-lg-5">
         <div class="justify-content-center align-items-center">
-          <img class="w-100 h-100" src="../../../../assets/img/landing-page/phone-image/phone-element.svg" alt="Phone">
+          <img class="w-100 h-100" src="./../../../../../assets/img/landing-page/phone-element.svg" alt="Phone">
         </div>
       </div>
     </div>
 
-    <!-- [Space - Imagine an Infinite Space] -->
+    <!-- Section 2 -->
     <div class="col-12 d-flex flex-column flex-lg-row justify-content-between margin-component">
       <div class="col-12 col-lg-6 d-flex align-items-center" data-aos="fade-right">
         <div class="container-fluid descript">
@@ -99,10 +102,10 @@
           <div
             class="appBtn-container d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 text-center text-lg-start mb-lg-5 pb-lg-5">
             <button class="btn-lg btn-block btn-action p-lg-0" (click)="goToGooglePlay()">
-              <img src="../../../../assets/img/landing-page/button/google-play.svg" alt="Google Play">
+              <img src="../../../../../assets/img/landing-page/google-play.svg" alt="Google Play">
             </button>
             <button class="btn-lg btn-block btn-action p-lg-0 appStore">
-              <img src="../../../../assets/img/landing-page/button/app-store.svg" alt="App Store">
+              <img src="../../../../../assets/img/landing-page/app-store.svg" alt="App Store">
             </button>
           </div>
         </div>
@@ -110,13 +113,12 @@
       <!-- Phone Image -->
       <div class="col-12 col-lg-6 mb-lg-5 pb-lg-5" data-aos="fade-left">
         <div class="justify-content-center align-items-start">
-          <img class="w-100 h-100" src="../../../../assets/img/landing-page/other-element/nav-early-acces.svg"
-            alt="Navigation">
+          <img class="w-100 h-100" src="../../../../../assets/img/landing-page/nav-early-acces.svg" alt="Navigation">
         </div>
       </div>
     </div>
 
-    <!-- [Space - News Feed & Discover] -->
+    <!-- Section 3 -->
     <div class="col-12 d-flex flex-column flex-lg-row justify-content-between margin-component" id="ecosystem">
       <div class="col-12 col-lg-6 d-flex align-items-center" data-aos="fade-right">
         <div class="container-fluid descript">
@@ -147,19 +149,18 @@
         </svg>
         <div class="d-flex align-items-baseline" [@onNewsDiscState]="slideAnimation.defaultNewsDisc">
           <div class="col-12 d-flex justify-content-center">
-            <img class="w-100 h-100" src="../../../../assets/img/landing-page/phone-image/news-feed.svg"
-              alt="New's Feed" [ngClass]="slideAnimation.defaultNewsDisc == 'next' ? 'phone-inactive' : 'phone-active'">
+            <img class="w-100 h-100" src="../../../../../assets/img/landing-page/news-feed.svg" alt="New's Feed"
+              [ngClass]="slideAnimation.defaultNewsDisc == 'next' ? 'phone-inactive' : 'phone-active'">
           </div>
           <div class="col-12 d-flex justify-content-center">
-            <img class="w-100 h-100" src="../../../../assets/img/landing-page/phone-image/discover.svg"
-              alt="New's Feed"
+            <img class="w-100 h-100" src="../../../../../assets/img/landing-page/news-feed.svg" alt="New's Feed"
               [ngClass]="slideAnimation.defaultNewsDisc == 'previous' ? 'phone-inactive' : 'phone-active'">
           </div>
         </div>
       </div>
     </div>
 
-    <!-- [Space - Messenger] -->
+    <!-- Section 4 -->
     <div class="col-12 d-flex flex-column flex-lg-row justify-content-between margin-component">
       <div class="col-12 col-lg-6 d-flex align-items-center" data-aos="fade-right">
         <div class="container-fluid descript">
@@ -189,18 +190,18 @@
         </svg>
         <div class="d-flex align-items-baseline" [@onMessengerState]="slideAnimation.defaultMessenger">
           <div class="col-12 d-flex justify-content-center">
-            <img class="w-100 h-100" src="../../../../assets/img/landing-page/phone-image/messenger-phone-1.svg" alt="Messenger"
+            <img class="w-100 h-100" src="../../../../../assets/img/landing-page/messenger-phone-1.svg" alt="Messenger"
               [ngClass]="slideAnimation.defaultMessenger == 'next' ? 'phone-inactive' : 'phone-active'">
           </div>
           <div class="col-12 d-flex justify-content-center">
-            <img class="w-100 h-100" src="../../../../assets/img/landing-page/phone-image/messenger-phone-2.svg" alt="Messenger"
+            <img class="w-100 h-100" src="../../../../../assets/img/landing-page/messenger-phone-2.svg" alt="Messenger"
               [ngClass]="slideAnimation.defaultMessenger == 'previous' ? 'phone-inactive' : 'phone-active'">
           </div>
         </div>
       </div>
     </div>
 
-    <!-- [Space - Profile] -->
+    <!-- Section 5 -->
     <div class="col-12 d-flex flex-column flex-lg-row justify-content-between margin-component">
       <div class="col-12 col-lg-6 d-flex align-items-center" data-aos="fade-right">
         <div class="container-fluid descript">
@@ -218,13 +219,13 @@
       <div class="container-img d-flex col-12 col-lg-6 mt-5 mb-lg-5 pb-lg-5" data-aos="fade-left">
         <div class="d-flex align-items-baseline">
           <div class="col-12 d-flex justify-content-center">
-            <img class="w-100 h-100" src="../../../../assets/img/landing-page/phone-image/profile-phone.svg" alt="Profile">
+            <img class="w-100 h-100" src="../../../../../assets/img/landing-page/profile-phone.svg" alt="Profile">
           </div>
         </div>
       </div>
     </div>
 
-    <!-- [Space - Music & Video] -->
+    <!-- Section 6 -->
     <div class="col-12 d-flex flex-column flex-lg-row justify-content-between margin-component">
       <div class="col-12 col-lg-6 d-flex align-items-center" data-aos="fade-right">
         <div class="container-fluid descript">
@@ -254,26 +255,26 @@
         </svg>
         <div class="d-flex align-items-baseline" [@onMusVidState]="slideAnimation.defaultMusVid">
           <div class="col-12 d-flex justify-content-center">
-            <img class="w-100 h-100" src="../../../../assets/img/landing-page/phone-image/phone-music-1.svg" alt="Music Phone"
+            <img class="w-100 h-100" src="../../../../../assets/img/landing-page/phone-music-1.svg" alt="Music Phone"
               [ngClass]="slideAnimation.defaultMusVid === 'default' ? 'phone-active' : 'phone-inactive'">
           </div>
           <div class="col-12 d-flex justify-content-center">
-            <img class="w-100 h-100" src="../../../../assets/img/landing-page/phone-image/phone-music-2.svg" alt="Music Phone"
+            <img class="w-100 h-100" src="../../../../../assets/img/landing-page/phone-music-2.svg" alt="Music Phone"
               [ngClass]="slideAnimation.defaultMusVid === 'step-1' ? 'phone-active' : 'phone-inactive'">
           </div>
           <div class="col-12 d-flex justify-content-center">
-            <img class="w-100 h-100" src="../../../../assets/img/landing-page/phone-image/phone-video-1.svg" alt="Video Phone"
+            <img class="w-100 h-100" src="../../../../../assets/img/landing-page/phone-video-1.svg" alt="Video Phone"
               [ngClass]="slideAnimation.defaultMusVid === 'step-2' ? 'phone-active' : 'phone-inactive'">
           </div>
           <div class="col-12 d-flex justify-content-center">
-            <img class="w-100 h-100" src="../../../../assets/img/landing-page/phone-image/phone-video-2.svg" alt="Video Phone"
+            <img class="w-100 h-100" src="../../../../../assets/img/landing-page/phone-video-2.svg" alt="Video Phone"
               [ngClass]="slideAnimation.defaultMusVid === 'final-step' ? 'phone-active' : 'phone-inactive'">
           </div>
         </div>
       </div>
     </div>
 
-    <!-- [Space - Team] -->
+    <!-- Section 7 -->
     <div class="col-12 d-flex flex-column flex-lg-row justify-content-between margin-component">
       <a class="anchor" id="team"></a>
       <div class="col-12 col-lg-6 d-lg-flex text-center" data-aos="fade-right">
@@ -289,7 +290,7 @@
           </div>
           <!-- Wiin's Team -->
           <div class="d-flex align-items-baseline align-items-lg-end mb-5 py-5">
-            <img class="w-100" src="../../../../assets/img/landing-page/team/team.svg" alt="Wiin's Team">
+            <img class="w-100" src="../../../../../assets/img/landing-page/team.svg" alt="Wiin's Team">
           </div>
         </div>
       </div>
@@ -297,7 +298,7 @@
       <div class="container-img d-flex flex-column mt-5 col-12 col-lg-6 mb-lg-5 pb-lg-5" data-aos="fade-left">
         <div class="ceo d-flex flex-column align-items-center text-center mb-5">
           <div class="avatar">
-            <img src="../../../../assets/img/landing-page/team/raphael.svg" alt="CEO">
+            <img src="../../../../../assets/img/landing-page/raphael.svg" alt="CEO">
           </div>
           <div class="info">
             <h4>Raphaël</h4>
@@ -307,7 +308,7 @@
         </div>
         <div class="manager d-flex flex-column align-items-center text-center mb-5">
           <div class="avatar">
-            <img src="../../../../assets/img/landing-page/team/levine.svg" alt="Manager">
+            <img src="../../../../../assets/img/landing-page/levine.svg" alt="Manager">
           </div>
           <div class="info">
             <h4>Lévine</h4>
@@ -319,7 +320,7 @@
         </div>
         <div class="developper d-flex flex-column align-items-center text-center">
           <div class="avatar">
-            <img src="../../../../assets/img/landing-page/team/nathanael.svg" alt="Developper">
+            <img src="../../../../../assets/img/landing-page/nathanael.svg" alt="Developper">
           </div>
           <div class="info">
             <h4>Nathanaël</h4>
@@ -330,7 +331,7 @@
       </div>
     </div>
 
-    <!-- [Space - Token] -->
+    <!-- Section 8 -->
     <div class="col-12 d-flex flex-column flex-lg-row justify-content-between margin-component">
       <a class="anchor" id="token"></a>
       <div
@@ -345,7 +346,7 @@
             </div>
           </div>
         </div>
-        <img class="link d-none d-xl-block" src="../../../../assets/img/landing-page/token/link.svg" alt="Link">
+        <img class="link d-none d-xl-block" src="../../../../assets/img/landing-page/link.svg" alt="Link">
       </div>
       <div class="col-12 col-lg-6 col-xl-5 d-flex align-items-center" data-aos="fade-left">
         <div class="container-fluid descript">
@@ -360,8 +361,7 @@
           </div>
           <!-- Button -->
           <div class="mt-3 text-center text-lg-end ms-md-3 mb-lg-5 pb-lg-5 pe-lg-2">
-            <button
-              class="btn btn-lg btn-block btn-primary btn-action-token px-5">{{'LANDING_PAGE.space-token.button-buy-token'
+            <button class="btn btn-lg btn-block btn-primary btn-action-token px-5">{{'LANDING_PAGE.space-token.button-buy-token'
               |
               translate}}</button>
           </div>
@@ -369,7 +369,7 @@
       </div>
     </div>
 
-    <!-- [Space - White Paper] -->
+    <!-- Section 9 -->
     <div class="col-12 d-flex flex-column flex-lg-row justify-content-between margin-component">
       <div class="col-12 col-lg-6 d-flex align-items-center" data-aos="fade-right">
         <div class="container-fluid descript px-xl-0">
@@ -390,14 +390,14 @@
       <div class="container-img d-flex col-12 col-lg-6 mt-5 mb-lg-5 pb-lg-5" data-aos="fade-left">
         <div class="d-flex align-items-baseline">
           <div class="col-12 d-flex justify-content-center">
-            <img class="w-100 h-100" src="../../../../assets/img/landing-page/phone-image/internet-phone-element.svg"
+            <img class="w-100 h-100" src="../../../../../assets/img/landing-page/internet-phone-element.svg"
               alt="Internet Phone">
           </div>
         </div>
       </div>
     </div>
 
-    <!-- [Space - Contact-Us] -->
+    <!-- Section 10 -->
     <div class="col-12 d-flex flex-column flex-lg-row justify-content-between align-items-center margin-component"
       id="contact">
       <!-- Text -->
@@ -421,7 +421,7 @@
               <!-- Header -->
               <header class="d-flex align-items-center justify-content-between px-2 w-100">
                 <div class="community">
-                  <img src="../../../../assets/img/landing-page/other-element/community-avatar.svg" alt="Community Avatar">
+                  <img src="../../../../../../assets/img/landing-page/community-avatar.svg" alt="Community Avatar">
                 </div>
                 <div class="title">
                   <h4>Wiins Community</h4>
@@ -438,7 +438,7 @@
               <body class="lists-community">
                 <ul class="d-flex px-2 mt-2">
                   <li>
-                    <img class="admin" src="../../../../assets/img/landing-page/other-element/administrator-community.svg"
+                    <img class="admin" src="../../../../../../assets/img/landing-page/administrator-community.svg"
                       alt="Admin Community">
                   </li>
                   <li><i class="bi bi-discord text-white"></i></li>
@@ -453,7 +453,7 @@
               <!-- Header -->
               <header class="d-flex align-items-center justify-content-between w-100 px-2">
                 <div class="github">
-                  <img src="../../../../assets/img/landing-page/other-element/github-avatar.svg" alt="Github Avatar">
+                  <img src="../../../../../../assets/img/landing-page/github-avatar.svg" alt="Github Avatar">
                 </div>
                 <div class="title">
                   <h4>WiinsWeb</h4>
@@ -466,7 +466,6 @@
                 </div>
               </header>
               <!-- Body -->
-
               <body class="lists-devs">
                 <ul class="d-flex px-2 mt-2">
                   <li *ngFor="let dev of pageDevs" (click)="goToGitHubDev(dev.path)">
@@ -480,7 +479,8 @@
       </div>
     </div>
   </div>
-  <!-- Social Lists -->
+
+  <!-- Footer  -->
   <div class="social-lists w-100 my-5 d-flex justify-content-center justify-content-lg-start" data-aos="fade-up">
     <ul class="d-flex justify-content-center justify-content-lg-start align-items-center h-100 p-0">
       <li *ngFor="let social of socialLists" (click)="goToSocial(social.path)"><img [src]="social.src"
