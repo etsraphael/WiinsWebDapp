@@ -19,7 +19,7 @@ export class MainSidebarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onOpenSidebar() {
+  onOpenSidebar(): void {
     const sidebarIsActive = this.sidebar.nativeElement.classList.contains('close');
     if (sidebarIsActive) {
       this.renderer.removeClass(this.sidebar.nativeElement, 'close');

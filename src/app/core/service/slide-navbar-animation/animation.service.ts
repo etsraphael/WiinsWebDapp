@@ -7,7 +7,7 @@ export class sidebarAnimationService {
     defaultSidebar: string = 'previous';
 
     // Previous & Next => News Feed - Discover
-    onOpenSidebar() {
+    onOpenSidebar(): void {
         if (this.defaultSidebar === 'next') {
             this.defaultSidebar = 'previous';
         } else {

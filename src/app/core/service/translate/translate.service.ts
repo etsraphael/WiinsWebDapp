@@ -6,11 +6,11 @@ export class TraductionService {
 
     constructor(private translate: TranslateService) { }
 
-    setDefaultLang() {
+    setDefaultLang(): void {
         this.translate.setDefaultLang('en');
     }
 
-    setNewLang(lang: string) {
+    setNewLang(lang: string): void {
         this.translate.use(lang);
     }
 }
