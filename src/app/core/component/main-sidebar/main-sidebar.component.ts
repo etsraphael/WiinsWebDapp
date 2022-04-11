@@ -10,6 +10,7 @@ import { AuthService } from '../../service/auth/auth.service';
 })
 export class MainSidebarComponent implements OnInit {
   @ViewChild('sidebar') sidebar: ElementRef;
+  sidebarIsOpen: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -20,6 +21,7 @@ export class MainSidebarComponent implements OnInit {
   }
 
   onOpenSidebar(): void {
+    this.sidebarIsOpen = !this.sidebarIsOpen;
     const sidebarIsActive = this.sidebar.nativeElement.classList.contains('close');
     if (sidebarIsActive) {
       this.renderer.removeClass(this.sidebar.nativeElement, 'close');

@@ -13,7 +13,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { RootStoreModule } from './core/store';
-import { MatMenuModule } from '@angular/material/menu';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -22,6 +21,8 @@ import { SpaceStoryComponent } from './views/space-story/space-story.component';
 import { NgxMasonryModule } from 'ngx-masonry';
 import { MainSidebarComponent } from './core/component/main-sidebar/main-sidebar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon'
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -38,10 +39,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     RootStoreModule,
     BrowserModule,
     AppRoutingModule,
-    MatMenuModule,
     HttpClientModule,
     NgxMasonryModule,
     MatSidenavModule,
+    MatIconModule,
+    MatMenuModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
