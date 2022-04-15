@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OnBoardingMainComponent } from './views/on-boarding/on-boarding-main/on-boarding-main.component';
 import { ContactUsComponent } from './views/on-boarding/contact-us/contact-us.component';
-import { HomeComponent } from './views/home/home.component';
 import { MainSearchBarComponent } from './core/component/main-search-bar/main-search-bar.component';
 import { MainNavBarComponent } from './core/component/main-nav-bar/main-nav-bar.component';
 import { StoreModule } from '@ngrx/store';
@@ -23,17 +22,20 @@ import { MainSidebarComponent } from './core/component/main-sidebar/main-sidebar
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon'
 import { MatMenuModule } from '@angular/material/menu';
+import { HomeLayoutComponent } from './core/layout/home-layout/home-layout.component';
+import { SettingLayoutComponent } from './core/layout/setting-layout/setting-layout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OnBoardingMainComponent,
     ContactUsComponent,
-    HomeComponent,
     MainSearchBarComponent,
     MainNavBarComponent,
     SpaceStoryComponent,
     MainSidebarComponent,
+    HomeLayoutComponent,
+    SettingLayoutComponent,
   ],
   imports: [
     RootStoreModule,
