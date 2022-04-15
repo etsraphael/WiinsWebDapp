@@ -1,37 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { sidebarAnimationService } from '../../service/slide-navbar-animation/animation.service';
-import { Renderer2, ElementRef, ViewChild } from '@angular/core';
 import { AuthService } from '../../service/auth/auth.service';
 
 @Component({
   selector: 'app-main-sidebar',
   templateUrl: './main-sidebar.component.html',
-  styleUrls: ['./main-sidebar.component.scss']
+  styleUrls: ['./main-sidebar.component.scss'],
 })
 export class MainSidebarComponent implements OnInit {
-  @ViewChild('sidebar') sidebar: ElementRef;
-  sidebarIsOpen: boolean = false;
-
   constructor(
     private authService: AuthService,
-    public sidebarAnimation: sidebarAnimationService,
-    private renderer: Renderer2) { }
+    public sidebarAnimation: sidebarAnimationService
+  ) {}
 
-  ngOnInit(): void {
-  }
-
-  onOpenSidebar(): void {
-    this.sidebarIsOpen = !this.sidebarIsOpen;
-    const sidebarIsActive = this.sidebar.nativeElement.classList.contains('close');
-    if (sidebarIsActive) {
-      this.renderer.removeClass(this.sidebar.nativeElement, 'close');
-    } else {
-      this.renderer.addClass(this.sidebar.nativeElement, 'close');
-    }
-  }
+  ngOnInit(): void {}
 
   onLogOut(): void {
     return this.authService.logout();
   }
-
 }
