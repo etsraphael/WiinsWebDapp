@@ -7,10 +7,10 @@
 }
 
 .container-sidebar {
-  margin-top: 67px;
+  height: calc(100% - 67px);
   width: 80px;
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
   z-index: 999;
 }

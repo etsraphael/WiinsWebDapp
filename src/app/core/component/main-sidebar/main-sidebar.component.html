@@ -1,50 +1,15 @@
 <!-- [Main Sidebar] -->
-<nav class="sidebar close d-none d-md-block h-100" #sidebar>
-    <div class="menu-bar">
-        <!-- Main Icon -->
-        <div class="menu mt-auto">
-            <ul class="menu-links">
-                <li class="nav-link">
-                    <a href="#">
-                        <img class="icon" src="../../../../assets/img/Sidebar button/Home.svg" alt="Home">
-                    </a>
-                </li>
-                <li class="nav-link">
-                    <a href="#">
-                        <img class="icon" src="../../../../assets/img/Sidebar button/Music.svg" alt="Music">
-                    </a>
-                </li>
-                <li class="nav-link">
-                    <a href="#">
-                        <img class="icon" src="../../../../assets/img/Sidebar button/Comment.svg" alt="Comment">
-                    </a>
-                </li>
-
-                <li class="nav-link">
-                    <a href="#">
-                        <img class="icon" src="../../../../assets/img/Sidebar button/Add-Button.svg" alt="Add-Button">
-                    </a>
-                </li>
-
-            </ul>
-        </div>
-
-        <!-- Main Icon Bottom -->
-        <div class="bottom-content mt-auto">
-            <li class="">
-                <a href="#">
-                    <i class='bx bx-log-out icon' (click)="onLogOut()"></i>
-                    <span class="text nav-text">Logout</span>
-                </a>
-            </li>
-
-            <li class="">
-                <a href="#" style="width: 25px;height: 25px;">
-                    <img class="icon" src="../../../../assets/img/Sidebar button/Setting.svg" alt="Setting">
-                    <span class="text nav-text">Setting</span>
-                </a>
-            </li>
-
-        </div>
+<nav class="sidebar close d-none d-md-block h-100">
+  <div class="menu-bar">
+    <!-- Main Icon -->
+    <div class="menu my-auto">
+      <ul class="menu-links m-0 p-0">
+        <li class="d-flex justify-content-center py-4 px-0" *ngFor="let item of sibarBtnDate">
+          <a href="#">
+            <img class="btn-icon" [src]="item.icon">
+          </a>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>

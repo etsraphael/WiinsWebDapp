@@ -8,6 +8,29 @@ import { AuthService } from '../../service/auth/auth.service';
   styleUrls: ['./main-sidebar.component.scss'],
 })
 export class MainSidebarComponent implements OnInit {
+  sibarBtnDate: routeSideBarBtn[] = [
+    {
+      name: 'home',
+      icon: '../../../../assets/img/sidebar-btn-home/home.png',
+      route: '/home',
+    },
+    {
+      name: 'home',
+      icon: '../../../../assets/img/sidebar-btn-home/messenger.png',
+      route: '/home',
+    },
+    {
+      name: 'home',
+      icon: '../../../../assets/img/sidebar-btn-home/tube.png',
+      route: '/home',
+    },
+    {
+      name: 'home',
+      icon: '../../../../assets/img/sidebar-btn-home/explorer.png',
+      route: '/home',
+    },
+  ];
+
   constructor(
     private authService: AuthService,
     public sidebarAnimation: sidebarAnimationService
@@ -18,4 +41,10 @@ export class MainSidebarComponent implements OnInit {
   onLogOut(): void {
     return this.authService.logout();
   }
+}
+
+interface routeSideBarBtn {
+  name: string;
+  icon: string;
+  route: string;
 }
