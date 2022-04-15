@@ -4,7 +4,6 @@
 
 .container-router {
   padding-top: 67px;
-  overflow-y: scroll;
 }
 
 .container-sidebar {
@@ -15,4 +14,10 @@
   top: 0;
   left: 0;
   z-index: 999;
+}
+
+.container-page {
+  background-color: red;
+  width: calc(100% - 80px);
+  float: right;
 }
