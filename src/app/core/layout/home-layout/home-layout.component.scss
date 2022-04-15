@@ -9,7 +9,6 @@
 .container-sidebar {
   margin-top: 67px;
   width: 80px;
-  background-color: red;
   position: fixed;
   top: 0;
   left: 0;
@@ -17,7 +16,6 @@
 }
 
 .container-page {
-  background-color: red;
   width: calc(100% - 80px);
   float: right;
 }
