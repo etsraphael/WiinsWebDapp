@@ -1,7 +1,5 @@
 // [Main Navbar]
 .nav-bar-container {
-  position: relative;
-  width: 100%;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   background-color: hsla(0, 0%, 100%, .8);
@@ -34,7 +32,7 @@
 
 .container-menu-icon .search-input .search-icon {
   position: absolute;
-  top: .6rem;
+  top: .9rem;
   left: 1.8rem;
   font-size: 20px;
 }

@@ -1,0 +1,18 @@
+.nav-bar-container {
+  z-index: 1000;
+}
+
+.container-router {
+  padding-top: 67px;
+  overflow-y: scroll;
+}
+
+.container-sidebar {
+  margin-top: 67px;
+  width: 80px;
+  background-color: red;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
