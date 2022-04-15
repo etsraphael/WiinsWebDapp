@@ -39,17 +39,6 @@
     font-size: 20px;
 }
 
-.sidebar .text{
-    color: black;
-    font-size: 17px;
-    font-weight: 500;
-    white-space: nowrap;
-    opacity: 1;
-}
-.sidebar.close .text{
-    opacity: 0;
-    transition: all .3s;
-}
 .sidebar .icon-arrow {
     position: absolute;
     top: 15%;
