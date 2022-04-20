@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "a9e39766-c024-46e2-9be3-9db51635af83"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -22,7 +25,8 @@
           "options": {
             "allowedCommonJsDependencies": [
               "hash.js",
-              "web3"
+              "web3",
+              "ngx-masonry"
             ],
             "outputPath": "dist/WiinsWebDapp",
             "index": "src/index.html",

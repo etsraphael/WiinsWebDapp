@@ -1,0 +1,35 @@
+.nav-bar-container {
+  z-index: 1000;
+}
+
+.container-router {
+  padding-top: 67px;
+}
+
+.container-sidebar {
+  height: calc(100% - 67px);
+  width: 80px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.container-page {
+  width: calc(100% - 80px);
+  float: right;
+}
+
+@media screen and (max-width: 768px) {
+  .container-page {
+    width: 100%;
+  }
+
+  .container-sidebar {
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: 999;
+  }
+}
