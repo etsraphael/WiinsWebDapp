@@ -29,14 +29,19 @@ export class MainSidebarComponent implements OnInit {
       icon: '../../../../assets/img/sidebar-btn-home/explorer.png',
       route: '/home',
     },
+    {
+      name: 'add-post',
+      icon: '../../../../assets/img/sidebar-btn-home/add-new-post.svg',
+      route: '/home',
+    },
   ];
 
   constructor(
     private authService: AuthService,
     public sidebarAnimation: sidebarAnimationService
-  ) {}
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onLogOut(): void {
     return this.authService.logout();
