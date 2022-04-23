@@ -46,7 +46,7 @@ export class MainSidebarComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  onCreatePost(item: routeSideBarBtn) {
+  onCreatePost(item: routeSideBarBtn): void {
     if (item.name !== 'addPost') {
       return;
     }

@@ -29,7 +29,7 @@ export class spaceStoryCreationPostService {
     bgrdWrittenPost: string;
 
     // If user select Written Post
-    selectedWrittenPost() {
+    selectedWrittenPost(): void {
         this.defaultWrittenPost = 'selectedWrittenPost';
         setTimeout(() => {
             this.creationMode = 'writtenPost';
@@ -39,7 +39,7 @@ export class spaceStoryCreationPostService {
     }
 
     // If user select Picture Post
-    selectedPicturePost() {
+    selectedPicturePost(): void {
         this.defaultPicturePost = 'selectedPicturePost';
         setTimeout(() => {
             this.creationMode = 'picturePost';
@@ -48,7 +48,7 @@ export class spaceStoryCreationPostService {
     }
 
     // If user want to go Back
-    return() {
+    return(): void {
         if (this.creationMode.includes('writtenPost')) {
             this.defaultWrittenPost = 'goBack';
             this.commentInput = '';
@@ -70,18 +70,18 @@ export class spaceStoryCreationPostService {
     }
 
     // If user want to add some Hashtags (click again go to Comment)
-    toHashtag() {
+    toHashtag(): void {
         this.defaultCommentToHashtag = 'selectedCommentToHashtag';
         this.defaultHashtagToComment = 'selectedHashtagToComment';
     }
 
     // If user want to add Comment (click again go to Hahstag)
-    toComment() {
+    toComment(): void {
         this.defaultCommentToHashtag = 'defaultCommentToHashtag';
         this.defaultHashtagToComment = 'defaultHashtagToComment';
     }
 
-    toDefault() {
+    toDefault(): void {
         this.defaultWrittenPost = 'defaultWrittenPost';
         this.defaultPicturePost = 'defaultPicturePost';
         this.creationMode = '';

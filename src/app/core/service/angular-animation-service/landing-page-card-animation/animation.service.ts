@@ -10,33 +10,33 @@ export class landingPageCardAnimationService {
     count: number = 0;
 
     // Previous & Next => News Feed - Discover
-    onPreviousNewsDisc() {
+    onPreviousNewsDisc(): void {
         if (this.defaultNewsDisc === 'next') {
             this.defaultNewsDisc = 'previous';
         }
     }
 
-    onNextNewsDisc() {
+    onNextNewsDisc(): void {
         if (this.defaultNewsDisc === 'previous') {
             this.defaultNewsDisc = 'next';
         }
     }
 
     // Previous & Next => Messenger
-    onPreviousMessenger() {
+    onPreviousMessenger(): void {
         if (this.defaultMessenger === 'next') {
             this.defaultMessenger = 'previous';
         }
     }
 
-    onNextMessenger() {
+    onNextMessenger(): void {
         if (this.defaultMessenger === 'previous') {
             this.defaultMessenger = 'next';
         }
     }
 
     // Previous & Next => Music - Video
-    onPreviousMusVid() {
+    onPreviousMusVid(): void {
         if (this.count === 0) {
             return;
         }
@@ -52,7 +52,7 @@ export class landingPageCardAnimationService {
         }
     }
 
-    onNextMusVid() {
+    onNextMusVid(): void {
         if (this.count === 3) {
             return;
         }

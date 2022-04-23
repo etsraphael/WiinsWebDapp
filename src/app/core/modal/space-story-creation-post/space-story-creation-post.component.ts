@@ -35,7 +35,7 @@ export class SpaceStoryCreationPostComponent implements OnInit {
   }
 
   // If user select Written Post, display some animation
-  onSelectedWrittenPost() {
+  onSelectedWrittenPost(): void {
     if (this.creationPost.creationMode === "writtenPost") {
       return;
     }
@@ -43,7 +43,7 @@ export class SpaceStoryCreationPostComponent implements OnInit {
   }
 
   // If user select Picture Post, display some animation
-  onSelectedPicturePost() {
+  onSelectedPicturePost(): void {
     if (this.creationPost.creationMode === "picturePost") {
       return;
     }
@@ -51,7 +51,7 @@ export class SpaceStoryCreationPostComponent implements OnInit {
   }
 
   // If user want to go Back resets all animations
-  goBack() {
+  goBack(): void {
     this.creationPost.return();
     this.commentInputError = false;
     this.hashtagsLists = [];
@@ -59,12 +59,12 @@ export class SpaceStoryCreationPostComponent implements OnInit {
   }
 
   // If user want to add some Hashtags, display some animation (click again go to Comment)
-  onHashtag() {
+  onHashtag(): void {
     this.creationPost.toHashtag();
   }
 
   // If user want to add Comment, display some animation (click again go to Hahstag)
-  onComment() {
+  onComment(): void {
     this.creationPost.toComment();
   }
 
@@ -74,7 +74,7 @@ export class SpaceStoryCreationPostComponent implements OnInit {
   }
 
   // Submit Data for Create new Post (Simple test with gross value before i get access to Real Data)
-  onSubmit(commentInput: NgModel, hashtagInput: NgModel) {
+  onSubmit(commentInput: NgModel, hashtagInput: NgModel): void {
     // Get and Check if comment is valid
     this.getCommentValue(commentInput);
     const comment = this.commentInputValue;
@@ -117,7 +117,7 @@ export class SpaceStoryCreationPostComponent implements OnInit {
   }
 
   // Check and Validate Comment
-  getCommentValue(commentInput: NgModel) {
+  getCommentValue(commentInput: NgModel): boolean | string {
     if (commentInput.value.trim().length < 4) {
       return this.commentInputError = true;
     } else {
@@ -127,7 +127,7 @@ export class SpaceStoryCreationPostComponent implements OnInit {
   }
 
   // If user want to add some hashtags
-  onPushHashtag(hashtagInput: NgModel) {
+  onPushHashtag(hashtagInput: NgModel): void {
     if (hashtagInput.value.length < 4) {
       return;
     }
@@ -136,7 +136,7 @@ export class SpaceStoryCreationPostComponent implements OnInit {
   }
 
   // Read File (image)
-  onPhotoSelected(photoSelector: HTMLInputElement) {
+  onPhotoSelected(photoSelector: HTMLInputElement): void {
     this.selectedImageFile = photoSelector.files[0];
     if (!this.selectedImageFile) return;
     let fileReader = new FileReader();
