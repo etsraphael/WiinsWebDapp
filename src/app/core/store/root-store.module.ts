@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { environment } from 'src/environments/environment';
 import { UserConnetedStoreModule } from './user-connected-store';
+import { StoryPostsStoreModule } from './space-story-store/space-story-store.module';
 
 @NgModule({
   declarations: [],
@@ -12,6 +13,7 @@ import { UserConnetedStoreModule } from './user-connected-store';
   imports: [
     CommonModule,
     UserConnetedStoreModule,
+    StoryPostsStoreModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
@@ -20,4 +22,4 @@ import { UserConnetedStoreModule } from './user-connected-store';
     }),
   ],
 })
-export class RootStoreModule {}
+export class RootStoreModule { }
