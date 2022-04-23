@@ -1,0 +1,124 @@
+<!-- Feed Publication Creation -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 container-post p-3 d-flex">
+            <div class="col-12 container-selection-post w-100 h-100 d-flex">
+
+                <!-- [Card Header] -->
+                <header class="w-100 d-flex justify-content-between">
+                    <div class="profile w-100 d-flex">
+                        <!-- Avatar -->
+                        <div class="avatar me-3">
+                            <img class="w-100 h-100"
+                                src="https://images.unsplash.com/photo-1551184451-76b762941ad6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+                                alt="Avatar">
+                        </div>
+                        <!-- Info Profile -->
+                        <div class="info-profile">
+                            <div class="username">
+                                <p class="m-0">Ashley</p>
+                            </div>
+                            <div class="localisation">
+                                <p class="m-0">No.Texas</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="back-confirm-btn d-flex pe-1">
+                        <i class="bi bi-check-circle me-3" (click)="onSubmit(commentInput,hashtagInput)"></i>
+                        <i class="bi bi-arrow-left-circle" (click)="goBack()"></i>
+                    </div>
+                </header>
+
+                <!-- [Written Post Choice] -->
+                <div class="col-6 written-post d-flex flex-column justify-content-center align-items-center"
+                    [@onWrittenPost]="creationPost.defaultWrittenPost"
+                    *ngIf="creationPost.creationMode !== 'picturePost'"
+                    [style.backgroundImage]="creationPost.bgrdWrittenPost">
+                    <!-- Select Written Post -->
+                    <i class="bi bi-pencil-square" (click)="onSelectedWrittenPost()" *ngIf="creationPost.commentInput === ''"></i>
+                    <p class="text-center text-white">{{creationPost.commentInput}}</p>
+                    <div class="choice-color row col-5 justify-content-between mt-2"
+                        *ngIf="creationPost.creationMode === 'writtenPost'">
+                        <!-- Background Written Post -->
+                        <span (click)="changebackground(creationPost.choice1)" class="blockBox choice1"></span>
+                        <span (click)="changebackground(creationPost.choice2)" class="blockBox choice2"></span>
+                        <span (click)="changebackground(creationPost.choice3)" class="blockBox choice3"></span>
+                        <span (click)="changebackground(creationPost.choice4)" class="blockBox choice4"></span>
+                        <span (click)="changebackground(creationPost.choice5)" class="blockBox choice5"></span>
+                        <span (click)="changebackground(creationPost.choice6)" class="blockBox choice6"></span>
+                    </div>
+                </div>
+
+                <!-- [Picture Post Choice] -->
+                <div class="col-6 picture-post d-flex justify-content-center align-items-center"
+                    [@onPicturePost]="creationPost.defaultPicturePost" (click)="onSelectedPicturePost()"
+                    *ngIf="creationPost.creationMode !== 'writtenPost'">
+                     <!-- Select Picture Post -->
+                    <div class="container-image-post" *ngIf="selectedImageFile">
+                        <img id="post-preview-image" class="w-100 h-100" src="#" alt="Image">
+                    </div>
+                     <!-- Background Picture Post -->
+                    <input #photoSelector (change)="onPhotoSelected(photoSelector)" id="photo_upload" type="file"
+                        accept="image/*" *ngIf="creationPost.creationMode === 'picturePost'">
+                    <label for="photo_upload">
+                        <i class="bi bi-image"></i>
+                    </label>
+                </div>
+
+                <!-- [Card Footer] -->
+                <footer class="footer-card w-100">
+                    <form class="w-100">
+                        <!-- Comment -->
+                        <div class="container-comment w-100 d-flex justify-content-between align-items-end px-3"
+                            [@onCommentToHashtag]="creationPost.defaultCommentToHashtag">
+                            <div class="user-comment w-100 pe-5">
+                                <input ngModel [(ngModel)]="creationPost.commentInput" #commentInput="ngModel"
+                                    name="commentInput" autofocus="false" autocomplete="off" minlength="4"
+                                    maxlength="250" required class="w-100" type="text" placeholder="Your comment"
+                                    [ngClass]="{'invalid-field': commentInput.errors?.['required'] && commentInputError === true}">
+                                <span class="text-danger" *ngIf="commentInput.errors?.['required'] && commentInputError === true ||
+                                commentInput.errors?.['minlength'] && commentInputError === true">
+                                    Please add your comment here (4 chars minimum)</span>
+                            </div>
+                            <div class="user-to-hashtags d-flex align-items-center" (click)="onHashtag()">
+                                <p class="m-0 me-2">Hashtags</p>
+                                <i class="bi bi-hash d-flex justify-content-center align-items-center"></i>
+                            </div>
+                        </div>
+                        <!-- Display Hashtags Lists so that the user can see what he has put -->
+                        <div class="col-md-11 my-auto container-list-hastag">
+                            <div class="mx-0 container-scroll">
+                                <div class="mx-3 oneHastag btn" *ngFor="let item of hashtagsLists">
+                                    <a>
+                                        <span>#{{item}}</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hashtags Input -->
+                        <div class="container-hashtag w-100 d-flex justify-content-between align-items-end px-3"
+                            [@onHashtagToComment]="creationPost.defaultHashtagToComment">
+                            <div class="user-hashtags w-100 pe-5">
+                                <input ngModel [(ngModel)]="creationPost.hashtagInput" #hashtagInput="ngModel"
+                                    name="hashtagInput" autocomplete="off" minlength="4" maxlength="20" class="w-100"
+                                    type="text" placeholder="Your hashtags"
+                                    (keydown.enter)="onPushHashtag(hashtagInput)"
+                                    [ngClass]="{'invalid-field': hashtagsLists.includes(hashtagInput.value)}">
+                                <i class="bi bi-check pe-5" (click)="onPushHashtag(hashtagInput)" [ngClass]="{'text-success': !hashtagInput.errors?.['minlength'] && hashtagInput.value?.length !== 0, 
+                                'text-danger': hashtagsLists.includes(hashtagInput.value)}"></i>
+                                <!-- <span class="text-danger" *ngIf="hashtagsLists.includes(hashtagInput.value)">
+                                This hashtag is already used</span> -->
+                            </div>
+                            <div class="user-to-comment d-flex align-items-center" (click)="onComment()">
+                                <p class="m-0 me-2">Comment</p>
+                                <i class="bi bi-info-lg d-flex justify-content-center align-items-center"></i>
+                            </div>
+                        </div>
+                    </form>
+                </footer>
+
+            </div>
+        </div>
+    </div>
+</div>
