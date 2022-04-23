@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { sidebarAnimationService } from '../../service/slide-navbar-animation/animation.service';
 import { AuthService } from '../../service/auth/auth.service';
+import { MatDialog } from '@angular/material/dialog';
+import { SpaceStoryCreationPostComponent } from '../../modal/space-story-creation-post/space-story-creation-post.component';
+import { spaceStoryCreationPostService } from '../../service/angular-animation-service/feed-creation-card-animation/animation.service';
 
 @Component({
   selector: 'app-main-sidebar',
@@ -15,33 +17,46 @@ export class MainSidebarComponent implements OnInit {
       route: '/home',
     },
     {
-      name: 'home',
+      name: 'messenger',
       icon: '../../../../assets/img/sidebar-btn-home/messenger.png',
       route: '/home',
     },
     {
-      name: 'home',
+      name: 'video',
       icon: '../../../../assets/img/sidebar-btn-home/tube.png',
       route: '/home',
     },
     {
-      name: 'home',
+      name: 'discover',
       icon: '../../../../assets/img/sidebar-btn-home/explorer.png',
       route: '/home',
     },
     {
-      name: 'add-post',
+      name: 'addPost',
       icon: '../../../../assets/img/sidebar-btn-home/add-new-post.svg',
       route: '/home',
     },
   ];
 
   constructor(
+    public dialog: MatDialog,
+    public creationPost: spaceStoryCreationPostService,
     private authService: AuthService,
-    public sidebarAnimation: sidebarAnimationService
   ) { }
 
   ngOnInit(): void { }
+
+  onCreatePost(item: routeSideBarBtn) {
+    if (item.name !== 'addPost') {
+      return;
+    }
+    const dialogRef = this.dialog.open(SpaceStoryCreationPostComponent, {
+      panelClass: ['col-5', 'p-0']
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.creationPost.toDefault();
+    });
+  }
 
   onLogOut(): void {
     return this.authService.logout();
