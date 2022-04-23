@@ -2,30 +2,46 @@
 <div class="container d-flex justify-content-center">
   <div class="row w-100">
     <div class="col-12 d-flex flex-column align-items-center">
-      <div class="space-home-title d-flex justify-content-evenly w-100 my-5">
+      <div class="space-home-title d-flex justify-content-evenly w-100 mb-5">
         <h1><a [routerLink]="['/home/SpaceStory']" routerLinkActive="active-tab">News Feed</a></h1>
         <h1><a>Discover</a></h1>
       </div>
-      <ngx-masonry class="masonry" style="width: 90vw;" [ordered]="true">
-        <div ngxMasonryItem class="px-2 mb-2 col-12 col-md-6 col-lg-4 col-xxl-3" *ngFor="let image of masonryImages; index as idx">
+
+      <!-- [Masonry Cards] -->
+      <ngx-masonry class="masonry ms-xxl-5" style="width: 90vw;" [ordered]="true">
+        <div ngxMasonryItem class="px-2 mb-2 col-12 col-md-6 col-lg-4 col-xxl-3"
+          *ngFor="let post of publicationPosts; index as idx">
           <div class="card masonry-items">
+
             <!-- Card Header -->
             <div class="card-header d-flex align-items-center col-12 p-3">
               <div class="avatar-user col-2">
-                <img class="w-100 h-100" [src]="image[1]" alt="Avatar User">
+                <img class="w-100 h-100" [src]="post?.avatarCreator" alt="Avatar User">
               </div>
-              <div class="pseudo-user col-9 ps-3">
-                <p class="pseudo m-0">Pseudo</p>
-                <p class="city m-0">City</p>
+              <div class="pseudo-user col-8 ps-3">
+                <p class="pseudo m-0">{{post?.creator}}</p>
               </div>
-              <div class="setting col-1">
+              <div class="setting col-2">
                 <i class="bi bi-three-dots"></i>
               </div>
             </div>
-            <!-- Card Body -->
-            <div class="card-body pt-0">
-              <img class="w-100 h-100" [src]="image[1]" alt="">
+
+
+            <div class="card-body">
+              <!-- Card Body (Written Post) -->
+              <div class="pt-0" *ngIf="post?.creationMode === 'writtenPost'">
+                <div class="written-post w-100 d-flex justify-content-center align-items-center p-3"
+                  [style.backgroundImage]="post?.pictureCover">
+                  <p class="user-coms m-0 w-100 text-white text-center">{{post?.comment}}</p>
+                </div>
+              </div>
+
+              <!-- Card Body (Picture Post) -->
+              <div class="pt-0" *ngIf="post?.creationMode === 'picturePost'">
+                <img class="w-100 h-100" [src]="post?.pictureCover" alt="Image">
+              </div>
             </div>
+
             <!-- Card Footer -->
             <div class="card-footer">
               <div class="icon-list d-flex mb-2">
@@ -40,15 +56,15 @@
                 </div>
               </div>
               <div class="comment">
-                <p class="user-coms m-0">"Fox can be smarter than a wolf... (More)</p>
-                <p class="date m-0">Wed, 26 January 2021</p>
+                <p class="user-coms m-0" *ngIf="post?.creationMode === 'picturePost'">{{post.comment}}</p>
+                <p class="date m-0">{{post?.createdAt}}</p>
               </div>
             </div>
+
           </div>
-
         </div>
-
       </ngx-masonry>
+
     </div>
   </div>
 </div>
