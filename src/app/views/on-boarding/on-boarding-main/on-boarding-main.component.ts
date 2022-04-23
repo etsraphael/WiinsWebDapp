@@ -4,8 +4,8 @@ import { githubPageDevs, wiinsweb } from 'src/app/core/data/github-page-devs';
 import { btnLandingPageInterface, landingPageNavData } from 'src/app/core/data/landing-page-nav';
 import { lgInterface, lgListData } from 'src/app/core/data/language-list';
 import { socialLists, socialMediaLists } from 'src/app/core/data/social-media-list';
+import { landingPageCardAnimationService } from 'src/app/core/service/angular-animation-service/landing-page-card-animation/animation.service';
 import { AuthService } from 'src/app/core/service/auth/auth.service';
-import { slideAnimationService } from 'src/app/core/service/slide-card-animation/animation.service';
 import { TraductionService } from 'src/app/core/service/translate/translate.service';
 
 @Component({
@@ -32,7 +32,7 @@ export class OnBoardingMainComponent implements OnInit {
   constructor(
     public authService: AuthService,
     private translate: TraductionService,
-    public slideAnimation: slideAnimationService) { }
+    public slideAnimation: landingPageCardAnimationService) { }
 
   ngOnInit(): void { }
 
