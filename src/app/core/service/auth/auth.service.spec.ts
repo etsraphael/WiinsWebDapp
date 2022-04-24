@@ -9,6 +9,7 @@ describe('AuthService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
+      providers: [{provide: window.web3.currentProvider}]
     });
     service = TestBed.inject(AuthService);
   });
