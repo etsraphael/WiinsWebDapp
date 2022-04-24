@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComingSoonFullScreenComponent } from 'src/app/core/component/coming-soon-full-screen/coming-soon-full-screen.component';
 
 import { SpaceMusicComponent } from './space-music.component';
 
@@ -8,7 +9,7 @@ describe('SpaceMusicComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SpaceMusicComponent ]
+      declarations: [ SpaceMusicComponent, ComingSoonFullScreenComponent ]
     })
     .compileComponents();
   });
