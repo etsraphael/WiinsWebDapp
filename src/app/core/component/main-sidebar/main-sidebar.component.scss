@@ -49,6 +49,12 @@
   width: 2rem;
 }
 
+.container-icon:hover, .icon-selected {
+  cursor: pointer;
+  background: #aeaeae38;
+  border-radius: 10px;
+}
+
 @media screen and (max-width: 768px) {
   .sidebar.close {
     box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
