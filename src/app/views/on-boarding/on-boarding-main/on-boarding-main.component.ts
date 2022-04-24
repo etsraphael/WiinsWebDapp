@@ -6,7 +6,7 @@ import { lgInterface, lgListData } from 'src/app/core/data/language-list';
 import { socialLists, socialMediaLists } from 'src/app/core/data/social-media-list';
 import { landingPageCardAnimationService } from 'src/app/core/service/angular-animation-service/landing-page-card-animation/animation.service';
 import { AuthService } from 'src/app/core/service/auth/auth.service';
-import { TraductionService } from 'src/app/core/service/translate/translate.service';
+import { TranslationService } from 'src/app/core/service/translate/translate.service';
 
 @Component({
   selector: 'app-on-boarding-main',
@@ -31,7 +31,7 @@ export class OnBoardingMainComponent implements OnInit {
 
   constructor(
     public authService: AuthService,
-    private translate: TraductionService,
+    private translate: TranslationService,
     public slideAnimation: landingPageCardAnimationService) { }
 
   ngOnInit(): void { }

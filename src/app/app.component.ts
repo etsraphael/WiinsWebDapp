@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TraductionService } from './core/service/translate/translate.service';
+import { TranslationService } from './core/service/translate/translate.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { TraductionService } from './core/service/translate/translate.service';
 export class AppComponent implements OnInit {
   title = 'WiinsWebDapp';
 
-  constructor(public translate: TraductionService) { }
+  constructor(public translate: TranslationService) { }
 
   ngOnInit(): void {
     this.translate.setDefaultLang();
