@@ -1,4 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  MatDialogModule,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { MainSidebarComponent } from './main-sidebar.component';
 
@@ -8,9 +14,13 @@ describe('MainSidebarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MainSidebarComponent ]
-    })
-    .compileComponents();
+      imports: [MatDialogModule, RouterTestingModule],
+      declarations: [MainSidebarComponent],
+      providers: [
+        { provide: MatDialogRef, useValue: {} },
+        { provide: MAT_DIALOG_DATA, useValue: [] },
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {
