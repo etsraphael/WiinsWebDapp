@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { AuthMockService } from 'src/app/core/service/auth/auth-mock.service';
+import { AuthService } from 'src/app/core/service/auth/auth.service';
 
 import { OnBoardingMainComponent } from './on-boarding-main.component';
 
@@ -10,7 +12,8 @@ describe('OnBoardingMainComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      declarations: [ OnBoardingMainComponent ]
+      declarations: [ OnBoardingMainComponent ],
+      providers: [{ provide: AuthService, useValue: new AuthMockService() }]
     })
     .compileComponents();
   });
