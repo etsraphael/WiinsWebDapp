@@ -32,6 +32,7 @@ import { SpaceMusicComponent } from './views/space-music/space-music.component';
 import { SpaceTubeComponent } from './views/space-tube/space-tube.component';
 import { SpaceMessengerComponent } from './views/space-messenger/space-messenger.component';
 import { SpaceExplorerComponent } from './views/space-explorer/space-explorer.component';
+import { ComingSoonFullScreenComponent } from './core/component/coming-soon-full-screen/coming-soon-full-screen.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { SpaceExplorerComponent } from './views/space-explorer/space-explorer.co
     SpaceTubeComponent,
     SpaceMessengerComponent,
     SpaceExplorerComponent,
+    ComingSoonFullScreenComponent,
   ],
   imports: [
     RootStoreModule,
