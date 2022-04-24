@@ -28,6 +28,10 @@ import { SettingLayoutComponent } from './core/layout/setting-layout/setting-lay
 import { SpaceStoryCreationPostComponent } from './core/modal/space-story-creation-post/space-story-creation-post.component';
 
 import { environment } from '../environments/environment';
+import { SpaceMusicComponent } from './views/space-music/space-music.component';
+import { SpaceTubeComponent } from './views/space-tube/space-tube.component';
+import { SpaceMessengerComponent } from './views/space-messenger/space-messenger.component';
+import { SpaceExplorerComponent } from './views/space-explorer/space-explorer.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +45,10 @@ import { environment } from '../environments/environment';
     HomeLayoutComponent,
     SettingLayoutComponent,
     SpaceStoryCreationPostComponent,
+    SpaceMusicComponent,
+    SpaceTubeComponent,
+    SpaceMessengerComponent,
+    SpaceExplorerComponent,
   ],
   imports: [
     RootStoreModule,

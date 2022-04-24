@@ -14,28 +14,23 @@ export class MainSidebarComponent implements OnInit {
     {
       name: 'home',
       icon: '../../../../assets/img/sidebar-btn-home/home.png',
-      route: '/home',
+      route: './SpaceStory',
     },
     {
       name: 'messenger',
       icon: '../../../../assets/img/sidebar-btn-home/messenger.png',
-      route: '/home',
+      route: './SpaceMessenger',
     },
     {
       name: 'video',
       icon: '../../../../assets/img/sidebar-btn-home/tube.png',
-      route: '/home',
+      route: './SpaceTube',
     },
     {
       name: 'discover',
       icon: '../../../../assets/img/sidebar-btn-home/explorer.png',
-      route: '/home',
-    },
-    {
-      name: 'addPost',
-      icon: '../../../../assets/img/sidebar-btn-home/add-new-post.svg',
-      route: '/home',
-    },
+      route: './SpaceExplorer',
+    }
   ];
 
   constructor(
@@ -46,10 +41,8 @@ export class MainSidebarComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  onCreatePost(item: routeSideBarBtn): void {
-    if (item.name !== 'addPost') {
-      return;
-    }
+  onCreatePost(): void {
+
     const dialogRef = this.dialog.open(SpaceStoryCreationPostComponent, {
       panelClass: ['col-5', 'p-0']
     });

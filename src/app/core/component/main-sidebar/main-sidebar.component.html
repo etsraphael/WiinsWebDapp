@@ -5,8 +5,13 @@
     <div class="menu my-auto">
       <ul class="menu-links d-flex d-md-block justify-content-evenly justify-content-md-none m-0 p-0">
         <li class="d-flex justify-content-center py-4 px-0" *ngFor="let item of sibarBtnDate">
-          <a (click)="onCreatePost(item)">
+          <a [routerLink]="item.route">
             <img class="btn-icon" [src]="item.icon">
+          </a>
+        </li>
+        <li class="d-flex justify-content-center py-3 px-0">
+          <a (click)="onCreatePost()">
+            <img class="btn-icon-add" src="../../../../assets/img/sidebar-btn-home/add-new-post.svg">
           </a>
         </li>
       </ul>
