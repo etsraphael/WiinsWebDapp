@@ -9,4 +9,4 @@ export class PostModel {
     like?: number;
     hashtagsLists?: string[];
     friendsLists?: string[];
-}
+} // to delete

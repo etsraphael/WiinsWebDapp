@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SlidePhoneAnimation } from 'src/app/core/animation/on-boarding-animation/on-boarding.animation';
+import { SlidePhoneAnimation } from 'src/assets/animation/on-boarding.animation';
 import { githubPageDevs, wiinsweb } from 'src/app/core/data/github-page-devs';
 import { btnLandingPageInterface, landingPageNavData } from 'src/app/core/data/landing-page-nav';
 import { lgInterface, lgListData } from 'src/app/core/data/language-list';

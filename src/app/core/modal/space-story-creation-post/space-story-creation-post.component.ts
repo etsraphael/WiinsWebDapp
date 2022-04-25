@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-import { SpaceStoryCreatePostAnimation } from '../../animation/on-boarding-animation/on-create-post-animation';
+import { SpaceStoryCreatePostAnimation } from '../../../../assets/animation/on-create-post-animation';
 import { PostModel } from '../../model/post/post.model';
 import { spaceStoryCreationPostService } from '../../service/angular-animation-service/feed-creation-card-animation/animation.service';
 import * as SpaceStoryActions from '../../store/space-story-store/action';
