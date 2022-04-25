@@ -6,12 +6,11 @@ import { SpaceStoryCreationPostComponent } from 'src/app/core/modal/space-story-
   providedIn: 'root',
 })
 export class FeedPublicationService {
-  dialogRef: MatDialogRef<SpaceStoryCreationPostComponent>;
 
   constructor(private dialog: MatDialog) {}
 
-  onCreatePublication(): void {
-    this.dialogRef = this.dialog.open(SpaceStoryCreationPostComponent, {
+  onCreatePublication(): MatDialogRef<SpaceStoryCreationPostComponent> {
+    return this.dialog.open(SpaceStoryCreationPostComponent, {
       panelClass: ['col-5', 'p-0'],
     });
   }
