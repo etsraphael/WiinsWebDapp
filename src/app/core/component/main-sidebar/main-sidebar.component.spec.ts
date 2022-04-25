@@ -7,6 +7,7 @@ import {
 import { RouterTestingModule } from '@angular/router/testing';
 import { AuthMockService } from '../../service/auth/auth-mock.service';
 import { AuthService } from '../../service/auth/auth.service';
+import { FeedPublicationService } from '../../service/publication/feed-publication/feed-publication.service';
 
 import { MainSidebarComponent } from './main-sidebar.component';
 

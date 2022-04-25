@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../service/auth/auth.service';
-import { MatDialog } from '@angular/material/dialog';
-import { SpaceStoryCreationPostComponent } from '../../modal/space-story-creation-post/space-story-creation-post.component';
-import { spaceStoryCreationPostService } from '../../service/angular-animation-service/feed-creation-card-animation/animation.service';
+import { Component } from '@angular/core';
+import { FeedPublicationService } from '../../service/publication/feed-publication/feed-publication.service';
 
 @Component({
   selector: 'app-main-sidebar',
   templateUrl: './main-sidebar.component.html',
   styleUrls: ['./main-sidebar.component.scss'],
 })
-export class MainSidebarComponent implements OnInit {
+export class MainSidebarComponent {
   sibarBtnDate: routeSideBarBtn[] = [
     {
       name: 'home',
@@ -30,30 +27,10 @@ export class MainSidebarComponent implements OnInit {
       name: 'discover',
       icon: '../../../../assets/img/sidebar-btn-home/explorer.png',
       route: './SpaceExplorer',
-    }
+    },
   ];
 
-  constructor(
-    public dialog: MatDialog,
-    public creationPost: spaceStoryCreationPostService,
-    private authService: AuthService,
-  ) { }
-
-  ngOnInit(): void { }
-
-  onCreatePost(): void {
-
-    const dialogRef = this.dialog.open(SpaceStoryCreationPostComponent, {
-      panelClass: ['col-5', 'p-0']
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      this.creationPost.toDefault();
-    });
-  }
-
-  onLogOut(): void {
-    return this.authService.logout();
-  }
+  constructor(public feedPublicationService: FeedPublicationService) {}
 }
 
 interface routeSideBarBtn {
