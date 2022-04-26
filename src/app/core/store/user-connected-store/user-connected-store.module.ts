@@ -9,7 +9,7 @@ import { featureReducer } from './reducer';
   declarations: [],
   imports: [
     CommonModule,
-    StoreModule.forFeature('UserConnected', featureReducer),
+    StoreModule.forFeature('userConnected', featureReducer),
     EffectsModule.forFeature([UserEffects])
   ],
   providers: [

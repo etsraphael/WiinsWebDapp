@@ -15,7 +15,7 @@ export const getIsLoading = (state: State): boolean => state.isLoading!;
 export const getMessage = (state: State): string => state.message!;
 
 export const selectState: MemoizedSelector<object, State> =
-  createFeatureSelector<State>('UserConnected');
+  createFeatureSelector<State>('userConnected');
 
 export const select = createSelector(selectState, getUser);
 

@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { environment } from 'src/environments/environment';
 import { UserConnetedStoreModule } from './user-connected-store';
 import { StoryPostsStoreModule } from './space-story-store/space-story-store.module';
+import { FeedPublicationStoreModule } from './feed-publication-store';
 
 @NgModule({
   declarations: [],
@@ -13,6 +14,7 @@ import { StoryPostsStoreModule } from './space-story-store/space-story-store.mod
   imports: [
     CommonModule,
     UserConnetedStoreModule,
+    FeedPublicationStoreModule,
     StoryPostsStoreModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),

@@ -7,12 +7,12 @@ export abstract class FeedPublicationModel {
     likeId: string;
     isLike: boolean;
   };
-  profile: any;
-  page: any;
+  profile?: any;
+  page?: any;
   profileTagged: string[];
   commentNumber: number;
   hastags: string[];
-  text: string;
+  title: string;
 
   constructor(public type: string) {}
 }
