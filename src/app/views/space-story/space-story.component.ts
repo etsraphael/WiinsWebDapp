@@ -23,21 +23,23 @@ export class SpaceStoryComponent implements OnInit {
   publicationPosts: PostModel[] = [];
 
   feedPublication$: Observable<
-    (PicturePublicationModel | PostPublicationModel | VideoPublicationModel | any)[]
+    (
+      | PicturePublicationModel
+      | PostPublicationModel
+      | VideoPublicationModel
+      | any
+    )[]
   >;
 
   constructor(
     public router: Router,
-    private store: Store<{ storyPosts: { spaceStoryPosts: PostModel[] } }>,
     private store$: Store<RootStoreState.State>
   ) {}
 
   ngOnInit(): void {
-    this.store.select('storyPosts').subscribe((posts) => {
-      this.publicationPosts = posts.spaceStoryPosts;
-    });
+    this.generateObservable();
 
-    // just for the test
+    // just for the test // to delete
     this.store$.dispatch(
       new FeedPublicationStoreActions.LoadFeedPublicationSuccess([
         {
@@ -124,13 +126,14 @@ export class SpaceStoryComponent implements OnInit {
         },
       ])
     );
-
-    this.feedPublication$ = this.store$.pipe(
-      select(FeedPublicationStoreSelectors.selectAllItems),
-      filter(value => !!value)
-    )
- 
-    this.feedPublication$.subscribe(console.log)
   }
 
+  generateObservable(): void {
+    this.feedPublication$ = this.store$.pipe(
+      select(FeedPublicationStoreSelectors.selectAllItems),
+      filter((value) => !!value)
+    );
+
+    this.feedPublication$.subscribe(console.log);
+  }
 }
