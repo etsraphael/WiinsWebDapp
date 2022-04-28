@@ -11,6 +11,7 @@ import {
   VideoPublicationModel,
 } from '../../model/publication/feed-publication.model';
 import { spaceStoryCreationPostService } from '../../service/angular-animation-service/feed-creation-card-animation/animation.service';
+import { FeedPublicationStoreActions, RootStoreState } from '../../store';
 
 @Component({
   selector: 'app-space-story-creation-post',
@@ -19,31 +20,33 @@ import { spaceStoryCreationPostService } from '../../service/angular-animation-s
   animations: [SpaceStoryCreatePostAnimation],
 })
 export class SpaceStoryCreationPostComponent implements OnInit {
+  // Type Posts
   feedPublicationCreate:
     | PicturePublicationModel
     | PostPublicationModel
     | VideoPublicationModel;
 
-  visualMode: string; // picture/ video / post
-  backgroundPostList: BackgroundPostModel[] = linearBgPost
+  visualMode: string; // Picture/ Video / Post
+  backgroundPostList: BackgroundPostModel[] = linearBgPost;
 
+  // Comment & Hahstags
   commentInputValue: string = '';
-  commentInputError: boolean = false;
-  hashtagsLists: string[] = [];
+  commenInputError: boolean = false;
+  hashtagsListsValues: string[] = [];
 
+  // Picture & File
   selectedImageFile: File;
   selectedImage: string;
 
-  /* I had 3 approaches here, use Subscription for see every animation change but => I would have had a lot of unsubscribe
-  I could also put all the code here directly, no need subscription, but => I still have many functions to implement and the code would be too big
-  So I used a public service to not have to declare my values here and I declared them in the html directly */
   constructor(
     public creationPost: spaceStoryCreationPostService,
-    private dialog: MatDialogRef<SpaceStoryCreationPostComponent>
-  ) {}
+    private dialog: MatDialogRef<SpaceStoryCreationPostComponent>,
+    private store$: Store<RootStoreState.State>
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
+  // Select Type of Publication depending of the value
   onSelectPublicationType(value: string): void {
     this.visualMode = value;
 
@@ -54,115 +57,106 @@ export class SpaceStoryCreationPostComponent implements OnInit {
       case 'post': {
         return this.creationPost.selectedWrittenPost();
       }
+      case 'video': {
+        return;
+      }
+    }
+  };
+
+  // If user want to add Comment/Hashtag, display some animation (click again => go to Comment)
+  onSelectPublicationFields(value: string): void {
+    switch (value) {
+      case 'comment': {
+        return this.creationPost.toComment();
+      }
+      case 'hashtag': {
+        return this.creationPost.toHashtag();
+      }
     }
   }
 
-  // If user select Written Post, display some animation
-  onSelectedWrittenPost(): void {
-    if (this.creationPost.creationMode === 'writtenPost') {
-      return;
-    }
-    this.creationPost.selectedWrittenPost();
+  // Change the color choice of the Background for Written Post
+  onChangebackground(bgrdChoice: string): void {
+    this.creationPost.bgrdWrittenPost = bgrdChoice;
   }
 
-  // If user select Picture Post, display some animation
-  onSelectedPicturePost(): void {
-    if (this.creationPost.creationMode === 'picturePost') {
+  // Build the Publication
+  publicationMaker():
+    | PicturePublicationModel
+    | PostPublicationModel
+    | VideoPublicationModel
+    | any {
+
+    switch (this.visualMode) {
+      case 'picture': {
+        const title = this.commentInputValue;
+        const hashtags = this.hashtagsListsValues;
+        const imgUrl = this.selectedImage;
+        return new PicturePublicationModel(title, hashtags, imgUrl);
+      }
+      case 'post': {
+        const title = this.commentInputValue;
+        const hashtags = this.hashtagsListsValues;
+        const background = new BackgroundPostModel(['red', 'green'], {
+          start: [0, 0],
+          end: [1, 1],
+        });
+        return new PostPublicationModel(title, hashtags, background);
+      }
+      case 'video': {
+        return;
+      }
+    }
+  }
+
+  // Submit Data for Create new Post (Simple test with gross value before i get access to Real Data)
+  onSubmit(commentInput: NgModel, hashtagInput: NgModel): void {
+    // Retrieve and Assign Values
+    this.commentInputValue = commentInput.value;
+    this.hashtagsListsValues = hashtagInput.value;
+
+    // Check the Errors
+    if (!this.commentIsValid) {
+      console.log('Comment field is invalid');
+    }
+    if (!this.publicationMaker()) {
+      console.log('An error has occurred');
       return;
     }
-    this.creationPost.selectedPicturePost();
+
+    // Build the publication
+    const myNewFb = this.publicationMaker();
+    this.store$.dispatch(
+      new FeedPublicationStoreActions.AddFeedPublication(myNewFb)
+    )
+    this.dialog.close();
+  }
+
+  // Check The Errors
+  commentIsValid(): boolean {
+    if (this.commentInputValue.trim().length < 4) {
+      this.commenInputError = true;
+      return false;
+    } else {
+      this.commenInputError = false;
+      return true;
+    }
+  }
+
+  // If user want to add some hashtags
+  hashtagsIsValid(hashtagInput: NgModel): void {
+    if (hashtagInput.value.length < 4) {
+      return;
+    }
+    this.hashtagsListsValues.push(hashtagInput.value);
+    this.creationPost.hashtagInput = '';
   }
 
   // If user want to go Back resets all animations
   goBack(): void {
     this.creationPost.return();
-    this.commentInputError = false;
-    this.hashtagsLists = [];
+    this.hashtagsListsValues = [];
     this.creationPost.bgrdWrittenPost = this.creationPost.defaultChoice;
-  }
-
-  // If user want to add some Hashtags, display some animation (click again go to Comment)
-  onHashtag(): void {
-    this.creationPost.toHashtag();
-  }
-
-  // If user want to add Comment, display some animation (click again go to Hahstag)
-  onComment(): void {
-    this.creationPost.toComment();
-  }
-
-  // Change the color choice of the Background for the Post
-  changebackground(bgrdChoice: string): void {
-    this.creationPost.bgrdWrittenPost = bgrdChoice;
-  }
-
-  // Submit Data for Create new Post (Simple test with gross value before i get access to Real Data)
-  onSubmit(commentInput: NgModel, hashtagInput: NgModel): void {
-    // check the errors
-    // build the publication
-
-    // Get and Check if comment is valid
-    this.getCommentValue(commentInput);
-    const comment = this.commentInputValue;
-    // Get Creator
-    const creator = 'Nathanaël';
-    const avatarCreator =
-      'https://images.unsplash.com/photo-1459356979461-dae1b8dcb702?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80';
-
-    // Check Error
-
-    if (!this.commentIsValid) {
-      console.log('An error has occurred');
-    }
-    const myNewFb = this.publicationMaker();
-    this.dialog.close();
-  }
-
-  publicationMaker():
-    | PicturePublicationModel
-    | PostPublicationModel
-    | VideoPublicationModel
-    | any{
-    switch (this.visualMode) {
-      case 'picture': {
-        return null!;
-      }
-      case 'post': {
-        const bgPost = new BackgroundPostModel(['red', 'green'], {
-          start: [0, 0],
-          end: [1, 1],
-        });
-
-        return new PostPublicationModel('mynewtitle', ['1', '2'], bgPost);
-      }
-    }
-  }
-
-  commentIsValid(): boolean {
-    if (this.commentInputValue.trim().length < 4) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-
-  // Check and Validate Comment
-  getCommentValue(commentInput: NgModel): boolean | string {
-    if (commentInput.value.trim().length < 4) {
-      return (this.commentInputError = true);
-    } else {
-      this.commentInputError = false;
-      return (this.commentInputValue = commentInput.value);
-    }
-  }
-
-  // If user want to add some hashtags
-  onPushHashtag(hashtagInput: NgModel): void {
-    if (hashtagInput.value.length < 4) {
-      return;
-    }
-    this.hashtagsLists.push(hashtagInput.value);
-    this.creationPost.hashtagInput = '';
   }
 
   // Read File (image)
