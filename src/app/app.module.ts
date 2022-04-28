@@ -33,6 +33,7 @@ import { SpaceTubeComponent } from './views/space-tube/space-tube.component';
 import { SpaceMessengerComponent } from './views/space-messenger/space-messenger.component';
 import { SpaceExplorerComponent } from './views/space-explorer/space-explorer.component';
 import { ComingSoonFullScreenComponent } from './core/component/coming-soon-full-screen/coming-soon-full-screen.component';
+import { FeedPublicationCardComponent } from './core/component/feed-publication-card/feed-publication-card.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { ComingSoonFullScreenComponent } from './core/component/coming-soon-full
     SpaceMessengerComponent,
     SpaceExplorerComponent,
     ComingSoonFullScreenComponent,
+    FeedPublicationCardComponent,
   ],
   imports: [
     RootStoreModule,

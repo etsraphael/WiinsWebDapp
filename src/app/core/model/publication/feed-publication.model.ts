@@ -18,8 +18,9 @@ export abstract class FeedPublicationModel {
 }
 
 export class PicturePublicationModel extends FeedPublicationModel {
-  constructor(public imgUrl: string) {
+  constructor(title: string, public imgUrl: string) {
     super('PicturePublication');
+    this.title = title
   }
 }
 
