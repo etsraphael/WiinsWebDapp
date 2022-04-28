@@ -23,64 +23,57 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Submit or Go Back -->
                     <div class="back-confirm-btn d-flex pe-1">
                         <i class="bi bi-check-circle me-3" (click)="onSubmit(commentInput,hashtagInput)"></i>
                         <i class="bi bi-arrow-left-circle" (click)="goBack()"></i>
                     </div>
                 </header>
-<!-- 
+
+
+                <!-- [Card Body (Switch Mode)] -->
                 <div [ngSwitch]="visualMode">
-                    <div *ngSwitchCase="'picture'">output</div>
-                    <div *ngSwitchCase="'video'">output2</div>
-                    <div *ngSwitchCase="'post'">output2</div>
-                </div> -->
-
-                <!-- [Written Post Choice] -->
-                <div class="col-6 written-post d-flex flex-column justify-content-center align-items-center"
-                
-                    [@onWrittenPost]="creationPost.defaultWrittenPost"
-                    *ngIf="creationPost.creationMode !== 'picturePost'"
-                    [style.backgroundImage]="creationPost.bgrdWrittenPost">
-                    <!-- Select Written Post -->
-                    <i class="bi bi-pencil-square" (click)="onSelectPublicationType('post')" *ngIf="creationPost.commentInput === ''"></i>
-                    <p class="text-center text-white">{{creationPost.commentInput}}</p>
-                    <div class="choice-color row col-5 justify-content-between mt-2"
-                        *ngIf="creationPost.creationMode === 'writtenPost'">
-                        <!-- Background Written Post -->
-
-
-                        
-
-                        <!-- <span *ngFor="let bg of backgroundPostList" 
-                            (click)="changebackground(bg)"
-                            [ngClass]="generatedBgPost(bg)"
-                             class="blockBox">
-                        </span> -->
-
-
-                        <span (click)="changebackground(creationPost.choice1)" class="blockBox choice1"></span>
-                        <span (click)="changebackground(creationPost.choice2)" class="blockBox choice2"></span>
-                        <span (click)="changebackground(creationPost.choice3)" class="blockBox choice3"></span>
-                        <span (click)="changebackground(creationPost.choice4)" class="blockBox choice4"></span>
-                        <span (click)="changebackground(creationPost.choice5)" class="blockBox choice5"></span>
-                        <span (click)="changebackground(creationPost.choice6)" class="blockBox choice6"></span>
+                    <!-- [Written Post Choice] -->
+                    <div class="col-6 written-post d-flex flex-column justify-content-center align-items-center"
+                        [@onWrittenPost]="creationPost.defaultWrittenPost"
+                        *ngIf="creationPost.visualMode !== 'picturePost'"
+                        [style.backgroundImage]="creationPost.bgrdWrittenPost">
+                        <i class="bi bi-pencil-square" (click)="onSelectPublicationType('post')"
+                            *ngIf="creationPost.commentInput === ''"></i>
+                        <!-- Selected Written Post -->
+                        <div *ngSwitchCase="'post'">
+                            <p class="text-center text-white">{{creationPost.commentInput}}</p>
+                            <div class="choice-color row col-5 justify-content-between mt-2"
+                                *ngIf="creationPost.visualMode === 'writtenPost'">
+                                <!-- Background Written Post -->
+                                <span *ngFor="let bg of backgroundPostList" (click)="onChangebackground('bg')"
+                                    class="blockBox choice1">
+                                </span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-
-                <!-- [Picture Post Choice] -->
-                <div class="col-6 picture-post d-flex justify-content-center align-items-center"
-                    [@onPicturePost]="creationPost.defaultPicturePost" (click)="onSelectPublicationType('picture')"
-                    *ngIf="creationPost.creationMode !== 'writtenPost'">
-                     <!-- Select Picture Post -->
-                    <div class="container-image-post" *ngIf="selectedImageFile">
-                        <img id="post-preview-image" class="w-100 h-100" src="#" alt="Image">
+                    <!-- [Picture Post Choice] -->
+                    <div class="col-6 picture-post d-flex justify-content-center align-items-center"
+                        [@onPicturePost]="creationPost.defaultPicturePost" (click)="onSelectPublicationType('picture')"
+                        *ngIf="creationPost.visualMode !== 'writtenPost'">
+                        <!-- Upload Picture Post -->
+                        <label for="photo_upload">
+                            <i class="bi bi-image"></i>
+                        </label>
+                        <!-- Selected Picture Post -->
+                        <div *ngSwitchCase="'picture'">
+                            <div class="container-image-post" *ngIf="selectedImageFile">
+                                <img id="post-preview-image" class="w-100 h-100" src="#" alt="Image">
+                            </div>
+                            <input #photoSelector (change)="onPhotoSelected(photoSelector)" id="photo_upload"
+                                type="file" accept="image/*" *ngIf="creationPost.visualMode === 'picturePost'">
+                        </div>
                     </div>
-                     <!-- Background Picture Post -->
-                    <input #photoSelector (change)="onPhotoSelected(photoSelector)" id="photo_upload" type="file"
-                        accept="image/*" *ngIf="creationPost.creationMode === 'picturePost'">
-                    <label for="photo_upload">
-                        <i class="bi bi-image"></i>
-                    </label>
+                    <!-- Video Post Choice -->
+                    <div *ngSwitchCase="'video'">
+
+                    </div>
+
                 </div>
 
                 <!-- [Card Footer] -->
@@ -93,12 +86,13 @@
                                 <input ngModel [(ngModel)]="creationPost.commentInput" #commentInput="ngModel"
                                     name="commentInput" autofocus="false" autocomplete="off" minlength="4"
                                     maxlength="250" required class="w-100" type="text" placeholder="Your comment"
-                                    [ngClass]="{'invalid-field': commentInput.errors?.['required'] && commentInputError === true}">
-                                <span class="text-danger" *ngIf="commentInput.errors?.['required'] && commentInputError === true ||
-                                commentInput.errors?.['minlength'] && commentInputError === true">
+                                    [ngClass]="{'invalid-field': commentInput.errors?.['required'] && commenInputError === true}">
+                                <span class="text-danger"
+                                    *ngIf="commentInput.errors?.['required'] && commenInputError === true">
                                     Please add your comment here (4 chars minimum)</span>
                             </div>
-                            <div class="user-to-hashtags d-flex align-items-center" (click)="onHashtag()">
+                            <div class="user-to-hashtags d-flex align-items-center"
+                                (click)="onSelectPublicationFields('hashtag')">
                                 <p class="m-0 me-2">Hashtags</p>
                                 <i class="bi bi-hash d-flex justify-content-center align-items-center"></i>
                             </div>
@@ -106,14 +100,13 @@
                         <!-- Display Hashtags Lists so that the user can see what he has put -->
                         <div class="col-md-11 my-auto container-list-hastag">
                             <div class="mx-0 container-scroll">
-                                <div class="mx-3 oneHastag btn" *ngFor="let item of hashtagsLists">
+                                <div class="mx-3 oneHastag btn" *ngFor="let item of hashtagsListsValues">
                                     <a>
                                         <span>#{{item}}</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
-
                         <!-- Hashtags Input -->
                         <div class="container-hashtag w-100 d-flex justify-content-between align-items-end px-3"
                             [@onHashtagToComment]="creationPost.defaultHashtagToComment">
@@ -121,14 +114,15 @@
                                 <input ngModel [(ngModel)]="creationPost.hashtagInput" #hashtagInput="ngModel"
                                     name="hashtagInput" autocomplete="off" minlength="4" maxlength="20" class="w-100"
                                     type="text" placeholder="Your hashtags"
-                                    (keydown.enter)="onPushHashtag(hashtagInput)"
-                                    [ngClass]="{'invalid-field': hashtagsLists.includes(hashtagInput.value)}">
-                                <i class="bi bi-check pe-5" (click)="onPushHashtag(hashtagInput)" [ngClass]="{'text-success': !hashtagInput.errors?.['minlength'] && hashtagInput.value?.length !== 0, 
-                                'text-danger': hashtagsLists.includes(hashtagInput.value)}"></i>
-                                <!-- <span class="text-danger" *ngIf="hashtagsLists.includes(hashtagInput.value)">
+                                    (keydown.enter)="hashtagsIsValid(hashtagInput)"
+                                    [ngClass]="{'invalid-field': hashtagsListsValues.includes(hashtagInput.value)}">
+                                <i class="bi bi-check pe-5" (click)="hashtagsIsValid(hashtagInput)" [ngClass]="{'text-success': !hashtagInput.errors?.['minlength'] && hashtagInput.value?.length !== 0, 
+                                'text-danger': hashtagsListsValues.includes(hashtagInput.value)}"></i>
+                                <!-- <span class="text-danger" *ngIf="hashtagsListsValues.includes(hashtagInput.value)">
                                 This hashtag is already used</span> -->
                             </div>
-                            <div class="user-to-comment d-flex align-items-center" (click)="onComment()">
+                            <div class="user-to-comment d-flex align-items-center"
+                                (click)="onSelectPublicationFields('comment')">
                                 <p class="m-0 me-2">Comment</p>
                                 <i class="bi bi-info-lg d-flex justify-content-center align-items-center"></i>
                             </div>
