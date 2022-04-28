@@ -2,16 +2,16 @@ import { Injectable } from "@angular/core";
 
 @Injectable({ providedIn: 'root' })
 export class spaceStoryCreationPostService {
-    // Animation Post
+    // Animation Selected Post (Picture / Post / Video)
     defaultWrittenPost: string = 'defaultWrittenPost';
     defaultPicturePost: string = 'defaultPicturePost';
 
-    // Animation Input Post
+    // Animation Input Post (To Hashtag / To Comment)
     defaultCommentToHashtag: string = 'defaultCommentToHashtag';
     defaultHashtagToComment: string = 'defaultHashtagToComment';
 
-    // Creation mode & Input field
-    creationMode: string = '';
+    // Visual Mode & Input field
+    visualMode: string = '';
     commentInput: string = '';
     hashtagInput: string = '';
 
@@ -32,7 +32,7 @@ export class spaceStoryCreationPostService {
     selectedWrittenPost(): void {
         this.defaultWrittenPost = 'selectedWrittenPost';
         setTimeout(() => {
-            this.creationMode = 'writtenPost';
+            this.visualMode = 'writtenPost';
             this.defaultWrittenPost = 'isCompletingWrittenPost';
             this.bgrdWrittenPost = this.choice1;
         }, 400);
@@ -42,28 +42,28 @@ export class spaceStoryCreationPostService {
     selectedPicturePost(): void {
         this.defaultPicturePost = 'selectedPicturePost';
         setTimeout(() => {
-            this.creationMode = 'picturePost';
+            this.visualMode = 'picturePost';
             this.defaultPicturePost = 'isCompletingPicturePost';
         }, 400);
     }
 
     // If user want to go Back
     return(): void {
-        if (this.creationMode.includes('writtenPost')) {
+        if (this.visualMode.includes('writtenPost')) {
             this.defaultWrittenPost = 'goBack';
             this.commentInput = '';
             this.hashtagInput = '';
             setTimeout(() => {
-                this.creationMode = '';
+                this.visualMode = '';
                 this.defaultWrittenPost = 'defaultWrittenPost'
             }, 300);
         }
-        if (this.creationMode.includes('picturePost')) {
+        if (this.visualMode.includes('picturePost')) {
             this.defaultPicturePost = 'goBack';
             this.commentInput = '';
             this.hashtagInput = '';
             setTimeout(() => {
-                this.creationMode = '';
+                this.visualMode = '';
                 this.defaultPicturePost = 'defaultPicturePost'
             }, 300);
         }
@@ -84,7 +84,7 @@ export class spaceStoryCreationPostService {
     toDefault(): void {
         this.defaultWrittenPost = 'defaultWrittenPost';
         this.defaultPicturePost = 'defaultPicturePost';
-        this.creationMode = '';
+        this.visualMode = '';
         this.commentInput = '';
         this.defaultCommentToHashtag = 'defaultCommentToHashtag';
         this.defaultHashtagToComment = 'defaultHashtagToComment';
