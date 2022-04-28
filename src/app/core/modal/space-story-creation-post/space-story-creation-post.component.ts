@@ -11,6 +11,7 @@ import {
   VideoPublicationModel,
 } from '../../model/publication/feed-publication.model';
 import { spaceStoryCreationPostService } from '../../service/angular-animation-service/feed-creation-card-animation/animation.service';
+import { SnackBarService } from '../../service/snackbar/snackbar.service';
 import { FeedPublicationStoreActions, RootStoreState } from '../../store';
 
 @Component({
@@ -40,6 +41,7 @@ export class SpaceStoryCreationPostComponent implements OnInit {
 
   constructor(
     public creationPost: spaceStoryCreationPostService,
+    private snackbarService: SnackBarService,
     private dialog: MatDialogRef<SpaceStoryCreationPostComponent>,
     private store$: Store<RootStoreState.State>
   ) { }
@@ -117,18 +119,16 @@ export class SpaceStoryCreationPostComponent implements OnInit {
 
     // Check the Errors
     if (!this.commentIsValid) {
-      console.log('Comment field is invalid');
+      this.snackbarService.openSnackBar('Comment field is invalid')
     }
     if (!this.publicationMaker()) {
-      console.log('An error has occurred');
+      this.snackbarService.openSnackBar('An error has occurred, Try again')
       return;
     }
 
     // Build the publication
     const myNewFb = this.publicationMaker();
-    this.store$.dispatch(
-      new FeedPublicationStoreActions.AddFeedPublication(myNewFb)
-    )
+    this.store$.dispatch(new FeedPublicationStoreActions.AddFeedPublication(myNewFb));
     this.dialog.close();
   }
 
