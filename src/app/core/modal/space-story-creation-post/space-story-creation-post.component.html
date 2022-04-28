@@ -45,7 +45,7 @@
                             <p class="text-center text-white">{{creationPost.commentInput}}</p>
                             <div class="choice-color row col-5 justify-content-between mt-2"
                                 *ngIf="creationPost.visualMode === 'writtenPost'">
-                                <!-- Background Written Post -->
+                                <!-- Background Written Post (Must be re-worked) -->
                                 <span *ngFor="let bg of backgroundPostList" (click)="onChangebackground('bg')"
                                     class="blockBox choice1">
                                 </span>
@@ -69,7 +69,7 @@
                                 type="file" accept="image/*" *ngIf="creationPost.visualMode === 'picturePost'">
                         </div>
                     </div>
-                    <!-- Video Post Choice -->
+                    <!-- Video Post Choice (Coming Soon) -->
                     <div *ngSwitchCase="'video'">
 
                     </div>
