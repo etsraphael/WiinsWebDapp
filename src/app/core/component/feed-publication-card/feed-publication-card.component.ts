@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PicturePublicationModel, PostPublicationModel, VideoPublicationModel } from '../../model/publication/feed-publication.model';
+import { BackgroundPostModel, PicturePublicationModel, PostPublicationModel, VideoPublicationModel } from '../../model/publication/feed-publication.model';
 
 @Component({
   selector: 'app-feed-publication-card',
@@ -13,5 +13,12 @@ export class FeedPublicationCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {  }
+
+
+  generateBackground(value: BackgroundPostModel): string {
+
+
+    return 'linear-gradient(135deg, #D92E2E 10%, #6C1B1B 100%)'
+  }
 
 }

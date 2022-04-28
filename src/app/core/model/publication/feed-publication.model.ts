@@ -18,28 +18,37 @@ export abstract class FeedPublicationModel {
 }
 
 export class PicturePublicationModel extends FeedPublicationModel {
-  constructor(title: string, public imgUrl: string) {
+  constructor(title: string, hastags: string[], public imgUrl: string) {
     super('PicturePublication');
     this.title = title
+    this.hastags = hastags
   }
 }
 
 export class PostPublicationModel extends FeedPublicationModel {
-  constructor(public background: backgroundPostModel) {
+  constructor(title: string, hastags: string[], public background: BackgroundPostModel) {
     super('PostPublication');
+    this.title = title
+    this.hastags = hastags
   }
 }
 
 export class VideoPublicationModel extends FeedPublicationModel {
-  constructor(public posterUrl: string, public videoUrl: string) {
+  constructor(title: string, hastags: string[], public posterUrl: string, public videoUrl: string) {
     super('VideoPublication');
+    this.title = title
+    this.hastags = hastags
   }
 }
 
-export class backgroundPostModel {
+export class BackgroundPostModel {
   colors: string[];
   orientations: {
-    x: number[];
-    y: number[];
+    start: number[]; 
+    end: number[]; 
   };
+  constructor(colors: string[], orientations: {start: number[], end: number[]}) {
+    this.colors = colors;
+    this.orientations = orientations;
+  }
 }

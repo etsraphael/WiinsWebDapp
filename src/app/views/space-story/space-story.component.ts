@@ -66,8 +66,8 @@ export class SpaceStoryComponent implements OnInit {
           background: {
             colors: ['#f5f5f5', '#f5f5f5'],
             orientations: {
-              x: [0, 0],
-              y: [0, 0],
+              start: [0, 0],
+              end: [0, 0],
             },
           },
         },
@@ -95,8 +95,8 @@ export class SpaceStoryComponent implements OnInit {
           background: {
             colors: ['#f5f5f5', '#f5f5f5'],
             orientations: {
-              x: [0, 0],
-              y: [0, 0],
+              start: [0, 0],
+              end: [0, 0],
             },
           },
         },
