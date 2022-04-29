@@ -115,9 +115,12 @@ export class SpaceStoryCreationPostComponent implements OnInit {
     this.hashtagsListsValues = hashtagInput.value;
 
     // Check the Errors
-    if (!this.commentIsValid) {
+    if (!this.commentIsValid()) {
       this.snackbarService.openSnackBar('Comment field is invalid')
     }
+
+
+
     if (!this.publicationMaker()) {
       this.snackbarService.openSnackBar('An error has occurred, Try again')
       return;
