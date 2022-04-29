@@ -54,64 +54,37 @@
                     }
                 }
 
-                .choice1 {
+                .blockBox {
                     width: 20px;
                     height: 20px;
-                    background: linear-gradient(135deg, #1BB7E9 10%, #2B418D 100%);
                     border-radius: 5px;
                     transition: all .3s;
                     outline: 1px solid transparent;
                     cursor: pointer;
                 }
 
-                .choice2 {
-                    width: 20px;
-                    height: 20px;
+                .bg1-feed-publication {
+                    background: linear-gradient(135deg, #1BB7E9 10%, #2B418D 100%);
+                }
+
+                .bg2-feed-publication {
                     background: linear-gradient(135deg, #5CC928 0%, #157155 100%);
-                    border-radius: 5px;
-                    transition: all .3s;
-                    outline: 1px solid transparent;
-                    cursor: pointer;
                 }
 
                 .choice3 {
-                    width: 20px;
-                    height: 20px;
                     background: linear-gradient(135deg, #D92E2E 10%, #6C1B1B 100%);
-                    border-radius: 5px;
-                    transition: all .3s;
-                    outline: 1px solid transparent;
-                    cursor: pointer;
                 }
 
                 .choice4 {
-                    width: 20px;
-                    height: 20px;
                     background: linear-gradient(135deg, #E11FD9 5%, #761D72 100%);
-                    border-radius: 5px;
-                    transition: all .3s;
-                    outline: 1px solid transparent;
-                    cursor: pointer;
                 }
 
                 .choice5 {
-                    width: 20px;
-                    height: 20px;
                     background: linear-gradient(135deg, #FB8A06 10%, #844C0A 100%);
-                    border-radius: 5px;
-                    transition: all .3s;
-                    outline: 1px solid transparent;
-                    cursor: pointer;
                 }
 
                 .choice6 {
-                    width: 20px;
-                    height: 20px;
                     background: linear-gradient(135deg, #FBF10E 0%, #898400 100%);
-                    border-radius: 5px;
-                    transition: all .3s;
-                    outline: 1px solid transparent;
-                    cursor: pointer;
                 }
 
                 .choice1:hover,

@@ -11,6 +11,7 @@ import {
   VideoPublicationModel,
 } from '../../model/publication/feed-publication.model';
 import { spaceStoryCreationPostService } from '../../service/angular-animation-service/feed-creation-card-animation/animation.service';
+import { FeedPublicationMakerService } from '../../service/creation/feed-publication-maker/feed-publication-maker.service';
 import { SnackBarService } from '../../service/snackbar/snackbar.service';
 import { FeedPublicationStoreActions, RootStoreState } from '../../store';
 
@@ -29,6 +30,7 @@ export class SpaceStoryCreationPostComponent implements OnInit {
 
   visualMode: string; // Picture/ Video / Post
   backgroundPostList: BackgroundPostModel[] = linearBgPost;
+  bgSelected: BackgroundPostModel = linearBgPost[0];
 
   // Comment & Hahstags
   commentInputValue: string = '';
@@ -43,7 +45,8 @@ export class SpaceStoryCreationPostComponent implements OnInit {
     public creationPost: spaceStoryCreationPostService,
     private snackbarService: SnackBarService,
     private dialog: MatDialogRef<SpaceStoryCreationPostComponent>,
-    private store$: Store<RootStoreState.State>
+    private store$: Store<RootStoreState.State>,
+    public feedPublicationMakerService: FeedPublicationMakerService
   ) { }
 
   ngOnInit(): void { }
@@ -53,15 +56,9 @@ export class SpaceStoryCreationPostComponent implements OnInit {
     this.visualMode = value;
 
     switch (value) {
-      case 'picture': {
-        return this.creationPost.selectedPicturePost();
-      }
-      case 'post': {
-        return this.creationPost.selectedWrittenPost();
-      }
-      case 'video': {
-        return;
-      }
+      case 'picture': return this.creationPost.selectedPicturePost();
+      case 'post': return this.creationPost.selectedWrittenPost();
+      case 'video': return null!;
     }
   };
 
@@ -78,8 +75,8 @@ export class SpaceStoryCreationPostComponent implements OnInit {
   }
 
   // Change the color choice of the Background for Written Post
-  onChangebackground(bgrdChoice: string): void {
-    this.creationPost.bgrdWrittenPost = bgrdChoice;
+  onChangebackground(value: BackgroundPostModel): void {
+    this.bgSelected = value
   }
 
   // Build the Publication

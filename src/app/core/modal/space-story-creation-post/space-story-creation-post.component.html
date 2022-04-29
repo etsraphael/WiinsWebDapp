@@ -37,7 +37,7 @@
                     <div class="col-6 written-post d-flex flex-column justify-content-center align-items-center"
                         [@onWrittenPost]="creationPost.defaultWrittenPost"
                         *ngIf="creationPost.visualMode !== 'picturePost'"
-                        [style.backgroundImage]="creationPost.bgrdWrittenPost">
+                        [style.backgroundImage]="feedPublicationMakerService.generateBackground(bgSelected)">
                         <i class="bi bi-pencil-square" (click)="onSelectPublicationType('post')"
                             *ngIf="creationPost.commentInput === ''"></i>
                         <!-- Selected Written Post -->
@@ -46,9 +46,13 @@
                             <div class="choice-color row col-5 justify-content-between mt-2"
                                 *ngIf="creationPost.visualMode === 'writtenPost'">
                                 <!-- Background Written Post (Must be re-worked) -->
-                                <span *ngFor="let bg of backgroundPostList" (click)="onChangebackground('bg')"
-                                    class="blockBox choice1">
+                                <span *ngFor="let bg of backgroundPostList" (click)="onChangebackground(bg)"
+                                    class="blockBox"
+                                    [ngStyle]="{'background': feedPublicationMakerService.generateBackground(bg)}">
+                                    
                                 </span>
+
+
                             </div>
                         </div>
                     </div>
