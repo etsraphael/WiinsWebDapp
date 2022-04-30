@@ -9,6 +9,10 @@ import { BackgroundPostModel } from '../model/publication/feed-publication.model
 */
 
 export const linearBgPost: BackgroundPostModel[] = [
+  new BackgroundPostModel(['#8E2DE2', '#4A00E0'], {
+    start: [1, 1],
+    end: [0, 0],
+  }),
   new BackgroundPostModel(['red', 'green'], {
     start: [0, 0],
     end: [1, 0],
@@ -17,10 +21,7 @@ export const linearBgPost: BackgroundPostModel[] = [
     start: [1, 0],
     end: [0, 1],
   }),
-  new BackgroundPostModel(['#8E2DE2', '#4A00E0'], {
-    start: [1, 1],
-    end: [0, 0],
-  }),
+
   // choice1 = 'linear-gradient(135deg, #1BB7E9 10%, #2B418D 100%)';
   //   choice2 = 'linear-gradient(135deg, #5CC928 0%, #157155 100%)';
   //   choice3 = 'linear-gradient(135deg, #D92E2E 10%, #6C1B1B 100%)';

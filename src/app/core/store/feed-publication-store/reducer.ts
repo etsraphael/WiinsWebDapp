@@ -9,7 +9,15 @@ export function featureReducer(
     case ActionTypes.ADD_FEED_PUBLICATION:
     case ActionTypes.LOAD_FEED_PUBLICATION:
     case ActionTypes.ADD_FEED_PUBLICATION_SUCCESS: {
-      return featureAdapter.addOne(action.payload, state);
+
+
+      // console.log(action.payload)
+
+
+      return { ...state }
+
+
+      // return featureAdapter.addOne(action.payload, state);
     }
     case ActionTypes.REMOVE_FEED_PUBLICATION_SUCCESS: {
       return featureAdapter.removeOne(action.payload._id, state);
@@ -69,6 +77,6 @@ export function featureReducer(
     case '@user/log_out' as any:
       return initialState;
     default:
-      return state;
+      return { ...state };
   }
 }

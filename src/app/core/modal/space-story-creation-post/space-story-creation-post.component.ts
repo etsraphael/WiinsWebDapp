@@ -28,7 +28,7 @@ export class SpaceStoryCreationPostComponent implements OnInit {
     | PostPublicationModel
     | VideoPublicationModel;
 
-  visualMode: string; // Picture/ Video / Post
+  visualMode: string = 'default'; // Picture/ Video / Post
   backgroundPostList: BackgroundPostModel[] = linearBgPost;
   bgSelected: BackgroundPostModel = linearBgPost[0];
 
@@ -65,12 +65,8 @@ export class SpaceStoryCreationPostComponent implements OnInit {
   // If user want to add Comment/Hashtag, display some animation (click again => go to Comment)
   onSelectPublicationFields(value: string): void {
     switch (value) {
-      case 'comment': {
-        return this.creationPost.toComment();
-      }
-      case 'hashtag': {
-        return this.creationPost.toHashtag();
-      }
+      case 'comment': return this.creationPost.toComment();
+      case 'hashtag': return this.creationPost.toHashtag();
     }
   }
 
@@ -128,8 +124,15 @@ export class SpaceStoryCreationPostComponent implements OnInit {
 
     // Build the publication
     const myNewFb = this.publicationMaker();
-    this.store$.dispatch(new FeedPublicationStoreActions.AddFeedPublication(myNewFb));
-    this.dialog.close();
+
+
+
+    // this.store$.dispatch(new FeedPublicationStoreActions.AddFeedPublication(myNewFb));
+
+
+
+
+    // this.dialog.close();
   }
 
   // Check The Errors
@@ -157,6 +160,10 @@ export class SpaceStoryCreationPostComponent implements OnInit {
     this.creationPost.return();
     this.hashtagsListsValues = [];
     this.creationPost.bgrdWrittenPost = this.creationPost.defaultChoice;
+  }
+
+  resetPublication(): void {
+    this.visualMode = 'default';
   }
 
   // Read File (image)
