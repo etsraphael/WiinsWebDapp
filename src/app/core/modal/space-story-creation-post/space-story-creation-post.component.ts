@@ -166,6 +166,5 @@ export class SpaceStoryCreationPostComponent implements OnInit {
 
 
   onCurrentWritting(event: any): void{
-    console.log(event)
   }
 }
