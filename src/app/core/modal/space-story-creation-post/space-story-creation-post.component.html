@@ -134,14 +134,30 @@
         <div class="col-6 written-post d-flex flex-column justify-content-center align-items-center"
           [@onWrittenPost]="visualMode"
           [style.backgroundImage]="feedPublicationMakerService.generateBackground(bgSelected)">
-          <div [hidden]="visualMode == 'picture'">
+
+          <div *ngIf="visualMode == 'default'">
             <i class="bi bi-pencil-square text-light" (click)="onSelectPublicationType('post')"></i>
           </div>
+
+
+          <div *ngIf="visualMode == 'post'" class="container">
+            <div class="row mx-0">
+              <textarea placeholder="Write your next post" class="form-control text-light textarea-post" rows="3"></textarea>
+            </div>
+            <div class="row d-flex justify-content-center">
+              <span
+              class="blockBox m-2"
+               *ngFor="let bg of backgroundPostList" (click)="onChangebackground(bg)"
+                [ngStyle]="{'background': feedPublicationMakerService.generateBackground(bg)}"></span>
+            </div>
+          </div>
+
+
         </div>
         <!-- [Picture Post Choice] -->
         <div class="container-picture-choice col-6 picture-post d-flex justify-content-center align-items-center"
           [@onPicturePost]="visualMode" (click)="onSelectPublicationType('picture')">
-          <div [hidden]="visualMode == 'post'">
+          <div *ngIf="visualMode == 'default'">
             <label for="photo_upload">
               <i class="bi bi-image text-light"></i>
             </label>

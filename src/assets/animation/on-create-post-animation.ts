@@ -6,14 +6,14 @@ export const SpaceStoryCreatePostAnimation = [
       'default',
       style({
         width: '50%',
-        transition: 'all 0.5s',
+        transition: 'all 0.3s',
       })
     ),
     state(
       'post',
       style({
         width: '100%',
-        transition: 'all 0.5s',
+        transition: 'all 0.3s',
       })
     ),
     state(
@@ -21,7 +21,7 @@ export const SpaceStoryCreatePostAnimation = [
       style({
         padding: 0,
         width: '0%',
-        transition: 'all 0.5s',
+        transition: 'all 0.3s',
       })
     ),
   ]),
@@ -30,7 +30,7 @@ export const SpaceStoryCreatePostAnimation = [
       'default',
       style({
         width: '50%',
-        transition: 'all 0.5s',
+        transition: 'all 0.3s',
       })
     ),
     state(
@@ -38,14 +38,14 @@ export const SpaceStoryCreatePostAnimation = [
       style({
         padding: 0,
         width: '0%',
-        transition: 'all 0.5s',
+        transition: 'all 0.3s',
       })
     ),
     state(
       'picture',
       style({
         width: '100%',
-        transition: 'all 0.5s',
+        transition: 'all 0.3s',
       })
     ),
   ]),
