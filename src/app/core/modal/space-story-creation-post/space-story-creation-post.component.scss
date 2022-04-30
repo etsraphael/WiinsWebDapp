@@ -376,6 +376,11 @@
 }
 
 .textarea-post::placeholder {
-    color: #b8b8b8;
-    font-size: 1.2rem;
+  color: #b8b8b8;
+  font-size: 1.2rem;
+}
+
+.hastag-container {
+  border-radius: 8px;
+  background-color: #dfdfdf59;
 }

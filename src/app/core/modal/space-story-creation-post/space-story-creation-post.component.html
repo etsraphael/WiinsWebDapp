@@ -142,7 +142,21 @@
 
           <div *ngIf="visualMode == 'post'" class="container">
             <div class="row mx-0">
-              <textarea placeholder="Write your next post" class="form-control text-light textarea-post" rows="3"></textarea>
+              <textarea hidden placeholder="Write your next post" class="form-control text-light textarea-post" rows="3"></textarea>
+
+              <div contenteditable="true" class="form-control text-light textarea-post">
+
+                <span> adfklskd fsdlkf sdflks jdfl</span>
+
+                <span class="hastag-container px-2 py-1 mx-1">#MyHastag1</span>
+                <span class="hastag-container px-2 py-1 mx-1">#MyHastag2</span>
+
+                <span> adfklskd fsdlkf sdflks jdfl</span>
+
+              </div>
+
+              
+
             </div>
             <div class="row d-flex justify-content-center">
               <span
