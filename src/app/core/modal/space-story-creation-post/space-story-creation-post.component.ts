@@ -163,4 +163,9 @@ export class SpaceStoryCreationPostComponent implements OnInit {
       this.selectedImage = readableString;
     });
   }
+
+
+  onCurrentWritting(event: any): void{
+    console.log(event)
+  }
 }

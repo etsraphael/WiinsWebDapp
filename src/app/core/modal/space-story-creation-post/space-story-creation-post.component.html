@@ -142,7 +142,11 @@
 
           <div *ngIf="visualMode == 'post'" class="container">
             <div class="row mx-0">
-              <app-publication-text [placeholder]="'Write your next post..'"></app-publication-text>
+              <app-publication-text 
+                [placeholder]="'Write your next post..'"
+                (currentText)="onCurrentWritting($event)"
+              >
+              </app-publication-text>
             </div>
             <div class="row d-flex justify-content-center my-2">
               <span class="blockBox m-2" *ngFor="let bg of backgroundPostList" (click)="onChangebackground(bg)"
