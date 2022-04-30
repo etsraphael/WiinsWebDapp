@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { SpaceStoryCreatePostAnimation } from '../../../../assets/animation/on-create-post-animation';
 import { linearBgPost } from '../../data/linear-background-post-list';
@@ -10,7 +9,6 @@ import {
   PostPublicationModel,
   VideoPublicationModel,
 } from '../../model/publication/feed-publication.model';
-import { spaceStoryCreationPostService } from '../../service/angular-animation-service/feed-creation-card-animation/animation.service';
 import { FeedPublicationMakerService } from '../../service/creation/feed-publication-maker/feed-publication-maker.service';
 import { SnackBarService } from '../../service/snackbar/snackbar.service';
 import { FeedPublicationStoreActions, RootStoreState } from '../../store';
@@ -42,9 +40,7 @@ export class SpaceStoryCreationPostComponent implements OnInit {
   selectedImage: string;
 
   constructor(
-    public creationPost: spaceStoryCreationPostService,
     private snackbarService: SnackBarService,
-    private dialog: MatDialogRef<SpaceStoryCreationPostComponent>,
     private store$: Store<RootStoreState.State>,
     public feedPublicationMakerService: FeedPublicationMakerService
   ) { }
@@ -54,21 +50,15 @@ export class SpaceStoryCreationPostComponent implements OnInit {
   // Select Type of Publication depending of the value
   onSelectPublicationType(value: string): void {
     this.visualMode = value;
-
-    switch (value) {
-      case 'picture': return this.creationPost.selectedPicturePost();
-      case 'post': return this.creationPost.selectedWrittenPost();
-      case 'video': return null!;
-    }
   };
 
   // If user want to add Comment/Hashtag, display some animation (click again => go to Comment)
-  onSelectPublicationFields(value: string): void {
-    switch (value) {
-      case 'comment': return this.creationPost.toComment();
-      case 'hashtag': return this.creationPost.toHashtag();
-    }
-  }
+  // onSelectPublicationFields(value: string): void {
+  //   switch (value) {
+  //     case 'comment': return this.creationPost.toComment();
+  //     case 'hashtag': return this.creationPost.toHashtag();
+  //   }
+  // }
 
   // Change the color choice of the Background for Written Post
   onChangebackground(value: BackgroundPostModel): void {
@@ -152,14 +142,6 @@ export class SpaceStoryCreationPostComponent implements OnInit {
       return;
     }
     this.hashtagsListsValues.push(hashtagInput.value);
-    this.creationPost.hashtagInput = '';
-  }
-
-  // If user want to go Back resets all animations
-  goBack(): void {
-    this.creationPost.return();
-    this.hashtagsListsValues = [];
-    this.creationPost.bgrdWrittenPost = this.creationPost.defaultChoice;
   }
 
   resetPublication(): void {
