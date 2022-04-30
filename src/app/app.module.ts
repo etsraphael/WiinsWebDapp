@@ -35,6 +35,7 @@ import { SpaceMessengerComponent } from './views/space-messenger/space-messenger
 import { SpaceExplorerComponent } from './views/space-explorer/space-explorer.component';
 import { ComingSoonFullScreenComponent } from './core/component/coming-soon-full-screen/coming-soon-full-screen.component';
 import { FeedPublicationCardComponent } from './core/component/feed-publication-card/feed-publication-card.component';
+import { PublicationTextComponent } from './core/component/publication-text/publication-text.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { FeedPublicationCardComponent } from './core/component/feed-publication-
     SpaceExplorerComponent,
     ComingSoonFullScreenComponent,
     FeedPublicationCardComponent,
+    PublicationTextComponent,
   ],
   imports: [
     RootStoreModule,
