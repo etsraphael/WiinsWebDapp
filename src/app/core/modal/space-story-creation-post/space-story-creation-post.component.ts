@@ -43,14 +43,14 @@ export class SpaceStoryCreationPostComponent implements OnInit {
     private snackbarService: SnackBarService,
     private store$: Store<RootStoreState.State>,
     public feedPublicationMakerService: FeedPublicationMakerService
-  ) { }
+  ) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   // Select Type of Publication depending of the value
   onSelectPublicationType(value: string): void {
     this.visualMode = value;
-  };
+  }
 
   // If user want to add Comment/Hashtag, display some animation (click again => go to Comment)
   // onSelectPublicationFields(value: string): void {
@@ -62,7 +62,7 @@ export class SpaceStoryCreationPostComponent implements OnInit {
 
   // Change the color choice of the Background for Written Post
   onChangebackground(value: BackgroundPostModel): void {
-    this.bgSelected = value
+    this.bgSelected = value;
   }
 
   // Build the Publication
@@ -71,7 +71,6 @@ export class SpaceStoryCreationPostComponent implements OnInit {
     | PostPublicationModel
     | VideoPublicationModel
     | any {
-
     switch (this.visualMode) {
       case 'picture': {
         const title = this.commentInputValue;
@@ -102,25 +101,18 @@ export class SpaceStoryCreationPostComponent implements OnInit {
 
     // Check the Errors
     if (!this.commentIsValid()) {
-      this.snackbarService.openSnackBar('Comment field is invalid')
+      this.snackbarService.openSnackBar('Comment field is invalid');
     }
 
-
-
     if (!this.publicationMaker()) {
-      this.snackbarService.openSnackBar('An error has occurred, Try again')
+      this.snackbarService.openSnackBar('An error has occurred, Try again');
       return;
     }
 
     // Build the publication
     const myNewFb = this.publicationMaker();
 
-
-
     // this.store$.dispatch(new FeedPublicationStoreActions.AddFeedPublication(myNewFb));
-
-
-
 
     // this.dialog.close();
   }
@@ -164,7 +156,8 @@ export class SpaceStoryCreationPostComponent implements OnInit {
     });
   }
 
-
-  onCurrentWritting(event: any): void{
+  onSendText(event: any): void {
+    console.log('event');
+    console.log(event);
   }
 }

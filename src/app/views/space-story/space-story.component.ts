@@ -133,7 +133,5 @@ export class SpaceStoryComponent implements OnInit {
       select(FeedPublicationStoreSelectors.selectAllItems),
       filter((value) => !!value)
     );
-
-    this.feedPublication$.subscribe(console.log);
   }
 }
