@@ -157,7 +157,6 @@ export class SpaceStoryCreationPostComponent implements OnInit {
   }
 
   onSendText(event: any): void {
-    console.log('event');
-    console.log(event);
+    alert(event)
   }
 }
