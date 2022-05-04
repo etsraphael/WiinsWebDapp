@@ -172,6 +172,10 @@ export class SpaceStoryCreationPostComponent implements OnInit {
 			this.imgPreview = reader.result; 
 		}
   }
+
+  undoPicturePreview(): void {
+    this.imgPreview = null!
+  }
   
   onRemove(event) {
     console.log(event);

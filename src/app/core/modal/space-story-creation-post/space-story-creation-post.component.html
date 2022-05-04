@@ -156,7 +156,8 @@
             <label class="d-flex justify-content-center" *ngIf="visualMode == 'default'" for="photo_upload">
               <i class="bi bi-image text-light"></i>
             </label>
-            <ngx-dropzone class="w-100 dz-container" *ngIf="(visualMode == 'picture') && !imgPreview" (change)="onSelect($event)">
+            <ngx-dropzone class="w-100 dz-container" *ngIf="(visualMode == 'picture') && !imgPreview"
+              (change)="onSelect($event)">
               <ngx-dropzone-label>
                 <button class="btn text-light upload-btn">
                   <i class="bi bi-box-arrow-in-down mx-2"></i>
@@ -167,7 +168,13 @@
 
 
             <div *ngIf="(visualMode == 'picture') && !!imgPreview">
-            <img class="img-preview" [src]="imgPreview" alt="img_preview">
+
+              <div (click)="undoPicturePreview()" class="container-btn-undo p-2 d-flex justify-content-center align-items-center">
+                <i class="bi bi-x-lg text-light" ></i>
+              </div>
+
+
+              <img class="img-preview" [src]="imgPreview" alt="img_preview">
             </div>
 
 

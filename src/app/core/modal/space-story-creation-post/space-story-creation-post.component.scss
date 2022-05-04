@@ -380,3 +380,18 @@
   width: 100%;
   object-fit: contain;
 }
+
+.container-btn-undo {
+  position: absolute;
+  left: 2rem;
+  top: 2rem;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  background-color: #888888;
+  cursor: pointer;
+}
+
+.container-btn-undo:hover {
+  background-color: #a4a4a4;
+}
