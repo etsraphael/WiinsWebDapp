@@ -10,7 +10,7 @@ export class FeedPublicationService {
 
   onCreatePublication(): MatDialogRef<SpaceStoryCreationPostComponent> {
     return this.dialog.open(SpaceStoryCreationPostComponent, {
-      panelClass: ['col-5', 'p-0'],
+      panelClass: ['col-3', 'p-0'],
     });
   }
 }

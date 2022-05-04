@@ -150,29 +150,28 @@
           </div>
         </div>
         <!-- [Picture Post Choice] -->
-        <div class="container-picture-choice col-6 picture-post d-flex justify-content-center align-items-center"
+        <div class="container-picture-choice px-0 col-6 picture-post d-flex justify-content-center align-items-center"
           [@onPicturePost]="visualMode" (click)="onSelectPublicationType('picture')">
-          <div class="w-100">
+          <div class="w-100" [ngClass]="{'px-3': !imgPreview}">
             <label class="d-flex justify-content-center" *ngIf="visualMode == 'default'" for="photo_upload">
               <i class="bi bi-image text-light"></i>
             </label>
-            <ngx-dropzone class="w-100 dz-container" *ngIf="visualMode == 'picture'" (change)="onSelect($event)">
-
-
+            <ngx-dropzone class="w-100 dz-container" *ngIf="(visualMode == 'picture') && !imgPreview" (change)="onSelect($event)">
               <ngx-dropzone-label>
                 <button class="btn text-light upload-btn">
                   <i class="bi bi-box-arrow-in-down mx-2"></i>
                   <span class="align-middle">Upload or drop here</span>
-                  
                 </button>
               </ngx-dropzone-label>
-
-
-
-              <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
-                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
-              </ngx-dropzone-preview>
             </ngx-dropzone>
+
+
+            <div *ngIf="(visualMode == 'picture') && !!imgPreview">
+            <img class="img-preview" [src]="imgPreview" alt="img_preview">
+            </div>
+
+
+
           </div>
         </div>
       </div>

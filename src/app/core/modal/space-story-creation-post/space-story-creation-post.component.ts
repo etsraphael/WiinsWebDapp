@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { Store } from '@ngrx/store';
+import { NgxDropzoneChangeEvent } from 'ngx-dropzone';
 import { SpaceStoryCreatePostAnimation } from '../../../../assets/animation/on-create-post-animation';
 import { linearBgPost } from '../../data/linear-background-post-list';
 import {
@@ -39,6 +40,7 @@ export class SpaceStoryCreationPostComponent implements OnInit {
   selectedImageFile: File;
   selectedImage: string;
   files: File[] = [];
+  imgPreview: string | ArrayBuffer;
 
   constructor(
     private snackbarService: SnackBarService,
@@ -142,29 +144,33 @@ export class SpaceStoryCreationPostComponent implements OnInit {
   }
 
   // Read File (image)
-  onPhotoSelected(photoSelector: HTMLInputElement): void {
-    this.selectedImageFile = photoSelector.files[0];
-    if (!this.selectedImageFile) return;
-    let fileReader = new FileReader();
-    fileReader.readAsDataURL(this.selectedImageFile);
-    fileReader.addEventListener('loadend', (ev) => {
-      let readableString = fileReader.result.toString();
-      let postPreviewImage = <HTMLImageElement>(
-        document.getElementById('post-preview-image')
-      );
-      postPreviewImage.src = readableString;
-      this.selectedImage = readableString;
-    });
-  }
+  // onPhotoSelected(photoSelector: HTMLInputElement): void {
+  //   this.selectedImageFile = photoSelector.files[0];
+  //   if (!this.selectedImageFile) return;
+  //   let fileReader = new FileReader();
+  //   fileReader.readAsDataURL(this.selectedImageFile);
+  //   fileReader.addEventListener('loadend', (ev) => {
+  //     let readableString = fileReader.result.toString();
+  //     let postPreviewImage = <HTMLImageElement>(
+  //       document.getElementById('post-preview-image')
+  //     );
+  //     postPreviewImage.src = readableString;
+  //     this.selectedImage = readableString;
+  //   });
+  // }
 
   onSendText(event: any): void {
     alert(event)
   }
 
 
-  onSelect(event) {
-    console.log(event);
+  onSelect(event: NgxDropzoneChangeEvent) {
     this.files.push(...event.addedFiles);
+		var reader = new FileReader();
+		reader.readAsDataURL(event.addedFiles[0]);
+		reader.onload = (_event) => {
+			this.imgPreview = reader.result; 
+		}
   }
   
   onRemove(event) {
