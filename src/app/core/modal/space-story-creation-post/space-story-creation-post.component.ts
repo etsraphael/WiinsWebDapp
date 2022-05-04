@@ -38,6 +38,7 @@ export class SpaceStoryCreationPostComponent implements OnInit {
   // Picture & File
   selectedImageFile: File;
   selectedImage: string;
+  files: File[] = [];
 
   constructor(
     private snackbarService: SnackBarService,
@@ -158,5 +159,16 @@ export class SpaceStoryCreationPostComponent implements OnInit {
 
   onSendText(event: any): void {
     alert(event)
+  }
+
+
+  onSelect(event) {
+    console.log(event);
+    this.files.push(...event.addedFiles);
+  }
+  
+  onRemove(event) {
+    console.log(event);
+    this.files.splice(this.files.indexOf(event), 1);
   }
 }

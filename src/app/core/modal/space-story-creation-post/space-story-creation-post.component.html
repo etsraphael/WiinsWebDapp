@@ -138,8 +138,6 @@
           <div *ngIf="visualMode == 'default'">
             <i class="bi bi-pencil-square text-light" (click)="onSelectPublicationType('post')"></i>
           </div>
-
-
           <div *ngIf="visualMode == 'post'" class="container">
             <div class="row mx-0">
               <app-publication-text [placeholder]="'Write your next post..'" (onSendText)="onSendText($event)">
@@ -150,16 +148,31 @@
                 [ngStyle]="{'background': feedPublicationMakerService.generateBackground(bg)}"></span>
             </div>
           </div>
-
-
         </div>
         <!-- [Picture Post Choice] -->
         <div class="container-picture-choice col-6 picture-post d-flex justify-content-center align-items-center"
           [@onPicturePost]="visualMode" (click)="onSelectPublicationType('picture')">
-          <div *ngIf="visualMode == 'default'">
-            <label for="photo_upload">
+          <div class="w-100">
+            <label class="d-flex justify-content-center" *ngIf="visualMode == 'default'" for="photo_upload">
               <i class="bi bi-image text-light"></i>
             </label>
+            <ngx-dropzone class="w-100 dz-container" *ngIf="visualMode == 'picture'" (change)="onSelect($event)">
+
+
+              <ngx-dropzone-label>
+                <button class="btn text-light upload-btn">
+                  <i class="bi bi-box-arrow-in-down mx-2"></i>
+                  <span class="align-middle">Upload or drop here</span>
+                  
+                </button>
+              </ngx-dropzone-label>
+
+
+
+              <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+              </ngx-dropzone-preview>
+            </ngx-dropzone>
           </div>
         </div>
       </div>

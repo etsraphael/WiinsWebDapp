@@ -36,6 +36,7 @@ import { SpaceExplorerComponent } from './views/space-explorer/space-explorer.co
 import { ComingSoonFullScreenComponent } from './core/component/coming-soon-full-screen/coming-soon-full-screen.component';
 import { FeedPublicationCardComponent } from './core/component/feed-publication-card/feed-publication-card.component';
 import { PublicationTextComponent } from './core/component/publication-text/publication-text.component';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 @NgModule({
   declarations: [
@@ -83,6 +84,7 @@ import { PublicationTextComponent } from './core/component/publication-text/publ
     }),
     EffectsModule.forRoot([]),
     BrowserAnimationsModule,
+    NgxDropzoneModule
   ],
   providers: [],
   bootstrap: [AppComponent],
