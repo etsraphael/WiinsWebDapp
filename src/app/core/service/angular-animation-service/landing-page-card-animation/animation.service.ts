@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 
 @Injectable({ providedIn: 'root' })
-export class slideAnimationService {
+export class landingPageCardAnimationService {
 
     // Default State Landing Page
     defaultNewsDisc: string = 'previous';

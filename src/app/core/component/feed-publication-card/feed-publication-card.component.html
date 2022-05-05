@@ -1,0 +1,47 @@
+<div class="card masonry-items" *ngIf="!!feedPublication">
+    <!-- Card Header -->
+    <div class="card-header d-flex align-items-center col-12 p-3">
+      <div class="avatar-user col-2">
+        <img class="w-100 h-100" [src]="feedPublication.profile.avatar" alt="Avatar User">
+      </div>
+      <div class="pseudo-user col-8 ps-3">
+        <p class="pseudo m-0">{{feedPublication.profile.username}}</p>
+      </div>
+      <div class="setting col-2">
+        <i class="bi bi-three-dots"></i>
+      </div>
+    </div>
+    <div class="card-body">
+      <!-- Card Body (Written Post) -->
+    <div class="pt-0" [ngSwitch]="feedPublication.type">
+        <div *ngSwitchCase="'PicturePublication'">
+          <img class="w-100 h-100" [src]="feedPublication.imgUrl" alt="Image">
+        </div>
+        <div class="pt-0" *ngSwitchCase="'PostPublication'">
+          <div class="written-post w-100 d-flex justify-content-center align-items-center p-3"
+            [style.backgroundImage]="generateBackground(feedPublication.background)">
+            <p class="user-coms m-0 w-100 text-white text-center">{{feedPublication.title}}</p>
+          </div>
+        </div>
+        <div *ngSwitchCase="'VideoPublication'">output</div>
+      </div>
+    </div>
+    <!-- Card Footer -->
+    <div class="card-footer">
+      <div class="icon-list d-flex mb-2">
+        <div class="heart-icon me-3">
+          <i class="bi bi-heart-fill"></i>
+        </div>
+        <div class="comment-icon me-3">
+          <i class="bi bi-chat-fill"></i>
+        </div>
+        <div class="send-icon">
+          <i class="bi bi-send-fill"></i>
+        </div>
+      </div>
+      <div class="comment">
+        <p class="user-coms m-0" *ngIf="feedPublication.background !== 'PostPublication'">{{feedPublication.title}}</p>
+        <p class="date m-0">{{feedPublication.createdAt | date}}</p>
+      </div>
+    </div>
+  </div>

@@ -1,39 +1,137 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgxMasonryOptions } from 'ngx-masonry';
+import { select, Store } from '@ngrx/store';
+import { filter, Observable } from 'rxjs';
+import { PostModel } from 'src/app/core/model/post/post.model';
+import {
+  PicturePublicationModel,
+  PostPublicationModel,
+  VideoPublicationModel,
+} from 'src/app/core/model/publication/feed-publication.model';
+import {
+  FeedPublicationStoreActions,
+  FeedPublicationStoreSelectors,
+  RootStoreState,
+} from 'src/app/core/store';
 
 @Component({
   selector: 'app-space-story',
   templateUrl: './space-story.component.html',
-  styleUrls: ['./space-story.component.scss']
+  styleUrls: ['./space-story.component.scss'],
 })
 export class SpaceStoryComponent implements OnInit {
-  // Image & Limit => Must be deleted when we have all User Data
-  masonryImages = [];
-  limit = 15;
+  publicationPosts: PostModel[] = [];
 
-  constructor(public router: Router) { }
+  feedPublication$: Observable<
+    (
+      | PicturePublicationModel
+      | PostPublicationModel
+      | VideoPublicationModel
+      | any
+    )[]
+  >;
 
-  dummyPictures = [
-    [false, 'https://source.unsplash.com/433x649/?Uruguay'],
-    [false, 'https://source.unsplash.com/530x572/?Jamaica'],
-    [false, 'https://source.unsplash.com/531x430/?Kuwait'],
-    [false, 'https://source.unsplash.com/586x1073/?Bermuda'],
-    [false, 'https://source.unsplash.com/500x571/?Ecuador'],
-    [false, 'https://source.unsplash.com/518x813/?Romania'],
-    [false, 'https://source.unsplash.com/482x1079/?Libya'],
-    [false, 'https://source.unsplash.com/473x887/?Bolivia'],
-    [false, 'https://source.unsplash.com/405x1030/?Marshall Islands'],
-    [false, 'https://source.unsplash.com/450x777/?Croatia (Hrvatska)'],
-    [false, 'https://source.unsplash.com/528x978/?Cook Islands'],
-    [false, 'https://source.unsplash.com/521x686/?Solomon Islands'],
-    [false, 'https://source.unsplash.com/550x432/?Bosnia and Herzegovina'],
-    [false, 'https://source.unsplash.com/540x631/?Tanzania'],
-    [false, 'https://source.unsplash.com/594x443/?Chad']
-  ];
+  constructor(
+    public router: Router,
+    private store$: Store<RootStoreState.State>
+  ) {}
 
   ngOnInit(): void {
-    this.masonryImages = this.dummyPictures.slice(0, this.limit);
+    this.generateObservable();
+
+    // just for the test // to delete
+    this.store$.dispatch(
+      new FeedPublicationStoreActions.LoadFeedPublicationSuccess([
+        {
+          _id: 'wlkdfhweoifh2409f248hgfwoeur2489gh2rwg',
+          createdAt:
+            'Tue Apr 26 2022 20:09:38 GMT+1000 (Australian Eastern Standard Time)',
+          updatedAt:
+            'Tue Apr 26 2022 20:09:38 GMT+1000 (Australian Eastern Standard Time)',
+          like: {
+            likeNumber: 10,
+            likeId: 'sdlkfjsdlfsdjf;dslfjkdslfkjnds',
+            isLike: true,
+          },
+          profile: {
+            username: 'Nathanaël',
+            avatar:
+              'https://avatars2.githubusercontent.com/u/17098180?s=460&v=4',
+          },
+          profileTagged: [],
+          commentNumber: 15,
+          hastags: [],
+          title: "Hey what's up !",
+          type: 'PostPublication',
+          background: {
+            colors: ['#f5f5f5', '#f5f5f5'],
+            orientations: {
+              start: [0, 0],
+              end: [0, 0],
+            },
+          },
+        },
+        {
+          _id: 'wlkdfhweoifh2409f248hgfwoeur2489ghsgfdfsvs',
+          createdAt:
+            'Tue Apr 26 2022 20:09:38 GMT+1000 (Australian Eastern Standard Time)',
+          updatedAt:
+            'Tue Apr 26 2022 20:09:38 GMT+1000 (Australian Eastern Standard Time)',
+          like: {
+            likeNumber: 10,
+            likeId: 'sdlkfjsdlfsdjf;dslfjkdslfkjnds',
+            isLike: true,
+          },
+          profile: {
+            username: 'Rafael',
+            avatar:
+              'https://avatars2.githubusercontent.com/u/17098180?s=460&v=4',
+          },
+          profileTagged: [],
+          commentNumber: 15,
+          hastags: [],
+          title: 'What about the next step ?',
+          type: 'PostPublication',
+          background: {
+            colors: ['#f5f5f5', '#f5f5f5'],
+            orientations: {
+              start: [0, 0],
+              end: [0, 0],
+            },
+          },
+        },
+        {
+          _id: 'wlkdfhweoifh2409f248hgfwoeur2qweghsgfdfsvs',
+          createdAt:
+            'Tue Apr 26 2022 20:09:38 GMT+1000 (Australian Eastern Standard Time)',
+          updatedAt:
+            'Tue Apr 26 2022 20:09:38 GMT+1000 (Australian Eastern Standard Time)',
+          like: {
+            likeNumber: 10,
+            likeId: 'sdlkfjsdlfsdjf;dslfjkdslfkjnds',
+            isLike: true,
+          },
+          profile: {
+            username: 'Levine',
+            avatar:
+              'https://avatars2.githubusercontent.com/u/17098180?s=460&v=4',
+          },
+          profileTagged: [],
+          commentNumber: 15,
+          hastags: [],
+          title: 'What about the next step ?',
+          type: 'PicturePublication',
+          imgUrl:
+            'https://images.unsplash.com/photo-1650936375095-ae0b91899c16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80',
+        },
+      ])
+    );
   }
 
+  generateObservable(): void {
+    this.feedPublication$ = this.store$.pipe(
+      select(FeedPublicationStoreSelectors.selectAllItems),
+      filter((value) => !!value)
+    );
+  }
 }

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { SlidePhoneAnimation } from 'src/app/core/animation/on-boarding-animation/on-boarding.animation';
+import { SlidePhoneAnimation } from 'src/assets/animation/on-boarding.animation';
 import { githubPageDevs, wiinsweb } from 'src/app/core/data/github-page-devs';
 import { btnLandingPageInterface, landingPageNavData } from 'src/app/core/data/landing-page-nav';
 import { lgInterface, lgListData } from 'src/app/core/data/language-list';
 import { socialLists, socialMediaLists } from 'src/app/core/data/social-media-list';
+import { landingPageCardAnimationService } from 'src/app/core/service/angular-animation-service/landing-page-card-animation/animation.service';
 import { AuthService } from 'src/app/core/service/auth/auth.service';
-import { slideAnimationService } from 'src/app/core/service/slide-card-animation/animation.service';
-import { TraductionService } from 'src/app/core/service/translate/translate.service';
+import { TranslationService } from 'src/app/core/service/translate/translate.service';
 
 @Component({
   selector: 'app-on-boarding-main',
@@ -31,8 +31,8 @@ export class OnBoardingMainComponent implements OnInit {
 
   constructor(
     public authService: AuthService,
-    private translate: TraductionService,
-    public slideAnimation: slideAnimationService) { }
+    private translate: TranslationService,
+    public slideAnimation: landingPageCardAnimationService) { }
 
   ngOnInit(): void { }
 

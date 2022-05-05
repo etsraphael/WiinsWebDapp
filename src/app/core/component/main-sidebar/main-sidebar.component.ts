@@ -1,46 +1,36 @@
-import { Component, OnInit } from '@angular/core';
-import { sidebarAnimationService } from '../../service/slide-navbar-animation/animation.service';
-import { AuthService } from '../../service/auth/auth.service';
+import { Component } from '@angular/core';
+import { FeedPublicationService } from '../../service/publication/feed-publication/feed-publication.service';
 
 @Component({
   selector: 'app-main-sidebar',
   templateUrl: './main-sidebar.component.html',
   styleUrls: ['./main-sidebar.component.scss'],
 })
-export class MainSidebarComponent implements OnInit {
+export class MainSidebarComponent {
   sibarBtnDate: routeSideBarBtn[] = [
     {
       name: 'home',
       icon: '../../../../assets/img/sidebar-btn-home/home.png',
-      route: '/home',
+      route: './SpaceStory',
     },
     {
-      name: 'home',
+      name: 'messenger',
       icon: '../../../../assets/img/sidebar-btn-home/messenger.png',
-      route: '/home',
+      route: './SpaceMessenger',
     },
     {
-      name: 'home',
+      name: 'video',
       icon: '../../../../assets/img/sidebar-btn-home/tube.png',
-      route: '/home',
+      route: './SpaceTube',
     },
     {
-      name: 'home',
+      name: 'discover',
       icon: '../../../../assets/img/sidebar-btn-home/explorer.png',
-      route: '/home',
+      route: './SpaceExplorer',
     },
   ];
 
-  constructor(
-    private authService: AuthService,
-    public sidebarAnimation: sidebarAnimationService
-  ) {}
-
-  ngOnInit(): void {}
-
-  onLogOut(): void {
-    return this.authService.logout();
-  }
+  constructor(public feedPublicationService: FeedPublicationService) {}
 }
 
 interface routeSideBarBtn {

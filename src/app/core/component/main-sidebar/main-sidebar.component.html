@@ -4,9 +4,16 @@
     <!-- Main Icon -->
     <div class="menu my-auto">
       <ul class="menu-links d-flex d-md-block justify-content-evenly justify-content-md-none m-0 p-0">
-        <li class="d-flex justify-content-center py-4 px-0" *ngFor="let item of sibarBtnDate">
-          <a href="#">
-            <img class="btn-icon" [src]="item.icon">
+        <li class="row mx-0 py-3" *ngFor="let item of sibarBtnDate">
+          <div class="col-12 d-flex justify-content-center">
+            <a [routerLink]="item.route" class="container-icon p-1" routerLinkActive="icon-selected">
+              <img class="btn-icon" [src]="item.icon">
+            </a>
+          </div>
+        </li>
+        <li class="d-flex justify-content-center py-3 px-0">
+          <a (click)="feedPublicationService.onCreatePublication()" class="container-icon p-1">
+            <img class="btn-icon-add" src="../../../../assets/img/sidebar-btn-home/add-new-post.svg">
           </a>
         </li>
       </ul>

@@ -1,0 +1,178 @@
+<!-- Feed Publication Creation -->
+<!-- <div class="container-fluid" *ngIf="false">
+  <div class="row">
+    <div class="col-12 container-post p-3 d-flex">
+      <div class="col-12 container-selection-post w-100 h-100 d-flex">
+        <div class="w-100 d-flex justify-content-between header-container">
+          <div class="profile w-100 d-flex">
+            <div class="avatar me-3">
+              <img class="w-100 h-100"
+                src="https://images.unsplash.com/photo-1551184451-76b762941ad6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+                alt="Avatar">
+            </div>
+            <div class="info-profile">
+              <div class="username">
+                <p class="m-0">Ashley</p>
+              </div>
+              <div class="localisation">
+                <p class="m-0">No.Texas</p>
+              </div>
+            </div>
+          </div>
+          <div class="back-confirm-btn d-flex pe-1">
+            <i class="bi bi-check-circle me-3" (click)="onSubmit(commentInput,hashtagInput)"></i>
+            <i class="bi bi-arrow-left-circle" (click)="goBack()"></i>
+          </div>
+        </div>
+        <div [ngSwitch]="visualMode" class="position-relative body-container">
+          <div class="col-6 written-post d-flex flex-column justify-content-center align-items-center"
+            [@onWrittenPost]="visualMode" *ngIf="creationPost.visualMode !== 'picturePost'"
+            [style.backgroundImage]="feedPublicationMakerService.generateBackground(bgSelected)">
+            <i class="bi bi-pencil-square" (click)="onSelectPublicationType('post')"
+              *ngIf="creationPost.commentInput === ''"></i>
+            <div *ngSwitchCase="'post'">
+              <p class="text-center text-white">{{creationPost.commentInput}}</p>
+              <div class="choice-color row col-5 justify-content-between mt-2"
+                *ngIf="creationPost.visualMode === 'writtenPost'">
+                <span *ngFor="let bg of backgroundPostList" (click)="onChangebackground(bg)" class="blockBox"
+                  [ngStyle]="{'background': feedPublicationMakerService.generateBackground(bg)}">
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 picture-post d-flex justify-content-center align-items-center" [@onPicturePost]="visualMode"
+            (click)="onSelectPublicationType('picture')" *ngIf="creationPost.visualMode !== 'writtenPost'">
+            <label for="photo_upload">
+              <i class="bi bi-image"></i>
+            </label>
+            <div *ngSwitchCase="'picture'">
+              <div class="container-image-post" *ngIf="selectedImageFile">
+                <img id="post-preview-image" class="w-100 h-100" src="#" alt="Image">
+              </div>
+              <input #photoSelector (change)="onPhotoSelected(photoSelector)" id="photo_upload" type="file"
+                accept="image/*" *ngIf="creationPost.visualMode === 'picturePost'">
+            </div>
+          </div>
+          <div *ngSwitchCase="'video'">
+          </div>
+        </div>
+        <footer class="footer-card w-100">
+          <form class="w-100">
+            <div class="container-comment w-100 d-flex justify-content-between align-items-end px-3"
+              [@onCommentToHashtag]="creationPost.defaultCommentToHashtag">
+              <div class="user-comment w-100 pe-5">
+                <input ngModel [(ngModel)]="creationPost.commentInput" #commentInput="ngModel" name="commentInput"
+                  autofocus="false" autocomplete="off" minlength="4" maxlength="250" required class="w-100" type="text"
+                  placeholder="Your comment"
+                  [ngClass]="{'invalid-field': commentInput.errors?.['required'] && commenInputError === true}">
+                <span class="text-danger" *ngIf="commentInput.errors?.['required'] && commenInputError === true">
+                  Please add your comment here (4 chars minimum)</span>
+              </div>
+              <div class="user-to-hashtags d-flex align-items-center" (click)="onSelectPublicationFields('hashtag')">
+                <p class="m-0 me-2">Hashtags</p>
+                <i class="bi bi-hash d-flex justify-content-center align-items-center"></i>
+              </div>
+            </div>
+            <div class="col-md-11 my-auto container-list-hastag">
+              <div class="mx-0 container-scroll">
+                <div class="mx-3 oneHastag btn" *ngFor="let item of hashtagsListsValues">
+                  <a>
+                    <span>#{{item}}</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="container-hashtag w-100 d-flex justify-content-between align-items-end px-3"
+              [@onHashtagToComment]="creationPost.defaultHashtagToComment">
+              <div class="user-hashtags w-100 pe-5">
+                <input ngModel [(ngModel)]="creationPost.hashtagInput" #hashtagInput="ngModel" name="hashtagInput"
+                  autocomplete="off" minlength="4" maxlength="20" class="w-100" type="text" placeholder="Your hashtags"
+                  (keydown.enter)="hashtagsIsValid(hashtagInput)"
+                  [ngClass]="{'invalid-field': hashtagsListsValues.includes(hashtagInput.value)}">
+                <i class="bi bi-check pe-5" (click)="hashtagsIsValid(hashtagInput)" [ngClass]="{'text-success': !hashtagInput.errors?.['minlength'] && hashtagInput.value?.length !== 0, 
+                                'text-danger': hashtagsListsValues.includes(hashtagInput.value)}"></i>
+              </div>
+              <div class="user-to-comment d-flex align-items-center" (click)="onSelectPublicationFields('comment')">
+                <p class="m-0 me-2">Comment</p>
+                <i class="bi bi-info-lg d-flex justify-content-center align-items-center"></i>
+              </div>
+            </div>
+          </form>
+        </footer>
+
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="container-fluid py-2" *ngIf="!false">
+  <!-- Avatar and description -->
+  <div class="card-header">
+    <div class="row">
+      <div class="col-8 d-flex align-items-center">
+        <div class="avatar p-2">
+          <img class="w-100 h-100"
+            src="https://images.unsplash.com/photo-1551184451-76b762941ad6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+            alt="Avatar">
+        </div>
+        <div class="header-title">
+          <h3 class="mb-0">Username</h3>
+          <h5 class="mb-0">Now</h5>
+        </div>
+      </div>
+      <div class="col-4 container-btn-header d-flex align-items-center justify-content-end">
+        <i class="btn bi bi-check-circle text-success"></i>
+        <i class="btn bi bi-arrow-left-circle text-secondary" (click)="resetPublication()"></i>
+      </div>
+    </div>
+  </div>
+  <!-- Creation zone -->
+  <div class="card-body">
+    <div class="position-relative body-container">
+      <div class="row mx-0 choice-container">
+        <!-- [Written Post Choice] -->
+        <div class="col-6 written-post d-flex flex-column justify-content-center align-items-center"
+          [@onWrittenPost]="visualMode"
+          [style.backgroundImage]="feedPublicationMakerService.generateBackground(bgSelected)">
+          <div *ngIf="visualMode == 'default'">
+            <i class="bi bi-pencil-square text-light" (click)="onSelectPublicationType('post')"></i>
+          </div>
+          <div *ngIf="visualMode == 'post'" class="container">
+            <div class="row mx-0">
+              <app-publication-text [placeholder]="'Write your next post..'" (onSendText)="onSendText($event)">
+              </app-publication-text>
+            </div>
+            <div class="row d-flex justify-content-center my-2">
+              <span class="blockBox m-2" *ngFor="let bg of backgroundPostList" (click)="onChangebackground(bg)"
+                [ngStyle]="{'background': feedPublicationMakerService.generateBackground(bg)}"></span>
+            </div>
+          </div>
+        </div>
+        <!-- [Picture Post Choice] -->
+        <div class="container-picture-choice px-0 col-6 picture-post d-flex justify-content-center align-items-center"
+          [@onPicturePost]="visualMode" (click)="onSelectPublicationType('picture')">
+          <div class="w-100" [ngClass]="{'px-3': !imgPreview}">
+            <label class="d-flex justify-content-center" *ngIf="visualMode == 'default'" for="photo_upload">
+              <i class="bi bi-image text-light"></i>
+            </label>
+            <ngx-dropzone class="w-100 dz-container" *ngIf="(visualMode == 'picture') && !imgPreview"
+              (change)="onSelect($event)">
+              <ngx-dropzone-label>
+                <button class="btn text-light upload-btn">
+                  <i class="bi bi-box-arrow-in-down mx-2"></i>
+                  <span class="align-middle">Upload or drop here</span>
+                </button>
+              </ngx-dropzone-label>
+            </ngx-dropzone>
+            <div *ngIf="(visualMode == 'picture') && !!imgPreview">
+              <div (click)="undoPicturePreview()" class="container-btn-undo p-2 d-flex justify-content-center align-items-center">
+                <i class="bi bi-x-lg text-light" ></i>
+              </div>
+              <img class="img-preview" [src]="imgPreview" alt="img_preview">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
