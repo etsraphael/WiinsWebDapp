@@ -1,9 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { SlidePhoneAnimation } from 'src/assets/animation/on-boarding.animation';
 import { githubPageDevs, wiinsweb } from 'src/app/core/data/github-page-devs';
-import { btnLandingPageInterface, landingPageNavData } from 'src/app/core/data/landing-page-nav';
+import {
+  btnLandingPageInterface,
+  landingPageNavData,
+} from 'src/app/core/data/landing-page-nav';
 import { lgInterface, lgListData } from 'src/app/core/data/language-list';
-import { socialLists, socialMediaLists } from 'src/app/core/data/social-media-list';
+import {
+  socialLists,
+  socialMediaLists,
+} from 'src/app/core/data/social-media-list';
 import { landingPageCardAnimationService } from 'src/app/core/service/angular-animation-service/landing-page-card-animation/animation.service';
 import { AuthService } from 'src/app/core/service/auth/auth.service';
 import { TranslationService } from 'src/app/core/service/translate/translate.service';
@@ -12,9 +18,9 @@ import { TranslationService } from 'src/app/core/service/translate/translate.ser
   selector: 'app-on-boarding-main',
   templateUrl: './on-boarding-main.component.html',
   styleUrls: ['./on-boarding-main.component.scss'],
-  animations: [SlidePhoneAnimation]
+  animations: [SlidePhoneAnimation],
 })
-export class OnBoardingMainComponent implements OnInit {
+export class OnBoardingMainComponent {
   // Tab
   btnTabs: btnLandingPageInterface[] = landingPageNavData;
 
@@ -32,29 +38,32 @@ export class OnBoardingMainComponent implements OnInit {
   constructor(
     public authService: AuthService,
     private translate: TranslationService,
-    public slideAnimation: landingPageCardAnimationService) { }
-
-  ngOnInit(): void { }
+    public slideAnimation: landingPageCardAnimationService
+  ) {}
 
   goToGitHub(): Window | null {
     return window.open('https://github.com/etsraphael/WiinsWebDapp', '_blank');
   }
 
   goToGooglePlay(): Window | null {
-    return window.open('https://play.google.com/store/apps/details?id=com.wiins&hl=fr&gl=US', '_blank');
+    return window.open(
+      'https://play.google.com/store/apps/details?id=com.wiins&hl=fr&gl=US',
+      '_blank'
+    );
   }
 
   goToAppleStore(): Window | null {
-    // Nothing for Now
     return window.open('', '_blank');
   }
 
-  // Return a new Array => the default value of the lang do not apear on the dropdown
+  // Return the default value of the lang do not apear on the dropdown
   onOpenLang() {
     this.filteredLang = this.btnLanguages;
     const abbr = this.defaultLang;
-    const newFilteredLang = this.filteredLang.filter(x => !x.language.startsWith(abbr));
-    return this.filteredLang = newFilteredLang;
+    const newFilteredLang = this.filteredLang.filter(
+      (x) => !x.language.startsWith(abbr)
+    );
+    return (this.filteredLang = newFilteredLang);
   }
 
   // Change lang of the Page
@@ -82,5 +91,4 @@ export class OnBoardingMainComponent implements OnInit {
   onWiinsWeb(): Window | null {
     return window.open('https://github.com/etsraphael/WiinsWeb', '_blank');
   }
-
 }
