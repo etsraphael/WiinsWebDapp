@@ -134,7 +134,6 @@
         <div class="col-6 written-post d-flex flex-column justify-content-center align-items-center"
           [@onWrittenPost]="visualMode"
           [style.backgroundImage]="feedPublicationMakerService.generateBackground(bgSelected)">
-
           <div *ngIf="visualMode == 'default'">
             <i class="bi bi-pencil-square text-light" (click)="onSelectPublicationType('post')"></i>
           </div>
@@ -165,20 +164,12 @@
                 </button>
               </ngx-dropzone-label>
             </ngx-dropzone>
-
-
             <div *ngIf="(visualMode == 'picture') && !!imgPreview">
-
               <div (click)="undoPicturePreview()" class="container-btn-undo p-2 d-flex justify-content-center align-items-center">
                 <i class="bi bi-x-lg text-light" ></i>
               </div>
-
-
               <img class="img-preview" [src]="imgPreview" alt="img_preview">
             </div>
-
-
-
           </div>
         </div>
       </div>
