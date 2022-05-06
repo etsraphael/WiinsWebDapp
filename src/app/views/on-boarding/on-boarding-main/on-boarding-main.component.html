@@ -578,9 +578,9 @@
               <span class="display-3 text-light col-12 text-center text-lg-start">
                 <strong>{{ 'LANDING_PAGE.space-lets-build-future.title' | translate}}</strong>
               </span>
-              <p class="text-light col-12 py-3 mt-3 text-center text-lg-start">
-                {{'LANDING_PAGE.space-lets-build-future.text' |
-              translate}}</p>
+              <h2 class="text-light col-12 py-3 mt-3 text-center text-lg-start">
+                {{'LANDING_PAGE.space-lets-build-future.text' |  translate}}
+              </h2>
             </div>
             <!-- Button -->
             <div class="mt-3 text-center text-lg-start ms-lg-3">
@@ -607,8 +607,9 @@
               <span class="display-3 text-light col-12 text-center text-lg-start">
                 <strong>{{'LANDING_PAGE.space-imagine-early-access.title' | translate}}</strong>
               </span>
-              <p class="text-light col-12 py-3 mt-3 text-center text-lg-start">
-                {{'LANDING_PAGE.space-imagine-early-access.text' | translate}}</p>
+              <h2 class="text-light col-12 py-3 mt-3 text-center text-lg-start">
+                {{'LANDING_PAGE.space-imagine-early-access.text' | translate}}
+              </h2>
             </div>
             <!-- Button -->
             <div
@@ -629,6 +630,66 @@
           </div>
         </div>
       </div>
+
+      <!-- Section 3 -->
+      <div class="col-12 d-flex flex-column flex-lg-row justify-content-between margin-component" id="ecosystem">
+        <div class="col-12 col-lg-6 d-flex align-items-center" data-aos="fade-right">
+          <div class="container-fluid descript">
+            <!-- Description -->
+            <div class="row mx-0 mt-5 mt-lg-0">
+              <span class="display-3 text-light col-12 text-center text-lg-start">
+                <strong>{{'LANDING_PAGE.space-news-feed-disover.title' | translate}}</strong>
+              </span>
+              <p class="text-light col-12 py-3 mt-3 text-center text-lg-start">
+                {{'LANDING_PAGE.space-news-feed-disover.text' |
+                    translate}}</p>
+            </div>
+          </div>
+        </div>
+        <!-- Phone Image (animation) -->
+        <div class="container-img d-flex col-12 col-lg-6 carourel-container position-relative" data-aos="fade-left">
+
+
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor"
+            class="bi bi-arrow-left-circle" viewBox="0 0 16 16" (click)="slideAnimation.onPreviousNewsDisc()">
+            <path fill-rule="evenodd"
+              d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor"
+            class="bi bi-arrow-right-circle" viewBox="0 0 16 16" (click)="slideAnimation.onNextNewsDisc()"
+            [ngClass]="slideAnimation.defaultNewsDisc === 'next' ? 'color-inactive' : 'text-white'">
+            <path fill-rule="evenodd"
+              d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
+          </svg> -->
+
+          <div class="container-btn-back">
+            <i class="bi bi-arrow-left-circle"></i>
+          </div>
+
+          <div class="container-btn-next">
+            <i class="bi bi-arrow-right-circle"></i>
+          </div>
+
+
+
+
+
+          <!-- <div class="d-flex align-items-baseline" [@onNewsDiscState]="slideAnimation.defaultNewsDisc">
+            <div class="col-12 d-flex justify-content-center">
+              <img class="w-100 h-100" src="../../../../../assets/img/landing-page/news-feed.svg" alt="New's Feed"
+                [ngClass]="slideAnimation.defaultNewsDisc == 'next' ? 'phone-inactive' : 'phone-active'">
+            </div>
+            <div class="col-12 d-flex justify-content-center">
+              <img class="w-100 h-100" src="../../../../../assets/img/landing-page/news-feed.svg" alt="New's Feed"
+                [ngClass]="slideAnimation.defaultNewsDisc == 'previous' ? 'phone-inactive' : 'phone-active'">
+            </div>
+          </div> -->
+
+
+
+        </div>
+      </div>
+
 
 
 
