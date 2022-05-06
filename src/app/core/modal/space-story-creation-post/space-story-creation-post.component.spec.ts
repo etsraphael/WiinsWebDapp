@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { SpaceStoryCreationPostComponent } from './space-story-creation-post.component';
 
@@ -15,10 +16,13 @@ describe('SpaceStoryCreationPostComponent', () => {
       declarations: [SpaceStoryCreationPostComponent],
       imports: [
         BrowserAnimationsModule,
+        MatSnackBarModule,
         FormsModule,
         StoreModule.forRoot({})
       ],
-      providers: [{ provide: MatDialogRef, useValue: {} }],
+      providers: [
+        { provide: MatDialogRef, useValue: {} }
+      ],
     }).compileComponents();
   });
 
