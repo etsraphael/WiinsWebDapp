@@ -3,8 +3,7 @@
   // [Space- Navbar]
   nav {
     background: linear-gradient(90deg, #58aed2, #4a85d1, #8965c3);
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-      rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
     z-index: 999;
   }
 
@@ -479,12 +478,12 @@
 }
 
 
+// Core
 .bg-container {
   background: linear-gradient(90deg, #58aed2, #4a85d1, #8965c3);
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-  z-index: 999;
 }
 
+// NavBar 
 .container-nav-btn {
   button:not(:nth-last-of-type(1)) {
     margin-right: 2em;
@@ -523,3 +522,12 @@
   }
 }
 
+.navbar-container {
+  background: linear-gradient(90deg, #58aed2, #4a85d1, #8965c3);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  z-index: 999;
+}
+
+.container-body {
+  padding-top: 97px;
+}
