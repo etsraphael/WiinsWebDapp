@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { SlidePhoneAnimation } from 'src/assets/animation/on-boarding.animation';
 import { githubPageDevs, wiinsweb } from 'src/app/core/data/github-page-devs';
 import {
@@ -13,6 +13,7 @@ import {
 import { landingPageCardAnimationService } from 'src/app/core/service/angular-animation-service/landing-page-card-animation/animation.service';
 import { AuthService } from 'src/app/core/service/auth/auth.service';
 import { TranslationService } from 'src/app/core/service/translate/translate.service';
+import { CarouselComponent } from 'angular-responsive-carousel';
 
 @Component({
   selector: 'app-on-boarding-main',
@@ -34,6 +35,8 @@ export class OnBoardingMainComponent {
 
   // Social Lists (Contact)
   socialLists: socialLists[] = socialMediaLists;
+
+  @ViewChild('myCarousel', {static: false}) myCarousel: CarouselComponent;
 
   constructor(
     public authService: AuthService,
@@ -91,4 +94,17 @@ export class OnBoardingMainComponent {
   onWiinsWeb(): Window | null {
     return window.open('https://github.com/etsraphael/WiinsWeb', '_blank');
   }
+
+
+
+  next() {
+    this.myCarousel.next();
+    console.log(this.myCarousel)
+  }
+
+  previous() {
+    this.myCarousel.prev();
+    console.log(this.myCarousel)
+  }
+
 }

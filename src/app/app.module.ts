@@ -37,6 +37,7 @@ import { ComingSoonFullScreenComponent } from './core/component/coming-soon-full
 import { FeedPublicationCardComponent } from './core/component/feed-publication-card/feed-publication-card.component';
 import { PublicationTextComponent } from './core/component/publication-text/publication-text.component';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     HttpClientModule,
     NgxMasonryModule,
     MatSidenavModule,
+    IvyCarouselModule,
     MatIconModule,
     MatMenuModule,
     MatDialogModule,
