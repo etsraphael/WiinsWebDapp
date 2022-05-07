@@ -529,7 +529,7 @@
           <button class="btn btn-sm text-light" *ngFor="let item of btnTabs">
             <a href="#{{item.id}}"><span>{{item.title | translate}}</span></a>
           </button>
-          <button class="btn btn-sm mx-2 me-5 text-light" (click)="goToGitHub()">
+          <button class="btn btn-sm mx-2 me-5 text-light" (click)="goToOustideLink('https://github.com/etsraphael/WiinsWebDapp')">
             <span>Github</span>
             <div class="underline mx-auto"></div>
           </button>
@@ -614,10 +614,10 @@
             <!-- Button -->
             <div
               class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 text-center text-lg-start store-btn-contianer">
-              <button class="col-6 btn-lg btn-block btn-action" (click)="goToGooglePlay()">
+              <button class="col-6 btn-lg btn-block btn-action" (click)="goToOustideLink('https://play.google.com/store/apps/details?id=com.wiins&hl=fr&gl=US')">
                 <img src="../../../../../assets/img/landing-page/google-play.svg" alt="Google Play" class="w-100">
               </button>
-              <button class="col-6 btn-lg btn-block btn-action appStore">
+              <button class="col-6 btn-lg btn-block btn-action appStore" (click)="goToOustideLink('')">
                 <img src="../../../../../assets/img/landing-page/app-store.svg" alt="App Store" class="w-100">
               </button>
             </div>
@@ -632,7 +632,7 @@
       </div>
 
       <!-- Section 3 -->
-      <div class="col-12 d-flex flex-column flex-lg-row justify-content-between on-section-loop"
+      <div class="col-12 d-flex flex-column flex-lg-row justify-content-between on-section-loop" id="ecosystem"
         *ngFor="let item of dataSectionWithCarousel; let i = index">
         <div class="col-12 col-lg-6 d-flex align-items-center" data-aos="fade-right">
           <div class="container-fluid descript">

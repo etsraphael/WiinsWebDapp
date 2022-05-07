@@ -56,8 +56,12 @@ export class OnBoardingMainComponent {
     public slideAnimation: landingPageCardAnimationService
   ) {}
 
-  ngAfterViewChecked() {
+  ngAfterViewChecked(): void {
     this.changeDetector.detectChanges();
+  }
+
+  goToOustideLink(link: string): Window {
+    return window.open(link, '_blank');
   }
 
   goToGitHub(): Window | null {
@@ -74,6 +78,8 @@ export class OnBoardingMainComponent {
   goToAppleStore(): Window | null {
     return window.open('', '_blank');
   }
+
+
 
   // Return the default value of the lang do not apear on the dropdown
   onOpenLang() {
