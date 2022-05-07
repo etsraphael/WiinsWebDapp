@@ -1,10 +1,18 @@
-import { Component, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  QueryList,
+  ViewChild,
+  ViewChildren,
+} from '@angular/core';
 import { SlidePhoneAnimation } from 'src/assets/animation/on-boarding.animation';
 import { githubPageDevs, wiinsweb } from 'src/app/core/data/github-page-devs';
 import {
   btnLandingPageInterface,
+  dataSectionWithCarousel,
   landingPageNavData,
-} from 'src/app/core/data/landing-page-nav';
+  landingPageSectionWithCarousel,
+} from 'src/app/core/data/landing-page';
 import { lgInterface, lgListData } from 'src/app/core/data/language-list';
 import {
   socialLists,
@@ -36,15 +44,21 @@ export class OnBoardingMainComponent {
   // Social Lists (Contact)
   socialLists: socialLists[] = socialMediaLists;
 
-  // @ViewChild('myCarousel', {static: false}) myCarousel: CarouselComponent;
-
   @ViewChildren('myCarousel') myCarousel: QueryList<CarouselComponent>;
+
+  dataSectionWithCarousel: landingPageSectionWithCarousel[] =
+    dataSectionWithCarousel;
 
   constructor(
     public authService: AuthService,
     private translate: TranslationService,
+    private changeDetector: ChangeDetectorRef,
     public slideAnimation: landingPageCardAnimationService
   ) {}
+
+  ngAfterViewChecked() {
+    this.changeDetector.detectChanges();
+  }
 
   goToGitHub(): Window | null {
     return window.open('https://github.com/etsraphael/WiinsWebDapp', '_blank');
@@ -120,5 +134,36 @@ export class OnBoardingMainComponent {
 
     if (dir == 'next') return carouselRef.next();
     if (dir == 'prev') return carouselRef.prev();
+  }
+
+  getButtonState(dir: string, i: number): boolean {
+    if (!this.myCarousel) return false;
+
+    const carouselRef: CarouselComponent = this.myCarousel.filter(
+      (e, index) => index === i
+    )[0];
+
+    return false;
+  }
+
+  disableButton(dir: string, i: number): boolean {
+    if (!this.myCarousel) return false;
+
+    const carouselRef: CarouselComponent = this.myCarousel.filter(
+      (e, index) => index === i
+    )[0];
+
+    if (dir == 'prev' && carouselRef.slide.counter == 0) {
+      return true;
+    }
+
+    if (
+      dir == 'next' &&
+      carouselRef.cellLength == carouselRef.slide.counter + 1
+    ) {
+      return true;
+    }
+
+    return false;
   }
 }

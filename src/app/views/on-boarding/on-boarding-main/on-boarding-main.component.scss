@@ -548,6 +548,10 @@
     cursor: pointer;
   }
 
+  .bi-arrow-left-circle.disabled,  .bi-arrow-right-circle.disabled {
+    color: #ffffff0f;
+  }
+
   .bi-arrow-left-circle:hover,
   .bi-arrow-right-circle:hover {
     color: #ffffff9c;
@@ -568,4 +572,7 @@
     bottom: 0;
     right: 2rem;
   }
+
+
 }
+
