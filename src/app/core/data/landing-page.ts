@@ -53,6 +53,24 @@ export const dataSectionWithCarousel: landingPageSectionWithCarousel[] = [
   },
 ];
 
+export const coFounderData: coFounderInterface[] = [
+  {
+    name: 'Raphaël',
+    img: '../../../../../assets/img/landing-page/raphael.svg',
+    role: 'LANDING_PAGE.space-team.fullstack-developper'
+  },
+  {
+    name: 'Lévine',
+    img: '../../../../../assets/img/landing-page/levine.svg',
+    role: 'LANDING_PAGE.space-team.manager'
+  },
+  {
+    name: 'Nathanaël',
+    img: '../../../../../assets/img/landing-page/nathanael.svg',
+    role: 'LANDING_PAGE.space-team.front-end-developper'
+  }
+]
+
 export interface landingPageSectionWithCarousel {
   title: string;
   desc: string;
@@ -63,4 +81,10 @@ export interface btnLandingPageInterface {
   name: string;
   id: string;
   title: string;
+}
+
+export interface coFounderInterface {
+  name: string;
+  img: string;
+  role: string
 }
