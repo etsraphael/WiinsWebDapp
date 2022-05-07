@@ -548,19 +548,23 @@
     cursor: pointer;
   }
 
-  .bi-arrow-left-circle:hover, .bi-arrow-right-circle:hover {
+  .bi-arrow-left-circle:hover,
+  .bi-arrow-right-circle:hover {
     color: #ffffff9c;
   }
 
+  .container-btn-back,
+  .container-btn-next {
+    z-index: 20000;
+    position: absolute;
+  }
 
   .container-btn-back {
-    position: absolute;
     top: 0;
     left: 2rem;
   }
 
   .container-btn-next {
-    position: absolute;
     bottom: 0;
     right: 2rem;
   }

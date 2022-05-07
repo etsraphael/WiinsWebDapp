@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { SlidePhoneAnimation } from 'src/assets/animation/on-boarding.animation';
 import { githubPageDevs, wiinsweb } from 'src/app/core/data/github-page-devs';
 import {
@@ -36,7 +36,9 @@ export class OnBoardingMainComponent {
   // Social Lists (Contact)
   socialLists: socialLists[] = socialMediaLists;
 
-  @ViewChild('myCarousel', {static: false}) myCarousel: CarouselComponent;
+  // @ViewChild('myCarousel', {static: false}) myCarousel: CarouselComponent;
+
+  @ViewChildren('myCarousel') myCarousel: QueryList<CarouselComponent>;
 
   constructor(
     public authService: AuthService,
@@ -95,16 +97,28 @@ export class OnBoardingMainComponent {
     return window.open('https://github.com/etsraphael/WiinsWeb', '_blank');
   }
 
+  next(i: number) {
+    // this.myCarousel.next();
+    // console.log(this.myCarousel);
 
+    const carouselRef: CarouselComponent = this.myCarousel.filter(
+      (e, index) => index === i
+    )[0];
 
-  next() {
-    this.myCarousel.next();
-    console.log(this.myCarousel)
+    carouselRef.next();
   }
 
   previous() {
-    this.myCarousel.prev();
-    console.log(this.myCarousel)
+    // this.myCarousel.prev();
+    // console.log(this.myCarousel);
   }
 
+  slideAction(dir: string, i: number): void {
+    const carouselRef: CarouselComponent = this.myCarousel.filter(
+      (e, index) => index === i
+    )[0];
+
+    if (dir == 'next') return carouselRef.next();
+    if (dir == 'prev') return carouselRef.prev();
+  }
 }
