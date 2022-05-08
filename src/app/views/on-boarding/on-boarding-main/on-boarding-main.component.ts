@@ -12,6 +12,7 @@ import {
   coFounderData,
   coFounderInterface,
   dataSectionWithCarousel,
+  firstCommunityData,
   landingPageNavData,
   landingPageSectionWithCarousel,
 } from 'src/app/core/data/landing-page';
@@ -48,10 +49,11 @@ export class OnBoardingMainComponent {
 
   @ViewChildren('myCarousel') myCarousel: QueryList<CarouselComponent>;
 
+  // data
   dataSectionWithCarousel: landingPageSectionWithCarousel[] =
     dataSectionWithCarousel;
-
   coFounderList: coFounderInterface[] = coFounderData
+  firstCommunity: string[] = firstCommunityData
 
   constructor(
     public authService: AuthService,

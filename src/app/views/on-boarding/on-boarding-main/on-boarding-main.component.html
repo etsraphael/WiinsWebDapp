@@ -682,10 +682,13 @@
               <strong>{{'LANDING_PAGE.space-team.title' | translate}}</strong>
             </span>
             <!-- Collaborator -->
-            <p class="text-light col-12 py-3 mt-3 text-center text-lg-start">1st Wiin'ser : Richard R. Hakim D.
-              Méryline D.
-              Thierry T. Josh, Celine D. Tony...</p>
-            <!-- </div> -->
+            <p class="text-light col-12 mt-3 text-center text-lg-start">
+              <span *ngFor="let item of firstCommunity; let last=last">
+                <span class="h3">{{item}}</span>
+                <span *ngIf="!last">,&nbsp;</span>
+                <span *ngIf="last">...</span>
+              </span>
+            </p>
             <!-- Wiin's Team -->
             <div class="d-flex align-items-baseline">
               <img class="w-100" src="../../../../../assets/img/landing-page/team.svg" alt="Wiin's Team">

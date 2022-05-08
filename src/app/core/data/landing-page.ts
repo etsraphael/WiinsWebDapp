@@ -71,6 +71,16 @@ export const coFounderData: coFounderInterface[] = [
   }
 ]
 
+export const firstCommunityData: string[] = [
+  'Richard R.',
+  'Hakim D.',
+  'Méryline D.',
+  'Thierry T.',
+  'Josh',
+  'Celine D.',
+  'Tony'
+]
+
 export interface landingPageSectionWithCarousel {
   title: string;
   desc: string;
