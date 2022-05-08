@@ -770,7 +770,7 @@
 
               <h2 class="d-flex align-items-center container-link" *ngFor="let rl of repositoryList">
                 <i class="bi bi-dot"></i> 
-                <span>{{rl.desc}}</span>
+                <span (click)="goToOustideLink(rl.link)">{{rl.desc}}</span>
               </h2>
             </div>
 

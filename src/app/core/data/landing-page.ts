@@ -84,11 +84,11 @@ export const firstCommunityData: string[] = [
 export const repositoryLinkData: repositoryLinkInterface[] = [
   {
     desc: 'Web : Web3, Angular, NgrxStore, Bootstrap (OpenSource)',
-    link: ''
+    link: 'https://github.com/etsraphael/WiinsWebDapp'
   },
   {
     desc: 'App : Web3, React Native, Redux (OpenSource)',
-    link: ''
+    link: 'https://github.com/etsraphael/WiinsApp'
   }
 ]
 
