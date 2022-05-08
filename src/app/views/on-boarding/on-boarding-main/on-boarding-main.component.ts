@@ -9,6 +9,8 @@ import { SlidePhoneAnimation } from 'src/assets/animation/on-boarding.animation'
 import { githubPageDevs, wiinsweb } from 'src/app/core/data/github-page-devs';
 import {
   btnLandingPageInterface,
+  coFounderData,
+  coFounderInterface,
   dataSectionWithCarousel,
   landingPageNavData,
   landingPageSectionWithCarousel,
@@ -48,6 +50,8 @@ export class OnBoardingMainComponent {
 
   dataSectionWithCarousel: landingPageSectionWithCarousel[] =
     dataSectionWithCarousel;
+
+  coFounderList: coFounderInterface[] = coFounderData
 
   constructor(
     public authService: AuthService,

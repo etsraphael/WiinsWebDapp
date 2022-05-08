@@ -1,4 +1,4 @@
-<div class="toDelete" *ngIf="!false">
+<div class="toDelete" *ngIf="false">
   <div class="container-fluid bg-container p-0 overflow-hidden">
 
     <!-- Header -->
@@ -509,7 +509,7 @@
   </carousel>
 </div>
 
-<div class="w-100 h-100 bg-container" *ngIf="false">
+<div class="w-100 h-100 bg-container" *ngIf="!false">
   <div class="container-fluid bg-container p-0">
 
     <!-- Header -->
@@ -677,53 +677,33 @@
         <a class="anchor" id="team"></a>
         <div class="col-12 col-lg-6 d-lg-flex text-center" data-aos="fade-right">
           <div class="row descript mx-0 mt-5 mt-lg-0 text-lg-start">
-            <div>
-              <span class="display-3 text-light col-12 text-center text-lg-start">
-                <strong>{{'LANDING_PAGE.space-team.title' | translate}}</strong>
-              </span>
-              <!-- Collaborator -->
-              <p class="text-light col-12 py-3 mt-3 text-center text-lg-start">1st Wiin’ser : Richard R. Hakim D.
-                Méryline D.
-                Thierry T. Josh, Celine D. Tony...</p>
-            </div>
+            <!-- <div> -->
+            <span class="display-3 text-light col-12 text-center text-lg-start">
+              <strong>{{'LANDING_PAGE.space-team.title' | translate}}</strong>
+            </span>
+            <!-- Collaborator -->
+            <p class="text-light col-12 py-3 mt-3 text-center text-lg-start">1st Wiin'ser : Richard R. Hakim D.
+              Méryline D.
+              Thierry T. Josh, Celine D. Tony...</p>
+            <!-- </div> -->
             <!-- Wiin's Team -->
-            <div class="d-flex align-items-baseline align-items-lg-end mb-5 py-5">
+            <div class="d-flex align-items-baseline">
               <img class="w-100" src="../../../../../assets/img/landing-page/team.svg" alt="Wiin's Team">
             </div>
           </div>
         </div>
         <!-- Founder -->
-        <div class="container-img d-flex flex-column mt-5 col-12 col-lg-6 mb-lg-5 pb-lg-5" data-aos="fade-left">
-          <div class="ceo d-flex flex-column align-items-center text-center mb-5">
-            <div class="avatar">
-              <img src="../../../../../assets/img/landing-page/raphael.svg" alt="CEO">
+        <div class="container-img d-flex flex-column col-12 col-lg-6" data-aos="fade-left">
+          <div class="ceo d-flex flex-column align-items-center text-center my-2" *ngFor="let c of coFounderList">
+            <div class="avatar container-avatar-co-founder">
+              <img [src]="c.img">
             </div>
             <div class="info">
-              <h4>Raphaël</h4>
-              <p class="text-white">{{'LANDING_PAGE.space-team.main-founder' | translate}}<br />
-                {{'LANDING_PAGE.space-team.fullstack-developper' | translate}}</p>
-            </div>
-          </div>
-          <div class="manager d-flex flex-column align-items-center text-center mb-5">
-            <div class="avatar">
-              <img src="../../../../../assets/img/landing-page/levine.svg" alt="Manager">
-            </div>
-            <div class="info">
-              <h4>Lévine</h4>
-              <p class="text-white">
-                {{'LANDING_PAGE.space-team.founder' | translate}}<br />
-                {{'LANDING_PAGE.space-team.manager' | translate}}
+              <h4 class="mb-0 text-light">{{c.name}}</h4>
+              <p class="text-white">{{'LANDING_PAGE.space-team.main-founder' | translate}}
+                <br />
+                {{c.role| translate}}
               </p>
-            </div>
-          </div>
-          <div class="developper d-flex flex-column align-items-center text-center">
-            <div class="avatar">
-              <img src="../../../../../assets/img/landing-page/nathanael.svg" alt="Developper">
-            </div>
-            <div class="info">
-              <h4>Nathanaël</h4>
-              <p class="text-white"> {{'LANDING_PAGE.space-team.founder' | translate}}<br />
-                {{'LANDING_PAGE.space-team.front-end-developper' | translate}}</p>
             </div>
           </div>
         </div>

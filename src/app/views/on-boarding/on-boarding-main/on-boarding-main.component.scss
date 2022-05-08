@@ -548,7 +548,8 @@
     cursor: pointer;
   }
 
-  .bi-arrow-left-circle.disabled,  .bi-arrow-right-circle.disabled {
+  .bi-arrow-left-circle.disabled,
+  .bi-arrow-right-circle.disabled {
     color: #ffffff0f;
   }
 
@@ -573,10 +574,12 @@
     right: 2rem;
   }
 
-
 }
 
 .on-section-loop {
   padding: 6rem 0;
 }
 
+.container-avatar-co-founder img {
+  width: 6.5rem
+}
