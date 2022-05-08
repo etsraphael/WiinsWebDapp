@@ -525,6 +525,23 @@
   background: linear-gradient(90deg, #58aed2, #4a85d1, #8965c3);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   z-index: 40000;
+
+    // Menu Hamburger
+    .dropdown {
+
+      button {
+        background: transparent;
+        border: none;
+      }
+  
+      ul li a {
+        cursor: pointer;
+      }
+    }
+  
+    .dropdown-toggle::after {
+      display: none;
+    }
 }
 
 .container-body {
