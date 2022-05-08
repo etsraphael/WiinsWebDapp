@@ -15,6 +15,8 @@ import {
   firstCommunityData,
   landingPageNavData,
   landingPageSectionWithCarousel,
+  repositoryLinkData,
+  repositoryLinkInterface,
 } from 'src/app/core/data/landing-page';
 import { lgInterface, lgListData } from 'src/app/core/data/language-list';
 import {
@@ -54,6 +56,7 @@ export class OnBoardingMainComponent {
     dataSectionWithCarousel;
   coFounderList: coFounderInterface[] = coFounderData
   firstCommunity: string[] = firstCommunityData
+  repositoryList: repositoryLinkInterface[] = repositoryLinkData
 
   constructor(
     public authService: AuthService,

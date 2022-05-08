@@ -641,3 +641,18 @@
     z-index: 1;
   }
 }
+
+.container-papers-link {
+  .bi-dot {
+    font-size: 3rem
+  }
+
+  .container-link span {
+    cursor: pointer;
+  }
+
+  .container-link:hover span {
+    text-decoration: underline;
+    color: #d4d4ff;
+  }
+}

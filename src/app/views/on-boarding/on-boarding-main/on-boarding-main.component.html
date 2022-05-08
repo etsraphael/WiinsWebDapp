@@ -495,7 +495,6 @@
 
 </div>
 
-
 <div *ngIf="false">
   <button (click)="previous()">Back</button>
   <button (click)="next(0)">Next</button>
@@ -696,8 +695,9 @@
           </div>
         </div>
         <!-- Founder -->
-        <div class="container-img d-flex flex-column col-12 col-lg-6" data-aos="fade-left">
-          <div class="ceo d-flex flex-column align-items-center text-center my-2" *ngFor="let c of coFounderList">
+        <div class="container-img d-flex justify-content-center flex-lg-column col-12 col-lg-6 py-4 py-lg-0"
+          data-aos="fade-left">
+          <div class="ceo d-flex flex-column align-items-center text-center my-2 mx-4" *ngFor="let c of coFounderList">
             <div class="avatar container-avatar-co-founder">
               <img [src]="c.img">
             </div>
@@ -750,6 +750,45 @@
         </div>
       </div>
 
+
+      <!-- Section 9 -->
+      <div class="col-12 d-flex flex-column flex-lg-row justify-content-between container-papers-link">
+        <div class="col-12 col-lg-6 d-flex align-items-center" data-aos="fade-right">
+          <div class="container-fluid descript px-xl-0">
+            <!-- Description -->
+            <div class="row mx-0 mt-5 mt-lg-0">
+              <span class="display-3 text-light col-12 text-center text-lg-start">
+                <strong>{{'LANDING_PAGE.space-white-paper.title' | translate}}</strong>
+              </span>
+              <!-- <ul class="text-light col-12 py-3 mt-3 text-start">
+                <li>Web : Web3, Angular, NgrxStore, Bootstrap (OpenSource)</li>
+                <li>App : Web3, React Native, Redux (OpenSource)</li>
+                <li>Backend : ApisRest, NodeJs (Private)</li>
+              </ul> -->
+
+              <div class="text-light col-12 py-3 mt-3 text-start">
+
+              <h2 class="d-flex align-items-center container-link" *ngFor="let rl of repositoryList">
+                <i class="bi bi-dot"></i> 
+                <span>{{rl.desc}}</span>
+              </h2>
+            </div>
+
+
+
+            </div>
+          </div>
+        </div>
+        <!-- Phone Image -->
+        <div class="container-img d-flex col-12 col-lg-6" data-aos="fade-left">
+          <div class="d-flex align-items-baseline">
+            <div class="col-12 d-flex justify-content-center">
+              <img class="w-100 h-100" src="../../../../../assets/img/landing-page/internet-phone-element.svg"
+                alt="Internet Phone">
+            </div>
+          </div>
+        </div>
+      </div>
 
 
 

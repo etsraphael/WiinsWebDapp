@@ -81,6 +81,17 @@ export const firstCommunityData: string[] = [
   'Tony'
 ]
 
+export const repositoryLinkData: repositoryLinkInterface[] = [
+  {
+    desc: 'Web : Web3, Angular, NgrxStore, Bootstrap (OpenSource)',
+    link: ''
+  },
+  {
+    desc: 'App : Web3, React Native, Redux (OpenSource)',
+    link: ''
+  }
+]
+
 export interface landingPageSectionWithCarousel {
   title: string;
   desc: string;
@@ -97,4 +108,9 @@ export interface coFounderInterface {
   name: string;
   img: string;
   role: string
+}
+
+export interface repositoryLinkInterface {
+  desc: string;
+  link: string;
 }
