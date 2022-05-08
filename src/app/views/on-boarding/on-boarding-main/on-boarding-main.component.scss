@@ -790,7 +790,12 @@
     cursor: pointer;
   }
 
-  // ul li:not(:last-of-type) {
-  //   margin-right: 3em;
-  // }
+
+  @media screen and (max-width: 540px) {
+    li img {
+      width: 2rem;
+    }
+  }
+
+
 }
