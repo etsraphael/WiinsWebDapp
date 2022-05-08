@@ -765,3 +765,16 @@
     }
   }
 }
+
+.container-footer {
+  background-color: rgba(0, 0, 0, 0.1);
+
+  ul li {
+    list-style: none;
+    cursor: pointer;
+  }
+
+  ul li:not(:last-of-type) {
+    margin-right: 3em;
+  }
+}

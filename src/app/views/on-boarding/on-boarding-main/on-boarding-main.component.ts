@@ -47,7 +47,6 @@ export class OnBoardingMainComponent {
   pageDevs: wiinsweb[] = githubPageDevs;
 
   // Social Lists (Contact)
-  socialLists: socialLists[] = socialMediaLists;
 
   @ViewChildren('myCarousel') myCarousel: QueryList<CarouselComponent>;
 
@@ -57,6 +56,7 @@ export class OnBoardingMainComponent {
   coFounderList: coFounderInterface[] = coFounderData
   firstCommunity: string[] = firstCommunityData
   repositoryList: repositoryLinkInterface[] = repositoryLinkData
+  socialLists: socialLists[] = socialMediaLists;
 
   constructor(
     public authService: AuthService,

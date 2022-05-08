@@ -837,5 +837,14 @@
 
     </div>
 
+    <!-- Footer  -->
+    <div class="container-footer pt-3 w-100 my-5 d-flex justify-content-center" data-aos="fade-up">
+      <ul class="d-flex justify-content-center align-items-center h-100 p-0">
+        <li *ngFor="let social of socialLists" (click)="goToSocial(social.path)">
+          <img [src]="social.src" [alt]="social.name">
+        </li>
+      </ul>
+    </div>
+
   </div>
 </div>
