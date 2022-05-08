@@ -477,12 +477,6 @@
   }
 }
 
-
-// Core
-.bg-container {
-  background: linear-gradient(90deg, #58aed2, #4a85d1, #8965c3);
-}
-
 // NavBar 
 .container-nav-btn {
   button:not(:nth-last-of-type(1)) {
@@ -520,6 +514,11 @@
   .underline {
     display: none;
   }
+}
+
+// Core
+.bg-container {
+  background: linear-gradient(90deg, #58aed2, #4a85d1, #8965c3);
 }
 
 .navbar-container {

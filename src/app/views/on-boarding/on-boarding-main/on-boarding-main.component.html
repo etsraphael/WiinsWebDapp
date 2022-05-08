@@ -495,21 +495,8 @@
 
 </div>
 
-<div *ngIf="false">
-  <button (click)="previous()">Back</button>
-  <button (click)="next(0)">Next</button>
-  <carousel [cellsToShow]="1" [arrows]="false" #myCarousel>
-    <div class="carousel-cell">
-      <img src="../../../../../assets/img/landing-page/news-feed.svg" />
-    </div>
-    <div class="carousel-cell">
-      <img src="../../../../../assets/img/landing-page/news-feed.svg" />
-    </div>
-  </carousel>
-</div>
-
 <div class="w-100 h-100 bg-container" *ngIf="!false">
-  <div class="container-fluid bg-container p-0">
+  <div class="container-fluid bg-container p-0 overflow-hidden">
 
     <!-- Header -->
     <nav class="row p-2 align-items-center position-fixed w-100 m-0 navbar-container">
@@ -567,33 +554,35 @@
     </nav>
 
     <!-- Body -->
-    <div class="container container-body">
+    <div class="container">
 
       <!-- Section 1 -->
-      <div class="col-12 d-flex flex-column flex-lg-row build">
-        <div class="col-12 col-lg-6 d-flex align-items-center">
-          <div class="container-fluid descript">
-            <!-- Description -->
-            <div class="row mx-0 mt-5 mt-lg-0">
-              <span class="display-3 text-light col-12 text-center text-lg-start">
-                <strong>{{ 'LANDING_PAGE.space-lets-build-future.title' | translate}}</strong>
-              </span>
-              <h2 class="text-light col-12 py-3 mt-3 text-center text-lg-start">
-                {{'LANDING_PAGE.space-lets-build-future.text' |  translate}}
-              </h2>
-            </div>
-            <!-- Button -->
-            <div class="mt-3 text-center text-lg-start ms-lg-3">
-              <button class="btn btn-lg btn-block btn-primary btn-action-join-us px-5 border-0"
-                (click)="authService.login()">{{'LANDING_PAGE.space-lets-build-future.button-join-us' |
-              translate}}</button>
+      <div class="row w-100">
+        <div class="col-12 d-flex flex-column flex-lg-row build">
+          <div class="col-12 col-lg-6 d-flex align-items-center">
+            <div class="container-fluid descript">
+              <!-- Description -->
+              <div class="row mx-0 mt-5 mt-lg-0">
+                <span class="display-3 text-light col-12 text-center text-lg-start">
+                  <strong>{{ 'LANDING_PAGE.space-lets-build-future.title' | translate}}</strong>
+                </span>
+                <h2 class="text-light col-12 py-3 mt-3 text-center text-lg-start">
+                  {{'LANDING_PAGE.space-lets-build-future.text' |  translate}}
+                </h2>
+              </div>
+              <!-- Button -->
+              <div class="mt-3 text-center text-lg-start ms-lg-3">
+                <button class="btn btn-lg btn-block btn-primary btn-action-join-us px-5 border-0"
+                  (click)="authService.login()">{{'LANDING_PAGE.space-lets-build-future.button-join-us' |
+                translate}}</button>
+              </div>
             </div>
           </div>
-        </div>
-        <!-- Phone Image -->
-        <div class="col-12 col-lg-6">
-          <div class="justify-content-center align-items-center">
-            <img class="w-100 h-100" src="./../../../../../assets/img/landing-page/phone-element.svg" alt="Phone">
+          <!-- Phone Image -->
+          <div class="col-12 col-lg-6">
+            <div class="justify-content-center align-items-center">
+              <img class="w-100 h-100" src="./../../../../../assets/img/landing-page/phone-element.svg" alt="Phone">
+            </div>
           </div>
         </div>
       </div>
@@ -781,7 +770,7 @@
 
       <!-- Section 10 -->
       <div
-        class="col-12 d-flex flex-column flex-lg-row justify-content-between align-items-center container-contact-us on-section-loop"
+        class="col-12 d-flex flex-column justify-content-between align-items-center container-contact-us on-section-loop"
         id="contact">
         <!-- Text -->
         <div class="col-12 col-md-5 d-flex align-items-center" data-aos="fade-right">
@@ -798,7 +787,7 @@
         <div class="col-12 col-md-7" data-aos="fade-left">
           <!-- Cards -->
           <div class="row mx-0 mt-5 mt-lg-0 more-we-are">
-            <div class="d-flex flex-column flex-xl-row align-items-center justify-content-center">
+            <div class="d-flex align-items-center justify-content-center">
               <div class="discord-card">
                 <!-- Header -->
                 <header class="d-flex align-items-center justify-content-between px-2 w-100">
