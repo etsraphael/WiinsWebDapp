@@ -12,13 +12,12 @@ export class AuthService {
 
   async getAccountConnected(): Promise<string> {
     if (localStorage.getItem('accountConnected') === null) {
-      return null!;
+      return null;
     }
 
     return this.web3.eth
       .getAccounts()
-      .then((response: string[]) => response[0])
-      .catch(() => null!);
+      .then((response: string[]) => response[0]);
   }
 
   login(): void {
@@ -42,7 +41,7 @@ export class AuthService {
       .sign(
         `Please sign to let us verify that you are the owner of this address ${accountConnected}`,
         '0xb121E31149AC9E51cB159705e5a3F4b8E614B5E4',
-        null!
+        null
       )
       .then(
         (response: string) => {

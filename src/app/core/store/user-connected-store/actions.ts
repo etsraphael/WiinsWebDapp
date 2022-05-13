@@ -21,7 +21,7 @@ export class LogInUserSuccess implements Action {
 
 export class LogInUserFail implements Action {
   readonly type = ActionTypes.LOG_IN_USER_FAIL;
-  constructor(public payload: any) {}
+  constructor(public message: string) {}
 }
 
 export type ActionsUser = LogInUser | LogInUserSuccess | LogInUserFail;

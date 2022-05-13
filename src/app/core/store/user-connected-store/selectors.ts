@@ -6,13 +6,13 @@ import {
 import { UserModel } from '../../model/user/user.model';
 import { State } from './state';
 
-export const getUser = (state: State): UserModel => state.user!;
+export const getUser = (state: State): UserModel => state.user;
 
-export const getError = (state: State): any => state.error;
+export const getError = (state: State): string => state.error;
 
-export const getIsLoading = (state: State): boolean => state.isLoading!;
+export const getIsLoading = (state: State): boolean => state.isLoading;
 
-export const getMessage = (state: State): string => state.message!;
+export const getMessage = (state: State): string => state.message;
 
 export const selectState: MemoizedSelector<object, State> =
   createFeatureSelector<State>('userConnected');

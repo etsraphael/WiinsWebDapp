@@ -25,7 +25,7 @@ export const selectAllItems: (
   | VideoPublicationModel
 )[] = featureAdapter.getSelectors(selectState).selectAll;
 
-export const selectError: MemoizedSelector<object, any> = createSelector(
+export const selectError: MemoizedSelector<object, string> = createSelector(
   selectState,
   getError
 );

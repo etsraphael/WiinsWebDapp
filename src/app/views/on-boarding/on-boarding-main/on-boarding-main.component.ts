@@ -2,9 +2,9 @@ import {
   ChangeDetectorRef,
   Component,
   QueryList,
-  ViewChildren,
+  ViewChildren
 } from '@angular/core';
-import { SlidePhoneAnimation } from 'src/assets/animation/on-boarding.animation';
+import { CarouselComponent } from 'angular-responsive-carousel';
 import { githubPageDevs, wiinsweb } from 'src/app/core/data/github-page-devs';
 import {
   btnLandingPageInterface,
@@ -15,17 +15,17 @@ import {
   landingPageNavData,
   landingPageSectionWithCarousel,
   repositoryLinkData,
-  repositoryLinkInterface,
+  repositoryLinkInterface
 } from 'src/app/core/data/landing-page';
 import { lgInterface, lgListData } from 'src/app/core/data/language-list';
 import {
   socialLists,
-  socialMediaLists,
+  socialMediaLists
 } from 'src/app/core/data/social-media-list';
 import { landingPageCardAnimationService } from 'src/app/core/service/angular-animation-service/landing-page-card-animation/animation.service';
 import { AuthService } from 'src/app/core/service/auth/auth.service';
 import { TranslationService } from 'src/app/core/service/translate/translate.service';
-import { CarouselComponent } from 'angular-responsive-carousel';
+import { SlidePhoneAnimation } from 'src/assets/animation/on-boarding.animation';
 
 @Component({
   selector: 'app-on-boarding-main',
@@ -71,23 +71,23 @@ export class OnBoardingMainComponent {
     return window.open(link, '_blank');
   }
 
-  goToGitHub(): Window | null {
+  goToGitHub(): Window {
     return window.open('https://github.com/etsraphael/WiinsWebDapp', '_blank');
   }
 
-  goToGooglePlay(): Window | null {
+  goToGooglePlay(): Window {
     return window.open(
       'https://play.google.com/store/apps/details?id=com.wiins&hl=fr&gl=US',
       '_blank'
     );
   }
 
-  goToAppleStore(): Window | null {
+  goToAppleStore(): Window {
     return window.open('', '_blank');
   }
 
   // Return the default value of the lang do not apear on the dropdown
-  onOpenLang() {
+  onOpenLang(): lgInterface[] {
     this.filteredLang = this.btnLanguages;
     const abbr = this.defaultLang;
     const newFilteredLang = this.filteredLang.filter(
@@ -97,45 +97,29 @@ export class OnBoardingMainComponent {
   }
 
   // Change lang of the Page
-  onChangeLang(item: lgInterface) {
+  onChangeLang(item: lgInterface): void {
     this.defaultLang = item.abbr;
     this.translate.setNewLang(item.abbr.toLowerCase());
   }
 
   // To our Social Media
-  goToSocial(path: string): Window | null {
+  goToSocial(path: string): Window {
     return window.open(path, '_blank');
   }
 
   // To Github Page (Devs)
-  goToGitHubDev(path: string): Window | null {
+  goToGitHubDev(path: string): Window {
     return window.open(path, '_blank');
   }
 
   // To Wiin's Community
-  onJoinChat(): Window | null {
+  onJoinChat(): Window {
     return window.open('https://discord.gg/B6xUzqUp', '_blank');
   }
 
   // To Wiin's Web (Github)
-  onWiinsWeb(): Window | null {
+  onWiinsWeb(): Window {
     return window.open('https://github.com/etsraphael/WiinsWeb', '_blank');
-  }
-
-  next(i: number) {
-    // this.myCarousel.next();
-    // console.log(this.myCarousel);
-
-    const carouselRef: CarouselComponent = this.myCarousel.filter(
-      (e, index) => index === i
-    )[0];
-
-    carouselRef.next();
-  }
-
-  previous() {
-    // this.myCarousel.prev();
-    // console.log(this.myCarousel);
   }
 
   slideAction(dir: string, i: number): void {
@@ -145,16 +129,6 @@ export class OnBoardingMainComponent {
 
     if (dir == 'next') return carouselRef.next();
     if (dir == 'prev') return carouselRef.prev();
-  }
-
-  getButtonState(dir: string, i: number): boolean {
-    if (!this.myCarousel) return false;
-
-    const carouselRef: CarouselComponent = this.myCarousel.filter(
-      (e, index) => index === i
-    )[0];
-
-    return false;
   }
 
   disableButton(dir: string, i: number): boolean {

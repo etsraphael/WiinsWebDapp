@@ -1,15 +1,15 @@
 import { UserModel } from '../../model/user/user.model';
 
 export interface State {
-  user?: UserModel;
-  isLoading?: boolean;
-  error?: string;
-  message?: string;
+  user: UserModel;
+  isLoading: boolean;
+  error: string;
+  message: string;
 }
 
 export const initialState: State = {
-  user: null!,
+  user: null,
   isLoading: false,
-  error: null!,
-  message: null!,
+  error: null,
+  message: null,
 };

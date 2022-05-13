@@ -4,9 +4,8 @@ import {
   EventEmitter,
   Input,
   OnDestroy,
-  OnInit,
   Output,
-  ViewChild,
+  ViewChild
 } from '@angular/core';
 
 @Component({

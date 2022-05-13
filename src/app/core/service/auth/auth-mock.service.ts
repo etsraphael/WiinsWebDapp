@@ -9,18 +9,18 @@ export class AuthMockService {
   }
 
   login(): void {
-    return null!;
+    return null;
   }
 
   async verifyAccount(): Promise<void> {
-    return null!;
+    return null;
   }
 
   logout(): void {
-    return null!;
+    return null;
   }
 
-  saveAccountConnected(account: string): void {
-    return null!;
+  saveAccountConnected(): void {
+    return null;
   }
 }

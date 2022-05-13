@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgModel } from '@angular/forms';
-import { Store } from '@ngrx/store';
 import { NgxDropzoneChangeEvent } from 'ngx-dropzone';
 import { SpaceStoryCreatePostAnimation } from '../../../../assets/animation/on-create-post-animation';
 import { linearBgPost } from '../../data/linear-background-post-list';
@@ -8,11 +7,10 @@ import {
   BackgroundPostModel,
   PicturePublicationModel,
   PostPublicationModel,
-  VideoPublicationModel
+  VideoPublicationModel,
 } from '../../model/publication/feed-publication.model';
 import { FeedPublicationMakerService } from '../../service/creation/feed-publication-maker/feed-publication-maker.service';
 import { SnackBarService } from '../../service/snackbar/snackbar.service';
-import { RootStoreState } from '../../store';
 
 @Component({
   selector: 'app-space-story-creation-post',
@@ -20,7 +18,7 @@ import { RootStoreState } from '../../store';
   styleUrls: ['./space-story-creation-post.component.scss'],
   animations: [SpaceStoryCreatePostAnimation],
 })
-export class SpaceStoryCreationPostComponent implements OnInit {
+export class SpaceStoryCreationPostComponent {
   // Type Posts
   feedPublicationCreate:
     | PicturePublicationModel
@@ -44,20 +42,16 @@ export class SpaceStoryCreationPostComponent implements OnInit {
 
   constructor(
     private snackbarService: SnackBarService,
-    private store$: Store<RootStoreState.State>,
     public feedPublicationMakerService: FeedPublicationMakerService
   ) {}
 
-  ngOnInit(): void {}
+  onChangebackground(value: BackgroundPostModel): void {
+    this.bgSelected = value;
+  }
 
   // Select Type of Publication depending of the value
   onSelectPublicationType(value: string): void {
     this.visualMode = value;
-  }
-
-  // Change the color choice of the Background for Written Post
-  onChangebackground(value: BackgroundPostModel): void {
-    this.bgSelected = value;
   }
 
   // Build the Publication
@@ -103,13 +97,6 @@ export class SpaceStoryCreationPostComponent implements OnInit {
       this.snackbarService.openSnackBar('An error has occurred, Try again');
       return;
     }
-
-    // Build the publication
-    const myNewFb = this.publicationMaker();
-
-    // this.store$.dispatch(new FeedPublicationStoreActions.AddFeedPublication(myNewFb));
-
-    // this.dialog.close();
   }
 
   // Check The Errors
@@ -135,7 +122,7 @@ export class SpaceStoryCreationPostComponent implements OnInit {
     this.visualMode = 'default';
   }
 
-  onSendText(event: any): void {
+  onSendText(event: string): void {
     alert(event);
   }
 
@@ -143,13 +130,13 @@ export class SpaceStoryCreationPostComponent implements OnInit {
     this.files.push(...event.addedFiles);
     const reader = new FileReader();
     reader.readAsDataURL(event.addedFiles[0]);
-    reader.onload = (_event) => {
+    reader.onload = () => {
       this.imgPreview = reader.result;
     };
   }
 
   undoPicturePreview(): void {
-    this.imgPreview = null!;
+    this.imgPreview = null;
   }
 
   onRemove(event) {

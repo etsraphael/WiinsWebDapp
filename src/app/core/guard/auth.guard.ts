@@ -1,10 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  Router,
-  CanActivate,
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot,
-} from '@angular/router';
+import { CanActivate, Router } from '@angular/router';
 import Web3 from 'web3';
 
 @Injectable()
@@ -23,12 +18,11 @@ export class AuthGuard implements CanActivate {
 
   async getAccountConnected(): Promise<string> {
     if (localStorage.getItem('accountConnected') === null) {
-      return null!;
+      return null;
     }
 
     return this.web3.eth
       .getAccounts()
-      .then((response: string[]) => response[0])
-      .catch(() => null!);
+      .then((response: string[]) => response[0]);
   }
 }

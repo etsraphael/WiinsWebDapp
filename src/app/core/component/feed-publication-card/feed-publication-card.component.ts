@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import {
-  BackgroundPostModel,
   PicturePublicationModel,
   PostPublicationModel,
   VideoPublicationModel,
@@ -18,7 +17,7 @@ export class FeedPublicationCardComponent {
     | VideoPublicationModel
     | any;
 
-  generateBackground(value: BackgroundPostModel): string {
+  generateBackground(): string {
     return 'linear-gradient(135deg, #D92E2E 10%, #6C1B1B 100%)';
   }
 }

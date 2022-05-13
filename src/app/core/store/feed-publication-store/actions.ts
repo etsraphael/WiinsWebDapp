@@ -49,7 +49,7 @@ export class AddFeedPublicationSuccess implements Action {
 
 export class AddFeedPublicationFail implements Action {
   readonly type = ActionTypes.ADD_FEED_PUBLICATION_FAIL;
-  constructor(public payload: any) {}
+  constructor(public message: string) {}
 }
 
 export class RemoveFeedPublication implements Action {
