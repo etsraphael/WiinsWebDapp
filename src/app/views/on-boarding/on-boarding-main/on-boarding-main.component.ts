@@ -46,7 +46,6 @@ export class OnBoardingMainComponent {
   pageDevs: wiinsweb[] = githubPageDevs;
 
   // Social Lists (Contact)
-
   @ViewChildren('myCarousel') myCarousel: QueryList<CarouselComponent>;
 
   // data
