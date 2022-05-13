@@ -28,7 +28,7 @@ export function featureReducer(
         typeof state.entities[action.id] == 'undefined'
       )
         return state;
-      let publication = state.entities[action.id];
+      const publication = state.entities[action.id];
       publication.like.likeNumber += 1;
       publication.like.isLike = true;
 
@@ -47,7 +47,7 @@ export function featureReducer(
       )
         return state;
 
-      let publication = state.entities[action.id];
+      const publication = state.entities[action.id];
       publication.like.likeNumber -= 1;
       publication.like.isLike = false;
 

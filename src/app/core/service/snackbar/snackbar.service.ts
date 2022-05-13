@@ -4,7 +4,7 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 @Injectable({ providedIn: 'root' })
 export class SnackBarService {
     // Duration
-    durationInSeconds: number = 10;
+    durationInSeconds = 10;
 
     constructor(private _snackBar: MatSnackBar) { }
 

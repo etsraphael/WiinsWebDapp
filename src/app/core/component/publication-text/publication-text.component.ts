@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   Component,
   ElementRef,
   EventEmitter,
@@ -15,17 +14,11 @@ import {
   templateUrl: './publication-text.component.html',
   styleUrls: ['./publication-text.component.scss'],
 })
-export class PublicationTextComponent
-  implements OnInit, OnDestroy
-{
+export class PublicationTextComponent implements OnDestroy {
   @ViewChild('contentDiv') myDiv: ElementRef<HTMLDivElement>;
   @Output() onSendText = new EventEmitter<string>();
   @Input() placeholder: string;
-  pressed: boolean = false;
-
-  constructor() {}
-
-  ngOnInit(): void {}
+  pressed = false;
 
   onPressed(): void {
     this.pressed = true;
@@ -41,25 +34,25 @@ export class PublicationTextComponent
   listenerKeyboardEvent(char: string): void {
     switch (char) {
       case '#': {
-        const myHastagId = (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+        const myHastagId = (((1 + Math.random()) * 0x10000) | 0)
+          .toString(16)
+          .substring(1);
         this.myDiv.nativeElement.insertAdjacentHTML(
           'beforeend',
           `<span id="${myHastagId}" style="border-radius: 8px; background-color: #dfdfdf59; padding-top: 0.25rem; padding-bottom: 0.25rem; padding-right: 0.5rem"> </span> &nbsp;`
         );
 
         const el = document.getElementById(myHastagId);
-        var range = document.createRange();
-        var sel = window.getSelection();
-    
+        const range = document.createRange();
+        const sel = window.getSelection();
+
         console.log(el.childNodes);
-    
+
         range.setStart(el, 1);
         range.collapse(true);
-    
+
         sel.removeAllRanges();
         sel.addRange(range);
-
-
 
         break;
       }

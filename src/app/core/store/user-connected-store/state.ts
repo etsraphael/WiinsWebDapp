@@ -1,4 +1,4 @@
-import { UserModel } from "../../model/user/user.model";
+import { UserModel } from '../../model/user/user.model';
 
 export interface State {
   user?: UserModel;
@@ -11,5 +11,5 @@ export const initialState: State = {
   user: null!,
   isLoading: false,
   error: null!,
-  message: null!
+  message: null!,
 };

@@ -13,7 +13,7 @@ export class AuthGuard implements CanActivate {
 
   constructor(private router: Router) {}
 
-  async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  async canActivate(): Promise<boolean> {
     if ((await this.getAccountConnected()) !== null) {
       return true;
     }

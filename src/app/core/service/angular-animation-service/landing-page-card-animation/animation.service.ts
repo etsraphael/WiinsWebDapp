@@ -4,10 +4,10 @@ import { Injectable } from "@angular/core";
 export class landingPageCardAnimationService {
 
     // Default State Landing Page
-    defaultNewsDisc: string = 'previous';
-    defaultMessenger: string = 'previous';
-    defaultMusVid: string = 'default';
-    count: number = 0;
+    defaultNewsDisc = 'previous';
+    defaultMessenger = 'previous';
+    defaultMusVid = 'default';
+    count = 0;
 
     // Previous & Next => News Feed - Discover
     onPreviousNewsDisc(): void {

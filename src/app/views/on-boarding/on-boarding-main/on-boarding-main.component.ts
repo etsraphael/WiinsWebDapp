@@ -2,7 +2,6 @@ import {
   ChangeDetectorRef,
   Component,
   QueryList,
-  ViewChild,
   ViewChildren,
 } from '@angular/core';
 import { SlidePhoneAnimation } from 'src/assets/animation/on-boarding.animation';
@@ -39,7 +38,7 @@ export class OnBoardingMainComponent {
   btnTabs: btnLandingPageInterface[] = landingPageNavData;
 
   // Lang
-  defaultLang: string = 'En';
+  defaultLang = 'En';
   filteredLang: lgInterface[] = [];
   btnLanguages: lgInterface[] = lgListData;
 
@@ -53,9 +52,9 @@ export class OnBoardingMainComponent {
   // data
   dataSectionWithCarousel: landingPageSectionWithCarousel[] =
     dataSectionWithCarousel;
-  coFounderList: coFounderInterface[] = coFounderData
-  firstCommunity: string[] = firstCommunityData
-  repositoryList: repositoryLinkInterface[] = repositoryLinkData
+  coFounderList: coFounderInterface[] = coFounderData;
+  firstCommunity: string[] = firstCommunityData;
+  repositoryList: repositoryLinkInterface[] = repositoryLinkData;
   socialLists: socialLists[] = socialMediaLists;
 
   constructor(
@@ -87,8 +86,6 @@ export class OnBoardingMainComponent {
   goToAppleStore(): Window | null {
     return window.open('', '_blank');
   }
-
-
 
   // Return the default value of the lang do not apear on the dropdown
   onOpenLang() {

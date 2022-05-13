@@ -1,3 +1,5 @@
+import { ProfileModel } from "../member/profile.model";
+
 export abstract class FeedPublicationModel {
   _id: string;
   createdAt: string;
@@ -7,8 +9,7 @@ export abstract class FeedPublicationModel {
     likeId: string;
     isLike: boolean;
   };
-  profile?: any;
-  page?: any;
+  profile: ProfileModel;
   profileTagged: string[];
   commentNumber: number;
   hastags: string[];

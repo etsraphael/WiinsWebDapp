@@ -8,11 +8,11 @@ import {
   BackgroundPostModel,
   PicturePublicationModel,
   PostPublicationModel,
-  VideoPublicationModel,
+  VideoPublicationModel
 } from '../../model/publication/feed-publication.model';
 import { FeedPublicationMakerService } from '../../service/creation/feed-publication-maker/feed-publication-maker.service';
 import { SnackBarService } from '../../service/snackbar/snackbar.service';
-import { FeedPublicationStoreActions, RootStoreState } from '../../store';
+import { RootStoreState } from '../../store';
 
 @Component({
   selector: 'app-space-story-creation-post',
@@ -27,13 +27,13 @@ export class SpaceStoryCreationPostComponent implements OnInit {
     | PostPublicationModel
     | VideoPublicationModel;
 
-  visualMode: string = 'default'; // Picture/ Video / Post
+  visualMode = 'default'; // Picture/ Video / Post
   backgroundPostList: BackgroundPostModel[] = linearBgPost;
   bgSelected: BackgroundPostModel = linearBgPost[0];
 
   // Comment & Hahstags
-  commentInputValue: string = '';
-  commenInputError: boolean = false;
+  commentInputValue = '';
+  commenInputError = false;
   hashtagsListsValues: string[] = [];
 
   // Picture & File
@@ -54,14 +54,6 @@ export class SpaceStoryCreationPostComponent implements OnInit {
   onSelectPublicationType(value: string): void {
     this.visualMode = value;
   }
-
-  // If user want to add Comment/Hashtag, display some animation (click again => go to Comment)
-  // onSelectPublicationFields(value: string): void {
-  //   switch (value) {
-  //     case 'comment': return this.creationPost.toComment();
-  //     case 'hashtag': return this.creationPost.toHashtag();
-  //   }
-  // }
 
   // Change the color choice of the Background for Written Post
   onChangebackground(value: BackgroundPostModel): void {
@@ -144,22 +136,22 @@ export class SpaceStoryCreationPostComponent implements OnInit {
   }
 
   onSendText(event: any): void {
-    alert(event)
+    alert(event);
   }
 
   onSelect(event: NgxDropzoneChangeEvent) {
     this.files.push(...event.addedFiles);
-		var reader = new FileReader();
-		reader.readAsDataURL(event.addedFiles[0]);
-		reader.onload = (_event) => {
-			this.imgPreview = reader.result; 
-		}
+    const reader = new FileReader();
+    reader.readAsDataURL(event.addedFiles[0]);
+    reader.onload = (_event) => {
+      this.imgPreview = reader.result;
+    };
   }
 
   undoPicturePreview(): void {
-    this.imgPreview = null!
+    this.imgPreview = null!;
   }
-  
+
   onRemove(event) {
     console.log(event);
     this.files.splice(this.files.indexOf(event), 1);

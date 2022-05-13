@@ -24,7 +24,13 @@
     ],
     "paths": {
       "crypto": ["./node_modules/crypto-browserify"],
-      "stream": ["./node_modules/stream-browserify"],
+      "stream": [
+        "./node_modules/stream-browserify"
+      ],
+      "feed-card-publication": [
+        "dist/feed-card-publication/feed-card-publication",
+        "dist/feed-card-publication"
+      ],
       "assert": ["./node_modules/assert"],
       "http": ["./node_modules/stream-http"],
       "https": ["./node_modules/https-browserify"],
