@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "prettier": "npx prettier --write .",
-    "pre-deploy": "npm run prettier && ng test --browsers ChromeHeadless --watch=false && ng lint",
+    "pre-commit": "npm run prettier && ng test --browsers ChromeHeadless --watch=false && ng lint",
     "test": "ng test",
     "lint": "ng lint",
     "prepare": "husky install"
