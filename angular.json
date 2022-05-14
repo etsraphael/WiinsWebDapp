@@ -184,6 +184,43 @@
           }
         }
       }
+    },
+    "web-store": {
+      "projectType": "library",
+      "root": "projects/web-store",
+      "sourceRoot": "projects/web-store/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/web-store/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/web-store/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/web-store/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/web-store/src/test.ts",
+            "tsConfig": "projects/web-store/tsconfig.spec.json",
+            "karmaConfig": "projects/web-store/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["projects/web-store/**/*.ts"]
+          }
+        }
+      }
     }
   },
   "defaultProject": "WiinsWebDapp"
