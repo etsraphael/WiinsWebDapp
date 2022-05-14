@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'lib-common-models',
-  template: ` <p>common-models works!</p> `,
+  template: '',
   styles: [],
 })
 export class CommonModelsComponent {}
