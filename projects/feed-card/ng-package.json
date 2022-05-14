@@ -1,0 +1,7 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/feed-card",
+  "lib": {
+    "entryFile": "src/dist/feed-publication-card.ts"
+  }
+}
