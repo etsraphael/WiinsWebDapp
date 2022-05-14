@@ -26,6 +26,10 @@
         "dist/feed-card-publication/feed-card-publication",
         "dist/feed-card-publication"
       ],
+      "feed-publication-card": [
+        "dist/feed-publication-card/feed-publication-card",
+        "dist/feed-publication-card"
+      ],
       "assert": ["./node_modules/assert"],
       "http": ["./node_modules/stream-http"],
       "https": ["./node_modules/https-browserify"],

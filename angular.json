@@ -105,23 +105,23 @@
         }
       }
     },
-    "feed-card-publication": {
+    "feed-publication-card": {
       "projectType": "library",
-      "root": "projects/feed-card-publication",
-      "sourceRoot": "projects/feed-card-publication/src",
+      "root": "projects/feed-publication-card",
+      "sourceRoot": "projects/feed-publication-card/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/feed-card-publication/ng-package.json"
+            "project": "projects/feed-publication-card/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/feed-card-publication/tsconfig.lib.prod.json"
+              "tsConfig": "projects/feed-publication-card/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/feed-card-publication/tsconfig.lib.json"
+              "tsConfig": "projects/feed-publication-card/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -129,9 +129,9 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/feed-card-publication/src/test.ts",
-            "tsConfig": "projects/feed-card-publication/tsconfig.spec.json",
-            "karmaConfig": "projects/feed-card-publication/karma.conf.js"
+            "main": "projects/feed-publication-card/src/test.ts",
+            "tsConfig": "projects/feed-publication-card/tsconfig.spec.json",
+            "karmaConfig": "projects/feed-publication-card/karma.conf.js"
           }
         },
         "lint": {
@@ -139,7 +139,7 @@
           "options": {
             "lintFilePatterns": [
               "src/app/**/*.ts",
-              "projects/feed-card-publication/**/*.ts"
+              "projects/feed-publication-card/**/*.ts"
             ]
           }
         }
