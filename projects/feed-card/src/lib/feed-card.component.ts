@@ -1,8 +1,16 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'lib-feed-card',
-  template: ` <p>feed-card works!</p> `,
-  styles: [],
+  template: `
+    <p>
+      feed-card works!
+    </p>
+  `,
+  styles: [
+  ]
 })
-export class FeedCardComponent {}
+export class FeedCardComponent  {
+
+
+}
