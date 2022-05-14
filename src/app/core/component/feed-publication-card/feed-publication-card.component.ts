@@ -1,9 +1,5 @@
 import { Component, Input } from '@angular/core';
-import {
-  PicturePublicationModel,
-  PostPublicationModel,
-  VideoPublicationModel,
-} from '../../model/publication/feed-publication.model';
+import { FeedPublicationModelInterface } from '../../interface/publication/feed-publication.model';
 
 @Component({
   selector: 'app-feed-publication-card',
@@ -11,11 +7,7 @@ import {
   styleUrls: ['./feed-publication-card.component.scss'],
 })
 export class FeedPublicationCardComponent {
-  @Input() feedPublication:
-    | PicturePublicationModel
-    | PostPublicationModel
-    | VideoPublicationModel
-    | any;
+  @Input() feedPublication: FeedPublicationModelInterface;
 
   generateBackground(): string {
     return 'linear-gradient(135deg, #D92E2E 10%, #6C1B1B 100%)';

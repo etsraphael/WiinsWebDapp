@@ -3,11 +3,7 @@ import {
   createSelector,
   MemoizedSelector,
 } from '@ngrx/store';
-import {
-  PicturePublicationModel,
-  PostPublicationModel,
-  VideoPublicationModel,
-} from '../../model/publication/feed-publication.model';
+import { FeedPublicationModelInterface } from '../../interface/publication/feed-publication.model';
 import { featureAdapter, State } from './state';
 
 export const getError = (state: State): string => state.error;
@@ -19,11 +15,8 @@ export const selectState: MemoizedSelector<object, State> =
 
 export const selectAllItems: (
   state: object
-) => (
-  | PicturePublicationModel
-  | PostPublicationModel
-  | VideoPublicationModel
-)[] = featureAdapter.getSelectors(selectState).selectAll;
+) => FeedPublicationModelInterface[] =
+  featureAdapter.getSelectors(selectState).selectAll;
 
 export const selectError: MemoizedSelector<object, string> = createSelector(
   selectState,

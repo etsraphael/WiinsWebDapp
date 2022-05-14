@@ -63,7 +63,7 @@ export function featureReducer(
       return {
         ...state,
         isLoading: false,
-        error: action.payload,
+        error: action.message,
       };
     }
     case ActionTypes.RESET_FEED_PUBLICATION:

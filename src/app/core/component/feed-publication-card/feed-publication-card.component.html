@@ -40,7 +40,7 @@
         </div>
       </div>
       <div class="comment">
-        <p class="user-coms m-0" *ngIf="feedPublication.background !== 'PostPublication'">{{feedPublication.title}}</p>
+        <p class="user-coms m-0" *ngIf="feedPublication.type !== 'PostPublication'">{{feedPublication.title}}</p>
         <p class="date m-0">{{feedPublication.createdAt | date}}</p>
       </div>
     </div>

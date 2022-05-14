@@ -3,6 +3,7 @@ import { NgModel } from '@angular/forms';
 import { NgxDropzoneChangeEvent } from 'ngx-dropzone';
 import { SpaceStoryCreatePostAnimation } from '../../../../assets/animation/on-create-post-animation';
 import { linearBgPost } from '../../data/linear-background-post-list';
+import { FeedPublicationModelInterface } from '../../interface/publication/feed-publication.model';
 import {
   BackgroundPostModel,
   PicturePublicationModel,
@@ -55,11 +56,8 @@ export class SpaceStoryCreationPostComponent {
   }
 
   // Build the Publication
-  publicationMaker():
-    | PicturePublicationModel
-    | PostPublicationModel
-    | VideoPublicationModel
-    | any {
+  publicationMaker(): FeedPublicationModelInterface | void {
+    
     switch (this.visualMode) {
       case 'picture': {
         const title = this.commentInputValue;
@@ -77,7 +75,7 @@ export class SpaceStoryCreationPostComponent {
         return new PostPublicationModel(title, hashtags, background);
       }
       case 'video': {
-        return;
+        return null;
       }
     }
   }
