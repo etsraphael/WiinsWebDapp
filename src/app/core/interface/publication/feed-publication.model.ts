@@ -1,5 +1,5 @@
-import { ProfileModel } from "../../model/member/profile.model";
-import { BackgroundPostModel } from "../../model/publication/feed-publication.model";
+import { ProfileModel } from '../../model/member/profile.model';
+import { BackgroundPostModel } from '../../model/publication/feed-publication.model';
 
 export interface FeedPublicationModelInterface {
   _id: string;

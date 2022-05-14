@@ -9,9 +9,8 @@ describe('SpaceMessengerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SpaceMessengerComponent, ComingSoonFullScreenComponent ]
-    })
-    .compileComponents();
+      declarations: [SpaceMessengerComponent, ComingSoonFullScreenComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

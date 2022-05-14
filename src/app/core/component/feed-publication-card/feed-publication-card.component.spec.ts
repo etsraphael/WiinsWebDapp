@@ -9,10 +9,9 @@ describe('FeedPublicationCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FeedPublicationCardComponent ],
-      imports: [StoreModule.forRoot({})]
-    })
-    .compileComponents();
+      declarations: [FeedPublicationCardComponent],
+      imports: [StoreModule.forRoot({})],
+    }).compileComponents();
   });
 
   beforeEach(() => {

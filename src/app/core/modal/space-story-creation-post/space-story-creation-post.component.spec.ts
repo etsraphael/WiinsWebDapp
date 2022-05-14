@@ -18,11 +18,9 @@ describe('SpaceStoryCreationPostComponent', () => {
         BrowserAnimationsModule,
         MatSnackBarModule,
         FormsModule,
-        StoreModule.forRoot({})
+        StoreModule.forRoot({}),
       ],
-      providers: [
-        { provide: MatDialogRef, useValue: {} }
-      ],
+      providers: [{ provide: MatDialogRef, useValue: {} }],
     }).compileComponents();
   });
 

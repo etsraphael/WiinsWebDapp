@@ -4,7 +4,7 @@ import { FeedPublicationModel } from '../../model/publication/feed-publication.m
 
 export const featureAdapter: EntityAdapter<FeedPublicationModelInterface> =
   createEntityAdapter<FeedPublicationModelInterface>({
-    selectId: (model) => model._id,
+    selectId: model => model._id,
     sortComparer: (a: FeedPublicationModel, b: FeedPublicationModel): number =>
       b.createdAt.toString().localeCompare(a.createdAt.toString()),
   });

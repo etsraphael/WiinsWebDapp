@@ -120,7 +120,7 @@ export class SpaceStoryComponent implements OnInit {
   generateObservable(): void {
     this.feedPublication$ = this.store$.pipe(
       select(FeedPublicationStoreSelectors.selectAllItems),
-      filter((value) => !!value)
+      filter(value => !!value)
     );
   }
 }

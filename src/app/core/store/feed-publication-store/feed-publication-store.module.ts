@@ -10,8 +10,8 @@ import { FeedPublicationStoreEffects } from './effects';
   imports: [
     CommonModule,
     StoreModule.forFeature('feedPublication', featureReducer),
-    EffectsModule.forFeature([FeedPublicationStoreEffects])
+    EffectsModule.forFeature([FeedPublicationStoreEffects]),
   ],
-  providers: [FeedPublicationStoreEffects]
+  providers: [FeedPublicationStoreEffects],
 })
-export class FeedPublicationStoreModule { }
+export class FeedPublicationStoreModule {}

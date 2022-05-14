@@ -2,7 +2,7 @@ import {
   ChangeDetectorRef,
   Component,
   QueryList,
-  ViewChildren
+  ViewChildren,
 } from '@angular/core';
 import { CarouselComponent } from 'angular-responsive-carousel';
 import { githubPageDevs, wiinsweb } from 'src/app/core/data/github-page-devs';
@@ -15,12 +15,12 @@ import {
   landingPageNavData,
   landingPageSectionWithCarousel,
   repositoryLinkData,
-  repositoryLinkInterface
+  repositoryLinkInterface,
 } from 'src/app/core/data/landing-page';
 import { lgInterface, lgListData } from 'src/app/core/data/language-list';
 import {
   socialLists,
-  socialMediaLists
+  socialMediaLists,
 } from 'src/app/core/data/social-media-list';
 import { landingPageCardAnimationService } from 'src/app/core/service/angular-animation-service/landing-page-card-animation/animation.service';
 import { AuthService } from 'src/app/core/service/auth/auth.service';
@@ -91,7 +91,7 @@ export class OnBoardingMainComponent {
     this.filteredLang = this.btnLanguages;
     const abbr = this.defaultLang;
     const newFilteredLang = this.filteredLang.filter(
-      (x) => !x.language.startsWith(abbr)
+      x => !x.language.startsWith(abbr)
     );
     return (this.filteredLang = newFilteredLang);
   }

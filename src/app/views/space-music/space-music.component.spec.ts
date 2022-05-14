@@ -9,9 +9,8 @@ describe('SpaceMusicComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SpaceMusicComponent, ComingSoonFullScreenComponent ]
-    })
-    .compileComponents();
+      declarations: [SpaceMusicComponent, ComingSoonFullScreenComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

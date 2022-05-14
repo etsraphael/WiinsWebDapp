@@ -24,13 +24,13 @@
       background: url(../../../../assets/img/story-space-creation/written-post.svg);
       background-size: cover;
       background-position: center;
-      transition: all .3s;
+      transition: all 0.3s;
       z-index: 10;
 
       .bi-pencil-square {
         font-size: 100px;
-        color: rgba(255, 255, 255, .5);
-        transition: all .3s;
+        color: rgba(255, 255, 255, 0.5);
+        transition: all 0.3s;
         cursor: pointer;
       }
 
@@ -39,8 +39,8 @@
       }
 
       .choice-color {
-        transition: all .3s;
-        animation: showColor linear .5s;
+        transition: all 0.3s;
+        animation: showColor linear 0.5s;
 
         @keyframes showColor {
           from {
@@ -58,33 +58,33 @@
           width: 20px;
           height: 20px;
           border-radius: 5px;
-          transition: all .3s;
+          transition: all 0.3s;
           outline: 1px solid transparent;
           cursor: pointer;
         }
 
         .bg1-feed-publication {
-          background: linear-gradient(135deg, #1BB7E9 10%, #2B418D 100%);
+          background: linear-gradient(135deg, #1bb7e9 10%, #2b418d 100%);
         }
 
         .bg2-feed-publication {
-          background: linear-gradient(135deg, #5CC928 0%, #157155 100%);
+          background: linear-gradient(135deg, #5cc928 0%, #157155 100%);
         }
 
         .choice3 {
-          background: linear-gradient(135deg, #D92E2E 10%, #6C1B1B 100%);
+          background: linear-gradient(135deg, #d92e2e 10%, #6c1b1b 100%);
         }
 
         .choice4 {
-          background: linear-gradient(135deg, #E11FD9 5%, #761D72 100%);
+          background: linear-gradient(135deg, #e11fd9 5%, #761d72 100%);
         }
 
         .choice5 {
-          background: linear-gradient(135deg, #FB8A06 10%, #844C0A 100%);
+          background: linear-gradient(135deg, #fb8a06 10%, #844c0a 100%);
         }
 
         .choice6 {
-          background: linear-gradient(135deg, #FBF10E 0%, #898400 100%);
+          background: linear-gradient(135deg, #fbf10e 0%, #898400 100%);
         }
 
         .choice1:hover,
@@ -109,14 +109,14 @@
       background: url(../../../../assets/img/story-space-creation/picture-post.svg);
       background-size: cover;
       background-position: center;
-      transition: all .3s;
+      transition: all 0.3s;
       z-index: 10;
 
       .bi-image {
         position: relative;
         font-size: 100px;
-        color: rgba(255, 255, 255, .5);
-        transition: all .3s;
+        color: rgba(255, 255, 255, 0.5);
+        transition: all 0.3s;
         cursor: pointer;
       }
 
@@ -189,7 +189,7 @@
 
     .bi-check-circle {
       font-size: 45px;
-      color: #5CC928;
+      color: #5cc928;
       cursor: pointer;
     }
   }
@@ -233,8 +233,13 @@
       display: block;
       width: 100px;
       pointer-events: none;
-      content: "";
-      background: linear-gradient(90deg, hsla(0, 0%, 100%, 0) 0, #fff 95%, #fff);
+      content: '';
+      background: linear-gradient(
+        90deg,
+        hsla(0, 0%, 100%, 0) 0,
+        #fff 95%,
+        #fff
+      );
     }
   }
 
@@ -300,13 +305,12 @@
     .user-to-comment .bi-info-lg {
       font-size: 20px;
       color: #fff;
-      background: linear-gradient(45deg, #005EA3, #11A8FD);
+      background: linear-gradient(45deg, #005ea3, #11a8fd);
       border-radius: 50%;
       width: 25px;
       height: 25px;
     }
   }
-
 }
 
 .card-header,
@@ -334,7 +338,6 @@
 }
 
 .card-body {
-
   .bi-pencil-square,
   .bi-image {
     font-size: 2.5rem;
@@ -344,8 +347,7 @@
   .bi-pencil-square:hover,
   .bi-image:hover {
     font-size: 3rem;
-    transition: all .3s;
-
+    transition: all 0.3s;
   }
 }
 
@@ -355,9 +357,9 @@
   overflow: hidden;
 
   .container-picture-choice {
-    background: #0F2027;
-    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);
-    background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
+    background: #0f2027;
+    background: -webkit-linear-gradient(to right, #2c5364, #203a43, #0f2027);
+    background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
   }
 }
 

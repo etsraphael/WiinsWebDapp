@@ -12,11 +12,7 @@ describe('SpaceStoryComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [SpaceStoryComponent],
-      imports: [
-        RouterTestingModule,
-        NgxMasonryModule,
-        StoreModule.forRoot({})
-      ],
+      imports: [RouterTestingModule, NgxMasonryModule, StoreModule.forRoot({})],
     }).compileComponents();
   });
 

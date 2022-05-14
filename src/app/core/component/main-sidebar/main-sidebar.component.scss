@@ -1,6 +1,7 @@
 .sidebar {
   z-index: 998;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+    rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
   background: #fff;
 }
 
@@ -9,8 +10,9 @@
 }
 
 .sidebar.close {
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
-  transition: all .3s;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+    rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  transition: all 0.3s;
 }
 
 .sidebar li {
@@ -49,7 +51,8 @@
   width: 2rem;
 }
 
-.container-icon:hover, .icon-selected {
+.container-icon:hover,
+.icon-selected {
   cursor: pointer;
   background: #aeaeae38;
   border-radius: 10px;

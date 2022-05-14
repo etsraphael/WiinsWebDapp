@@ -1,4 +1,4 @@
-// NavBar 
+// NavBar
 .container-nav-btn {
   button:not(:nth-last-of-type(1)) {
     margin-right: 2em;
@@ -22,9 +22,11 @@
   }
 
   .signIn-btn {
-    background: linear-gradient(90deg,
-        #345aa4 -28.35%,
-        rgba(63, 0, 156, 0) 153.96%);
+    background: linear-gradient(
+      90deg,
+      #345aa4 -28.35%,
+      rgba(63, 0, 156, 0) 153.96%
+    );
     border-radius: 11px;
   }
 
@@ -44,25 +46,25 @@
 
 .navbar-container {
   background: linear-gradient(90deg, #58aed2, #4a85d1, #8965c3);
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   z-index: 40000;
 
-    // Menu Hamburger
-    .dropdown {
+  // Menu Hamburger
+  .dropdown {
+    button {
+      background: transparent;
+      border: none;
+    }
 
-      button {
-        background: transparent;
-        border: none;
-      }
-  
-      ul li a {
-        cursor: pointer;
-      }
+    ul li a {
+      cursor: pointer;
     }
-  
-    .dropdown-toggle::after {
-      display: none;
-    }
+  }
+
+  .dropdown-toggle::after {
+    display: none;
+  }
 }
 
 .container-body {
@@ -77,7 +79,6 @@
 }
 
 .carourel-container {
-
   .bi-arrow-left-circle,
   .bi-arrow-right-circle {
     font-size: 4rem;
@@ -110,7 +111,6 @@
     bottom: 0;
     right: 2rem;
   }
-
 }
 
 .on-section-loop {
@@ -118,7 +118,7 @@
 }
 
 .container-avatar-co-founder img {
-  width: 6.5rem
+  width: 6.5rem;
 }
 
 .container-token {
@@ -181,7 +181,7 @@
 
 .container-papers-link {
   .bi-dot {
-    font-size: 3rem
+    font-size: 3rem;
   }
 
   .container-link span {
@@ -311,12 +311,9 @@
     cursor: pointer;
   }
 
-
   @media screen and (max-width: 540px) {
     li img {
       width: 2rem;
     }
   }
-
-
 }

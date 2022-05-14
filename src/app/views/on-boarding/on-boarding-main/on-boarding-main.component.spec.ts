@@ -15,11 +15,18 @@ describe('OnBoardingMainComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule,MatMenuModule, TranslateModule.forRoot(), BrowserAnimationsModule],
-      declarations: [ OnBoardingMainComponent ],
-      providers: [TranslationService, { provide: AuthService, useValue: new AuthMockService() }]
-    })
-    .compileComponents();
+      imports: [
+        RouterTestingModule,
+        MatMenuModule,
+        TranslateModule.forRoot(),
+        BrowserAnimationsModule,
+      ],
+      declarations: [OnBoardingMainComponent],
+      providers: [
+        TranslationService,
+        { provide: AuthService, useValue: new AuthMockService() },
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {

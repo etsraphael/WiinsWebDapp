@@ -22,4 +22,4 @@ import { FeedPublicationStoreModule } from './feed-publication-store';
     }),
   ],
 })
-export class RootStoreModule { }
+export class RootStoreModule {}

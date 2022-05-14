@@ -5,7 +5,7 @@ import {
   Input,
   OnDestroy,
   Output,
-  ViewChild
+  ViewChild,
 } from '@angular/core';
 
 @Component({

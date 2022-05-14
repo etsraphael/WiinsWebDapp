@@ -1,8 +1,8 @@
 .card {
   position: relative;
   border-radius: 20px;
-  background: #FFFFFF;
-  border: 1px solid #F0F6FD;
+  background: #ffffff;
+  border: 1px solid #f0f6fd;
   box-shadow: 0px 10px 40px rgba(222, 230, 237, 0.4);
   border-radius: 15px;
 
@@ -12,13 +12,20 @@
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     border-bottom: 0;
-    background: #FFFFFF;
+    background: #ffffff;
 
     .avatar-user {
       width: 60px;
       height: 60px;
       border-radius: 50%;
-      background: linear-gradient(130deg, #58AED2, #4A85D1, #545DD5, #6245D8, #EC6569);
+      background: linear-gradient(
+        130deg,
+        #58aed2,
+        #4a85d1,
+        #545dd5,
+        #6245d8,
+        #ec6569
+      );
       cursor: pointer;
 
       img {
@@ -37,7 +44,7 @@
         font-weight: 400;
         font-size: 16px;
         line-height: 17px;
-        color: #1B1D28;
+        color: #1b1d28;
       }
 
       .city {
@@ -46,7 +53,7 @@
         font-weight: 400;
         font-size: 14px;
         line-height: 12px;
-        color: #76777E;
+        color: #76777e;
       }
     }
 
@@ -55,7 +62,7 @@
 
       .bi-three-dots {
         font-size: 30px;
-        color: #AFC1D9;
+        color: #afc1d9;
       }
     }
   }
@@ -64,7 +71,7 @@
   .card-body {
     position: relative;
     border-bottom: 0;
-    background: #FFFFFF;
+    background: #ffffff;
 
     img {
       object-fit: cover;
@@ -84,7 +91,7 @@
 
   // Card Footer
   .card-footer {
-    background: #FFFFFF;
+    background: #ffffff;
     border-top: 0;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -92,7 +99,7 @@
 
     .icon-list i {
       font-size: 20px;
-      color: #58AED2;
+      color: #58aed2;
     }
 
     .comment {
@@ -102,7 +109,7 @@
         font-weight: 400;
         font-size: 16px;
         line-height: 15px;
-        color: #1B1D28;
+        color: #1b1d28;
       }
 
       .user-coms p {
@@ -115,7 +122,7 @@
         font-weight: 400;
         font-size: 14px;
         line-height: 12px;
-        color: #76777E;
+        color: #76777e;
       }
     }
   }

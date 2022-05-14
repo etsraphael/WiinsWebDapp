@@ -7,7 +7,6 @@ import { TranslationService } from './core/service/translate/translate.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-
   constructor(private translate: TranslationService) {}
 
   ngOnInit(): void {

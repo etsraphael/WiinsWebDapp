@@ -57,7 +57,6 @@ export class SpaceStoryCreationPostComponent {
 
   // Build the Publication
   publicationMaker(): FeedPublicationModelInterface | void {
-    
     switch (this.visualMode) {
       case 'picture': {
         const title = this.commentInputValue;

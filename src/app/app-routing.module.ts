@@ -26,7 +26,9 @@ const routes: Routes = [
 
   // home page
   {
-    path: 'home', component: HomeLayoutComponent, canActivate: [AuthGuard],
+    path: 'home',
+    component: HomeLayoutComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: '', redirectTo: 'SpaceStory', pathMatch: 'full' },
       { path: 'SpaceStory', component: SpaceStoryComponent },
@@ -34,7 +36,7 @@ const routes: Routes = [
       { path: 'SpaceMusic', component: SpaceMusicComponent },
       { path: 'SpaceTube', component: SpaceTubeComponent },
       { path: 'SpaceExplorer', component: SpaceExplorerComponent },
-    ]
+    ],
   },
 ];
 const routerOPtions: ExtraOptions = {
@@ -49,4 +51,4 @@ const routerOPtions: ExtraOptions = {
   exports: [RouterModule],
   providers: [AuthGuard],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

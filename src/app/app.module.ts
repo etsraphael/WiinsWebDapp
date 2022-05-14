@@ -12,7 +12,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NgxMasonryModule } from 'ngx-masonry';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -76,8 +76,8 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
+        deps: [HttpClient],
+      },
     }),
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({
@@ -86,12 +86,12 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
     }),
     EffectsModule.forRoot([]),
     BrowserAnimationsModule,
-    NgxDropzoneModule
+    NgxDropzoneModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);

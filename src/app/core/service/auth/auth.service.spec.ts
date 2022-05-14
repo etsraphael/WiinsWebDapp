@@ -11,8 +11,7 @@ describe('AuthService', () => {
     const authMockService = new AuthMockService();
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      providers: [ { provide: AuthService, useValue: authMockService } ]
-
+      providers: [{ provide: AuthService, useValue: authMockService }],
     });
     service = TestBed.inject(AuthService);
   });

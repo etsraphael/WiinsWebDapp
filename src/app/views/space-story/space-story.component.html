@@ -3,18 +3,27 @@
   <div class="row w-100">
     <div class="col-12 d-flex flex-column align-items-center">
       <div class="space-home-title d-flex justify-content-evenly w-100 mb-5">
-        <h1><a [routerLink]="['/home/SpaceStory']" routerLinkActive="active-tab">News Feed</a></h1>
+        <h1>
+          <a [routerLink]="['/home/SpaceStory']" routerLinkActive="active-tab"
+            >News Feed</a
+          >
+        </h1>
         <h1><a>Discover</a></h1>
       </div>
 
       <!-- [Masonry Cards] -->
-      <ngx-masonry class="masonry ms-xxl-5" style="width: 90vw;" [ordered]="true">
-        <div ngxMasonryItem class="px-2 mb-2 col-12 col-md-6 col-lg-4 col-xxl-3"
-          *ngFor="let item of (feedPublication$|async)">
-          <app-feed-publication-card [feedPublication]="item"></app-feed-publication-card>     
+      <ngx-masonry
+        class="masonry ms-xxl-5"
+        style="width: 90vw"
+        [ordered]="true">
+        <div
+          ngxMasonryItem
+          class="px-2 mb-2 col-12 col-md-6 col-lg-4 col-xxl-3"
+          *ngFor="let item of feedPublication$ | async">
+          <app-feed-publication-card
+            [feedPublication]="item"></app-feed-publication-card>
         </div>
       </ngx-masonry>
-
     </div>
   </div>
 </div>

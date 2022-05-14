@@ -10,10 +10,8 @@ import { featureReducer } from './reducer';
   imports: [
     CommonModule,
     StoreModule.forFeature('userConnected', featureReducer),
-    EffectsModule.forFeature([UserEffects])
+    EffectsModule.forFeature([UserEffects]),
   ],
-  providers: [
-    UserEffects
-  ]
+  providers: [UserEffects],
 })
-export class UserConnetedStoreModule { }
+export class UserConnetedStoreModule {}
