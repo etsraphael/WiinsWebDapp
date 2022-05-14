@@ -21,13 +21,8 @@
     "lib": ["es2020", "dom"],
     "paths": {
       "crypto": ["./node_modules/crypto-browserify"],
-      "stream": [
-        "./node_modules/stream-browserify"
-      ],
-      "feed-card": [
-        "dist/feed-card/feed-card",
-        "dist/feed-card"
-      ],
+      "stream": ["./node_modules/stream-browserify"],
+      "feed-card": ["dist/feed-card/feed-card", "dist/feed-card"],
       "feed-card-publication": [
         "dist/feed-card-publication/feed-card-publication",
         "dist/feed-card-publication"

@@ -1,16 +1,9 @@
 import { NgModule } from '@angular/core';
 import { FeedCardComponent } from './feed-card.component';
 
-
-
 @NgModule({
-  declarations: [
-    FeedCardComponent
-  ],
-  imports: [
-  ],
-  exports: [
-    FeedCardComponent
-  ]
+  declarations: [FeedCardComponent],
+  imports: [],
+  exports: [FeedCardComponent],
 })
-export class FeedCardModule { }
+export class FeedCardModule {}
