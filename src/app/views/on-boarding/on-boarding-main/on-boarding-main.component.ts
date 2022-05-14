@@ -138,13 +138,13 @@ export class OnBoardingMainComponent {
       (e, index) => index === i
     )[0];
 
-    if (dir == 'prev' && carouselRef.slide.counter == 0) {
+    if (dir == 'prev' && carouselRef.slide?.counter == 0) {
       return true;
     }
 
     if (
       dir == 'next' &&
-      carouselRef.cellLength == carouselRef.slide.counter + 1
+      carouselRef.cellLength == carouselRef.slide?.counter + 1
     ) {
       return true;
     }
