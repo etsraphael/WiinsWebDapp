@@ -3,7 +3,7 @@ import {
   createSelector,
   MemoizedSelector,
 } from '@ngrx/store';
-import { FeedPublicationModelInterface } from '../../interface/publication/feed-publication.model';
+import { FeedPublicationModelInterface } from 'projects/common-interfaces';
 import { featureAdapter, State } from './state';
 
 export const getError = (state: State): string => state.error;

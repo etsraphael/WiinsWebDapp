@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { FeedPublicationModelInterface } from '../../interface/publication/feed-publication.model';
+import { FeedPublicationModelInterface } from 'projects/common-interfaces';
 
 export enum ActionTypes {
   ADD_FEED_PUBLICATION = '@feed_publication/add',

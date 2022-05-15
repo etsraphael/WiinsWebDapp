@@ -1,12 +1,13 @@
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
-import { FeedPublicationModelInterface } from '../../interface/publication/feed-publication.model';
-import { FeedPublicationModel } from '../../model/publication/feed-publication.model';
+import { FeedPublicationModelInterface } from 'projects/common-interfaces';
 
 export const featureAdapter: EntityAdapter<FeedPublicationModelInterface> =
   createEntityAdapter<FeedPublicationModelInterface>({
     selectId: model => model._id,
-    sortComparer: (a: FeedPublicationModel, b: FeedPublicationModel): number =>
-      b.createdAt.toString().localeCompare(a.createdAt.toString()),
+    sortComparer: (
+      a: FeedPublicationModelInterface,
+      b: FeedPublicationModelInterface
+    ): number => b.createdAt.toString().localeCompare(a.createdAt.toString()),
   });
 
 export interface State extends EntityState<FeedPublicationModelInterface> {

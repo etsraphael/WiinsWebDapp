@@ -1,5 +1,4 @@
-import { ProfileModel } from 'projects/common-models';
-import { BackgroundPostModel } from '../../model/publication/feed-publication.model';
+import { BackgroundPostModel, ProfileModel } from 'projects/common-models';
 
 export interface FeedPublicationModelInterface {
   _id: string;

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
+import { FeedPublicationModelInterface } from 'projects/common-interfaces';
 import { filter, Observable } from 'rxjs';
-import { FeedPublicationModelInterface } from 'src/app/core/interface/publication/feed-publication.model';
-import { PostModel } from 'src/app/core/model/post/post.model';
 import {
   FeedPublicationStoreActions,
   FeedPublicationStoreSelectors,
@@ -16,8 +15,6 @@ import {
   styleUrls: ['./space-story.component.scss'],
 })
 export class SpaceStoryComponent implements OnInit {
-  publicationPosts: PostModel[] = [];
-
   feedPublication$: Observable<FeedPublicationModelInterface[]>;
 
   constructor(
