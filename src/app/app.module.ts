@@ -32,7 +32,7 @@ import { SpaceMessengerComponent } from './views/space-messenger/space-messenger
 import { SpaceMusicComponent } from './views/space-music/space-music.component';
 import { SpaceTubeComponent } from './views/space-tube/space-tube.component';
 import { FeedPublicationCardModule } from 'projects/feed-publication-card/src/public-api';
-import { WebStoreModule } from 'projects/web-store/src/public-api';
+import { WebStoreModule } from '@wiins/web-store';
 @NgModule({
   declarations: [
     AppComponent,

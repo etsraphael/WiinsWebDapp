@@ -39,7 +39,7 @@
       "http": ["./node_modules/stream-http"],
       "https": ["./node_modules/https-browserify"],
       "os": ["./node_modules/os-browserify"],
-      "web-store": ["dist/web-store/web-store", "dist/web-store"]
+      "@wiins/web-store": ["projects/web-store/src/public-api"]
     }
   },
   "angularCompilerOptions": {
