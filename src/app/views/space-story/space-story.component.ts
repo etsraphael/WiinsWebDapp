@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { FeedPublicationModelInterface } from 'projects/common-interfaces';
-import { filter, Observable } from 'rxjs';
 import {
   FeedPublicationStoreActions,
   FeedPublicationStoreSelectors,
   RootStoreState,
-} from 'src/app/core/store';
+} from 'projects/web-store/src/lib/store';
+import { filter, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-space-story',

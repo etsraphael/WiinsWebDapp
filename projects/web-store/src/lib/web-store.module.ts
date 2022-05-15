@@ -3,16 +3,15 @@ import { WebStoreComponent } from './web-store.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
-import { environment } from 'src/environments/environment';
+import { RootStoreModule } from './store';
 
 @NgModule({
   declarations: [WebStoreComponent],
-  providers: [{ provide: 'environment', useValue: environment }],
   imports: [
+    RootStoreModule,
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
-      logOnly: environment.production,
     }),
     EffectsModule.forRoot([]),
   ],

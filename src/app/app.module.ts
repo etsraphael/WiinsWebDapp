@@ -8,14 +8,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NgxMasonryModule } from 'ngx-masonry';
 import { AppRoutingModule } from './app-routing.module';
-import { RootStoreModule } from './core/store';
 import { AppComponent } from './app.component';
 import { MainNavBarComponent } from './core/component/main-nav-bar/main-nav-bar.component';
 import { MainSearchBarComponent } from './core/component/main-search-bar/main-search-bar.component';
@@ -28,7 +24,6 @@ import { OnBoardingMainComponent } from './views/on-boarding/on-boarding-main/on
 import { SpaceStoryComponent } from './views/space-story/space-story.component';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { NgxDropzoneModule } from 'ngx-dropzone';
-import { environment } from '../environments/environment';
 import { ComingSoonFullScreenComponent } from './core/component/coming-soon-full-screen/coming-soon-full-screen.component';
 import { FeedPublicationCardComponent } from './core/component/feed-publication-card/feed-publication-card.component';
 import { PublicationTextComponent } from './core/component/publication-text/publication-text.component';
@@ -37,6 +32,7 @@ import { SpaceMessengerComponent } from './views/space-messenger/space-messenger
 import { SpaceMusicComponent } from './views/space-music/space-music.component';
 import { SpaceTubeComponent } from './views/space-tube/space-tube.component';
 import { FeedPublicationCardModule } from 'projects/feed-publication-card/src/public-api';
+import { WebStoreModule } from 'projects/web-store/src/public-api';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +54,6 @@ import { FeedPublicationCardModule } from 'projects/feed-publication-card/src/pu
     PublicationTextComponent,
   ],
   imports: [
-    RootStoreModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -70,6 +65,7 @@ import { FeedPublicationCardModule } from 'projects/feed-publication-card/src/pu
     MatDialogModule,
     FormsModule,
     MatSnackBarModule,
+    WebStoreModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -77,12 +73,6 @@ import { FeedPublicationCardModule } from 'projects/feed-publication-card/src/pu
         deps: [HttpClient],
       },
     }),
-    StoreModule.forRoot({}, {}),
-    StoreDevtoolsModule.instrument({
-      maxAge: 25,
-      logOnly: environment.production,
-    }),
-    EffectsModule.forRoot([]),
     BrowserAnimationsModule,
     NgxDropzoneModule,
     FeedPublicationCardModule,
