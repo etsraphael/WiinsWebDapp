@@ -1,4 +1,4 @@
-import { BackgroundPostModel } from 'projects/common-models';
+import { BackgroundPostModel } from '@wiins/common-models';
 
 /* 
   Orientations configuration:

@@ -1,4 +1,4 @@
-import { BackgroundPostModel, ProfileModel } from 'projects/common-models';
+import { BackgroundPostModel, ProfileModel } from '@wiins/common-models';
 
 export interface FeedPublicationModelInterface {
   _id: string;

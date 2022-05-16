@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { NgxDropzoneChangeEvent } from 'ngx-dropzone';
-import { FeedPublicationModelInterface } from 'projects/common-interfaces';
+import { FeedPublicationModelInterface } from '@wiins/common-interfaces';
 import {
   BackgroundPostModel,
   PicturePublicationModel,
   PostPublicationModel,
   VideoPublicationModel,
-} from 'projects/common-models';
+} from '@wiins/common-models';
 import { SpaceStoryCreatePostAnimation } from '../../../../assets/animation/on-create-post-animation';
 import { linearBgPost } from '../../data/linear-background-post-list';
 import { FeedPublicationMakerService } from '../../service/creation/feed-publication-maker/feed-publication-maker.service';

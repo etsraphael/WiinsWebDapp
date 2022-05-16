@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FeedPublicationModelInterface } from 'projects/common-interfaces';
+import { FeedPublicationModelInterface } from '@wiins/common-interfaces';
 
 @Component({
   selector: 'app-feed-publication-card',

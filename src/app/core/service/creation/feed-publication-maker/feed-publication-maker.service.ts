@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BackgroundPostModel } from 'projects/common-models';
+import { BackgroundPostModel } from '@wiins/common-models';
 
 @Injectable({
   providedIn: 'root',

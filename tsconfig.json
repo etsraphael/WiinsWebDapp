@@ -28,7 +28,7 @@
       "os": ["./node_modules/os-browserify"],
       "@wiins/web-store": ["projects/web-store"],
       "@wiins/common-interfaces": ["projects/common-interfaces"],
-      "@wiins/common-models": ["projects/common-models/common-models"],
+      "@wiins/common-models": ["projects/common-models"],
       "@wiins/feed-card": ["projects/feed-card"],
       "@wiins/feed-publication-card": ["projects/feed-publication-card"]
     }

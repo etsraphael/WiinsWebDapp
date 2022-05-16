@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
-import { FeedPublicationModelInterface } from 'projects/common-interfaces';
+import { FeedPublicationModelInterface } from '@wiins/common-interfaces';
 import {
   FeedPublicationStoreActions,
   FeedPublicationStoreSelectors,
