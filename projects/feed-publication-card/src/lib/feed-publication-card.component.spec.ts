@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FeedPublicationCardComponent } from './feed-publication-card.component';
 
@@ -8,6 +9,7 @@ describe('FeedPublicationCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [BrowserAnimationsModule],
       declarations: [FeedPublicationCardComponent],
     }).compileComponents();
   });
