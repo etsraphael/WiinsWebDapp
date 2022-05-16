@@ -10,7 +10,6 @@
         </h1>
         <h1><a>Discover</a></h1>
       </div>
-
       <!-- [Masonry Cards] -->
       <ngx-masonry
         class="masonry ms-xxl-5"
@@ -20,8 +19,8 @@
           ngxMasonryItem
           class="px-2 mb-2 col-12 col-md-6 col-lg-4 col-xxl-3"
           *ngFor="let item of feedPublication$ | async">
-          <app-feed-publication-card
-            [feedPublication]="item"></app-feed-publication-card>
+          <wiins-feed-publication-card
+            [feedPublication]="item"></wiins-feed-publication-card>
         </div>
       </ngx-masonry>
     </div>
