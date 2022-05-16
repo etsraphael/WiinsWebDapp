@@ -10,6 +10,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { FeedCardModule } from '@wiins/feed-card';
 import { FeedPublicationCardModule } from '@wiins/feed-publication-card';
 import { WebStoreModule } from '@wiins/web-store';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
@@ -74,6 +75,7 @@ import { SpaceTubeComponent } from './views/space-tube/space-tube.component';
     BrowserAnimationsModule,
     NgxDropzoneModule,
     FeedPublicationCardModule,
+    FeedCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

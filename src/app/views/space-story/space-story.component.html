@@ -19,8 +19,7 @@
           ngxMasonryItem
           class="px-2 mb-2 col-12 col-md-6 col-lg-4 col-xxl-3"
           *ngFor="let item of feedPublication$ | async">
-          <wiins-feed-publication-card
-            [feedPublication]="item"></wiins-feed-publication-card>
+          <wiins-feed-card [feedPublication]="item"></wiins-feed-card>
         </div>
       </ngx-masonry>
     </div>
