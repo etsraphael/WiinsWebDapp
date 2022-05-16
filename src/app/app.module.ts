@@ -10,29 +10,29 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { FeedPublicationCardModule } from '@wiins/feed-publication-card';
+import { WebStoreModule } from '@wiins/web-store';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 import { NgxMasonryModule } from 'ngx-masonry';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ComingSoonFullScreenComponent } from './core/component/coming-soon-full-screen/coming-soon-full-screen.component';
+import { FeedPublicationCardComponent } from './core/component/feed-publication-card/feed-publication-card.component';
 import { MainNavBarComponent } from './core/component/main-nav-bar/main-nav-bar.component';
 import { MainSearchBarComponent } from './core/component/main-search-bar/main-search-bar.component';
 import { MainSidebarComponent } from './core/component/main-sidebar/main-sidebar.component';
+import { PublicationTextComponent } from './core/component/publication-text/publication-text.component';
 import { HomeLayoutComponent } from './core/layout/home-layout/home-layout.component';
 import { SettingLayoutComponent } from './core/layout/setting-layout/setting-layout.component';
 import { SpaceStoryCreationPostComponent } from './core/modal/space-story-creation-post/space-story-creation-post.component';
 import { ContactUsComponent } from './views/on-boarding/contact-us/contact-us.component';
 import { OnBoardingMainComponent } from './views/on-boarding/on-boarding-main/on-boarding-main.component';
-import { SpaceStoryComponent } from './views/space-story/space-story.component';
-import { IvyCarouselModule } from 'angular-responsive-carousel';
-import { NgxDropzoneModule } from 'ngx-dropzone';
-import { ComingSoonFullScreenComponent } from './core/component/coming-soon-full-screen/coming-soon-full-screen.component';
-import { FeedPublicationCardComponent } from './core/component/feed-publication-card/feed-publication-card.component';
-import { PublicationTextComponent } from './core/component/publication-text/publication-text.component';
 import { SpaceExplorerComponent } from './views/space-explorer/space-explorer.component';
 import { SpaceMessengerComponent } from './views/space-messenger/space-messenger.component';
 import { SpaceMusicComponent } from './views/space-music/space-music.component';
+import { SpaceStoryComponent } from './views/space-story/space-story.component';
 import { SpaceTubeComponent } from './views/space-tube/space-tube.component';
-import { FeedPublicationCardModule } from 'projects/feed-publication-card/src/public-api';
-import { WebStoreModule } from '@wiins/web-store';
 @NgModule({
   declarations: [
     AppComponent,

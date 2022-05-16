@@ -1,5 +1,5 @@
 /*
- * Public API Surface of common-models
+ * Public API Surface of common-interfaces
  */
 
-export * from './src/lib/interfaces';
+export * from './src/public-api';

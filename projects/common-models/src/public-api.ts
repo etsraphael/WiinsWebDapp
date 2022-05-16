@@ -3,3 +3,4 @@
  */
 
 export * from './lib/common-models.module';
+export * from './lib/models';

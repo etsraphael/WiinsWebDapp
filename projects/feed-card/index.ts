@@ -1,5 +1,5 @@
 /*
- * Public API Surface of common-models
+ * Public API Surface of feed card
  */
 
 export * from './src/public-api';

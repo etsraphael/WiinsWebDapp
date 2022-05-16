@@ -27,19 +27,10 @@
       "https": ["./node_modules/https-browserify"],
       "os": ["./node_modules/os-browserify"],
       "@wiins/web-store": ["projects/web-store"],
-      "@wiins/common-interfaces": [
-        "dist/common-interfaces/common-interfaces",
-        "dist/common-interfaces"
-      ],
-      "@wiins/common-models": [
-        "dist/common-models/common-models",
-        "dist/common-models"
-      ],
-      "@wiins/feed-card": ["dist/feed-card/feed-card", "dist/feed-card"],
-      "@wiins/feed-publication-card": [
-        "dist/feed-publication-card/feed-publication-card",
-        "dist/feed-publication-card"
-      ]
+      "@wiins/common-interfaces": ["projects/common-interfaces"],
+      "@wiins/common-models": ["projects/common-models/common-models"],
+      "@wiins/feed-card": ["projects/feed-card"],
+      "@wiins/feed-publication-card": ["projects/feed-publication-card"]
     }
   },
   "angularCompilerOptions": {
