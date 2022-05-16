@@ -18,7 +18,6 @@ import { NgxMasonryModule } from 'ngx-masonry';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ComingSoonFullScreenComponent } from './core/component/coming-soon-full-screen/coming-soon-full-screen.component';
-import { FeedPublicationCardComponent } from './core/component/feed-publication-card/feed-publication-card.component';
 import { MainNavBarComponent } from './core/component/main-nav-bar/main-nav-bar.component';
 import { MainSearchBarComponent } from './core/component/main-search-bar/main-search-bar.component';
 import { MainSidebarComponent } from './core/component/main-sidebar/main-sidebar.component';
@@ -50,7 +49,6 @@ import { SpaceTubeComponent } from './views/space-tube/space-tube.component';
     SpaceMessengerComponent,
     SpaceExplorerComponent,
     ComingSoonFullScreenComponent,
-    FeedPublicationCardComponent,
     PublicationTextComponent,
   ],
   imports: [
