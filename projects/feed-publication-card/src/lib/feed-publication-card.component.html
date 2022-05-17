@@ -70,17 +70,17 @@
               for="photo_upload">
               <i class="bi bi-image text-light"></i>
             </label>
-            <!-- <ngx-dropzone
-                class="w-100 dz-container"
-                *ngIf="visualMode == 'picture' && !imgPreview"
-                (change)="onSelect($event)">
-                <ngx-dropzone-label>
-                  <button class="btn text-light upload-btn">
-                    <i class="bi bi-box-arrow-in-down mx-2"></i>
-                    <span class="align-middle">Upload or drop here</span>
-                  </button>
-                </ngx-dropzone-label>
-              </ngx-dropzone> -->
+            <ngx-dropzone
+              class="w-100 dz-container"
+              *ngIf="visualMode == 'picture' && !imgPreview"
+              (change)="onSelect($event)">
+              <ngx-dropzone-label>
+                <button class="btn text-light upload-btn">
+                  <i class="bi bi-box-arrow-in-down mx-2"></i>
+                  <span class="align-middle">Upload or drop here</span>
+                </button>
+              </ngx-dropzone-label>
+            </ngx-dropzone>
             <div *ngIf="visualMode == 'picture' && !!imgPreview">
               <div
                 (click)="undoPicturePreview()"

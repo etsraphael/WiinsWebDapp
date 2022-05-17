@@ -25,7 +25,6 @@ import { MainSidebarComponent } from './core/component/main-sidebar/main-sidebar
 import { PublicationTextComponent } from './core/component/publication-text/publication-text.component';
 import { HomeLayoutComponent } from './core/layout/home-layout/home-layout.component';
 import { SettingLayoutComponent } from './core/layout/setting-layout/setting-layout.component';
-import { SpaceStoryCreationPostComponent } from './core/modal/space-story-creation-post/space-story-creation-post.component';
 import { OnBoardingMainComponent } from './views/on-boarding/on-boarding-main/on-boarding-main.component';
 import { SpaceExplorerComponent } from './views/space-explorer/space-explorer.component';
 import { SpaceMessengerComponent } from './views/space-messenger/space-messenger.component';
@@ -42,7 +41,6 @@ import { SpaceTubeComponent } from './views/space-tube/space-tube.component';
     MainSidebarComponent,
     HomeLayoutComponent,
     SettingLayoutComponent,
-    SpaceStoryCreationPostComponent,
     SpaceMusicComponent,
     SpaceTubeComponent,
     SpaceMessengerComponent,
