@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/guard/auth.guard';
 import { HomeLayoutComponent } from './core/layout/home-layout/home-layout.component';
-import { ContactUsComponent } from './views/on-boarding/contact-us/contact-us.component';
 import { OnBoardingMainComponent } from './views/on-boarding/on-boarding-main/on-boarding-main.component';
 import { SpaceExplorerComponent } from './views/space-explorer/space-explorer.component';
 import { SpaceMessengerComponent } from './views/space-messenger/space-messenger.component';
@@ -18,10 +17,6 @@ const routes: Routes = [
   {
     path: 'sign',
     component: OnBoardingMainComponent,
-    children: [
-      { path: '', redirectTo: 'join-us', pathMatch: 'full' },
-      { path: 'contact-us', component: ContactUsComponent },
-    ],
   },
 
   // home page

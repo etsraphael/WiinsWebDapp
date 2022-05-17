@@ -151,4 +151,9 @@ export class OnBoardingMainComponent {
 
     return false;
   }
+
+  scroll(elementId: string) {
+    // focus on a section
+    document.getElementById(elementId).scrollIntoView({ behavior: 'smooth' });
+  }
 }

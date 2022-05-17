@@ -23,7 +23,7 @@
         <div
           class="d-flex justify-content-end align-items-baseline container-nav-btn">
           <button class="btn btn-sm text-light" *ngFor="let item of btnTabs">
-            <a href="#{{ item.id }}"
+            <a (click)="scroll(item.id)"
               ><span>{{ item.title | translate }}</span></a
             >
           </button>
@@ -70,17 +70,7 @@
           id="dropdownMenuButton1"
           data-bs-toggle="dropdown"
           aria-expanded="false">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="50"
-            height="50"
-            fill="currentColor"
-            class="bi bi-list text-white"
-            viewBox="0 0 16 16">
-            <path
-              fill-rule="evenodd"
-              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-          </svg>
+          <i class="bi bi-list"></i>
         </button>
         <ul
           class="dropdown-menu text-center"
@@ -253,8 +243,8 @@
 
       <!-- Section 7 -->
       <div
+        id="team"
         class="col-12 d-flex flex-column flex-lg-row justify-content-between on-section-loop">
-        <a class="anchor" id="team"></a>
         <div
           class="col-12 col-lg-6 d-lg-flex text-center"
           data-aos="fade-right">
@@ -392,6 +382,7 @@
 
       <!-- Section 10 -->
       <div
+        id="contact"
         class="col-12 d-flex flex-column flex-lg-row justify-content-between container-contact-us on-section-loop">
         <div
           class="col-12 col-lg-6 d-flex align-items-center"
