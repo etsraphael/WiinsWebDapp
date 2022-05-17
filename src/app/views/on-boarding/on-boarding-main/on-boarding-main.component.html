@@ -23,9 +23,9 @@
         <div
           class="d-flex justify-content-end align-items-baseline container-nav-btn">
           <button class="btn btn-sm text-light" *ngFor="let item of btnTabs">
-            <a (click)="scroll(item.id)"
-              ><span>{{ item.title | translate }}</span></a
-            >
+            <a (click)="scroll(item.id)">
+              <span>{{ item.title | translate }}</span>
+            </a>
           </button>
           <button
             class="btn btn-sm mx-2 me-5 text-light"
@@ -156,11 +156,7 @@
               class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 text-center text-lg-start store-btn-contianer">
               <button
                 class="col-6 btn-lg btn-block btn-action"
-                (click)="
-                  goToOustideLink(
-                    'https://play.google.com/store/apps/details?id=com.wiins&hl=fr&gl=US'
-                  )
-                ">
+                (click)="notAvailableInYourCountry()">
                 <img
                   src="../../../../../assets/img/landing-page/google-play.svg"
                   alt="Google Play"
@@ -168,7 +164,7 @@
               </button>
               <button
                 class="col-6 btn-lg btn-block btn-action appStore"
-                (click)="goToOustideLink('')">
+                (click)="notAvailableInYourCountry()">
                 <img
                   src="../../../../../assets/img/landing-page/app-store.svg"
                   alt="App Store"
@@ -333,8 +329,9 @@
             <div
               class="mt-3 text-center text-lg-end ms-md-3 mb-lg-5 pb-lg-5 pe-lg-2">
               <button
+                (click)="notAvailableInYourCountry()"
                 class="btn btn-lg btn-block btn-primary btn-action-token px-5">
-                {{ 'LANDING_PAGE.space-token.button-buy-token' | translate }}
+                Buy in pancake swap
               </button>
             </div>
           </div>
@@ -467,7 +464,7 @@
         <li
           class="mx-3"
           *ngFor="let social of socialLists"
-          (click)="goToSocial(social.path)">
+          (click)="goToOustideLink(social.path)">
           <img [src]="social.src" [alt]="social.name" />
         </li>
       </ul>

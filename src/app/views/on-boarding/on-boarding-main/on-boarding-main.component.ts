@@ -4,6 +4,7 @@ import {
   QueryList,
   ViewChildren,
 } from '@angular/core';
+import { MatSnackBarRef, TextOnlySnackBar } from '@angular/material/snack-bar';
 import { CarouselComponent } from 'angular-responsive-carousel';
 import { githubPageDevs, wiinsweb } from 'src/app/core/data/github-page-devs';
 import {
@@ -22,8 +23,8 @@ import {
   socialLists,
   socialMediaLists,
 } from 'src/app/core/data/social-media-list';
-import { landingPageCardAnimationService } from 'src/app/core/service/angular-animation-service/landing-page-card-animation/animation.service';
 import { AuthService } from 'src/app/core/service/auth/auth.service';
+import { SnackBarService } from 'src/app/core/service/snackbar/snackbar.service';
 import { TranslationService } from 'src/app/core/service/translate/translate.service';
 import { SlidePhoneAnimation } from 'src/assets/animation/on-boarding.animation';
 
@@ -60,7 +61,7 @@ export class OnBoardingMainComponent {
     public authService: AuthService,
     private translate: TranslationService,
     private changeDetector: ChangeDetectorRef,
-    public slideAnimation: landingPageCardAnimationService
+    private snackBarService: SnackBarService
   ) {}
 
   ngAfterViewChecked(): void {
@@ -71,19 +72,10 @@ export class OnBoardingMainComponent {
     return window.open(link, '_blank');
   }
 
-  goToGitHub(): Window {
-    return window.open('https://github.com/etsraphael/WiinsWebDapp', '_blank');
-  }
-
-  goToGooglePlay(): Window {
-    return window.open(
-      'https://play.google.com/store/apps/details?id=com.wiins&hl=fr&gl=US',
-      '_blank'
+  notAvailableInYourCountry(): MatSnackBarRef<TextOnlySnackBar> {
+    return this.snackBarService.openSnackBar(
+      'Not available in your country yet'
     );
-  }
-
-  goToAppleStore(): Window {
-    return window.open('', '_blank');
   }
 
   // Return the default value of the lang do not apear on the dropdown
@@ -100,26 +92,6 @@ export class OnBoardingMainComponent {
   onChangeLang(item: lgInterface): void {
     this.defaultLang = item.abbr;
     this.translate.setNewLang(item.abbr.toLowerCase());
-  }
-
-  // To our Social Media
-  goToSocial(path: string): Window {
-    return window.open(path, '_blank');
-  }
-
-  // To Github Page (Devs)
-  goToGitHubDev(path: string): Window {
-    return window.open(path, '_blank');
-  }
-
-  // To Wiin's Community
-  onJoinChat(): Window {
-    return window.open('https://discord.gg/B6xUzqUp', '_blank');
-  }
-
-  // To Wiin's Web (Github)
-  onWiinsWeb(): Window {
-    return window.open('https://github.com/etsraphael/WiinsWeb', '_blank');
   }
 
   slideAction(dir: string, i: number): void {
@@ -152,8 +124,10 @@ export class OnBoardingMainComponent {
     return false;
   }
 
-  scroll(elementId: string) {
-    // focus on a section
-    document.getElementById(elementId).scrollIntoView({ behavior: 'smooth' });
+  // focus on a section
+  scroll(elementId: string): void {
+    return document
+      .getElementById(elementId)
+      .scrollIntoView({ behavior: 'smooth' });
   }
 }

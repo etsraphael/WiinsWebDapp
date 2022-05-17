@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import {
+  MatSnackBar,
+  MatSnackBarRef,
+  TextOnlySnackBar,
+} from '@angular/material/snack-bar';
 
 @Injectable({ providedIn: 'root' })
 export class SnackBarService {
@@ -8,8 +12,8 @@ export class SnackBarService {
 
   constructor(private _snackBar: MatSnackBar) {}
 
-  openSnackBar(message: string) {
-    this._snackBar.open(message, 'Close', {
+  openSnackBar(message: string): MatSnackBarRef<TextOnlySnackBar> {
+    return this._snackBar.open(message, 'Close', {
       duration: this.durationInSeconds * 1000,
     });
   }

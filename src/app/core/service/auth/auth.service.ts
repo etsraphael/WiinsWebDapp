@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
+import { MatSnackBarRef, TextOnlySnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import Web3 from 'web3';
+import { SnackBarService } from '../snackbar/snackbar.service';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +11,10 @@ import Web3 from 'web3';
 export class AuthService {
   web3: Web3 = new Web3(window.web3.currentProvider);
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private snackBarService: SnackBarService
+  ) {}
 
   async getAccountConnected(): Promise<string> {
     if (localStorage.getItem('accountConnected') === null) {
@@ -20,7 +26,13 @@ export class AuthService {
       .then((response: string[]) => response[0]);
   }
 
-  login(): void {
+  login(): void | MatSnackBarRef<TextOnlySnackBar> {
+    if (environment.production) {
+      return this.snackBarService.openSnackBar(
+        'Not available in your country yet'
+      );
+    }
+
     if (window.ethereum.isMetaMask) {
       return window.ethereum
         .request({ method: 'eth_requestAccounts' })
