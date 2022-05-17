@@ -1,3 +1,9 @@
+::ng-deep .mat-dialog-container {
+  padding: 0;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
 // [Container creation Post]
 .container-post {
   position: relative;
