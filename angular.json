@@ -295,6 +295,43 @@
           }
         }
       }
+    },
+    "editable-content-event": {
+      "projectType": "library",
+      "root": "projects/editable-content-event",
+      "sourceRoot": "projects/editable-content-event/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/editable-content-event/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/editable-content-event/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/editable-content-event/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/editable-content-event/src/test.ts",
+            "tsConfig": "projects/editable-content-event/tsconfig.spec.json",
+            "karmaConfig": "projects/editable-content-event/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["projects/editable-content-event/**/*.ts"]
+          }
+        }
+      }
     }
   },
   "defaultProject": "WiinsWebDapp"

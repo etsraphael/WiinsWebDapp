@@ -27,6 +27,7 @@
       "https": ["./node_modules/https-browserify"],
       "os": ["./node_modules/os-browserify"],
       "@wiins/web-store": ["projects/web-store"],
+      "editable-content-event": ["projects/editable-content-event"],
       "@wiins/common-interfaces": ["projects/common-interfaces"],
       "@wiins/common-models": ["projects/common-models"],
       "@wiins/feed-card": ["projects/feed-card"],
