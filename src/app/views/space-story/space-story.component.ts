@@ -1,18 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
-import { filter, Observable } from 'rxjs';
-import { PostModel } from 'src/app/core/model/post/post.model';
-import {
-  PicturePublicationModel,
-  PostPublicationModel,
-  VideoPublicationModel,
-} from 'src/app/core/model/publication/feed-publication.model';
+import { FeedPublicationModelInterface } from '@wiins/common-interfaces';
 import {
   FeedPublicationStoreActions,
   FeedPublicationStoreSelectors,
   RootStoreState,
-} from 'src/app/core/store';
+} from '@wiins/web-store';
+import { filter, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-space-story',
@@ -20,16 +15,7 @@ import {
   styleUrls: ['./space-story.component.scss'],
 })
 export class SpaceStoryComponent implements OnInit {
-  publicationPosts: PostModel[] = [];
-
-  feedPublication$: Observable<
-    (
-      | PicturePublicationModel
-      | PostPublicationModel
-      | VideoPublicationModel
-      | any
-    )[]
-  >;
+  feedPublication$: Observable<FeedPublicationModelInterface[]>;
 
   constructor(
     public router: Router,
@@ -131,7 +117,7 @@ export class SpaceStoryComponent implements OnInit {
   generateObservable(): void {
     this.feedPublication$ = this.store$.pipe(
       select(FeedPublicationStoreSelectors.selectAllItems),
-      filter((value) => !!value)
+      filter(value => !!value)
     );
   }
 }

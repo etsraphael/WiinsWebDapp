@@ -4,16 +4,23 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class AuthMockService {
-    
   async getAccountConnected(): Promise<string> {
     return Promise.resolve('test account');
   }
 
-  login(): void {}
+  login(): void {
+    return null;
+  }
 
-  async verifyAccount(): Promise<void> {}
+  async verifyAccount(): Promise<void> {
+    return null;
+  }
 
-  logout(): void {}
+  logout(): void {
+    return null;
+  }
 
-  saveAccountConnected(account: string): void {}
+  saveAccountConnected(): void {
+    return null;
+  }
 }

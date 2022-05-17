@@ -37,9 +37,7 @@ export const dataSectionWithCarousel: landingPageSectionWithCarousel[] = [
   {
     title: 'LANDING_PAGE.space-profil.title',
     desc: 'LANDING_PAGE.space-profil.text',
-    imgList: [
-      '../../../../../assets/img/landing-page/profile-phone.svg',
-    ],
+    imgList: ['../../../../../assets/img/landing-page/profile-phone.svg'],
   },
   {
     title: 'LANDING_PAGE.space-music-video.title',
@@ -57,19 +55,19 @@ export const coFounderData: coFounderInterface[] = [
   {
     name: 'Raphaël',
     img: '../../../../../assets/img/landing-page/raphael.svg',
-    role: 'LANDING_PAGE.space-team.fullstack-developper'
+    role: 'LANDING_PAGE.space-team.fullstack-developper',
   },
   {
     name: 'Lévine',
     img: '../../../../../assets/img/landing-page/levine.svg',
-    role: 'LANDING_PAGE.space-team.manager'
+    role: 'LANDING_PAGE.space-team.manager',
   },
   {
     name: 'Nathanaël',
     img: '../../../../../assets/img/landing-page/nathanael.svg',
-    role: 'LANDING_PAGE.space-team.front-end-developper'
-  }
-]
+    role: 'LANDING_PAGE.space-team.front-end-developper',
+  },
+];
 
 export const firstCommunityData: string[] = [
   'Richard R.',
@@ -78,19 +76,19 @@ export const firstCommunityData: string[] = [
   'Thierry T.',
   'Josh',
   'Celine D.',
-  'Tony'
-]
+  'Tony',
+];
 
 export const repositoryLinkData: repositoryLinkInterface[] = [
   {
     desc: 'Web : Web3, Angular, NgrxStore, Bootstrap (OpenSource)',
-    link: 'https://github.com/etsraphael/WiinsWebDapp'
+    link: 'https://github.com/etsraphael/WiinsWebDapp',
   },
   {
     desc: 'App : Web3, React Native, Redux (OpenSource)',
-    link: 'https://github.com/etsraphael/WiinsApp'
-  }
-]
+    link: 'https://github.com/etsraphael/WiinsApp',
+  },
+];
 
 export interface landingPageSectionWithCarousel {
   title: string;
@@ -107,7 +105,7 @@ export interface btnLandingPageInterface {
 export interface coFounderInterface {
   name: string;
   img: string;
-  role: string
+  role: string;
 }
 
 export interface repositoryLinkInterface {

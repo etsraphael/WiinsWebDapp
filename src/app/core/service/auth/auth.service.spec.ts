@@ -1,4 +1,3 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AuthMockService } from './auth-mock.service';
@@ -12,8 +11,7 @@ describe('AuthService', () => {
     const authMockService = new AuthMockService();
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      providers: [ { provide: AuthService, useValue: authMockService } ]
-
+      providers: [{ provide: AuthService, useValue: authMockService }],
     });
     service = TestBed.inject(AuthService);
   });

@@ -1,37 +1,44 @@
 // Space Story (News Feed or Discover)
 .space-home-title {
-    margin-top: 8em;
+  margin-top: 8em;
 
-    h1 {
-        font-family: 'Montserrat';
-        font-style: normal;
-        font-weight: 300;
-        font-size: 32px;
-        line-height: 39px;
+  h1 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 39px;
 
-        a {
-            text-decoration: none;
-            color: #242A37;
-        }
+    a {
+      text-decoration: none;
+      color: #242a37;
     }
+  }
 
-    .active-tab {
-        border-bottom: 4px solid;
-        border-image-slice: 1;
-        border-width: 4px;
-        border-image-source: linear-gradient(to right, #2CB0D6, #515DDD, #6743E0, #FF5964);
-
-    }
+  .active-tab {
+    border-bottom: 4px solid;
+    border-image-slice: 1;
+    border-width: 4px;
+    border-image-source: linear-gradient(
+      to right,
+      #2cb0d6,
+      #515ddd,
+      #6743e0,
+      #ff5964
+    );
+  }
 }
 
 // [Responsive] => Space Story News Feed - Discovers
 @media screen and (min-width: 500px) and (max-width: 768px) {
-    .masonry-items {
-        width: 100%;
-    }
-
-    .space-home-title {width: 100%;}
-    .space-home-title h1 {
-        font-size: 25px;
-    }
+  .masonry-items {
+    width: 100%;
   }
+
+  .space-home-title {
+    width: 100%;
+  }
+  .space-home-title h1 {
+    font-size: 25px;
+  }
+}

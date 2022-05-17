@@ -8,12 +8,11 @@ describe('MainNavBarComponent', () => {
   let component: MainNavBarComponent;
   let fixture: ComponentFixture<MainNavBarComponent>;
 
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule],
       declarations: [MainNavBarComponent],
-      providers: [{ provide: AuthService, useValue: new AuthMockService() }]
+      providers: [{ provide: AuthService, useValue: new AuthMockService() }],
     }).compileComponents();
   });
 

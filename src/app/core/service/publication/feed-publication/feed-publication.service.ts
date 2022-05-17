@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { SpaceStoryCreationPostComponent } from 'src/app/core/modal/space-story-creation-post/space-story-creation-post.component';
+import { FeedPublicationCardComponent } from '@wiins/feed-publication-card';
 
 @Injectable({
   providedIn: 'root',
@@ -8,8 +8,8 @@ import { SpaceStoryCreationPostComponent } from 'src/app/core/modal/space-story-
 export class FeedPublicationService {
   constructor(private dialog: MatDialog) {}
 
-  onCreatePublication(): MatDialogRef<SpaceStoryCreationPostComponent> {
-    return this.dialog.open(SpaceStoryCreationPostComponent, {
+  onCreatePublication(): MatDialogRef<FeedPublicationCardComponent> {
+    return this.dialog.open(FeedPublicationCardComponent, {
       panelClass: ['col-3', 'p-0'],
     });
   }

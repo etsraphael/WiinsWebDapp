@@ -1,483 +1,4 @@
-.toDelete {
-
-  // [Space- Navbar]
-  nav {
-    background: linear-gradient(90deg, #58aed2, #4a85d1, #8965c3);
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-    z-index: 999;
-  }
-
-  h2,
-  p,
-  span {
-    font-family: 'Montserrat', sans-serif;
-    line-height: 150%;
-  }
-
-  // Brand
-  .brand-icon-img {
-    width: 65px;
-    object-fit: contain;
-  }
-
-  .brand-typo-img {
-    height: 2.5rem;
-  }
-
-  // Language
-  .bi-arrow-down {
-    font-size: 15px;
-  }
-
-  .active-lang {
-    color: red;
-  }
-
-  ::ng-deep .mat-menu-panel {
-    max-height: 150px !important;
-  }
-
-  // Navbar Button
-  .container-nav-btn {
-    button:not(:nth-last-of-type(1)) {
-      margin-right: 2em;
-    }
-
-    button span {
-      font-style: normal;
-      font-weight: 500;
-      font-size: 1rem;
-      line-height: 35px;
-      transition: all 0.2s;
-      color: #ebebeb;
-    }
-
-    button span:hover:not(.signIn-btn span) {
-      border-bottom: 3px solid #fff;
-    }
-
-    button a {
-      text-decoration: none;
-    }
-
-    .signIn-btn {
-      background: linear-gradient(90deg,
-          #345aa4 -28.35%,
-          rgba(63, 0, 156, 0) 153.96%);
-      border-radius: 11px;
-    }
-
-    .signIn-btn:hover {
-      border: 2px solid #fff;
-    }
-
-    .underline {
-      display: none;
-    }
-  }
-
-  // Menu Hamburger
-  .dropdown {
-
-    button {
-      background: transparent;
-      border: none;
-    }
-
-    ul li a {
-      cursor: pointer;
-    }
-  }
-
-  .dropdown-toggle::after {
-    display: none;
-  }
-
-  // Background
-  .bg-container {
-    background: linear-gradient(90deg, #58aed2, #4a85d1, #8965c3);
-  }
-
-  .underline {
-    width: 1rem;
-    height: 5px;
-    border-radius: 50px;
-    background-color: #fff;
-  }
-
-  .cursor-not-allow {
-    cursor: not-allowed;
-  }
-
-  // [Space - Let's Build the future] ---------------------------------------------------------------------
-  .build {
-    margin-top: 8em;
-  }
-
-  // Description
-  .descript {
-    span {
-      font-weight: 400;
-    }
-
-    p,
-    ul li {
-      font-size: 24px;
-    }
-  }
-
-  // Button
-  .btn-action-join-us {
-    transition: all 0.3s;
-    outline: 2px solid transparent;
-    background: linear-gradient(90deg, #345aa4, rgba(63, 0, 156, 0.92));
-    border-radius: 13px;
-  }
-
-  .btn-action-join-us:hover {
-    outline: 2px solid #fff;
-  }
-
-  // [Space - Imagine an Infinite Space] ---------------------------------------------------------------------
-  // Google Store & App Store Button
-  .appBtn-container {
-    position: relative;
-    left: -0.5rem;
-
-    .btn-action {
-      background: transparent;
-      border-radius: 13px;
-      border: 0;
-
-      img {
-        width: 300px;
-      }
-    }
-
-    .btn-action.appStore {
-      position: relative;
-      bottom: .2rem;
-      cursor: not-allowed;
-    }
-  }
-
-  // [Space - New's Feed & Discover] ---------------------------------------------------------------------------
-  .margin-component {
-    margin-top: 3em;
-  }
-
-  // Phone Image (animation)
-  .container-img {
-    position: relative;
-    z-index: 1;
-
-    .bi-arrow-left-circle {
-      position: absolute;
-      top: 8em;
-      left: 0;
-      z-index: 999;
-      cursor: pointer;
-    }
-
-    .bi-arrow-right-circle {
-      position: absolute;
-      bottom: 8em;
-      right: 0;
-      z-index: 999;
-      cursor: pointer;
-    }
-  }
-
-  .color-inactive {
-    color: rgba(255, 255, 255, 0.2);
-  }
-
-  .phone-inactive {
-    transition: all 1s;
-    opacity: 0.03;
-  }
-
-  .phone-active {
-    transition: all 1s;
-    opacity: 1;
-  }
-
-  // [Space - Team]
-  .ceo h4,
-  .manager h4,
-  .developper h4 {
-    font-size: 27px;
-    color: #fff;
-  }
-
-  .ceo p,
-  .manager p,
-  .developper p {
-    font-size: 19px;
-  }
-
-  .ceo .avatar img,
-  .manager .avatar img,
-  .developper .avatar img {
-    width: 140px;
-    height: 141px;
-  }
-
-  // [Space - Token] -------------------------------------------------------------------------------------
-  .main-container {
-    position: relative;
-    background: none;
-  }
-
-  .token {
-    position: relative;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    transform-style: preserve-3d;
-    transition: all 0.8s ease;
-    animation: tokenAnimation 1s linear infinite alternate;
-    z-index: 999;
-  }
-
-  @keyframes tokenAnimation {
-    from {
-      transform: rotateY(0deg);
-    }
-
-    to {
-      transform: rotateY(180deg);
-    }
-  }
-
-  .front {
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 10px;
-    backface-visibility: hidden;
-    overflow: hidden;
-    background: url(../../../../assets/img/landing-page/tokenFront.svg);
-    background-size: cover;
-  }
-
-  .back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 10px;
-    backface-visibility: hidden;
-    overflow: hidden;
-    background: url(../../../../assets/img/landing-page/tokenBack.svg);
-    background-size: cover;
-    transform: rotateY(180deg);
-  }
-
-  .link {
-    position: absolute;
-    top: 0;
-    left: 6em;
-    z-index: 1;
-  }
-
-  // [Space - Contact-us] -------------------------------------------------------------------------------------
-  // Button
-  .btn-action-token {
-    background: linear-gradient(90deg, #ec6569, #3e009c33);
-    border-radius: 13px;
-    border: 0;
-    cursor: not-allowed;
-  }
-
-  // More We Are
-  .card {
-    width: 300px;
-    height: 200px;
-    background-color: #2f3136;
-    border-radius: 20px;
-
-    // Header
-    header {
-      position: relative;
-      height: 100px;
-      background-color: #202225;
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
-
-      .title {
-        h4 {
-          font-size: 14px;
-          color: #fff;
-        }
-
-        span {
-          font-size: 14px;
-          margin-right: 0.2rem;
-          color: #73767d;
-        }
-
-        p {
-          font-size: 10px;
-          color: #fff;
-          color: #73767d;
-        }
-      }
-
-      .join-chat button,
-      .join-project button {
-        background-color: #768ad4;
-        border-radius: 20px;
-        color: #fff;
-      }
-    }
-
-    // Body
-    .lists-community,
-    .lists-devs {
-      background-color: #2f3136;
-      border-bottom-left-radius: 20px;
-      border-bottom-right-radius: 20px;
-
-      ul {
-        list-style: none;
-      }
-
-      ul li {
-        position: relative;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        text-align: center;
-      }
-
-      ul li .bi-discord {
-        font-size: 25px;
-      }
-
-      ul li img:not(.admin) {
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        cursor: pointer;
-      }
-
-      ul li:not(:nth-of-type(5)) {
-        margin-right: 0.6rem;
-      }
-
-      ul li:nth-of-type(2) {
-        background-color: #ed5b61;
-      }
-
-      ul li:nth-of-type(3) {
-        background-color: #a259ff;
-      }
-
-      ul li:nth-of-type(4) {
-        background-color: #ff7262;
-      }
-
-      ul li:nth-of-type(5) {
-        background-color: #0acf83;
-      }
-    }
-  }
-
-  // Social Lists
-  .social-lists {
-    height: 110px;
-    background-color: rgba(0, 0, 0, 0.1);
-
-    ul li {
-      list-style: none;
-      cursor: pointer;
-    }
-
-    ul li:not(:last-of-type) {
-      margin-right: 3em;
-    }
-  }
-
-  // [Anchor => adjust for fixed header ] -----------------------------------------------------------------------------
-  a.anchor {
-    display: block;
-    position: relative;
-    top: -150px;
-    visibility: hidden;
-  }
-
-  // [Responsive] ------------------------------------------------------------------------------------------------------
-  @media screen and (min-width: 500px) and (max-width: 768px) {
-    .container-img {
-      .bi-arrow-left-circle {
-        position: absolute;
-        top: 8em;
-        left: 0;
-      }
-
-      .bi-arrow-right-circle {
-        position: absolute;
-        top: 8em;
-        right: 0;
-      }
-    }
-
-    .social-lists {
-      padding: 0;
-    }
-  }
-
-  @media screen and (min-width: 769px) and (max-width: 1200px) {
-    .container-img {
-      .bi-arrow-left-circle {
-        position: absolute;
-        top: 8em;
-        left: 0;
-      }
-
-      .bi-arrow-right-circle {
-        position: absolute;
-        bottom: 8em;
-        right: 0;
-      }
-    }
-  }
-
-  @media screen and (min-width: 769px) and (max-width: 992px) {
-    .btn-action:nth-of-type(2) {
-      position: relative;
-      bottom: 2px;
-    }
-
-    .btn-action img {
-      width: 240px;
-    }
-  }
-
-  @media screen and (min-width: 993px) {
-    .btn-action:nth-of-type(2) {
-      position: relative;
-      bottom: 2px;
-    }
-
-    .btn-action img {
-      width: 180px;
-    }
-
-    .ceo .avatar img,
-    .manager .avatar img,
-    .developper .avatar img {
-      width: 100px;
-      height: 100px;
-    }
-
-    .social-lists {
-      padding-left: 7.5em;
-    }
-  }
-}
-
-// NavBar 
+// NavBar
 .container-nav-btn {
   button:not(:nth-last-of-type(1)) {
     margin-right: 2em;
@@ -501,9 +22,11 @@
   }
 
   .signIn-btn {
-    background: linear-gradient(90deg,
-        #345aa4 -28.35%,
-        rgba(63, 0, 156, 0) 153.96%);
+    background: linear-gradient(
+      90deg,
+      #345aa4 -28.35%,
+      rgba(63, 0, 156, 0) 153.96%
+    );
     border-radius: 11px;
   }
 
@@ -523,25 +46,25 @@
 
 .navbar-container {
   background: linear-gradient(90deg, #58aed2, #4a85d1, #8965c3);
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   z-index: 40000;
 
-    // Menu Hamburger
-    .dropdown {
+  // Menu Hamburger
+  .dropdown {
+    button {
+      background: transparent;
+      border: none;
+    }
 
-      button {
-        background: transparent;
-        border: none;
-      }
-  
-      ul li a {
-        cursor: pointer;
-      }
+    ul li a {
+      cursor: pointer;
     }
-  
-    .dropdown-toggle::after {
-      display: none;
-    }
+  }
+
+  .dropdown-toggle::after {
+    display: none;
+  }
 }
 
 .container-body {
@@ -556,7 +79,6 @@
 }
 
 .carourel-container {
-
   .bi-arrow-left-circle,
   .bi-arrow-right-circle {
     font-size: 4rem;
@@ -589,7 +111,6 @@
     bottom: 0;
     right: 2rem;
   }
-
 }
 
 .on-section-loop {
@@ -597,7 +118,7 @@
 }
 
 .container-avatar-co-founder img {
-  width: 6.5rem
+  width: 6.5rem;
 }
 
 .container-token {
@@ -660,7 +181,7 @@
 
 .container-papers-link {
   .bi-dot {
-    font-size: 3rem
+    font-size: 3rem;
   }
 
   .container-link span {
@@ -790,12 +311,14 @@
     cursor: pointer;
   }
 
-
   @media screen and (max-width: 540px) {
     li img {
       width: 2rem;
     }
   }
+}
 
-
+nav .bi-list {
+  font-size: 2rem;
+  color: white;
 }

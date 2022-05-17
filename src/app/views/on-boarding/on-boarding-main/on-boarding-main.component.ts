@@ -2,10 +2,10 @@ import {
   ChangeDetectorRef,
   Component,
   QueryList,
-  ViewChild,
   ViewChildren,
 } from '@angular/core';
-import { SlidePhoneAnimation } from 'src/assets/animation/on-boarding.animation';
+import { MatSnackBarRef, TextOnlySnackBar } from '@angular/material/snack-bar';
+import { CarouselComponent } from 'angular-responsive-carousel';
 import { githubPageDevs, wiinsweb } from 'src/app/core/data/github-page-devs';
 import {
   btnLandingPageInterface,
@@ -23,10 +23,10 @@ import {
   socialLists,
   socialMediaLists,
 } from 'src/app/core/data/social-media-list';
-import { landingPageCardAnimationService } from 'src/app/core/service/angular-animation-service/landing-page-card-animation/animation.service';
 import { AuthService } from 'src/app/core/service/auth/auth.service';
+import { SnackBarService } from 'src/app/core/service/snackbar/snackbar.service';
 import { TranslationService } from 'src/app/core/service/translate/translate.service';
-import { CarouselComponent } from 'angular-responsive-carousel';
+import { SlidePhoneAnimation } from 'src/assets/animation/on-boarding.animation';
 
 @Component({
   selector: 'app-on-boarding-main',
@@ -39,7 +39,7 @@ export class OnBoardingMainComponent {
   btnTabs: btnLandingPageInterface[] = landingPageNavData;
 
   // Lang
-  defaultLang: string = 'En';
+  defaultLang = 'En';
   filteredLang: lgInterface[] = [];
   btnLanguages: lgInterface[] = lgListData;
 
@@ -47,22 +47,21 @@ export class OnBoardingMainComponent {
   pageDevs: wiinsweb[] = githubPageDevs;
 
   // Social Lists (Contact)
-
   @ViewChildren('myCarousel') myCarousel: QueryList<CarouselComponent>;
 
   // data
   dataSectionWithCarousel: landingPageSectionWithCarousel[] =
     dataSectionWithCarousel;
-  coFounderList: coFounderInterface[] = coFounderData
-  firstCommunity: string[] = firstCommunityData
-  repositoryList: repositoryLinkInterface[] = repositoryLinkData
+  coFounderList: coFounderInterface[] = coFounderData;
+  firstCommunity: string[] = firstCommunityData;
+  repositoryList: repositoryLinkInterface[] = repositoryLinkData;
   socialLists: socialLists[] = socialMediaLists;
 
   constructor(
     public authService: AuthService,
     private translate: TranslationService,
     private changeDetector: ChangeDetectorRef,
-    public slideAnimation: landingPageCardAnimationService
+    private snackBarService: SnackBarService
   ) {}
 
   ngAfterViewChecked(): void {
@@ -73,73 +72,26 @@ export class OnBoardingMainComponent {
     return window.open(link, '_blank');
   }
 
-  goToGitHub(): Window | null {
-    return window.open('https://github.com/etsraphael/WiinsWebDapp', '_blank');
-  }
-
-  goToGooglePlay(): Window | null {
-    return window.open(
-      'https://play.google.com/store/apps/details?id=com.wiins&hl=fr&gl=US',
-      '_blank'
+  notAvailableInYourCountry(): MatSnackBarRef<TextOnlySnackBar> {
+    return this.snackBarService.openSnackBar(
+      'Not available in your country yet'
     );
   }
 
-  goToAppleStore(): Window | null {
-    return window.open('', '_blank');
-  }
-
-
-
   // Return the default value of the lang do not apear on the dropdown
-  onOpenLang() {
+  onOpenLang(): lgInterface[] {
     this.filteredLang = this.btnLanguages;
     const abbr = this.defaultLang;
     const newFilteredLang = this.filteredLang.filter(
-      (x) => !x.language.startsWith(abbr)
+      x => !x.language.startsWith(abbr)
     );
     return (this.filteredLang = newFilteredLang);
   }
 
   // Change lang of the Page
-  onChangeLang(item: lgInterface) {
+  onChangeLang(item: lgInterface): void {
     this.defaultLang = item.abbr;
     this.translate.setNewLang(item.abbr.toLowerCase());
-  }
-
-  // To our Social Media
-  goToSocial(path: string): Window | null {
-    return window.open(path, '_blank');
-  }
-
-  // To Github Page (Devs)
-  goToGitHubDev(path: string): Window | null {
-    return window.open(path, '_blank');
-  }
-
-  // To Wiin's Community
-  onJoinChat(): Window | null {
-    return window.open('https://discord.gg/B6xUzqUp', '_blank');
-  }
-
-  // To Wiin's Web (Github)
-  onWiinsWeb(): Window | null {
-    return window.open('https://github.com/etsraphael/WiinsWeb', '_blank');
-  }
-
-  next(i: number) {
-    // this.myCarousel.next();
-    // console.log(this.myCarousel);
-
-    const carouselRef: CarouselComponent = this.myCarousel.filter(
-      (e, index) => index === i
-    )[0];
-
-    carouselRef.next();
-  }
-
-  previous() {
-    // this.myCarousel.prev();
-    // console.log(this.myCarousel);
   }
 
   slideAction(dir: string, i: number): void {
@@ -151,16 +103,6 @@ export class OnBoardingMainComponent {
     if (dir == 'prev') return carouselRef.prev();
   }
 
-  getButtonState(dir: string, i: number): boolean {
-    if (!this.myCarousel) return false;
-
-    const carouselRef: CarouselComponent = this.myCarousel.filter(
-      (e, index) => index === i
-    )[0];
-
-    return false;
-  }
-
   disableButton(dir: string, i: number): boolean {
     if (!this.myCarousel) return false;
 
@@ -168,17 +110,24 @@ export class OnBoardingMainComponent {
       (e, index) => index === i
     )[0];
 
-    if (dir == 'prev' && carouselRef.slide.counter == 0) {
+    if (dir == 'prev' && carouselRef.slide?.counter == 0) {
       return true;
     }
 
     if (
       dir == 'next' &&
-      carouselRef.cellLength == carouselRef.slide.counter + 1
+      carouselRef.cellLength == carouselRef.slide?.counter + 1
     ) {
       return true;
     }
 
     return false;
+  }
+
+  // focus on a section
+  scroll(elementId: string): void {
+    return document
+      .getElementById(elementId)
+      .scrollIntoView({ behavior: 'smooth' });
   }
 }

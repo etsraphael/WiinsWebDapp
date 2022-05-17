@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
-import { BackgroundPostModel } from 'src/app/core/model/publication/feed-publication.model';
+import { BackgroundPostModel } from '@wiins/common-models';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FeedPublicationMakerService {
-  constructor() {}
-
   generateBackground(payload: BackgroundPostModel): string {
     const deltaX = payload.orientations.end[0] - payload.orientations.start[0];
     const deltaY = payload.orientations.end[1] - payload.orientations.start[1];
