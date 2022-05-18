@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'lib-common-models',
+  selector: 'wiins-common-models',
   template: '',
   styles: [],
 })

@@ -1,4 +1,4 @@
-import { ProfileModel } from '@wiins/common-models';
+import { ProfileModel } from "./member.model";
 
 export abstract class FeedPublicationModel {
   _id: string;
