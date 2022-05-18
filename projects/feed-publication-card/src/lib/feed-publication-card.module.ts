@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { FeedPublicationCardComponent } from './feed-publication-card.component';
+import { EditableContentEventModule } from '@wiins/editable-content-event';
 
 @NgModule({
   declarations: [FeedPublicationCardComponent],
@@ -12,6 +13,7 @@ import { FeedPublicationCardComponent } from './feed-publication-card.component'
     CommonModule,
     BrowserAnimationsModule,
     NgxDropzoneModule,
+    EditableContentEventModule,
   ],
   exports: [FeedPublicationCardComponent],
 })
