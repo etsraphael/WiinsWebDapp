@@ -1,4 +1,4 @@
-import { ProfileModel } from "./member.model";
+import { ProfileModel } from './member.model';
 
 export abstract class FeedPublicationModel {
   _id: string;
