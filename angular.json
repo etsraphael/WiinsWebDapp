@@ -115,7 +115,7 @@
       "projectType": "library",
       "root": "projects/feed-publication-card",
       "sourceRoot": "projects/feed-publication-card/src",
-      "prefix": "lib",
+      "prefix": "wiins",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -152,7 +152,7 @@
       "projectType": "library",
       "root": "projects/feed-card",
       "sourceRoot": "projects/feed-card/src",
-      "prefix": "lib",
+      "prefix": "wiins",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -189,7 +189,7 @@
       "projectType": "library",
       "root": "projects/web-store",
       "sourceRoot": "projects/web-store/src",
-      "prefix": "lib",
+      "prefix": "wiins",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -226,7 +226,7 @@
       "projectType": "library",
       "root": "projects/common-models",
       "sourceRoot": "projects/common-models/src",
-      "prefix": "lib",
+      "prefix": "wiins",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -263,7 +263,7 @@
       "projectType": "library",
       "root": "projects/common-interfaces",
       "sourceRoot": "projects/common-interfaces/src",
-      "prefix": "lib",
+      "prefix": "wiins",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -300,7 +300,7 @@
       "projectType": "library",
       "root": "projects/editable-content-event",
       "sourceRoot": "projects/editable-content-event/src",
-      "prefix": "lib",
+      "prefix": "wiins",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
