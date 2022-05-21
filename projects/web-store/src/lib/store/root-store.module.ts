@@ -14,7 +14,7 @@ import { FeedPublicationStoreModule } from './feed-publication-store';
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
-      maxAge: 25
+      maxAge: 25,
     }),
   ],
 })
