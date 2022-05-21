@@ -26,8 +26,14 @@
       "http": ["./node_modules/stream-http"],
       "https": ["./node_modules/https-browserify"],
       "os": ["./node_modules/os-browserify"],
-      "@wiins/web-store": ["projects/web-store"],
-      "@wiins/editable-content-event": ["projects/editable-content-event"],
+      "@wiins/web-store": [
+        "dist/web-store/web-store",
+        "dist/web-store"
+      ],
+      "@wiins/editable-content-event": [
+        "dist/editable-content-event/editable-content-event",
+        "dist/editable-content-event"
+      ],
       "@wiins/common-interfaces": [
         "dist/common-interfaces/common-interfaces",
         "dist/common-interfaces"
@@ -36,8 +42,14 @@
         "dist/common-models/common-models",
         "dist/common-models"
       ],
-      "@wiins/feed-card": ["projects/feed-card"],
-      "@wiins/feed-publication-card": ["projects/feed-publication-card"]
+      "@wiins/feed-card": [
+        "dist/feed-card/feed-card",
+        "dist/feed-card"
+      ],
+      "@wiins/feed-publication-card": [
+        "dist/feed-publication-card/feed-publication-card",
+        "dist/feed-publication-card"
+      ]
     }
   },
   "angularCompilerOptions": {
