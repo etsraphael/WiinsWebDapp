@@ -42,10 +42,10 @@
           </div>
           <div *ngIf="visualMode == 'post'" class="container">
             <div class="row mx-0">
-              <!-- <app-publication-text
-                  [placeholder]="'Write your next post..'"
-                  (onSendText)="onSendText($event)">
-                </app-publication-text> -->
+              <wiins-editable-content-event
+                [placeholder]="'Write your next post..'"
+                (onSendText)="onSendText($event)">
+              </wiins-editable-content-event>
             </div>
             <div class="row d-flex justify-content-center my-2">
               <span
