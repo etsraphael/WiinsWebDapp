@@ -52,5 +52,10 @@
       "title": "Rejoignez -nous",
       "text": "Suivez nos mises à jour sur nos différents réseaux et participez à la conception du projet grâce à notre Discord et notre GitHub."
     }
+  },
+  "ACCESSIBILITY_APP": {
+    "country-available": {
+      "availability": "Désolée, cette application n'est pour l'instant pas disponible dans votre pays mais nous y travaillons !"
+    }
   }
 }
