@@ -43,19 +43,21 @@
     "space-token": {
       "text": "Thanks to cryptocurrency, you will be able to stake and earn 'Undefined token' at the same time. You also be able to use 100% of the platform with full content available to a subscription. Wiin's certified Artist can be rewarded with monetary gifts. Join the Wiin's communtiy today and lets grow Zion's worth together ",
       "title": "Token",
-      "button-buy-token": "Buy 'Undefined token'"
+      "button-buy-token": "Buy in Pancake Swap"
     },
     "space-white-paper": {
       "title": "White Paper"
     },
     "space-more-we-are": {
       "text": "Follow our updates on our various networks and participate in the project design through our Discord and GitHub",
-      "title": "Join us"
+      "title": "Join us",
+      "chat-button": "Join chat",
+      "feed-button": "Announcement"
     }
   },
   "ACCESSIBILITY_APP": {
     "country-available": {
-      "availability": "Sorry, this application is not yet available in your country, but we are working on it !"
+      "availability": "Sorry, this application is not yet available in your country !"
     }
   }
 }

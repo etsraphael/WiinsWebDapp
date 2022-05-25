@@ -43,19 +43,21 @@
     "space-token": {
       "title": "Token",
       "text": "Grâce à cette cryptomonnaie, pour le moment, vous pourrez staker. Par la suite, vous pourrez utiliser à 100% la platforme avec les contenus des artistes, etc. Grâce à l'acquisition d'un abonnement. Vous pourrez faire également des cadeaux monétaires aux artistes certifiés de Wiin's. Aujourd'hui 'Token indéfini' débute et grâce à vous, elle va valoir combien demain ?",
-      "button-buy-token": "Acheter 'Token indéfini'"
+      "button-buy-token": "Acheter sur Pancake Swap"
     },
     "space-white-paper": {
       "title": "Informations techniques"
     },
     "space-more-we-are": {
       "title": "Rejoignez -nous",
-      "text": "Suivez nos mises à jour sur nos différents réseaux et participez à la conception du projet grâce à notre Discord et notre GitHub."
+      "text": "Suivez nos mises à jour sur nos différents réseaux et participez à la conception du projet grâce à notre Discord et notre GitHub.",
+      "chat-button": "Rejoindre le chat",
+      "feed-button": "Annonce"
     }
   },
   "ACCESSIBILITY_APP": {
     "country-available": {
-      "availability": "Désolée, cette application n'est pour l'instant pas disponible dans votre pays mais nous y travaillons !"
+      "availability": "Désolée, cette application n'est pour l'instant pas disponible dans votre pays !"
     }
   }
 }

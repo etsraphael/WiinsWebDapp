@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import Web3 from 'web3';
 import { SnackBarService } from '../snackbar/snackbar.service';
+import { TranslationService } from '../translate/translate.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,8 @@ export class AuthService {
 
   constructor(
     private router: Router,
-    private snackBarService: SnackBarService
+    private snackBarService: SnackBarService,
+    private translate: TranslationService
   ) {}
 
   async getAccountConnected(): Promise<string> {
@@ -29,7 +31,8 @@ export class AuthService {
   login(): void | MatSnackBarRef<TextOnlySnackBar> {
     if (environment.production) {
       return this.snackBarService.openSnackBar(
-        'Not available in your country yet'
+        this.translate.currentText.getValue(),
+        5
       );
     }
 
