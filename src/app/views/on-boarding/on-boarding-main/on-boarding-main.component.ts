@@ -74,7 +74,9 @@ export class OnBoardingMainComponent {
 
   notAvailableInYourCountry(): MatSnackBarRef<TextOnlySnackBar> {
     return this.snackBarService.openSnackBar(
-      this.translate.currentText.getValue(),
+      this.translate.translateInCurrentLang(
+        'ACCESSIBILITY_APP.country-available.availability'
+      ),
       5
     );
   }

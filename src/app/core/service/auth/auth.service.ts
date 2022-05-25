@@ -31,7 +31,9 @@ export class AuthService {
   login(): void | MatSnackBarRef<TextOnlySnackBar> {
     if (environment.production) {
       return this.snackBarService.openSnackBar(
-        this.translate.currentText.getValue(),
+        this.translate.translateInCurrentLang(
+          'ACCESSIBILITY_APP.country-available.availability'
+        ),
         5
       );
     }
