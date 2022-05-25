@@ -50,7 +50,7 @@
             <div class="row d-flex justify-content-center my-2">
               <span
                 class="blockBox m-2"
-                *ngFor="let bg of backgroundPostList"
+                *ngFor="let bg of data.linearBackgroundList"
                 (click)="onChangebackground(bg)"
                 [ngStyle]="{
                   background: feedPublicationCardService.generateBackground(bg)

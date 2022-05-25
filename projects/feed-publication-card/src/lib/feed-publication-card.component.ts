@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FeedPublicationModelInterface } from '@wiins/common-interfaces';
 import {
   BackgroundPostModel,
@@ -18,7 +19,7 @@ import { FeedPublicationCardService } from './feed-publication-card.service';
   styleUrls: ['./feed-publication-card.component.scss'],
   animations: [SpaceStoryCreatePostAnimation],
 })
-export class FeedPublicationCardComponent {
+export class FeedPublicationCardComponent implements OnInit {
   // Type Posts
   feedPublicationCreate:
     | PicturePublicationModel
@@ -40,7 +41,15 @@ export class FeedPublicationCardComponent {
   files: File[] = [];
   imgPreview: string | ArrayBuffer;
 
-  constructor(public feedPublicationCardService: FeedPublicationCardService) {}
+  constructor(
+    public feedPublicationCardService: FeedPublicationCardService,
+    public dialogRef: MatDialogRef<FeedPublicationCardComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: IFeedPublicationCard
+  ) {}
+
+  ngOnInit(): void {
+    console.log(this.data);
+  }
 
   onChangebackground(value: BackgroundPostModel): void {
     this.bgSelected = value;
@@ -131,9 +140,8 @@ export class FeedPublicationCardComponent {
   undoPicturePreview(): void {
     this.imgPreview = null;
   }
+}
 
-  onRemove(event) {
-    console.log(event);
-    this.files.splice(this.files.indexOf(event), 1);
-  }
+export interface IFeedPublicationCard {
+  linearBackgroundList: BackgroundPostModel[];
 }
