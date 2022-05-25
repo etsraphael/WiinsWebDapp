@@ -1,5 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {
+  MatDialogModule,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FeedPublicationCardComponent } from './feed-publication-card.component';
@@ -10,13 +14,10 @@ describe('FeedPublicationCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        BrowserAnimationsModule,
-        MatDialogModule
-      ],
+      imports: [BrowserAnimationsModule, MatDialogModule],
       providers: [
         { provide: MAT_DIALOG_DATA, useValue: {} },
-        { provide: MatDialogRef, useValue: {} }
+        { provide: MatDialogRef, useValue: {} },
       ],
       declarations: [FeedPublicationCardComponent],
     }).compileComponents();
