@@ -7,14 +7,14 @@ import {
 
 @Injectable({ providedIn: 'root' })
 export class SnackBarService {
-  // Duration
-  durationInSeconds = 10;
-
   constructor(private _snackBar: MatSnackBar) {}
 
-  openSnackBar(message: string): MatSnackBarRef<TextOnlySnackBar> {
+  openSnackBar(
+    message: string,
+    duration: number
+  ): MatSnackBarRef<TextOnlySnackBar> {
     return this._snackBar.open(message, 'Close', {
-      duration: this.durationInSeconds * 1000,
+      duration: duration * 1000,
     });
   }
 }
