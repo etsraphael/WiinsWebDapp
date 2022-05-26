@@ -1,9 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FeedPublicationModelInterface } from '@wiins/common-interfaces';
 import {
   BackgroundPostModel,
+  FeedPublicationModelInterface,
   PicturePublicationModel,
   PostPublicationModel,
   VideoPublicationModel,

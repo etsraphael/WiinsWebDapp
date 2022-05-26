@@ -1,5 +1,5 @@
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
-import { FeedPublicationModelInterface } from '@wiins/common-interfaces';
+import { FeedPublicationModelInterface } from '@wiins/common-models';
 
 export const featureAdapter: EntityAdapter<FeedPublicationModelInterface> =
   createEntityAdapter<FeedPublicationModelInterface>({

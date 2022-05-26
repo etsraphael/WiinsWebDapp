@@ -259,43 +259,6 @@
         }
       }
     },
-    "common-interfaces": {
-      "projectType": "library",
-      "root": "projects/common-interfaces",
-      "sourceRoot": "projects/common-interfaces/src",
-      "prefix": "wiins",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/common-interfaces/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/common-interfaces/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/common-interfaces/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/common-interfaces/src/test.ts",
-            "tsConfig": "projects/common-interfaces/tsconfig.spec.json",
-            "karmaConfig": "projects/common-interfaces/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": ["projects/common-interfaces/**/*.ts"]
-          }
-        }
-      }
-    },
     "editable-content-event": {
       "projectType": "library",
       "root": "projects/editable-content-event",

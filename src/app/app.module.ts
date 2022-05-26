@@ -31,7 +31,6 @@ import { SpaceMessengerComponent } from './views/space-messenger/space-messenger
 import { SpaceMusicComponent } from './views/space-music/space-music.component';
 import { SpaceStoryComponent } from './views/space-story/space-story.component';
 import { SpaceTubeComponent } from './views/space-tube/space-tube.component';
-import { CommonInterfacesModule } from '@wiins/common-interfaces';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +71,6 @@ import { CommonInterfacesModule } from '@wiins/common-interfaces';
     BrowserAnimationsModule,
     NgxDropzoneModule,
     FeedPublicationCardModule,
-    CommonInterfacesModule,
     FeedCardModule,
   ],
   providers: [],

@@ -31,10 +31,6 @@
         "dist/editable-content-event/editable-content-event",
         "dist/editable-content-event"
       ],
-      "@wiins/common-interfaces": [
-        "dist/common-interfaces/common-interfaces",
-        "dist/common-interfaces"
-      ],
       "@wiins/common-models": [
         "dist/common-models/common-models",
         "dist/common-models"
