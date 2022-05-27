@@ -8,36 +8,40 @@ A demo can be found on <a href="https://www.figma.com/proto/8Y1DNZuCCrOtYNgLejRl
 ## Suggestion
 
 The <a href="https://www.npmjs.com/package/@wiins/common-models" target="_blank">@wiins/common-models</a> is recommanded to use this package.<br>
- You will get all your interfaces and models in one place for all the ecosystem.
+You will get all your interfaces and models in one place for all the ecosystem.
 
 ## Installation
 
-* Install the npm package:
+- Install the npm package:
   ```sh
   npm i @wiins/feed-card
   ```
-  
-* Import module:
+- Import module:
+
 ```ts
   import {FeedCardModule} from '@wiins/feed-card';
 
   @NgModule({
       imports: [FeedCardModule]
   })
-  ```
+```
 
 ## Usage
 
 Put your feed tag in a container like this:
-  ```html
-  <ngx-masonry [ordered]="true">
-    <div class="container-cards" ngxMasonryItem *ngFor="let item of feedPublication">
-      <wiins-feed-card [feedPublication]="item"></wiins-feed-card>
-    </div>
-  </ngx-masonry>
-  ```
-  
- Where [feedPublication] is the package that we had previously recommended to use
+
+```html
+<ngx-masonry [ordered]="true">
+  <div
+    class="container-cards"
+    ngxMasonryItem
+    *ngFor="let item of feedPublication">
+    <wiins-feed-card [feedPublication]="item"></wiins-feed-card>
+  </div>
+</ngx-masonry>
+```
+
+Where [feedPublication] is the package that we had previously recommended to use
 
 ## Community
 
