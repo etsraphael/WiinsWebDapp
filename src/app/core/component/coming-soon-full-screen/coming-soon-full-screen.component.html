@@ -1,1 +1,37 @@
-<p>coming-soon-full-screen works!</p>
+<div class="container-fluid coming-soon-container d-flex flex-column justify-content-center align-items-md-center">
+    <!-- Background Image -->
+    <img class="w-100 h-100" src="../../../../assets/img/coming-soon/Confetti.svg" alt="Confetti">
+    <div class="row">
+        <div class="col-12">
+            <!-- Coming Soon Title -->
+            <div class="coming-soon col-12 text-center">
+                <h1 class="mb-0">GREAT!</h1>
+                <p class="col-9 col-md-5">you have found a space that is not yet finalized</p>
+                <h3 class="col-10 col-md-7">You can join our community to help us :</h3>
+                <!-- Social Icons -->
+                <div class="socials-icons col-12 d-flex justify-content-center">
+                    <div class="container-socials mx-5" *ngFor="let icon of socialIcons">
+                        <a href="{{icon.path}}" target="_blank">
+                            <img class="w-100 h-100" [src]="icon.src" [alt]="icon.name">
+                        </a>
+                    </div>
+                </div>
+                <!-- Monetary Gifts -->
+                <div class="monetary-gifts col-12 mb-5">
+                    <h3 class="col-10 col-md-7">OR, You can buy TEA or you can give us monetary gifts</h3>
+                    <div class="monetary-icons col-12 d-flex justify-content-center">
+                        <div class="container-icons mx-5" *ngFor="let icon of monetaryIcons">
+                            <a href="{{icon.path}}" target="_blank">
+                                <img class="w-100 h-100" [src]="icon.src" [alt]="icon.name">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Back Home -->
+                <div class="back-home d-none d-md-block">
+                    <button class="btn" [routerLink]="['/']">Back Home</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

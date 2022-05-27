@@ -46,4 +46,4 @@ const routerOPtions: ExtraOptions = {
   exports: [RouterModule],
   providers: [AuthGuard],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
