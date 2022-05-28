@@ -11,6 +11,7 @@ import {
 import { NgxDropzoneChangeEvent } from 'ngx-dropzone';
 import { SpaceStoryCreatePostAnimation } from '../assets/animation/on-create-post-animation';
 import { linearBgPost } from '../data/linear-background-post-list';
+import { IFeedPublicationCard } from '../interface/feed-publication-card.interface';
 import { FeedPublicationCardService } from './feed-publication-card.service';
 
 @Component({
@@ -140,8 +141,4 @@ export class FeedPublicationCardComponent implements OnInit {
   undoPicturePreview(): void {
     this.imgPreview = null;
   }
-}
-
-export interface IFeedPublicationCard {
-  linearBackgroundList: BackgroundPostModel[];
 }

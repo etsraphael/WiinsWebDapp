@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import {
-  FeedPublicationCardComponent,
-  FeedPublicationCardService,
-} from '@wiins/feed-publication-card';
+import { FeedPublicationCardComponent } from '@wiins/feed-publication-card';
 import { BackgroundPostModel } from '@wiins/common-models';
-import { IFeedPublicationCard } from '@wiins/feed-publication-card';
+import { FeedCardPublicationModalService } from '@wiins/feed-publication-card';
 
 @Injectable({
   providedIn: 'root',
@@ -26,13 +23,13 @@ export class FeedPublicationService {
     }),
   ];
 
-  constructor(private feedPublicationCardService: FeedPublicationCardService) {}
+  constructor(
+    private feedCardPublicationModalService: FeedCardPublicationModalService
+  ) {}
 
   onCreatePublication(): MatDialogRef<FeedPublicationCardComponent> {
-    const data: IFeedPublicationCard = {
+    return this.feedCardPublicationModalService.openModalPublication({
       linearBackgroundList: this.linearBgPost,
-    };
-
-    return this.feedPublicationCardService.openModalPublication(data);
+    });
   }
 }
