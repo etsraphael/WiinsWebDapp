@@ -1,3 +1,4 @@
+// (Specifically for Landing Page)
 export const socialMediaLists: socialLists[] = [
   {
     name: 'Facebook',
@@ -23,6 +24,20 @@ export const socialMediaLists: socialLists[] = [
     name: 'Github',
     path: 'https://github.com/etsraphael/WiinsWebDapp',
     src: '../../../../../assets/img/core/icon/Github.svg',
+  },
+];
+
+// (Specifically for Coming Soon)
+export const socialIconsLists: socialLists[] = [
+  {
+    name: 'Discord',
+    path: 'https://discord.gg/Kpdh29U6',
+    src: '../../../../assets/img/core/icon/Discord.svg',
+  },
+  {
+    name: 'Github',
+    path: 'https://github.com/etsraphael/WiinsWebDapp',
+    src: '../../../../assets/img/core/icon/Github.svg',
   },
 ];
 
