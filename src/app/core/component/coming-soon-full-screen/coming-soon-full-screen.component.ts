@@ -7,7 +7,6 @@ import { socialIconsLists, socialLists } from '../../data/social-media-list';
   styleUrls: ['./coming-soon-full-screen.component.scss'],
 })
 export class ComingSoonFullScreenComponent {
-
   socialIcons: socialLists[] = socialIconsLists;
 
   // Because of the lack of informations about this button, I put the code like this
@@ -23,7 +22,6 @@ export class ComingSoonFullScreenComponent {
       src: '../../../../assets/img/coming-soon/Gift.svg',
     },
   ];
-
 }
 
 export interface monetaryLists {
