@@ -14,12 +14,12 @@ export class ComingSoonFullScreenComponent {
     {
       name: 'toDefine',
       path: 'toDefine',
-      src: '../../../../assets/img/coming-soon/Zion.svg',
+      src: '../../../../assets/img/coming-soon/zion.svg',
     },
     {
       name: 'toDefine',
       path: 'toDefine',
-      src: '../../../../assets/img/coming-soon/Gift.svg',
+      src: '../../../../assets/img/coming-soon/gift.svg',
     },
   ];
 }

@@ -32,7 +32,7 @@ export const socialIconsLists: socialLists[] = [
   {
     name: 'Discord',
     path: 'https://discord.gg/Kpdh29U6',
-    src: '../../../assets/img/coming-soon/Discord.svg',
+    src: '../../../assets/img/coming-soon/discord.svg',
   },
   {
     name: 'Github',

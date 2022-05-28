@@ -1,10 +1,6 @@
-<div
-  class="container-fluid coming-soon-container d-flex flex-column justify-content-center align-items-md-center">
+<div class="container-fluid coming-soon-container d-flex flex-column justify-content-center align-items-md-center">
   <!-- Background Image -->
-  <img
-    class="w-100 h-100"
-    src="../../../../assets/img/coming-soon/Confetti.svg"
-    alt="Confetti" />
+  <img class="w-100 h-100" src="../../../../assets/img/coming-soon/confetti.svg" alt="Confetti" />
   <div class="row">
     <div class="col-12">
       <!-- Coming Soon Title -->
@@ -17,7 +13,7 @@
         <!-- Social Icons -->
         <div class="socials-icons col-12 d-flex justify-content-center">
           <div class="container-socials mx-5" *ngFor="let icon of socialIcons">
-            <a href="{{ icon.path }}" target="_blank">
+            <a [href]="icon.path" target="_blank">
               <img class="w-100 h-100" [src]="icon.src" [alt]="icon.name" />
             </a>
           </div>
@@ -28,10 +24,8 @@
             OR, You can buy TEA or you can give us monetary gifts
           </h3>
           <div class="monetary-icons col-12 d-flex justify-content-center">
-            <div
-              class="container-icons mx-5"
-              *ngFor="let icon of monetaryIcons">
-              <a href="{{ icon.path }}" target="_blank">
+            <div class="container-icons mx-5" *ngFor="let icon of monetaryIcons">
+              <a [href]="icon.path" target="_blank">
                 <img class="w-100 h-100" [src]="icon.src" [alt]="icon.name" />
               </a>
             </div>
