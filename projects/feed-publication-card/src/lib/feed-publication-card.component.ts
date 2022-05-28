@@ -3,16 +3,15 @@ import { NgModel } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {
   BackgroundPostModel,
-  FeedPublicationModelInterface,
   PicturePublicationModel,
   PostPublicationModel,
   VideoPublicationModel,
-} from '@wiins/common-models';
+} from './models';
 import { NgxDropzoneChangeEvent } from 'ngx-dropzone';
 import { SpaceStoryCreatePostAnimation } from '../assets/animation/on-create-post-animation';
 import { linearBgPost } from '../data/linear-background-post-list';
-import { IFeedPublicationCard } from '../interface/feed-publication-card.interface';
 import { FeedPublicationCardService } from './feed-publication-card.service';
+import { IFeedCard, IFeedPublicationPayload } from './interfaces';
 
 @Component({
   selector: 'wiins-feed-publication-card',
@@ -45,7 +44,7 @@ export class FeedPublicationCardComponent implements OnInit {
   constructor(
     public feedPublicationCardService: FeedPublicationCardService,
     public dialogRef: MatDialogRef<FeedPublicationCardComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: IFeedPublicationCard
+    @Inject(MAT_DIALOG_DATA) public data: IFeedPublicationPayload
   ) {}
 
   ngOnInit(): void {
@@ -62,7 +61,7 @@ export class FeedPublicationCardComponent implements OnInit {
   }
 
   // Build the Publication
-  publicationMaker(): FeedPublicationModelInterface | void {
+  publicationMaker(): IFeedCard | void {
     switch (this.visualMode) {
       case 'picture': {
         const title = this.commentInputValue;

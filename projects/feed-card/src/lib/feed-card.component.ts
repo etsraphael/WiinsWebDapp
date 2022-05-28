@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FeedPublicationModelInterface } from '@wiins/common-models';
+import { IFeedCard } from './interfaces';
 
 @Component({
   selector: 'wiins-feed-card',
@@ -7,7 +7,7 @@ import { FeedPublicationModelInterface } from '@wiins/common-models';
   styleUrls: ['./feed-card.component.scss'],
 })
 export class FeedCardComponent {
-  @Input() feedPublication: FeedPublicationModelInterface;
+  @Input() feedPublication: IFeedCard;
 
   generateBackground(): string {
     return 'linear-gradient(135deg, #D92E2E 10%, #6C1B1B 100%)';

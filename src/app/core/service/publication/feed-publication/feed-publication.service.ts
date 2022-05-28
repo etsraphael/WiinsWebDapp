@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { FeedPublicationCardComponent } from '@wiins/feed-publication-card';
-import { BackgroundPostModel } from '@wiins/common-models';
-import { FeedCardPublicationModalService } from '@wiins/feed-publication-card';
+import {
+  BackgroundPostModel,
+  FeedPublicationCardComponent,
+  FeedCardPublicationModalService,
+} from '@wiins/feed-publication-card';
 
 @Injectable({
   providedIn: 'root',
