@@ -2,10 +2,6 @@
 
 This library is used to generated a feed card.
 
-# Suggestion
-
-The [@wiins/common-models](https://www.npmjs.com/package/@wiins/common-models) is recommanded to use this package. You will get all your interfaces and models in one place for all the ecosystem.
-
 # Installation
 
 ```
