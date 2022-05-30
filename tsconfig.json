@@ -31,10 +31,6 @@
         "dist/editable-content-event/editable-content-event",
         "dist/editable-content-event"
       ],
-      "@wiins/common-models": [
-        "dist/common-models/common-models",
-        "dist/common-models"
-      ],
       "@wiins/feed-card": ["dist/feed-card/feed-card", "dist/feed-card"],
       "@wiins/feed-publication-card": [
         "dist/feed-publication-card/feed-publication-card",

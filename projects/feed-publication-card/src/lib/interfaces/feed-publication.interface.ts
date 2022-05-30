@@ -1,6 +1,6 @@
 import { BackgroundPostModel, ProfileModel } from '../models';
 
-export interface FeedPublicationModelInterface {
+export interface IFeedCard {
   _id: string;
   createdAt: string;
   updatedAt: string;
@@ -19,4 +19,8 @@ export interface FeedPublicationModelInterface {
   background?: BackgroundPostModel;
   colors?: string[];
   orientations?: { start: number[]; end: number[] };
+}
+
+export interface IFeedPublicationPayload {
+  linearBackgroundList: BackgroundPostModel[];
 }

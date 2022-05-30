@@ -1,5 +1,3 @@
-import { BackgroundPostModel } from '@wiins/common-models';
-
 /* 
   Orientations configuration:
   [0, 0] bottom-left
@@ -7,6 +5,8 @@ import { BackgroundPostModel } from '@wiins/common-models';
   [1, 1] top-right
   [0, 1] bottom-right
 */
+
+import { BackgroundPostModel } from '../lib/models';
 
 export const linearBgPost: BackgroundPostModel[] = [
   new BackgroundPostModel(['#8E2DE2', '#4A00E0'], {
