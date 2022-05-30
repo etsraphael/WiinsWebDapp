@@ -30,6 +30,8 @@
     "@ngrx/store-devtools": "^13.2.0",
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
+    "@sentry/angular": "^6.19.7",
+    "@sentry/tracing": "^6.19.7",
     "@wiins/editable-content-event": "^0.0.5",
     "@wiins/feed-card": "^0.0.5",
     "@wiins/feed-publication-card": "^0.0.5",
