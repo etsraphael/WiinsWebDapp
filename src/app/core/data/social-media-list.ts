@@ -3,27 +3,27 @@ export const socialMediaLists: socialLists[] = [
   {
     name: 'facebook',
     path: 'https://www.facebook.com/pages/category/Photography-Videography/Wiins-109652504066491/',
-    src: 'https://images.unsplash.com/photo-1653856289645-8601ab0e422f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+    src: '../../../assets/img/core/icon/facebook.svg',
   },
   {
     name: 'instagram',
     path: 'https://www.instagram.com/wiins___/',
-    src: 'https://images.unsplash.com/photo-1653856289645-8601ab0e422f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+    src: '../../../assets/img/core/icon/instagram.svg',
   },
   {
     name: 'linkedin',
     path: 'https://www.linkedin.com/company/espace-wiin-s/',
-    src: 'https://images.unsplash.com/photo-1653856289645-8601ab0e422f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+    src: '../../../assets/img/core/icon/linkedin.svg',
   },
   {
     name: 'twitter',
     path: 'https://twitter.com/espace_s',
-    src: 'https://images.unsplash.com/photo-1653856289645-8601ab0e422f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+    src: '../../../assets/img/core/icon/twitter.svg',
   },
   {
     name: 'github',
     path: 'https://github.com/etsraphael/WiinsWebDapp',
-    src: 'https://images.unsplash.com/photo-1653856289645-8601ab0e422f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+    src: '../../../assets/img/core/icon/github.svg',
   },
 ];
 
@@ -32,12 +32,12 @@ export const socialIconsLists: socialLists[] = [
   {
     name: 'discord',
     path: 'https://discord.gg/Kpdh29U6',
-    src: 'https://images.unsplash.com/photo-1653856289645-8601ab0e422f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+    src: '../../../assets/img/coming-soon/discord.svg',
   },
   {
     name: 'github',
     path: 'https://github.com/etsraphael/WiinsWebDapp',
-    src: 'https://images.unsplash.com/photo-1653856289645-8601ab0e422f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+    src: '../../../assets/img/core/icon/github.svg',
   },
 ];
 
