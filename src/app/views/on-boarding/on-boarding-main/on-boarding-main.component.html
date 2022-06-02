@@ -97,7 +97,7 @@
               <!-- Description -->
               <div class="row mx-0 mt-5 mt-lg-0">
                 <span
-                  class="display-3 text-light col-12 text-center text-lg-start">
+                  class="display-3 text-light col-12 text-center text-lg-start p-0">
                   <strong>{{
                     'LANDING_PAGE.space-lets-build-future.title' | translate
                   }}</strong>
@@ -142,7 +142,7 @@
             <!-- Description -->
             <div class="row mx-0 mt-5 mt-lg-0">
               <span
-                class="display-3 text-light col-12 text-center text-lg-start">
+                class="display-3 text-light col-12 text-center text-lg-start p-0">
                 <strong>{{
                   'LANDING_PAGE.space-imagine-early-access.title' | translate
                 }}</strong>
@@ -187,8 +187,8 @@
       <!-- Section 3 - 4 - 5 - 6 -->
       <div
         class="col-12 d-flex flex-column flex-lg-row justify-content-between on-section-loop"
-        id="ecosystem"
         *ngFor="let item of dataSectionWithCarousel; let i = index">
+        <a class="anchor" id="ecosystem"></a>
         <div
           class="col-12 col-lg-6 d-flex align-items-center"
           data-aos="fade-right">
@@ -196,7 +196,7 @@
             <!-- Description -->
             <div class="row mx-0 mt-5 mt-lg-0">
               <span
-                class="display-3 text-light col-12 text-center text-lg-start">
+                class="display-3 text-light col-12 text-center text-lg-start p-0">
                 <strong>{{ item.title | translate }}</strong>
               </span>
               <h2 class="text-light col-12 py-3 mt-3 text-center text-lg-start">
@@ -239,14 +239,14 @@
 
       <!-- Section 7 -->
       <div
-        id="team"
         class="col-12 d-flex flex-column flex-lg-row justify-content-between on-section-loop">
+        <a class="anchor" id="team"></a>
         <div
           class="col-12 col-lg-6 d-lg-flex text-center"
           data-aos="fade-right">
           <div class="row descript mx-0 mt-5 mt-lg-0 text-lg-start">
             <!-- <div> -->
-            <span class="display-3 text-light col-12 text-center text-lg-start">
+            <span class="display-3 text-light col-12 text-center text-lg-start p-0">
               <strong>{{ 'LANDING_PAGE.space-team.title' | translate }}</strong>
             </span>
             <!-- Collaborator -->
@@ -316,7 +316,7 @@
           <div class="container-fluid descript">
             <!-- Description -->
             <div class="row mx-0 mt-5 mt-lg-0">
-              <span class="display-3 text-light col-12 text-center text-lg-end">
+              <span class="display-3 text-light col-12 text-center text-lg-end p-0">
                 <strong>{{
                   'LANDING_PAGE.space-token.title' | translate
                 }}</strong>
@@ -352,7 +352,7 @@
             <!-- Description -->
             <div class="row mx-0 mt-5 mt-lg-0">
               <span
-                class="display-3 text-light col-12 text-center text-lg-start">
+                class="display-3 text-light col-12 text-center text-lg-start p-0">
                 <strong>{{
                   'LANDING_PAGE.space-white-paper.title' | translate
                 }}</strong>
@@ -382,9 +382,8 @@
       </div>
 
       <!-- Section 10 -->
-      <div
-        id="contact"
-        class="col-12 d-flex flex-column flex-lg-row justify-content-between container-contact-us on-section-loop">
+      <div class="col-12 d-flex flex-column flex-lg-row justify-content-between container-contact-us on-section-loop">
+        <a class="anchor" id="contact"></a>
         <div
           class="col-12 col-lg-6 d-flex align-items-center"
           data-aos="fade-right">
@@ -392,7 +391,7 @@
             <!-- Description -->
             <div class="row mx-0 mt-5 mt-lg-0">
               <span
-                class="display-3 text-light col-12 text-center text-lg-start">
+                class="display-3 text-light col-12 text-center text-lg-start p-0">
                 <strong>{{
                   'LANDING_PAGE.space-more-we-are.title' | translate
                 }}</strong>
@@ -478,7 +477,7 @@
           class="mx-3"
           *ngFor="let social of socialLists"
           (click)="goToOustideLink(social.path)">
-          <img [src]="social.src" [alt]="social.name" />
+          <img class="w-100 h-100" [src]="social.src" [alt]="social.name" />
         </li>
       </ul>
     </div>
