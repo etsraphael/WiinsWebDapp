@@ -329,7 +329,11 @@
             <div
               class="mt-3 text-center text-lg-end ms-md-3 mb-lg-5 pb-lg-5 pe-lg-2">
               <button
-                (click)="notAvailableInYourCountry()"
+                (click)="
+                  goToOustideLink(
+                    'https://pancakeswap.finance/swap?inputCurrency=0x55d398326f99059ff775485246999027b3197955&outputCurrency=0xC959D6388058a326c59508e2beAB8Be12de4E0C3&exactAmount=50'
+                  )
+                "
                 class="btn btn-lg btn-block btn-primary btn-action-token px-5">
                 {{ 'LANDING_PAGE.space-token.button-buy-Pancake' | translate }}
               </button>
