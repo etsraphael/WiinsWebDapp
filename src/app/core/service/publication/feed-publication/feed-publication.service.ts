@@ -3,7 +3,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import {
   BackgroundPostModel,
   FeedPublicationCardComponent,
-  FeedCardPublicationModalService,
+  FeedPublicationCardService,
 } from '@wiins/feed-publication-card';
 
 @Injectable({
@@ -25,13 +25,20 @@ export class FeedPublicationService {
     }),
   ];
 
-  constructor(
-    private feedCardPublicationModalService: FeedCardPublicationModalService
-  ) {}
+  constructor(private feedPublicationCardService: FeedPublicationCardService) {}
 
   onCreatePublication(): MatDialogRef<FeedPublicationCardComponent> {
-    return this.feedCardPublicationModalService.openModalPublication({
+    this.onUploadEvent();
+
+    return this.feedPublicationCardService.openModalPublication({
       linearBackgroundList: this.linearBgPost,
+    });
+  }
+
+  onUploadEvent(): void {
+    this.feedPublicationCardService.imgPreview$.subscribe(data => {
+      console.log('data');
+      console.log(data);
     });
   }
 }

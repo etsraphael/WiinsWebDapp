@@ -1,17 +1,17 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { NgxDropzoneChangeEvent } from 'ngx-dropzone';
+import { SpaceStoryCreatePostAnimation } from '../assets/animation/on-create-post-animation';
+import { linearBgPost } from '../data/linear-background-post-list';
+import { IFeedCard, IFeedPublicationPayload } from './interfaces';
 import {
   BackgroundPostModel,
   PicturePublicationModel,
   PostPublicationModel,
-  VideoPublicationModel,
+  VideoPublicationModel
 } from './models';
-import { NgxDropzoneChangeEvent } from 'ngx-dropzone';
-import { SpaceStoryCreatePostAnimation } from '../assets/animation/on-create-post-animation';
-import { linearBgPost } from '../data/linear-background-post-list';
-import { FeedPublicationCardService } from './feed-publication-card.service';
-import { IFeedCard, IFeedPublicationPayload } from './interfaces';
+import { DataService } from './service';
 
 @Component({
   selector: 'wiins-feed-publication-card',
@@ -42,9 +42,9 @@ export class FeedPublicationCardComponent implements OnInit {
   imgPreview: string | ArrayBuffer;
 
   constructor(
-    public feedPublicationCardService: FeedPublicationCardService,
+    public dataService: DataService,
     public dialogRef: MatDialogRef<FeedPublicationCardComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: IFeedPublicationPayload
+    @Inject(MAT_DIALOG_DATA) public data: IFeedPublicationPayload | any
   ) {}
 
   ngOnInit(): void {
@@ -134,6 +134,7 @@ export class FeedPublicationCardComponent implements OnInit {
     reader.readAsDataURL(event.addedFiles[0]);
     reader.onload = () => {
       this.imgPreview = reader.result;
+      this.data.onChangeImgPreview(reader.result);
     };
   }
 

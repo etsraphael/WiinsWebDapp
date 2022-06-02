@@ -1,14 +1,34 @@
 import { Injectable } from '@angular/core';
-import { BackgroundPostModel } from './models';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { FeedPublicationCardComponent } from './feed-publication-card.component';
+import { IFeedPublicationPayload } from './interfaces';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FeedPublicationCardService {
-  generateBackground(payload: BackgroundPostModel): string {
-    const deltaX = payload.orientations.end[0] - payload.orientations.start[0];
-    const deltaY = payload.orientations.end[1] - payload.orientations.start[1];
-    const deg = (Math.atan2(deltaY, deltaX) * 180.0) / Math.PI;
-    return `linear-gradient(${deg}deg, ${payload.colors.join(', ')})`;
+  private imgPreviewData: BehaviorSubject<string | ArrayBuffer> =
+    new BehaviorSubject<string | ArrayBuffer>(null);
+  imgPreview$: Observable<string | ArrayBuffer> =
+    this.imgPreviewData.asObservable();
+
+  constructor(private dialog: MatDialog) {}
+
+  openModalPublication(
+    data: IFeedPublicationPayload
+  ): MatDialogRef<FeedPublicationCardComponent> {
+    return this.dialog.open(FeedPublicationCardComponent, {
+      panelClass: ['col-3', 'p-0'],
+      data: {
+        data,
+        onChangeImgPreview: (event: string | ArrayBuffer) =>
+          this.setImgPreview(event),
+      },
+    });
+  }
+
+  setImgPreview(img: string | ArrayBuffer): void {
+    return this.imgPreviewData.next(img);
   }
 }
