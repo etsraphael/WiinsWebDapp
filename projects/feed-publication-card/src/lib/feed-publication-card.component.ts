@@ -9,7 +9,7 @@ import {
   BackgroundPostModel,
   PicturePublicationModel,
   PostPublicationModel,
-  VideoPublicationModel
+  VideoPublicationModel,
 } from './models';
 import { DataService } from './service';
 
