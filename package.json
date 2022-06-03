@@ -11,7 +11,8 @@
     "pre-commit": "npm run prettier && ng test --browsers ChromeHeadless --watch=false && ng lint",
     "test": "ng test",
     "lint": "ng lint",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "release-package": "node ./scripts/libs-publish.js"
   },
   "private": true,
   "dependencies": {
