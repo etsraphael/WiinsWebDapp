@@ -12,7 +12,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "prepare": "husky install",
-    "release-package": "node ./scripts/libs-publish.js"
+    "release-package": "node ./scripts/libs-publish.js",
+    "linker": "node ./scripts/libs-linker.js"
   },
   "private": true,
   "dependencies": {
