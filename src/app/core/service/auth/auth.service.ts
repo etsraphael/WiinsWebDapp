@@ -10,13 +10,17 @@ import { TranslationService } from '../translate/translate.service';
   providedIn: 'root',
 })
 export class AuthService {
-  web3: Web3 = new Web3(window.web3.currentProvider);
+  web3: Web3 | null;
 
   constructor(
     private router: Router,
     private snackBarService: SnackBarService,
     private translate: TranslationService
-  ) {}
+  ) {
+    if (typeof window['web3'] !== 'undefined') {
+      this.web3 = new Web3(window.web3.currentProvider);
+    }
+  }
 
   async getAccountConnected(): Promise<string> {
     if (localStorage.getItem('accountConnected') === null) {
@@ -36,6 +40,13 @@ export class AuthService {
         ),
         5
       );
+    }
+
+    if (
+      typeof window['ethereum'] == 'undefined' ||
+      typeof window['ethereum'].isMetaMask == 'undefined'
+    ) {
+      return this.snackBarService.openSnackBar('Please install Metamask', 5);
     }
 
     if (window.ethereum.isMetaMask) {

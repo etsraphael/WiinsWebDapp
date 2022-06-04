@@ -4,9 +4,13 @@ import Web3 from 'web3';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-  web3: Web3 = new Web3(window.web3.currentProvider);
+  web3: Web3 | null;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    if (typeof window['web3'] !== 'undefined') {
+      this.web3 = new Web3(window.web3.currentProvider);
+    }
+  }
 
   async canActivate(): Promise<boolean> {
     if ((await this.getAccountConnected()) !== null) {
