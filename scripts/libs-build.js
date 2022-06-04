@@ -5,7 +5,7 @@ const reduceLibraries = (prev, [name, config]) =>
   config.projectType === 'library' ? prev.concat(name) : prev;
 
 const getLibraries = projects =>
-  Object.entries(projects).reduce(reduceLibraries, []);
+  Object.entries(projects).reduce(reduceLibraries, []).reverse();
 
 const invokeBuild = () => {
   fs.readFile('angular.json', 'utf8', async (err, data) => {
