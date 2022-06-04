@@ -34,7 +34,7 @@ Wiins is a social media with the particularity of centralizing all web functions
 When you are on the project, install all dependencies by running
 
 ```sh
-npm install
+npm install && npm run libs-build
 ```
 
 To launch the server, run
@@ -43,18 +43,16 @@ To launch the server, run
 ng serve
 ```
 
-The command before each commit for clean your code
+To refresh your page after to update one of the liibaries (optional)
 
 ```sh
-ng test --watch=false
+npm run linker
 ```
 
-```sh
-ng lint
-```
+The command before each commit for clean your code. This command will run before each commit.
 
 ```sh
-npm run prettier
+npm run pre-commit: "npm run prettier && ng test --browsers ChromeHeadless --watch=false && ng lint"
 ```
 
 <br />
@@ -107,7 +105,7 @@ Join the winns comuntiy today and lets grow TEA worth together 🚀
 
 <p align="center">
 <a href="https://discord.gg/JXs3MxAn">
-<img src="src/assets/img/readme/readme-banner.png" alt="Logo" width="300">
+<img src="src/assets/img/readme/readme-banner.png" alt="Logo" width="380">
 </a>
 </p>
 <!-- MARKDOWN LINKS & IMAGES -->
