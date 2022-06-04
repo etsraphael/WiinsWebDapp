@@ -10,7 +10,9 @@
 
 ## Wiins.io
 
-<img src="src/assets/img/readme/readme-introduction.png" alt="Logo" width="" height="">
+<a href="https://discord.gg/JXs3MxAn">
+<img src="src/assets/img/readme/readme-introduction.png" alt="Logo">
+</a>
 
 Wiins is a social media with the particularity of centralizing all web functions to improve the entertainment, security, comfort and ease of use.
 <br />
@@ -94,18 +96,20 @@ npm run prettier
 Be the first to contribute to our project by purchasing and staking our token !
 You'll be able to :
 
-- ✔️ Stake and earn Zion at the same time
+- ✔️ Stake and earn TEA at the same time
 - ✔️ Use 100% of the platform with full content available to a subscription
 - ✔️ Wiin's certified Artist can be rewarded to personalize monetary gifts
 
-Join the winns comuntiy today and lets grow Zion's worth together 🚀
+Join the winns comuntiy today and lets grow TEA worth together 🚀
 <br />
 <br />
 <br />
 
-<hr>
-<img src="src/assets/img/readme/readme-banner.png" alt="Logo" width="" height="">
-
+<p align="center">
+<a href="https://discord.gg/JXs3MxAn">
+<img src="src/assets/img/readme/readme-banner.png" alt="Logo" width="300">
+</a>
+</p>
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
