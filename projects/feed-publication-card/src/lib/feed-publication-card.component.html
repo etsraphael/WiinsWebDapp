@@ -1,0 +1,97 @@
+<!-- Feed Publication Creation -->
+<div class="container-fluid py-2" *ngIf="!false">
+  <!-- Avatar and description -->
+  <div class="card-header">
+    <div class="row">
+      <div class="col-8 d-flex align-items-center">
+        <div class="avatar p-2">
+          <img
+            class="w-100 h-100"
+            src="https://images.unsplash.com/photo-1551184451-76b762941ad6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+            alt="Avatar" />
+        </div>
+        <div class="header-title">
+          <h3 class="mb-0">Username</h3>
+          <h5 class="mb-0">Now</h5>
+        </div>
+      </div>
+      <div
+        class="col-4 container-btn-header d-flex align-items-center justify-content-end">
+        <i class="btn bi bi-check-circle text-success"></i>
+        <i
+          class="btn bi bi-arrow-left-circle text-secondary"
+          (click)="resetPublication()"></i>
+      </div>
+    </div>
+  </div>
+  <!-- Creation zone -->
+  <div class="card-body">
+    <div class="position-relative body-container">
+      <div class="row mx-0 choice-container">
+        <!-- [Written Post Choice] -->
+        <div
+          class="col-6 written-post d-flex flex-column justify-content-center align-items-center"
+          [@onWrittenPost]="visualMode"
+          [style.backgroundImage]="
+            feedPublicationCardService.generateBackground(bgSelected)
+          ">
+          <div *ngIf="visualMode == 'default'">
+            <i
+              class="bi bi-pencil-square text-light"
+              (click)="onSelectPublicationType('post')"></i>
+          </div>
+          <div *ngIf="visualMode == 'post'" class="container">
+            <div class="row mx-0">
+              <wiins-editable-content-event
+                [placeholder]="'Write your next post..'"
+                (onSendText)="onSendText($event)">
+              </wiins-editable-content-event>
+            </div>
+            <div class="row d-flex justify-content-center my-2">
+              <span
+                class="blockBox m-2"
+                *ngFor="let bg of data.linearBackgroundList"
+                (click)="onChangebackground(bg)"
+                [ngStyle]="{
+                  background: feedPublicationCardService.generateBackground(bg)
+                }"></span>
+            </div>
+          </div>
+        </div>
+        <!-- [Picture Post Choice] -->
+        <div
+          class="container-picture-choice px-0 col-6 picture-post d-flex justify-content-center align-items-center"
+          [@onPicturePost]="visualMode"
+          (click)="onSelectPublicationType('picture')">
+          <div class="w-100" [ngClass]="{ 'px-3': !imgPreview }">
+            <label
+              class="d-flex justify-content-center"
+              *ngIf="visualMode == 'default'"
+              for="photo_upload">
+              <i class="bi bi-image text-light"></i>
+            </label>
+            <ngx-dropzone
+              class="w-100 dz-container"
+              *ngIf="visualMode == 'picture' && !imgPreview"
+              (change)="onSelect($event)">
+              <ngx-dropzone-label>
+                <button class="btn text-light upload-btn">
+                  <i class="bi bi-box-arrow-in-down mx-2"></i>
+                  <span class="align-middle">Upload or drop here</span>
+                </button>
+              </ngx-dropzone-label>
+            </ngx-dropzone>
+            <div *ngIf="visualMode == 'picture' && !!imgPreview">
+              <div
+                (click)="undoPicturePreview()"
+                class="container-btn-undo p-2 d-flex justify-content-center align-items-center">
+                <i class="bi bi-x-lg text-light"></i>
+              </div>
+              <img class="img-preview" [src]="imgPreview" alt="img_preview" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

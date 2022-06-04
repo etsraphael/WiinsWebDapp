@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "a9e39766-c024-46e2-9be3-9db51635af83"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -20,20 +23,14 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "allowedCommonJsDependencies": [
-              "hash.js",
-              "web3"
-            ],
+            "allowedCommonJsDependencies": ["hash.js", "web3", "ngx-masonry"],
             "outputPath": "dist/WiinsWebDapp",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
@@ -44,21 +41,24 @@
           },
           "configurations": {
             "production": {
-              "budgets": [{
+              "budgets": [
+                {
                   "type": "initial",
                   "maximumWarning": "4mb",
                   "maximumError": "6mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "4mb",
+                  "maximumError": "6mb"
                 }
               ],
-              "fileReplacements": [{
-                "replace": "src/environments/environment.ts",
-                "with": "src/environments/environment.prod.ts"
-              }],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
               "outputHashing": "all"
             },
             "development": {
@@ -98,14 +98,163 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
             "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["src/app/**/*.ts"]
+          }
+        }
+      }
+    },
+    "feed-publication-card": {
+      "projectType": "library",
+      "root": "projects/feed-publication-card",
+      "sourceRoot": "projects/feed-publication-card/src",
+      "prefix": "wiins",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/feed-publication-card/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/feed-publication-card/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/feed-publication-card/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/feed-publication-card/src/test.ts",
+            "tsConfig": "projects/feed-publication-card/tsconfig.spec.json",
+            "karmaConfig": "projects/feed-publication-card/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["projects/feed-publication-card/**/*.ts"]
+          }
+        }
+      }
+    },
+    "feed-card": {
+      "projectType": "library",
+      "root": "projects/feed-card",
+      "sourceRoot": "projects/feed-card/src",
+      "prefix": "wiins",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/feed-card/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/feed-card/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/feed-card/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/feed-card/src/test.ts",
+            "tsConfig": "projects/feed-card/tsconfig.spec.json",
+            "karmaConfig": "projects/feed-card/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["projects/feed-card/**/*.ts"]
+          }
+        }
+      }
+    },
+    "web-store": {
+      "projectType": "library",
+      "root": "projects/web-store",
+      "sourceRoot": "projects/web-store/src",
+      "prefix": "wiins",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/web-store/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/web-store/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/web-store/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/web-store/src/test.ts",
+            "tsConfig": "projects/web-store/tsconfig.spec.json",
+            "karmaConfig": "projects/web-store/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["projects/web-store/**/*.ts"]
+          }
+        }
+      }
+    },
+    "editable-content-event": {
+      "projectType": "library",
+      "root": "projects/editable-content-event",
+      "sourceRoot": "projects/editable-content-event/src",
+      "prefix": "wiins",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/editable-content-event/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/editable-content-event/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/editable-content-event/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/editable-content-event/src/test.ts",
+            "tsConfig": "projects/editable-content-event/tsconfig.spec.json",
+            "karmaConfig": "projects/editable-content-event/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["projects/editable-content-event/**/*.ts"]
           }
         }
       }

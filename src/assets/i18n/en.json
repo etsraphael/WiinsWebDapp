@@ -1,0 +1,64 @@
+{
+  "LANDING_PAGE": {
+    "on-boarding": {
+      "contact": "Contact",
+      "ecosystem": "Ecosystem",
+      "sign-in": "Explore",
+      "team": "Team",
+      "token": "Token"
+    },
+    "space-lets-build-future": {
+      "title": "Let's build the future together",
+      "text": "Wiin's wants to centralize in an intuitive way by sharing, communication, entertainment and to help as many people as possible while respecting the rights of the users.",
+      "button-join-us": "Join us"
+    },
+    "space-imagine-early-access": {
+      "title": "Imagine an infinite space",
+      "text": "A space accessible with a single account, a single password and single wallet. An intuitive space, without intrusive ads, where photos, videos, messaging and audio content can be found all in one and where content creators will benefit from a new remuneration system."
+    },
+    "space-news-feed-disover": {
+      "text": "This feature highlights the latest trends from your friends and the community. The platform does not sell advertising space and our philosophy does not make you dependent. For example, the concept of \"likes\" does not exist.",
+      "title": "News Feed & Discovery"
+    },
+    "space-messenger": {
+      "text": "Chat with your friends and create interest groups by sharing content in different formats such as videos, audios, photos and messages. Messages are impermanent and expire after two weeks to improve data protection. In addition, messages can be separated in group chat, depending on your priorities.\nMessages are deleted, the links you have created remain",
+      "title": "Messaging"
+    },
+    "space-profil": {
+      "text": "Enhancing your profile means publishing content and communicating your interests in several formats (image, video, audio, front page story). You can also decide to put your profile in private in order to keep intimate social relationships with your close ones. For artists of all kinds, Wiin's is the space to highlight your creativity, whether it is visual art, literature, musics, videos or others. ",
+      "title": "Profile"
+    },
+    "space-music-video": {
+      "text": "Audio and video contents are rewarded based on the listening and wathing time with a brand new payout system viewer monetary gifts. Simply switch between content types and enjoy creating on Wiin's.",
+      "title": "Music & Video"
+    },
+    "space-team": {
+      "main-founder": "Main Founder",
+      "fullstack-developper": "Full Stack Developer",
+      "front-end-developper": "FrontEnd Developer",
+      "manager": "Manager",
+      "founder": "Founder",
+      "title": "Team"
+    },
+    "space-token": {
+      "text": "Thanks to cryptocurrency, you will be able to stake and earn TEA at the same time. You also be able to use 100% of the platform with full content available to a subscription. Wiin's certified Artist can be rewarded with monetary gifts. Join the Wiin's communtiy today and lets grow TEA worth together ",
+      "title": "Token",
+      "button-buy-Pancake": "Buy in Pancake Swap",
+      "button-buy-Sushi": "Buy in Sushi Swap"
+    },
+    "space-white-paper": {
+      "title": "White Paper"
+    },
+    "space-more-we-are": {
+      "text": "Follow our updates on our various networks and participate in the project design through our Discord and GitHub",
+      "title": "Join us",
+      "chat-button": "Join chat",
+      "feed-button": "Announcement"
+    }
+  },
+  "ACCESSIBILITY_APP": {
+    "country-available": {
+      "availability": "Sorry, this application is not yet available in your country !"
+    }
+  }
+}

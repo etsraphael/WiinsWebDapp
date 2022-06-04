@@ -1,46 +1,488 @@
-<div class="container-fluid bg-container h-100">
-
-  <!-- Navbar -->
-  <div class="row p-4">
-
-    <!-- Brand -->
-    <div class="col-12 col-md-6 my-auto">
-      <a class="navbar-brand d-inline-block">
-        <img class="brand-icon-img" src="./../assets/img/brand-icon.png" alt="logo">
-      </a>
-      <h2 class="d-inline-block mb-0 align-middle text-light">Wiins</h2>
-    </div>
-
-    <!-- Button List -->
-    <div class="col-12 col-md-6 row my-auto">
-      <div class="d-flex justify-content-end container-nav-btn">
-
-        <!-- Button -->
-        <button class="btn btn-sm mx-2 text-light" [routerLink]="item.path" routerLinkActive="route-active"
-          *ngFor="let item of btnRoutes">
-          <span>{{item.name}}</span>
-          <div class="underline mx-auto"></div>
+<div class="w-100 h-100 bg-container">
+  <div class="container-fluid bg-container p-0 overflow-hidden">
+    <!-- Header -->
+    <nav
+      class="row p-2 align-items-center position-fixed w-100 m-0 navbar-container">
+      <!-- Brand -->
+      <div class="col-10 col-xl-3 my-auto">
+        <a class="d-inline-block">
+          <img
+            class="brand-icon-img"
+            src="./../assets/img/core/brand-icon.png"
+            alt="logo" />
+        </a>
+        <h2 class="d-inline-block mb-0 align-middle text-light px-4">
+          <img
+            class="brand-typo-img"
+            src="../../../../assets/img/core/wiinsTypo.svg"
+            alt="Typo WIins" />
+        </h2>
+      </div>
+      <!-- Button List -->
+      <div class="col-xl-9 d-none d-xl-flex row my-auto">
+        <div
+          class="d-flex justify-content-end align-items-baseline container-nav-btn">
+          <button class="btn btn-sm text-light" *ngFor="let item of btnTabs">
+            <a (click)="scroll(item.id)">
+              <span>{{ item.title | translate }}</span>
+            </a>
+          </button>
+          <button
+            class="btn btn-sm mx-2 me-5 text-light"
+            (click)="
+              goToOustideLink('https://github.com/etsraphael/WiinsWebDapp')
+            ">
+            <span>Github</span>
+            <div class="underline mx-auto"></div>
+          </button>
+          <button
+            class="btn btn-sm text-light"
+            mat-icon-button
+            (click)="onOpenLang()"
+            [matMenuTriggerFor]="menu"
+            aria-label="Example icon-button with a menu">
+            <span>{{ defaultLang }} <i class="bi bi-arrow-down"></i></span>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button
+              mat-menu-item
+              *ngFor="
+                let item of filteredLang ? filteredLang : btnLanguages;
+                let i = index
+              "
+              (click)="onChangeLang(item)"
+              [ngClass]="{ 'cursor-not-allow': !item.available }">
+              <span>{{ item.language }}</span>
+            </button>
+          </mat-menu>
+          <button
+            class="btn btn-sm border-0 mx-2 text-light signIn-btn px-4"
+            (click)="authService.login()">
+            <span>{{ 'LANDING_PAGE.on-boarding.sign-in' | translate }}</span>
+          </button>
+        </div>
+      </div>
+      <!-- Menu Hamburger [< 992px] -->
+      <div class="dropdown col-2 text-end d-xl-none">
+        <button
+          class="dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton1"
+          data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <i class="bi bi-list"></i>
         </button>
-        <!-- </div> -->
-        <button class="btn btn-sm mx-2 text-light" (click)="goToGitHub()">
-          <span>GitHub</span>
-          <div class="underline mx-auto"></div>
-        </button>
-        <!-- <div class="container-nav-btn"> -->
-        <button class="btn btn-sm mx-2 text-light signIn-btn px-4" (click)="authService.login()">
-          <span>SignIn</span>
-        </button>
-        <!-- </div> -->
+        <ul
+          class="dropdown-menu text-center"
+          aria-labelledby="dropdownMenuButton1">
+          <li *ngFor="let item of btnTabs">
+            <a class="dropdown-item">{{ item.name }}</a>
+          </li>
+          <li>
+            <a class="dropdown-item" (click)="authService.login()">{{
+              'LANDING_PAGE.on-boarding.sign-in' | translate
+            }}</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Body -->
+    <div class="container container-body">
+      <!-- Section 1 -->
+      <div class="row w-100">
+        <div class="col-12 d-flex flex-column flex-lg-row build">
+          <div class="col-12 col-lg-6 d-flex align-items-center">
+            <div class="container-fluid descript">
+              <!-- Description -->
+              <div class="row mx-0 mt-5 mt-lg-0">
+                <span
+                  class="display-3 text-light col-12 text-center text-lg-start p-0">
+                  <strong>{{
+                    'LANDING_PAGE.space-lets-build-future.title' | translate
+                  }}</strong>
+                </span>
+                <h2
+                  class="text-light col-12 py-3 mt-3 text-center text-lg-start">
+                  {{ 'LANDING_PAGE.space-lets-build-future.text' | translate }}
+                </h2>
+              </div>
+              <!-- Button -->
+              <div class="mt-3 text-center text-lg-start ms-lg-3">
+                <button
+                  class="btn btn-lg btn-block btn-primary btn-action-join-us px-5 border-0"
+                  (click)="authService.login()">
+                  {{
+                    'LANDING_PAGE.space-lets-build-future.button-join-us'
+                      | translate
+                  }}
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Phone Image -->
+          <div class="col-12 col-lg-6">
+            <div class="justify-content-center align-items-center">
+              <img
+                class="w-100 h-100"
+                src="./../../../../../assets/img/landing-page/phone-element.svg"
+                alt="Phone" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2 -->
+      <div
+        class="col-12 d-flex flex-column flex-lg-row justify-content-between margin-component">
+        <div
+          class="col-12 col-lg-6 d-flex align-items-center"
+          data-aos="fade-right">
+          <div class="container-fluid descript">
+            <!-- Description -->
+            <div class="row mx-0 mt-5 mt-lg-0">
+              <span
+                class="display-3 text-light col-12 text-center text-lg-start p-0">
+                <strong>{{
+                  'LANDING_PAGE.space-imagine-early-access.title' | translate
+                }}</strong>
+              </span>
+              <h2 class="text-light col-12 py-3 mt-3 text-center text-lg-start">
+                {{ 'LANDING_PAGE.space-imagine-early-access.text' | translate }}
+              </h2>
+            </div>
+            <!-- Button -->
+            <div
+              class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 text-center text-lg-start store-btn-contianer">
+              <button
+                class="col-6 btn-lg btn-block btn-action"
+                (click)="notAvailableInYourCountry()">
+                <img
+                  src="../../../../../assets/img/landing-page/google-play.svg"
+                  alt="Google Play"
+                  class="w-100" />
+              </button>
+              <button
+                class="col-6 btn-lg btn-block btn-action appStore"
+                (click)="notAvailableInYourCountry()">
+                <img
+                  src="../../../../../assets/img/landing-page/app-store.svg"
+                  alt="App Store"
+                  class="w-100" />
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Phone Image -->
+        <div class="col-12 col-lg-6" data-aos="fade-left">
+          <div class="justify-content-center align-items-start">
+            <img
+              class="w-100 h-100"
+              src="../../../../../assets/img/landing-page/nav-early-acces.svg"
+              alt="Navigation" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3 - 4 - 5 - 6 -->
+      <div
+        class="col-12 d-flex flex-column flex-lg-row justify-content-between on-section-loop"
+        *ngFor="let item of dataSectionWithCarousel; let i = index">
+        <a class="anchor" id="ecosystem"></a>
+        <div
+          class="col-12 col-lg-6 d-flex align-items-center"
+          data-aos="fade-right">
+          <div class="container-fluid descript">
+            <!-- Description -->
+            <div class="row mx-0 mt-5 mt-lg-0">
+              <span
+                class="display-3 text-light col-12 text-center text-lg-start p-0">
+                <strong>{{ item.title | translate }}</strong>
+              </span>
+              <h2 class="text-light col-12 py-3 mt-3 text-center text-lg-start">
+                {{ item.desc | translate }}
+              </h2>
+              <div class="my-5"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Phone Image (animation) -->
+        <div
+          class="container-img d-flex col-12 col-lg-6 carourel-container position-relative"
+          data-aos="fade-left">
+          <div *ngIf="item.imgList.length > 1">
+            <div class="container-btn-back">
+              <i
+                class="bi bi-arrow-left-circle"
+                (click)="slideAction('prev', i)"
+                [ngClass]="{ disabled: disableButton('prev', i) }">
+              </i>
+            </div>
+            <div class="container-btn-next">
+              <i
+                class="bi bi-arrow-right-circle"
+                (click)="slideAction('next', i)"
+                [ngClass]="{ disabled: disableButton('next', i) }"></i>
+            </div>
+          </div>
+          <carousel
+            [height]="460"
+            [cellsToShow]="1"
+            [arrows]="false"
+            #myCarousel>
+            <div class="carousel-cell" *ngFor="let img of item.imgList">
+              <img [src]="img" />
+            </div>
+          </carousel>
+        </div>
+      </div>
+
+      <!-- Section 7 -->
+      <div
+        class="col-12 d-flex flex-column flex-lg-row justify-content-between on-section-loop">
+        <a class="anchor" id="team"></a>
+        <div
+          class="col-12 col-lg-6 d-lg-flex text-center"
+          data-aos="fade-right">
+          <div class="row descript mx-0 mt-5 mt-lg-0 text-lg-start">
+            <!-- <div> -->
+            <span
+              class="display-3 text-light col-12 text-center text-lg-start p-0">
+              <strong>{{ 'LANDING_PAGE.space-team.title' | translate }}</strong>
+            </span>
+            <!-- Collaborator -->
+            <p class="text-light col-12 mt-3 text-center text-lg-start">
+              <span *ngFor="let item of firstCommunity; let last = last">
+                <span class="h3">{{ item }}</span>
+                <span *ngIf="!last">,&nbsp;</span>
+                <span *ngIf="last">...</span>
+              </span>
+            </p>
+            <!-- Wiin's Team -->
+            <div class="d-flex align-items-baseline">
+              <img
+                class="w-100"
+                src="../../../../../assets/img/landing-page/team.svg"
+                alt="Wiin's Team" />
+            </div>
+          </div>
+        </div>
+        <!-- Founder -->
+        <div
+          class="container-img d-flex justify-content-center flex-lg-column col-12 col-lg-6 py-4 py-lg-0"
+          data-aos="fade-left">
+          <div
+            class="ceo d-flex flex-column align-items-center text-center my-2 mx-4"
+            *ngFor="let c of coFounderList">
+            <div class="avatar container-avatar-co-founder">
+              <img [src]="c.img" />
+            </div>
+            <div class="info">
+              <h4 class="mb-0 text-light">{{ c.name }}</h4>
+              <p class="text-white">
+                {{ 'LANDING_PAGE.space-team.main-founder' | translate }}
+                <br />
+                {{ c.role | translate }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 8 -->
+      <div
+        class="col-12 d-flex flex-column flex-lg-row justify-content-between on-section-loop container-token">
+        <a class="anchor" id="token"></a>
+        <div
+          class="col-12 col-lg-6 d-flex justify-content-center justify-content-lg-start align-items-center position-relative left-slide"
+          data-aos="fade-right">
+          <div class="justify-content-center align-items-center">
+            <!-- Token -->
+            <div
+              class="main-container d-flex justify-content-between align-items-center">
+              <div class="token">
+                <div class="front w-100 h-100"></div>
+                <div class="back w-100 h-100"></div>
+              </div>
+            </div>
+          </div>
+          <img
+            class="link d-none d-xl-block"
+            src="../../../../assets/img/landing-page/link.svg"
+            alt="Link" />
+        </div>
+        <div
+          class="col-12 col-lg-6 col-xl-5 d-flex align-items-center"
+          data-aos="fade-left">
+          <div class="container-fluid descript">
+            <!-- Description -->
+            <div class="row mx-0 mt-5 mt-lg-0">
+              <span
+                class="display-3 text-light col-12 text-center text-lg-end p-0">
+                <strong>{{
+                  'LANDING_PAGE.space-token.title' | translate
+                }}</strong>
+              </span>
+              <h2 class="text-light col-12 py-3 mt-3 text-center text-lg-end">
+                {{ 'LANDING_PAGE.space-token.text' | translate }}
+              </h2>
+            </div>
+            <!-- Button -->
+            <div
+              class="mt-3 text-center text-lg-end ms-md-3 mb-lg-5 pb-lg-5 pe-lg-2">
+              <button
+                (click)="
+                  goToOustideLink(
+                    'https://pancakeswap.finance/swap?inputCurrency=0x55d398326f99059ff775485246999027b3197955&outputCurrency=0xC959D6388058a326c59508e2beAB8Be12de4E0C3&exactAmount=50'
+                  )
+                "
+                class="btn btn-lg btn-block btn-primary btn-action-token px-5">
+                {{ 'LANDING_PAGE.space-token.button-buy-Pancake' | translate }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 9 -->
+      <div
+        class="col-12 d-flex flex-column flex-lg-row justify-content-between container-papers-link">
+        <div
+          class="col-12 col-lg-6 d-flex align-items-center"
+          data-aos="fade-right">
+          <div class="container-fluid descript px-xl-0">
+            <!-- Description -->
+            <div class="row mx-0 mt-5 mt-lg-0">
+              <span
+                class="display-3 text-light col-12 text-center text-lg-start p-0">
+                <strong>{{
+                  'LANDING_PAGE.space-white-paper.title' | translate
+                }}</strong>
+              </span>
+              <div class="text-light col-12 py-3 mt-3 text-start">
+                <h2
+                  class="d-flex align-items-center container-link"
+                  *ngFor="let rl of repositoryList">
+                  <i class="bi bi-dot"></i>
+                  <span (click)="goToOustideLink(rl.link)">{{ rl.desc }}</span>
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Phone Image -->
+        <div class="container-img d-flex col-12 col-lg-6" data-aos="fade-left">
+          <div class="d-flex align-items-baseline">
+            <div class="col-12 d-flex justify-content-center">
+              <img
+                class="w-100 h-100"
+                src="../../../../../assets/img/landing-page/internet-phone-element.svg"
+                alt="Internet Phone" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 10 -->
+      <div
+        class="col-12 d-flex flex-column flex-lg-row justify-content-between container-contact-us on-section-loop">
+        <a class="anchor" id="contact"></a>
+        <div
+          class="col-12 col-lg-6 d-flex align-items-center"
+          data-aos="fade-right">
+          <div class="container-fluid descript px-xl-0">
+            <!-- Description -->
+            <div class="row mx-0 mt-5 mt-lg-0">
+              <span
+                class="display-3 text-light col-12 text-center text-lg-start p-0">
+                <strong>{{
+                  'LANDING_PAGE.space-more-we-are.title' | translate
+                }}</strong>
+              </span>
+              <h2 class="text-light col-12 py-3 mt-3 text-center text-lg-start">
+                {{ 'LANDING_PAGE.space-more-we-are.text' | translate }}
+              </h2>
+            </div>
+          </div>
+        </div>
+        <!-- Phone Image -->
+        <div
+          class="container-img d-flex col-12 col-lg-6 justify-content-center"
+          data-aos="fade-left">
+          <div class="d-flex align-items-baseline">
+            <div class="col-12 d-flex justify-content-center">
+              <!-- Cards -->
+              <div class="row mx-0 mt-5 mt-lg-0 more-we-are">
+                <div class="d-flex align-items-center justify-content-center">
+                  <div class="discord-card">
+                    <!-- Header -->
+                    <header
+                      class="d-flex align-items-center justify-content-between px-2 w-100">
+                      <div class="community">
+                        <img
+                          src="../../../../../../assets/img/landing-page/community-avatar.svg"
+                          alt="Community Avatar" />
+                      </div>
+                      <div class="title">
+                        <h4>Wiins Community</h4>
+                        <p>
+                          <span>#</span
+                          >{{
+                            'LANDING_PAGE.space-more-we-are.feed-button'
+                              | translate
+                          }}
+                        </p>
+                      </div>
+                      <div class="join-chat">
+                        <button
+                          class="btn p-2"
+                          (click)="
+                            goToOustideLink('https://discord.gg/bBE6xmR')
+                          ">
+                          {{
+                            'LANDING_PAGE.space-more-we-are.chat-button'
+                              | translate
+                          }}
+                        </button>
+                      </div>
+                    </header>
+                    <!-- Body -->
+
+                    <body class="lists-community">
+                      <ul class="d-flex px-2 mt-2">
+                        <li>
+                          <img
+                            class="admin"
+                            src="../../../../../../assets/img/landing-page/administrator-community.svg"
+                            alt="Admin Community" />
+                        </li>
+                        <li><i class="bi bi-discord text-white"></i></li>
+                        <li><i class="bi bi-discord text-white"></i></li>
+                        <li><i class="bi bi-discord text-white"></i></li>
+                        <li><i class="bi bi-discord text-white"></i></li>
+                      </ul>
+                    </body>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
+    <!-- Footer  -->
+    <div
+      class="container-footer pt-3 w-100 my-5 d-flex justify-content-center"
+      data-aos="fade-up">
+      <ul class="d-flex justify-content-center align-items-center h-100 p-0">
+        <li
+          class="mx-3"
+          *ngFor="let social of socialLists"
+          (click)="goToOustideLink(social.path)">
+          <img class="w-100 h-100" [src]="social.src" [alt]="social.name" />
+        </li>
+      </ul>
+    </div>
   </div>
-
-
-  <!-- Router container -->
-  <div class="container">
-    <router-outlet></router-outlet>
-  </div>
-
-
 </div>

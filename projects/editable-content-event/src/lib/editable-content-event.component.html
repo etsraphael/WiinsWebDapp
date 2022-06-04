@@ -1,0 +1,9 @@
+<div
+  contenteditable="true"
+  class="form-control text-light textarea-post"
+  (click)="onPressed()"
+  #contentDiv
+  (keydown.enter)="(false)"
+  (keydown)="onKeyUp($event)">
+  <span class="placeholder-content" *ngIf="!pressed">{{ placeholder }}</span>
+</div>

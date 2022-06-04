@@ -1,0 +1,22 @@
+.hastag-container {
+  border-radius: 8px;
+  background-color: #dfdfdf59;
+}
+
+.textarea-post {
+  resize: none;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+.textarea-post::placeholder {
+  color: #b8b8b8;
+  font-size: 1.2rem;
+}
+
+.placeholder-content {
+  color: #ffffff6e;
+  font-size: 1.2rem;
+}

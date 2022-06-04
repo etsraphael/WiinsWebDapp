@@ -1,0 +1,15 @@
+{
+  "name": "@wiins/web-store",
+  "version": "0.0.5",
+  "peerDependencies": {
+    "@angular/common": "^13.3.0",
+    "@angular/core": "^13.3.0",
+    "@ngrx/effects": "^13.2.0",
+    "@ngrx/entity": "^13.2.0",
+    "@ngrx/store": "^13.2.0",
+    "@ngrx/store-devtools": "^13.2.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}
