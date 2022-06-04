@@ -3,10 +3,7 @@ const {
   pathExistsSync,
   copySync,
   ensureDirSync,
-  readJsonSync,
   removeSync,
-  mkdirsSync,
-  existsSync,
   readdirSync,
 } = require('fs-extra');
 const chokidar = require('chokidar');
@@ -30,6 +27,7 @@ function Linker() {
     }
     try {
       copySync(source, target);
+      this.syncAll();
     } catch (ex) {
       console.error(ex);
     }
@@ -81,7 +79,7 @@ function Linker() {
     try {
       this.cleanLink();
       this.syncAll();
-      // this.setupWatcher();
+      this.setupWatcher();
     } catch (err) {
       console.error(err);
     }
