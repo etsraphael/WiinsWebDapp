@@ -124,13 +124,14 @@ export class FeedPublicationCardComponent {
     alert(event);
   }
 
-  onSelect(event: NgxDropzoneChangeEvent) {
+  onSelect(event: NgxDropzoneChangeEvent): void {
     this.files.push(...event.addedFiles);
     const reader = new FileReader();
     reader.readAsDataURL(event.addedFiles[0]);
     reader.onload = () => {
       this.imgPreview = reader.result;
-      this.data.onChangeImgPreview(reader.result);
+      const files = [new File([reader.result], event.addedFiles[0].name)];
+      this.data.onChangeImgPreview(files);
     };
   }
 

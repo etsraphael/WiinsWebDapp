@@ -28,6 +28,6 @@ export interface IFeedPublicationPayload {
 
 export interface IFeedPublicationConfig {
   linearBackgroundList: BackgroundPostModel[];
-  onChangeImgPreview: (event: string | ArrayBuffer) => void;
+  onChangeImgPreview: (event: File[]) => void;
   getImgPreviewProgress: () => Observable<number>;
 }

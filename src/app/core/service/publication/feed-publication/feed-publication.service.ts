@@ -5,7 +5,10 @@ import {
   FeedPublicationCardComponent,
   FeedPublicationCardService,
 } from '@wiins/feed-publication-card';
-import { Subscription } from 'rxjs';
+import {
+  ISendFileToStorageWithProgress,
+  StorageService,
+} from '../../storage/storage.service';
 
 @Injectable({
   providedIn: 'root',
@@ -28,14 +31,15 @@ export class FeedPublicationService {
   ];
 
   // sub
-  modalDestroySub: Subscription;
   progress = 0;
 
-  constructor(private feedPublicationCardService: FeedPublicationCardService) {}
+  constructor(
+    private feedPublicationCardService: FeedPublicationCardService,
+    private storageService: StorageService
+  ) {}
 
   onCreatePublication(): MatDialogRef<FeedPublicationCardComponent> {
     this.onUploadEvent();
-    // this.startUpload();
 
     return this.feedPublicationCardService.openModalPublication({
       linearBackgroundList: this.linearBgPost,
@@ -43,10 +47,17 @@ export class FeedPublicationService {
   }
 
   onUploadEvent(): void {
-    this.feedPublicationCardService.getImgPreview().subscribe(data => {
-      console.log('data');
-      console.log(data);
-    });
+    this.feedPublicationCardService
+      .getImgPreview()
+      .subscribe((data: File[]) => {
+        const payload: ISendFileToStorageWithProgress = {
+          files: data,
+          progress: (event: number) =>
+            this.feedPublicationCardService.setImgPreviewProgress(event),
+        };
+
+        this.storageService.sendFileToStorageWithProgress(payload);
+      });
   }
 
   startUpload(): void {

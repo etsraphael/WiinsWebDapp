@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { BehaviorSubject, Observable, skipWhile } from 'rxjs';
+import { BehaviorSubject, filter, Observable, skipWhile } from 'rxjs';
 import { FeedPublicationCardComponent } from './feed-publication-card.component';
 import { IFeedPublicationConfig, IFeedPublicationPayload } from './interfaces';
 
@@ -9,10 +9,10 @@ import { IFeedPublicationConfig, IFeedPublicationPayload } from './interfaces';
 })
 export class FeedPublicationCardService {
   // image preview
-  private imgPreviewData: BehaviorSubject<string | ArrayBuffer> =
-    new BehaviorSubject<string | ArrayBuffer>(null);
-  private imgPreview$: Observable<string | ArrayBuffer> =
-    this.imgPreviewData.asObservable();
+  private imgPreviewData: BehaviorSubject<File[]> = new BehaviorSubject<File[]>(
+    []
+  );
+  private imgPreview$: Observable<File[]> = this.imgPreviewData.asObservable();
   private imgPreviewProgress: BehaviorSubject<number> =
     new BehaviorSubject<number>(null);
   private imgPreviewProgress$: Observable<number> =
@@ -25,8 +25,7 @@ export class FeedPublicationCardService {
   ): MatDialogRef<FeedPublicationCardComponent> {
     const config: IFeedPublicationConfig = {
       ...data,
-      onChangeImgPreview: (event: string | ArrayBuffer) =>
-        this.setImgPreview(event),
+      onChangeImgPreview: (event: File[]) => this.setImgPreview(event),
       getImgPreviewProgress: () => this.getImgPreviewProgress(),
     };
 
@@ -44,11 +43,14 @@ export class FeedPublicationCardService {
     return this.imgPreviewProgress$.pipe(skipWhile(x => !x));
   }
 
-  setImgPreview(img: string | ArrayBuffer): void {
+  setImgPreview(img: File[]): void {
     return this.imgPreviewData.next(img);
   }
 
-  getImgPreview(): Observable<string | ArrayBuffer> {
-    return this.imgPreview$.pipe(skipWhile(x => !x));
+  getImgPreview(): Observable<File[]> {
+    return this.imgPreview$.pipe(
+      skipWhile(x => x.length === 0),
+      filter(x => !!x)
+    );
   }
 }
