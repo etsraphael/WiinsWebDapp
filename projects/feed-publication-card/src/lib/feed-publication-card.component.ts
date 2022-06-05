@@ -1,7 +1,8 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NgxDropzoneChangeEvent } from 'ngx-dropzone';
+import { Subscription } from 'rxjs';
 import { SpaceStoryCreatePostAnimation } from '../assets/animation/on-create-post-animation';
 import { linearBgPost } from '../data/linear-background-post-list';
 import { IFeedCard, IFeedPublicationConfig } from './interfaces';
@@ -19,7 +20,7 @@ import { PostService } from './service';
   styleUrls: ['./feed-publication-card.component.scss'],
   animations: [SpaceStoryCreatePostAnimation],
 })
-export class FeedPublicationCardComponent {
+export class FeedPublicationCardComponent implements OnInit, OnDestroy {
   // Type Posts
   feedPublicationCreate:
     | PicturePublicationModel
@@ -41,11 +42,33 @@ export class FeedPublicationCardComponent {
   files: File[] = [];
   imgPreview: string | ArrayBuffer;
 
+  // sub
+  getImgPreviewProgressSub: Subscription;
+
   constructor(
     public postService: PostService,
     public dialogRef: MatDialogRef<FeedPublicationCardComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IFeedPublicationConfig
   ) {}
+
+  ngOnInit(): void {
+    this.generateSubscription();
+  }
+
+  ngOnDestroy(): void {
+    if (this.getImgPreviewProgressSub)
+      this.getImgPreviewProgressSub.unsubscribe();
+  }
+
+  generateSubscription(): void {
+    this.getImgPreviewProgressSub = this.data
+      .getImgPreviewProgress()
+      .subscribe((progress: number) => {
+        if (progress === 100) {
+          alert('uploaded');
+        }
+      });
+  }
 
   onChangebackground(value: BackgroundPostModel): void {
     this.bgSelected = value;

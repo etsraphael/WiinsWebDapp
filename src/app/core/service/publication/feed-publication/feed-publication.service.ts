@@ -30,9 +30,6 @@ export class FeedPublicationService {
     }),
   ];
 
-  // sub
-  progress = 0;
-
   constructor(
     private feedPublicationCardService: FeedPublicationCardService,
     private storageService: StorageService
@@ -40,7 +37,6 @@ export class FeedPublicationService {
 
   onCreatePublication(): MatDialogRef<FeedPublicationCardComponent> {
     this.onUploadEvent();
-
     return this.feedPublicationCardService.openModalPublication({
       linearBackgroundList: this.linearBgPost,
     });
@@ -58,11 +54,5 @@ export class FeedPublicationService {
 
         this.storageService.sendFileToStorageWithProgress(payload);
       });
-  }
-
-  startUpload(): void {
-    setInterval(() => {
-      this.feedPublicationCardService.setImgPreviewProgress(++this.progress);
-    }, 300);
   }
 }

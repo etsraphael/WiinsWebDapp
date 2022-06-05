@@ -31,7 +31,11 @@
         <!-- Loading Bar -->
         <div
           class="w-100 loading-bar-container p-0"
-          *ngIf="!!(data.getImgPreviewProgress() | async)">
+          *ngIf="
+            !!(data.getImgPreviewProgress() | async) &&
+            (data.getImgPreviewProgress() | async) !== 0 &&
+            (data.getImgPreviewProgress() | async) !== 100
+          ">
           <div
             class="picture-loading-bar h-100"
             [style.width.%]="data.getImgPreviewProgress() | async"></div>
