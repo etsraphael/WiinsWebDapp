@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
-import { FeedPublicationModelInterface } from '@wiins/common-interfaces';
 import {
   FeedPublicationStoreActions,
   FeedPublicationStoreSelectors,
   RootStoreState,
 } from '@wiins/web-store';
 import { filter, Observable } from 'rxjs';
+import { IFeedCard } from '@wiins/feed-card';
 
 @Component({
   selector: 'app-space-story',
@@ -15,7 +15,7 @@ import { filter, Observable } from 'rxjs';
   styleUrls: ['./space-story.component.scss'],
 })
 export class SpaceStoryComponent implements OnInit {
-  feedPublication$: Observable<FeedPublicationModelInterface[]>;
+  feedPublication$: Observable<IFeedCard[]>;
 
   constructor(
     public router: Router,

@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { FeedPublicationModelInterface } from '@wiins/common-interfaces';
+import { IFeedPublicationCard } from '../../interfaces';
 
 export enum ActionTypes {
   ADD_FEED_PUBLICATION = '@feed_publication/add',
@@ -25,12 +25,12 @@ export class ResetFeed implements Action {
 
 export class AddFeedPublication implements Action {
   readonly type = ActionTypes.ADD_FEED_PUBLICATION;
-  constructor(public payload: FeedPublicationModelInterface) {}
+  constructor(public payload: IFeedPublicationCard) {}
 }
 
 export class AddFeedPublicationSuccess implements Action {
   readonly type = ActionTypes.ADD_FEED_PUBLICATION_SUCCESS;
-  constructor(public payload: FeedPublicationModelInterface) {}
+  constructor(public payload: IFeedPublicationCard) {}
 }
 
 export class AddFeedPublicationFail implements Action {
@@ -45,7 +45,7 @@ export class RemoveFeedPublication implements Action {
 
 export class RemoveFeedPublicationSuccess implements Action {
   readonly type = ActionTypes.REMOVE_FEED_PUBLICATION_SUCCESS;
-  constructor(public payload: FeedPublicationModelInterface) {}
+  constructor(public payload: IFeedPublicationCard) {}
 }
 
 export class RemoveFeedPublicationFail implements Action {
@@ -55,10 +55,7 @@ export class RemoveFeedPublicationFail implements Action {
 
 export class LoadFeedPublication implements Action {
   readonly type = ActionTypes.LOAD_FEED_PUBLICATION;
-  constructor(
-    public page: string,
-    public payload: FeedPublicationModelInterface
-  ) {}
+  constructor(public page: string, public payload: IFeedPublicationCard) {}
 }
 
 export class LoadFeedPublicationFail implements Action {
@@ -68,7 +65,7 @@ export class LoadFeedPublicationFail implements Action {
 
 export class LoadFeedPublicationSuccess implements Action {
   readonly type = ActionTypes.LOAD_FEED_PUBLICATION_SUCCESS;
-  constructor(public payload: FeedPublicationModelInterface[]) {}
+  constructor(public payload: IFeedPublicationCard[]) {}
 }
 
 export class UpdateLike implements Action {

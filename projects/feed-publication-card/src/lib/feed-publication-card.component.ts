@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
-import { FeedPublicationModelInterface } from '@wiins/common-interfaces';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {
   BackgroundPostModel,
   PicturePublicationModel,
   PostPublicationModel,
   VideoPublicationModel,
-} from '@wiins/common-models';
+} from './models';
 import { NgxDropzoneChangeEvent } from 'ngx-dropzone';
 import { SpaceStoryCreatePostAnimation } from '../assets/animation/on-create-post-animation';
 import { linearBgPost } from '../data/linear-background-post-list';
 import { FeedPublicationCardService } from './feed-publication-card.service';
+import { IFeedCard, IFeedPublicationPayload } from './interfaces';
 
 @Component({
   selector: 'wiins-feed-publication-card',
@@ -18,7 +19,7 @@ import { FeedPublicationCardService } from './feed-publication-card.service';
   styleUrls: ['./feed-publication-card.component.scss'],
   animations: [SpaceStoryCreatePostAnimation],
 })
-export class FeedPublicationCardComponent {
+export class FeedPublicationCardComponent implements OnInit {
   // Type Posts
   feedPublicationCreate:
     | PicturePublicationModel
@@ -40,7 +41,15 @@ export class FeedPublicationCardComponent {
   files: File[] = [];
   imgPreview: string | ArrayBuffer;
 
-  constructor(public feedPublicationCardService: FeedPublicationCardService) {}
+  constructor(
+    public feedPublicationCardService: FeedPublicationCardService,
+    public dialogRef: MatDialogRef<FeedPublicationCardComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: IFeedPublicationPayload
+  ) {}
+
+  ngOnInit(): void {
+    console.log(this.data);
+  }
 
   onChangebackground(value: BackgroundPostModel): void {
     this.bgSelected = value;
@@ -52,7 +61,7 @@ export class FeedPublicationCardComponent {
   }
 
   // Build the Publication
-  publicationMaker(): FeedPublicationModelInterface | void {
+  publicationMaker(): IFeedCard | void {
     switch (this.visualMode) {
       case 'picture': {
         const title = this.commentInputValue;
@@ -130,10 +139,5 @@ export class FeedPublicationCardComponent {
 
   undoPicturePreview(): void {
     this.imgPreview = null;
-  }
-
-  onRemove(event) {
-    console.log(event);
-    this.files.splice(this.files.indexOf(event), 1);
   }
 }

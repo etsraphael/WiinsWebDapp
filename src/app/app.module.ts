@@ -1,5 +1,5 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, ErrorHandler, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
@@ -8,8 +8,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Router } from '@angular/router';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import * as Sentry from '@sentry/angular';
 import { FeedCardModule } from '@wiins/feed-card';
 import { FeedPublicationCardModule } from '@wiins/feed-publication-card';
 import { WebStoreModule } from '@wiins/web-store';
@@ -31,7 +33,7 @@ import { SpaceMessengerComponent } from './views/space-messenger/space-messenger
 import { SpaceMusicComponent } from './views/space-music/space-music.component';
 import { SpaceStoryComponent } from './views/space-story/space-story.component';
 import { SpaceTubeComponent } from './views/space-tube/space-tube.component';
-import { CommonInterfacesModule } from '@wiins/common-interfaces';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,10 +74,27 @@ import { CommonInterfacesModule } from '@wiins/common-interfaces';
     BrowserAnimationsModule,
     NgxDropzoneModule,
     FeedPublicationCardModule,
-    CommonInterfacesModule,
     FeedCardModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: ErrorHandler,
+      useValue: Sentry.createErrorHandler({
+        showDialog: false,
+      }),
+    },
+    {
+      provide: Sentry.TraceService,
+      deps: [Router],
+    },
+    {
+      provide: APP_INITIALIZER,
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      useFactory: () => () => {},
+      deps: [Sentry.TraceService],
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

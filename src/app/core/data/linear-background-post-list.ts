@@ -1,4 +1,4 @@
-import { BackgroundPostModel } from '@wiins/common-models';
+import { BackgroundPostModel } from '@wiins/feed-card';
 
 /* 
   Orientations configuration:

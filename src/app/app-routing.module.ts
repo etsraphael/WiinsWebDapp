@@ -35,9 +35,6 @@ const routes: Routes = [
   },
 ];
 const routerOPtions: ExtraOptions = {
-  scrollPositionRestoration: 'enabled',
-  anchorScrolling: 'enabled',
-  scrollOffset: [0, 200],
   useHash: true,
 };
 
