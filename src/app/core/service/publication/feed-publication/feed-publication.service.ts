@@ -35,7 +35,7 @@ export class FeedPublicationService {
 
   onCreatePublication(): MatDialogRef<FeedPublicationCardComponent> {
     this.onUploadEvent();
-    this.startUpload();
+    // this.startUpload();
 
     return this.feedPublicationCardService.openModalPublication({
       linearBackgroundList: this.linearBgPost,
@@ -52,6 +52,6 @@ export class FeedPublicationService {
   startUpload(): void {
     setInterval(() => {
       this.feedPublicationCardService.setImgPreviewProgress(++this.progress);
-    }, 1000);
+    }, 300);
   }
 }

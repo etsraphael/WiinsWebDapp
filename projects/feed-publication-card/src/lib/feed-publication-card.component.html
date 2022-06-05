@@ -28,6 +28,14 @@
   <div class="card-body">
     <div class="position-relative body-container">
       <div class="row mx-0 choice-container">
+        <!-- Loading Bar -->
+        <div
+          class="w-100 loading-bar-container p-0"
+          *ngIf="!!(data.getImgPreviewProgress() | async)">
+          <div
+            class="picture-loading-bar h-100"
+            [style.width.%]="data.getImgPreviewProgress() | async"></div>
+        </div>
         <!-- [Written Post Choice] -->
         <div
           class="col-6 written-post d-flex flex-column justify-content-center align-items-center"

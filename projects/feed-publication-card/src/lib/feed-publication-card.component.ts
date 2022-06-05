@@ -1,10 +1,10 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NgxDropzoneChangeEvent } from 'ngx-dropzone';
 import { SpaceStoryCreatePostAnimation } from '../assets/animation/on-create-post-animation';
 import { linearBgPost } from '../data/linear-background-post-list';
-import { IFeedCard, IFeedPublicationPayload } from './interfaces';
+import { IFeedCard, IFeedPublicationConfig } from './interfaces';
 import {
   BackgroundPostModel,
   PicturePublicationModel,
@@ -19,7 +19,7 @@ import { PostService } from './service';
   styleUrls: ['./feed-publication-card.component.scss'],
   animations: [SpaceStoryCreatePostAnimation],
 })
-export class FeedPublicationCardComponent implements OnInit {
+export class FeedPublicationCardComponent {
   // Type Posts
   feedPublicationCreate:
     | PicturePublicationModel
@@ -44,15 +44,8 @@ export class FeedPublicationCardComponent implements OnInit {
   constructor(
     public postService: PostService,
     public dialogRef: MatDialogRef<FeedPublicationCardComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: IFeedPublicationPayload | any
+    @Inject(MAT_DIALOG_DATA) public data: IFeedPublicationConfig
   ) {}
-
-  ngOnInit(): void {
-    // this.data.getImgPreviewProgress().subscribe((value: number) => {
-    //   console.log('value to show')
-    //   console.log(value)
-    // })
-  }
 
   onChangebackground(value: BackgroundPostModel): void {
     this.bgSelected = value;

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { BehaviorSubject, Observable, skipWhile } from 'rxjs';
 import { FeedPublicationCardComponent } from './feed-publication-card.component';
-import { IFeedPublicationPayload } from './interfaces';
+import { IFeedPublicationConfig, IFeedPublicationPayload } from './interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -23,14 +23,16 @@ export class FeedPublicationCardService {
   openModalPublication(
     data: IFeedPublicationPayload
   ): MatDialogRef<FeedPublicationCardComponent> {
+    const config: IFeedPublicationConfig = {
+      ...data,
+      onChangeImgPreview: (event: string | ArrayBuffer) =>
+        this.setImgPreview(event),
+      getImgPreviewProgress: () => this.getImgPreviewProgress(),
+    };
+
     return this.dialog.open(FeedPublicationCardComponent, {
       panelClass: ['col-3', 'p-0'],
-      data: {
-        data,
-        onChangeImgPreview: (event: string | ArrayBuffer) =>
-          this.setImgPreview(event),
-        getImgPreviewProgress: () => this.getImgPreviewProgress(),
-      },
+      data: config,
     });
   }
 
