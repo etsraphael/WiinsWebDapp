@@ -5,7 +5,7 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
+    "strict": false,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
@@ -18,10 +18,7 @@
     "importHelpers": true,
     "target": "es2017",
     "module": "es2020",
-    "lib": [
-      "es2020",
-      "dom"
-    ],
+    "lib": ["es2020", "dom"],
     "paths": {
       "crypto": ["./node_modules/crypto-browserify"],
       "stream": ["./node_modules/stream-browserify"],
@@ -29,7 +26,17 @@
       "http": ["./node_modules/stream-http"],
       "https": ["./node_modules/https-browserify"],
       "os": ["./node_modules/os-browserify"],
-    },
+      "@wiins/web-store": ["dist/web-store/web-store", "dist/web-store"],
+      "@wiins/editable-content-event": [
+        "dist/editable-content-event/editable-content-event",
+        "dist/editable-content-event"
+      ],
+      "@wiins/feed-card": ["dist/feed-card/feed-card", "dist/feed-card"],
+      "@wiins/feed-publication-card": [
+        "dist/feed-publication-card/feed-publication-card",
+        "dist/feed-publication-card"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

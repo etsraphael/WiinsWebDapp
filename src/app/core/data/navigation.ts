@@ -7,8 +7,7 @@ export const navigationRoute: navbarButton[] = [
 ];
 
 export interface navbarButton {
-    icon: string;
-    link: string;
-    fontSize: string;
-  }
-  
+  icon: string;
+  link: string;
+  fontSize: string;
+}

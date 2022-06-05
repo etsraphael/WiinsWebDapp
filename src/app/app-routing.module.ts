@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/guard/auth.guard';
-import { HomeComponent } from './views/home/home.component';
-import { ContactUsComponent } from './views/on-boarding/contact-us/contact-us.component';
-import { JoinUsComponent } from './views/on-boarding/join-us/join-us.component';
+import { HomeLayoutComponent } from './core/layout/home-layout/home-layout.component';
 import { OnBoardingMainComponent } from './views/on-boarding/on-boarding-main/on-boarding-main.component';
+import { SpaceExplorerComponent } from './views/space-explorer/space-explorer.component';
+import { SpaceMessengerComponent } from './views/space-messenger/space-messenger.component';
+import { SpaceMusicComponent } from './views/space-music/space-music.component';
+import { SpaceStoryComponent } from './views/space-story/space-story.component';
+import { SpaceTubeComponent } from './views/space-tube/space-tube.component';
 
 const routes: Routes = [
   // by default
@@ -14,19 +17,29 @@ const routes: Routes = [
   {
     path: 'sign',
     component: OnBoardingMainComponent,
-    children: [
-      { path: '', redirectTo: 'join-us', pathMatch: 'full' },
-      { path: 'join-us', component: JoinUsComponent },
-      { path: 'contact-us', component: ContactUsComponent },
-    ],
   },
 
   // home page
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  {
+    path: 'home',
+    component: HomeLayoutComponent,
+    canActivate: [AuthGuard],
+    children: [
+      { path: '', redirectTo: 'SpaceStory', pathMatch: 'full' },
+      { path: 'SpaceStory', component: SpaceStoryComponent },
+      { path: 'SpaceMessenger', component: SpaceMessengerComponent },
+      { path: 'SpaceMusic', component: SpaceMusicComponent },
+      { path: 'SpaceTube', component: SpaceTubeComponent },
+      { path: 'SpaceExplorer', component: SpaceExplorerComponent },
+    ],
+  },
 ];
+const routerOPtions: ExtraOptions = {
+  useHash: true,
+};
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash: true})],
+  imports: [RouterModule.forRoot(routes, routerOPtions)],
   exports: [RouterModule],
   providers: [AuthGuard],
 })
