@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NgxDropzoneChangeEvent } from 'ngx-dropzone';
@@ -11,7 +11,7 @@ import {
   PostPublicationModel,
   VideoPublicationModel,
 } from './models';
-import { DataService } from './service';
+import { PostService } from './service';
 
 @Component({
   selector: 'wiins-feed-publication-card',
@@ -19,7 +19,7 @@ import { DataService } from './service';
   styleUrls: ['./feed-publication-card.component.scss'],
   animations: [SpaceStoryCreatePostAnimation],
 })
-export class FeedPublicationCardComponent implements OnInit {
+export class FeedPublicationCardComponent {
   // Type Posts
   feedPublicationCreate:
     | PicturePublicationModel
@@ -42,14 +42,10 @@ export class FeedPublicationCardComponent implements OnInit {
   imgPreview: string | ArrayBuffer;
 
   constructor(
-    public dataService: DataService,
+    public postService: PostService,
     public dialogRef: MatDialogRef<FeedPublicationCardComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IFeedPublicationPayload | any
   ) {}
-
-  ngOnInit(): void {
-    console.log(this.data);
-  }
 
   onChangebackground(value: BackgroundPostModel): void {
     this.bgSelected = value;

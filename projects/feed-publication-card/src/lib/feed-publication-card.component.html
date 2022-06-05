@@ -32,7 +32,7 @@
         <div
           class="col-6 written-post d-flex flex-column justify-content-center align-items-center"
           [@onWrittenPost]="visualMode"
-          [style.backgroundImage]="dataService.generateBackground(bgSelected)">
+          [style.backgroundImage]="postService.generateBackground(bgSelected)">
           <div *ngIf="visualMode == 'default'">
             <i
               class="bi bi-pencil-square text-light"
@@ -51,7 +51,7 @@
                 *ngFor="let bg of data.linearBackgroundList"
                 (click)="onChangebackground(bg)"
                 [ngStyle]="{
-                  background: dataService.generateBackground(bg)
+                  background: postService.generateBackground(bg)
                 }"></span>
             </div>
           </div>

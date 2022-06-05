@@ -24,7 +24,6 @@ import { ComingSoonFullScreenComponent } from './core/component/coming-soon-full
 import { MainNavBarComponent } from './core/component/main-nav-bar/main-nav-bar.component';
 import { MainSearchBarComponent } from './core/component/main-search-bar/main-search-bar.component';
 import { MainSidebarComponent } from './core/component/main-sidebar/main-sidebar.component';
-import { PublicationTextComponent } from './core/component/publication-text/publication-text.component';
 import { HomeLayoutComponent } from './core/layout/home-layout/home-layout.component';
 import { SettingLayoutComponent } from './core/layout/setting-layout/setting-layout.component';
 import { OnBoardingMainComponent } from './views/on-boarding/on-boarding-main/on-boarding-main.component';
@@ -49,7 +48,6 @@ import { SpaceTubeComponent } from './views/space-tube/space-tube.component';
     SpaceMessengerComponent,
     SpaceExplorerComponent,
     ComingSoonFullScreenComponent,
-    PublicationTextComponent,
   ],
   imports: [
     BrowserModule,

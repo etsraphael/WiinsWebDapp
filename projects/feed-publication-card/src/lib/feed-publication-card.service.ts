@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, skipWhile } from 'rxjs';
 import { FeedPublicationCardComponent } from './feed-publication-card.component';
 import { IFeedPublicationPayload } from './interfaces';
 
@@ -10,7 +10,7 @@ import { IFeedPublicationPayload } from './interfaces';
 export class FeedPublicationCardService {
   private imgPreviewData: BehaviorSubject<string | ArrayBuffer> =
     new BehaviorSubject<string | ArrayBuffer>(null);
-  imgPreview$: Observable<string | ArrayBuffer> =
+  private imgPreview$: Observable<string | ArrayBuffer> =
     this.imgPreviewData.asObservable();
 
   constructor(private dialog: MatDialog) {}
@@ -30,5 +30,9 @@ export class FeedPublicationCardService {
 
   setImgPreview(img: string | ArrayBuffer): void {
     return this.imgPreviewData.next(img);
+  }
+
+  getImgPreview(): Observable<string | ArrayBuffer> {
+    return this.imgPreview$.pipe(skipWhile(x => !x));
   }
 }

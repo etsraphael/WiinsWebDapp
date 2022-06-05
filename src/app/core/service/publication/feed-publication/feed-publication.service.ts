@@ -5,11 +5,13 @@ import {
   FeedPublicationCardComponent,
   FeedPublicationCardService,
 } from '@wiins/feed-publication-card';
+import { Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FeedPublicationService {
+  // data
   linearBgPost: BackgroundPostModel[] = [
     new BackgroundPostModel(['#8E2DE2', '#4A00E0'], {
       start: [1, 1],
@@ -25,18 +27,22 @@ export class FeedPublicationService {
     }),
   ];
 
+  // sub
+  modalDestroySub: Subscription;
+
   constructor(private feedPublicationCardService: FeedPublicationCardService) {}
 
-  onCreatePublication(): MatDialogRef<FeedPublicationCardComponent> {
+  onCreatePublication(): void {
     this.onUploadEvent();
 
-    return this.feedPublicationCardService.openModalPublication({
-      linearBackgroundList: this.linearBgPost,
-    });
+    const dialog: MatDialogRef<FeedPublicationCardComponent> =
+      this.feedPublicationCardService.openModalPublication({
+        linearBackgroundList: this.linearBgPost,
+      });
   }
 
   onUploadEvent(): void {
-    this.feedPublicationCardService.imgPreview$.subscribe(data => {
+    this.feedPublicationCardService.getImgPreview().subscribe(data => {
       console.log('data');
       console.log(data);
     });
