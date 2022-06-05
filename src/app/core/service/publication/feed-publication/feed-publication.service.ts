@@ -29,16 +29,17 @@ export class FeedPublicationService {
 
   // sub
   modalDestroySub: Subscription;
+  progress = 0;
 
   constructor(private feedPublicationCardService: FeedPublicationCardService) {}
 
-  onCreatePublication(): void {
+  onCreatePublication(): MatDialogRef<FeedPublicationCardComponent> {
     this.onUploadEvent();
+    this.startUpload();
 
-    const dialog: MatDialogRef<FeedPublicationCardComponent> =
-      this.feedPublicationCardService.openModalPublication({
-        linearBackgroundList: this.linearBgPost,
-      });
+    return this.feedPublicationCardService.openModalPublication({
+      linearBackgroundList: this.linearBgPost,
+    });
   }
 
   onUploadEvent(): void {
@@ -46,5 +47,11 @@ export class FeedPublicationService {
       console.log('data');
       console.log(data);
     });
+  }
+
+  startUpload(): void {
+    setInterval(() => {
+      this.feedPublicationCardService.setImgPreviewProgress(++this.progress);
+    }, 1000);
   }
 }

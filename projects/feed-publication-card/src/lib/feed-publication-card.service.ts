@@ -8,10 +8,15 @@ import { IFeedPublicationPayload } from './interfaces';
   providedIn: 'root',
 })
 export class FeedPublicationCardService {
+  // image preview
   private imgPreviewData: BehaviorSubject<string | ArrayBuffer> =
     new BehaviorSubject<string | ArrayBuffer>(null);
   private imgPreview$: Observable<string | ArrayBuffer> =
     this.imgPreviewData.asObservable();
+  private imgPreviewProgress: BehaviorSubject<number> =
+    new BehaviorSubject<number>(null);
+  private imgPreviewProgress$: Observable<number> =
+    this.imgPreviewProgress.asObservable();
 
   constructor(private dialog: MatDialog) {}
 
@@ -24,8 +29,17 @@ export class FeedPublicationCardService {
         data,
         onChangeImgPreview: (event: string | ArrayBuffer) =>
           this.setImgPreview(event),
+        getImgPreviewProgress: () => this.getImgPreviewProgress(),
       },
     });
+  }
+
+  setImgPreviewProgress(value: number): void {
+    return this.imgPreviewProgress.next(value);
+  }
+
+  getImgPreviewProgress(): Observable<number> {
+    return this.imgPreviewProgress$.pipe(skipWhile(x => !x));
   }
 
   setImgPreview(img: string | ArrayBuffer): void {
