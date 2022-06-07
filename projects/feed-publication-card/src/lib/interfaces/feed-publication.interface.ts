@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { BackgroundPostModel, ProfileModel } from '../models';
 
 export interface IFeedCard {
@@ -23,4 +24,10 @@ export interface IFeedCard {
 
 export interface IFeedPublicationPayload {
   linearBackgroundList: BackgroundPostModel[];
+}
+
+export interface IFeedPublicationConfig {
+  linearBackgroundList: BackgroundPostModel[];
+  onChangeImgPreview: (event: File[]) => void;
+  getImgPreviewProgress: () => Observable<number>;
 }

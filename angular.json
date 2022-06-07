@@ -23,7 +23,18 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "allowedCommonJsDependencies": ["hash.js", "web3", "ngx-masonry"],
+            "allowedCommonJsDependencies": [
+              "hash.js",
+              "web3",
+              "ngx-masonry",
+              "varint",
+              "blob-to-it",
+              "hamt-sharding",
+              "bl/BufferList.js",
+              "rabin-wasm",
+              "it-parallel-batch",
+              "p-retry"
+            ],
             "outputPath": "dist/WiinsWebDapp",
             "index": "src/index.html",
             "main": "src/main.ts",

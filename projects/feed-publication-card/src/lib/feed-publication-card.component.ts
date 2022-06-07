@@ -1,17 +1,18 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { NgxDropzoneChangeEvent } from 'ngx-dropzone';
+import { Subscription } from 'rxjs';
+import { SpaceStoryCreatePostAnimation } from '../assets/animation/on-create-post-animation';
+import { linearBgPost } from '../data/linear-background-post-list';
+import { IFeedCard, IFeedPublicationConfig } from './interfaces';
 import {
   BackgroundPostModel,
   PicturePublicationModel,
   PostPublicationModel,
   VideoPublicationModel,
 } from './models';
-import { NgxDropzoneChangeEvent } from 'ngx-dropzone';
-import { SpaceStoryCreatePostAnimation } from '../assets/animation/on-create-post-animation';
-import { linearBgPost } from '../data/linear-background-post-list';
-import { FeedPublicationCardService } from './feed-publication-card.service';
-import { IFeedCard, IFeedPublicationPayload } from './interfaces';
+import { PostService } from './service';
 
 @Component({
   selector: 'wiins-feed-publication-card',
@@ -19,7 +20,7 @@ import { IFeedCard, IFeedPublicationPayload } from './interfaces';
   styleUrls: ['./feed-publication-card.component.scss'],
   animations: [SpaceStoryCreatePostAnimation],
 })
-export class FeedPublicationCardComponent implements OnInit {
+export class FeedPublicationCardComponent implements OnInit, OnDestroy {
   // Type Posts
   feedPublicationCreate:
     | PicturePublicationModel
@@ -41,14 +42,32 @@ export class FeedPublicationCardComponent implements OnInit {
   files: File[] = [];
   imgPreview: string | ArrayBuffer;
 
+  // sub
+  getImgPreviewProgressSub: Subscription;
+
   constructor(
-    public feedPublicationCardService: FeedPublicationCardService,
+    public postService: PostService,
     public dialogRef: MatDialogRef<FeedPublicationCardComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: IFeedPublicationPayload
+    @Inject(MAT_DIALOG_DATA) public data: IFeedPublicationConfig
   ) {}
 
   ngOnInit(): void {
-    console.log(this.data);
+    this.generateSubscription();
+  }
+
+  ngOnDestroy(): void {
+    if (this.getImgPreviewProgressSub)
+      this.getImgPreviewProgressSub.unsubscribe();
+  }
+
+  generateSubscription(): void {
+    this.getImgPreviewProgressSub = this.data
+      .getImgPreviewProgress()
+      .subscribe((progress: number) => {
+        if (progress === 100) {
+          alert('uploaded');
+        }
+      });
   }
 
   onChangebackground(value: BackgroundPostModel): void {
@@ -128,12 +147,14 @@ export class FeedPublicationCardComponent implements OnInit {
     alert(event);
   }
 
-  onSelect(event: NgxDropzoneChangeEvent) {
+  onSelect(event: NgxDropzoneChangeEvent): void {
     this.files.push(...event.addedFiles);
     const reader = new FileReader();
     reader.readAsDataURL(event.addedFiles[0]);
     reader.onload = () => {
       this.imgPreview = reader.result;
+      const files = [new File([reader.result], event.addedFiles[0].name)];
+      this.data.onChangeImgPreview(files);
     };
   }
 
