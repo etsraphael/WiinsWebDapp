@@ -4,7 +4,7 @@
     <nav
       class="row p-2 align-items-center position-fixed w-100 m-0 navbar-container">
       <!-- Brand -->
-      <div class="col-10 col-xl-3 my-auto">
+      <div class="col-7 col-md-9 col-xl-3 my-auto">
         <a class="d-inline-block">
           <img
             class="brand-icon-img"
@@ -19,24 +19,28 @@
         </h2>
       </div>
       <!-- Button List -->
-      <div class="col-xl-9 d-none d-xl-flex row my-auto">
+      <div class="col-3 col-md-2 col-xl-9 d-xl-flex row my-auto ms-auto">
         <div
           class="d-flex justify-content-end align-items-baseline container-nav-btn">
-          <button class="btn btn-sm text-light" *ngFor="let item of btnTabs">
-            <a (click)="scroll(item.id)">
-              <span>{{ item.title | translate }}</span>
-            </a>
-          </button>
+          <div
+            class="container-title col-xl-6 d-none d-xl-flex justify-content-end align-items-center">
+            <button class="btn btn-sm text-light" *ngFor="let item of btnTabs">
+              <a (click)="scroll(item.id)">
+                <span>{{ item.title | translate }}</span>
+              </a>
+            </button>
+            <button
+              class="btn btn-sm mx-2 text-light"
+              (click)="
+                goToOustideLink('https://github.com/etsraphael/WiinsWebDapp')
+              ">
+              <span>Github</span>
+              <div class="underline mx-auto"></div>
+            </button>
+          </div>
+          <!-- Dropdown Langs -->
           <button
-            class="btn btn-sm mx-2 me-5 text-light"
-            (click)="
-              goToOustideLink('https://github.com/etsraphael/WiinsWebDapp')
-            ">
-            <span>Github</span>
-            <div class="underline mx-auto"></div>
-          </button>
-          <button
-            class="btn btn-sm text-light"
+            class="btn btn-sm col-12 col-xl-1 text-light m-0"
             mat-icon-button
             (click)="onOpenLang()"
             [matMenuTriggerFor]="menu"
@@ -56,14 +60,14 @@
             </button>
           </mat-menu>
           <button
-            class="btn btn-sm border-0 mx-2 text-light signIn-btn px-4"
+            class="d-none d-xl-block btn btn-sm border-0 mx-2 text-light signIn-btn px-4"
             (click)="authService.login()">
             <span>{{ 'LANDING_PAGE.on-boarding.sign-in' | translate }}</span>
           </button>
         </div>
       </div>
       <!-- Menu Hamburger [< 992px] -->
-      <div class="dropdown col-2 text-end d-xl-none">
+      <div class="dropdown col-2 col-md-1 text-end d-xl-none ms-auto">
         <button
           class="dropdown-toggle"
           type="button"
@@ -278,8 +282,8 @@
               <img [src]="c.img" />
             </div>
             <div class="info">
-              <h4 class="mb-0 text-light">{{ c.name }}</h4>
-              <p class="text-white">
+              <h4 class="mb-0 text-light co-founder-name">{{ c.name }}</h4>
+              <p class="text-white co-founder-post">
                 {{ 'LANDING_PAGE.space-team.main-founder' | translate }}
                 <br />
                 {{ c.role | translate }}

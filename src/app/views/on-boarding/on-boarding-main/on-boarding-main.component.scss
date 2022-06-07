@@ -131,6 +131,20 @@
   width: 6.5rem;
 }
 
+@media screen and (max-width: 576px) {
+  .container-avatar-co-founder img {
+    width: 4rem;
+  }
+}
+
+.co-founder-name {
+  font-weight: 500;
+}
+
+.co-founder-post {
+  font-weight: 200;
+}
+
 .container-token {
   .main-container {
     position: relative;
@@ -145,7 +159,7 @@
     transform-style: preserve-3d;
     transition: all 0.8s ease;
     animation: tokenAnimation 1s linear infinite alternate;
-    z-index: 999;
+    z-index: 998;
   }
 
   @keyframes tokenAnimation {
