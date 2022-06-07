@@ -4,6 +4,28 @@
   overflow: hidden;
 }
 
+.body-container {
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.loading-bar-container {
+  position: absolute;
+  height: 0.4rem;
+
+  .picture-loading-bar,
+  .video-loading-bar {
+    transition: width 0.5s;
+    border-radius: 15px;
+  }
+
+  .picture-loading-bar {
+    background: #f12711;
+    background: -webkit-linear-gradient(to left, #f5af19, #f12711);
+    background: linear-gradient(to left, #f5af19, #f12711);
+  }
+}
+
 .card-header {
   border: 0;
   background-color: white;

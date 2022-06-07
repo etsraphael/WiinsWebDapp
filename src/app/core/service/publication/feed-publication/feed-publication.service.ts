@@ -3,13 +3,18 @@ import { MatDialogRef } from '@angular/material/dialog';
 import {
   BackgroundPostModel,
   FeedPublicationCardComponent,
-  FeedCardPublicationModalService,
+  FeedPublicationCardService,
 } from '@wiins/feed-publication-card';
+import {
+  ISendFileToStorageWithProgress,
+  StorageService,
+} from '../../storage/storage.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FeedPublicationService {
+  // data
   linearBgPost: BackgroundPostModel[] = [
     new BackgroundPostModel(['#8E2DE2', '#4A00E0'], {
       start: [1, 1],
@@ -26,12 +31,28 @@ export class FeedPublicationService {
   ];
 
   constructor(
-    private feedCardPublicationModalService: FeedCardPublicationModalService
+    private feedPublicationCardService: FeedPublicationCardService,
+    private storageService: StorageService
   ) {}
 
   onCreatePublication(): MatDialogRef<FeedPublicationCardComponent> {
-    return this.feedCardPublicationModalService.openModalPublication({
+    this.onUploadEvent();
+    return this.feedPublicationCardService.openModalPublication({
       linearBackgroundList: this.linearBgPost,
     });
+  }
+
+  onUploadEvent(): void {
+    this.feedPublicationCardService
+      .getImgPreview()
+      .subscribe((data: File[]) => {
+        const payload: ISendFileToStorageWithProgress = {
+          files: data,
+          progress: (event: number) =>
+            this.feedPublicationCardService.setImgPreviewProgress(event),
+        };
+
+        this.storageService.sendFileToStorageWithProgress(payload);
+      });
   }
 }

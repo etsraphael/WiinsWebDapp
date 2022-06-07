@@ -5,7 +5,7 @@ import {
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { of } from 'rxjs';
 import { FeedPublicationCardComponent } from './feed-publication-card.component';
 
 describe('FeedPublicationCardComponent', () => {
@@ -16,7 +16,17 @@ describe('FeedPublicationCardComponent', () => {
     await TestBed.configureTestingModule({
       imports: [BrowserAnimationsModule, MatDialogModule],
       providers: [
-        { provide: MAT_DIALOG_DATA, useValue: {} },
+        {
+          provide: MAT_DIALOG_DATA,
+          useValue: {
+            onChangeImgPreview: () => {
+              return null;
+            },
+            getImgPreviewProgress: () => {
+              return of(0);
+            },
+          },
+        },
         { provide: MatDialogRef, useValue: {} },
       ],
       declarations: [FeedPublicationCardComponent],
