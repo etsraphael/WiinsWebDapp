@@ -1,4 +1,37 @@
-// NavBar
+// Navbar
+.bg-container {
+  background: linear-gradient(90deg, #58aed2, #4a85d1, #8965c3);
+}
+
+.navbar-container {
+  background: linear-gradient(90deg, #58aed2, #4a85d1, #8965c3);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  z-index: 999;
+
+  // Menu Hamburger
+  .dropdown {
+    button {
+      background: transparent;
+      border: none;
+    }
+
+    ul li a {
+      cursor: pointer;
+    }
+  }
+
+  .dropdown-toggle::after {
+    display: none;
+  }
+
+  mat-menu {
+    position: absolute;
+    z-index: 1000;
+  }
+}
+
+// Content NavBar
 .container-nav-btn {
   button:not(:nth-last-of-type(1)) {
     margin-right: 2em;
@@ -39,39 +72,7 @@
   }
 }
 
-// Core
-.bg-container {
-  background: linear-gradient(90deg, #58aed2, #4a85d1, #8965c3);
-}
-
-.navbar-container {
-  background: linear-gradient(90deg, #58aed2, #4a85d1, #8965c3);
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-  z-index: 999;
-
-  // Menu Hamburger
-  .dropdown {
-    button {
-      background: transparent;
-      border: none;
-    }
-
-    ul li a {
-      cursor: pointer;
-    }
-  }
-
-  .dropdown-toggle::after {
-    display: none;
-  }
-
-  mat-menu {
-    position: absolute;
-    z-index: 1000;
-  }
-}
-
+// Body
 .container-body {
   padding-top: 97px;
 }
@@ -131,6 +132,14 @@
   width: 6.5rem;
 }
 
+.co-founder-name {
+  font-weight: 500;
+}
+
+.co-founder-post {
+  font-weight: 200;
+}
+
 .container-token {
   .main-container {
     position: relative;
@@ -145,7 +154,7 @@
     transform-style: preserve-3d;
     transition: all 0.8s ease;
     animation: tokenAnimation 1s linear infinite alternate;
-    z-index: 999;
+    z-index: 998;
   }
 
   @keyframes tokenAnimation {
@@ -320,12 +329,6 @@
     list-style: none;
     cursor: pointer;
   }
-
-  @media screen and (max-width: 540px) {
-    li img {
-      width: 2rem;
-    }
-  }
 }
 
 nav .bi-list {
@@ -338,4 +341,23 @@ nav .bi-list {
   position: relative;
   top: -150px;
   visibility: hidden;
+}
+
+// Responsive
+@media screen and (max-width: 576px) {
+  .brand-icon-img {
+    width: 50px;
+  }
+
+  .brand-typo-img {
+    width: 70px;
+  }
+
+  .container-avatar-co-founder img {
+    width: 4rem;
+  }
+
+  li img {
+    width: 2rem;
+  }
 }
