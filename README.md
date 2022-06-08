@@ -19,7 +19,7 @@ Wiins is a social media with the particularity of centralizing all web functions
 
 <!-- Links -->
 
-## Link to access the platorm
+## Link to access the platform
 
 - <a href="https://www.wiins.io/">Link of the platform (prod)</a>
 - <a href="https://github.com/etsraphael/WiinsWebDapp">Link of the web platform on git</a>
@@ -34,19 +34,13 @@ Wiins is a social media with the particularity of centralizing all web functions
 When you are on the project, install all dependencies by running
 
 ```sh
-npm install && npm run libs-build
+npm install
 ```
 
 To launch the server, run
 
 ```sh
 ng serve
-```
-
-To refresh your page after to update one of the liibaries (optional)
-
-```sh
-npm run linker
 ```
 
 The command before each commit for clean your code. This command will run before each commit.
