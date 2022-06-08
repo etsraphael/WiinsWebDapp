@@ -31,8 +31,6 @@
   }
 }
 
-
-
 // Content NavBar
 .container-nav-btn {
   button:not(:nth-last-of-type(1)) {
@@ -345,7 +343,7 @@ nav .bi-list {
   visibility: hidden;
 }
 
-// Responsive 
+// Responsive
 @media screen and (max-width: 576px) {
   .brand-icon-img {
     width: 50px;
