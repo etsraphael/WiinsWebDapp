@@ -30,4 +30,8 @@ export interface IFeedPublicationConfig {
   linearBackgroundList: BackgroundPostModel[];
   onChangeImgPreview: (event: File[]) => void;
   getImgPreviewProgress: () => Observable<number>;
+  onChangePosterPreview: (event: File[]) => void;
+  getPosterPreviewProgress: () => Observable<number>;
+  onChangeVideoPreview: (event: File[]) => void;
+  getVideoPreviewProgress: () => Observable<number>;
 }
