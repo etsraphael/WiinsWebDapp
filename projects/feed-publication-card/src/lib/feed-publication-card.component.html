@@ -110,8 +110,16 @@
                 class="container-btn-undo p-2 d-flex justify-content-center align-items-center">
                 <i class="bi bi-x-lg text-light"></i>
               </div>
-              <input hidden id="uploadPoster" #poster type="file" accept='image/*' (change)="setUpPosterUpload(poster.files)" />
-              <label for="uploadPoster" class="container-btn-poster d-flex justify-content-center align-items-center p-2">
+              <input
+                hidden
+                id="uploadPoster"
+                #poster
+                type="file"
+                accept="image/*"
+                (change)="setUpPosterUpload(poster.files)" />
+              <label
+                for="uploadPoster"
+                class="container-btn-poster d-flex justify-content-center align-items-center p-2">
                 <i class="bi bi-camera text-light mx-1"></i>
                 <span class="text-light px-1">Upload a picture</span>
               </label>

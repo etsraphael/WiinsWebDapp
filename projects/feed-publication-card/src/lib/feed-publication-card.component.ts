@@ -194,9 +194,7 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     reader.readAsArrayBuffer(event.addedFiles[0]);
   }
 
-
-  setUpPosterUpload(event: FileList): void{
-
+  setUpPosterUpload(event: FileList): void {
     const reader = new FileReader();
     reader.readAsDataURL(event[0]);
     reader.onload = () => {
@@ -204,7 +202,6 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
       const files = [new File([reader.result], event[0].name)];
       // this.data.onChangeImgPreview(files);
     };
-
   }
 
   undoPicturePreview(): void {
