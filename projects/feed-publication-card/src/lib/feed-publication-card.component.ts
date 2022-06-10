@@ -42,6 +42,7 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
   selectedImage: string;
   files: File[] = [];
   imgPreview: string | ArrayBuffer;
+  posterPreview: string | ArrayBuffer;
   videoPreview: SafeResourceUrl;
 
   // sub
@@ -158,8 +159,6 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     // get the type
     const fileType = this.files[0].type;
 
-    console.log(fileType)
-
     // set up the card
     switch (fileType) {
       case 'image/gif':
@@ -195,6 +194,19 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     reader.readAsArrayBuffer(event.addedFiles[0]);
   }
 
+
+  setUpPosterUpload(event: FileList): void{
+
+    const reader = new FileReader();
+    reader.readAsDataURL(event[0]);
+    reader.onload = () => {
+      this.posterPreview = reader.result;
+      const files = [new File([reader.result], event[0].name)];
+      // this.data.onChangeImgPreview(files);
+    };
+
+  }
+
   undoPicturePreview(): void {
     this.imgPreview = null;
     this.files = [];
@@ -202,6 +214,7 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
 
   undoVideoPreview(): void {
     this.videoPreview = null;
+    this.posterPreview = null;
     this.files = [];
   }
 }
