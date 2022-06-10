@@ -180,15 +180,11 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
   setUpVideoUpload(event: NgxDropzoneChangeEvent): void {
     const reader = new FileReader();
     reader.onloadend = () => {
-      console.log(event.addedFiles[0].type);
-
       const blob = new Blob([reader.result], {
         type: event.addedFiles[0].type,
       });
       const url = URL.createObjectURL(blob);
-
       this.videoPreview = this.sanatizer.bypassSecurityTrustResourceUrl(url);
-      console.log(this.videoPreview);
     };
 
     reader.readAsArrayBuffer(event.addedFiles[0]);
