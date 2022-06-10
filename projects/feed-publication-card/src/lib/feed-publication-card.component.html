@@ -105,6 +105,11 @@
             </div>
             <!-- Video content -->
             <div *ngIf="visualMode == 'picture' && !!videoPreview">
+              <div
+              (click)="undoVideoPreview()"
+              class="container-btn-undo p-2 d-flex justify-content-center align-items-center">
+              <i class="bi bi-x-lg text-light"></i>
+            </div>
               <video controls>
                 <source [src]="videoPreview" type="video/mp4" />
               </video>

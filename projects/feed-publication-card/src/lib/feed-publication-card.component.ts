@@ -144,6 +144,8 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
 
   resetPublication(): void {
     this.visualMode = 'default';
+    this.undoPicturePreview();
+    this.undoVideoPreview();
   }
 
   onSendText(event: string): void {
@@ -156,8 +158,11 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     // get the type
     const fileType = this.files[0].type;
 
+    console.log(fileType)
+
     // set up the card
     switch (fileType) {
+      case 'image/gif':
       case 'image/jpeg':
         return this.setUpImageUpload(event);
       case 'video/mp4':
@@ -173,7 +178,7 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     reader.onload = () => {
       this.imgPreview = reader.result;
       const files = [new File([reader.result], event.addedFiles[0].name)];
-      this.data.onChangeImgPreview(files);
+      // this.data.onChangeImgPreview(files);
     };
   }
 
@@ -192,6 +197,11 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
 
   undoPicturePreview(): void {
     this.imgPreview = null;
+    this.files = [];
+  }
+
+  undoVideoPreview(): void {
+    this.videoPreview = null;
     this.files = [];
   }
 }
