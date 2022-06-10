@@ -109,3 +109,9 @@
 .container-btn-undo:hover {
   background-color: #a4a4a4;
 }
+
+video {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}

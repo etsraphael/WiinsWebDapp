@@ -1,5 +1,5 @@
 <!-- Feed Publication Creation -->
-<div class="container-fluid py-2" *ngIf="!false">
+<div class="container-fluid py-2">
   <!-- Avatar and description -->
   <div class="card-header">
     <div class="row">
@@ -68,12 +68,14 @@
             </div>
           </div>
         </div>
-        <!-- [Picture Post Choice] -->
+        <!-- [Picture/Video Post Choice] -->
         <div
           class="container-picture-choice px-0 col-6 picture-post d-flex justify-content-center align-items-center"
           [@onPicturePost]="visualMode"
           (click)="onSelectPublicationType('picture')">
-          <div class="w-100" [ngClass]="{ 'px-3': !imgPreview }">
+          <div
+            class="w-100"
+            [ngClass]="{ 'px-3': !imgPreview && !videoPreview }">
             <label
               class="d-flex justify-content-center"
               *ngIf="visualMode == 'default'"
@@ -82,7 +84,7 @@
             </label>
             <ngx-dropzone
               class="w-100 dz-container"
-              *ngIf="visualMode == 'picture' && !imgPreview"
+              *ngIf="visualMode == 'picture' && !imgPreview && !videoPreview"
               (change)="onSelect($event)">
               <ngx-dropzone-label>
                 <button class="btn text-light upload-btn">
@@ -91,6 +93,8 @@
                 </button>
               </ngx-dropzone-label>
             </ngx-dropzone>
+
+            <!-- Picture content -->
             <div *ngIf="visualMode == 'picture' && !!imgPreview">
               <div
                 (click)="undoPicturePreview()"
@@ -98,6 +102,12 @@
                 <i class="bi bi-x-lg text-light"></i>
               </div>
               <img class="img-preview" [src]="imgPreview" alt="img_preview" />
+            </div>
+            <!-- Video content -->
+            <div *ngIf="visualMode == 'picture' && !!videoPreview">
+              <video controls>
+                <source [src]="videoPreview" type="video/mp4" />
+              </video>
             </div>
           </div>
         </div>

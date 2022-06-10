@@ -1,6 +1,7 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { NgxDropzoneChangeEvent } from 'ngx-dropzone';
 import { Subscription } from 'rxjs';
 import { SpaceStoryCreatePostAnimation } from '../assets/animation/on-create-post-animation';
@@ -41,12 +42,14 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
   selectedImage: string;
   files: File[] = [];
   imgPreview: string | ArrayBuffer;
+  videoPreview: SafeResourceUrl;
 
   // sub
   getImgPreviewProgressSub: Subscription;
 
   constructor(
     public postService: PostService,
+    private sanatizer: DomSanitizer,
     public dialogRef: MatDialogRef<FeedPublicationCardComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IFeedPublicationConfig
   ) {}
@@ -149,6 +152,22 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
 
   onSelect(event: NgxDropzoneChangeEvent): void {
     this.files.push(...event.addedFiles);
+
+    // get the type
+    const fileType = this.files[0].type;
+
+    // set up the card
+    switch (fileType) {
+      case 'image/jpeg':
+        return this.setUpImageUpload(event);
+      case 'video/mp4':
+        return this.setUpVideoUpload(event);
+      default:
+        return null;
+    }
+  }
+
+  setUpImageUpload(event: NgxDropzoneChangeEvent): void {
     const reader = new FileReader();
     reader.readAsDataURL(event.addedFiles[0]);
     reader.onload = () => {
@@ -158,7 +177,25 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     };
   }
 
+  setUpVideoUpload(event: NgxDropzoneChangeEvent): void {
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      console.log(event.addedFiles[0].type);
+
+      const blob = new Blob([reader.result], {
+        type: event.addedFiles[0].type,
+      });
+      const url = URL.createObjectURL(blob);
+
+      this.videoPreview = this.sanatizer.bypassSecurityTrustResourceUrl(url);
+      console.log(this.videoPreview);
+    };
+
+    reader.readAsArrayBuffer(event.addedFiles[0]);
+  }
+
   undoPicturePreview(): void {
     this.imgPreview = null;
+    this.files = [];
   }
 }
