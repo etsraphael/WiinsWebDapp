@@ -93,6 +93,10 @@
   cursor: pointer;
 }
 
+.blockBox.active {
+  border: 2px solid white;
+}
+
 .dz-container {
   background-color: transparent;
 }

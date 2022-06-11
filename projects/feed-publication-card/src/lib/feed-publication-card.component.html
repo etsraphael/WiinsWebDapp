@@ -80,8 +80,9 @@
             </div>
             <div class="row d-flex justify-content-center my-2">
               <span
-                class="blockBox m-2"
                 *ngFor="let bg of data.linearBackgroundList"
+                class="blockBox m-2"
+                [ngClass]="{ active: bg == bgSelected }"
                 (click)="onChangebackground(bg)"
                 [ngStyle]="{
                   background: postService.generateBackground(bg)
