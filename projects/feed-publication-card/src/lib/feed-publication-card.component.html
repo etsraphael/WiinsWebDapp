@@ -74,6 +74,7 @@
           <div *ngIf="visualMode == 'post'" class="container pt-3">
             <div class="row mx-0">
               <wiins-editable-content-event
+                theme="light"
                 [placeholder]="'Write your next post..'"
                 (onSendText)="onSendText($event)">
               </wiins-editable-content-event>
@@ -150,6 +151,14 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="footer-container" *ngIf="visualMode == 'picture'">
+        <wiins-editable-content-event
+          [maxLenght]="140"
+          theme="dark"
+          [placeholder]="'Write your next post..'"
+          (onSendText)="onSendText($event)">
+        </wiins-editable-content-event>
       </div>
     </div>
   </div>

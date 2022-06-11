@@ -1,8 +1,38 @@
 @import 'node_modules/bootstrap/scss/bootstrap';
 
+.light.textarea-post {
+  color: white;
+}
+
+.dark.textarea-post {
+  color: black;
+}
+
+.light.textarea-post::placeholder {
+  color: #b8b8b8;
+}
+
+.dark.textarea-post::placeholder {
+  color: black;
+}
+
+.light.placeholder-content {
+  color: black;
+  font-size: 1.2rem;
+}
+
+.black.placeholder-content {
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
 .hastag-container {
   border-radius: 8px;
   background-color: #dfdfdf59;
+}
+
+.textarea-post::placeholder {
+  font-size: 1.2rem;
 }
 
 .textarea-post {
@@ -11,16 +41,6 @@
   border: none;
   font-size: 1.2rem;
   line-height: 1.8;
-}
-
-.textarea-post::placeholder {
-  color: #b8b8b8;
-  font-size: 1.2rem;
-}
-
-.placeholder-content {
-  color: #ffffff;
-  font-size: 1.2rem;
 }
 
 .textarea-post:focus {
