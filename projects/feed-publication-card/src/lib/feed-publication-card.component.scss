@@ -9,21 +9,31 @@
   overflow: hidden;
 }
 
-.loading-bar-container {
+.loading-bar-container-header,
+.loading-bar-container-footer {
   position: absolute;
   height: 0.4rem;
+}
 
-  .picture-loading-bar,
-  .video-loading-bar {
-    transition: width 0.5s;
-    border-radius: 15px;
-  }
+.loading-bar-container-footer {
+  bottom: 0;
+}
 
-  .picture-loading-bar {
-    background: #f12711;
-    background: -webkit-linear-gradient(to left, #f5af19, #f12711);
-    background: linear-gradient(to left, #f5af19, #f12711);
-  }
+.loading-bar {
+  transition: width 0.5s;
+  border-radius: 15px;
+}
+
+.picture-loading-bar {
+  background: #f12711;
+  background: -webkit-linear-gradient(to left, #f5af19, #f12711);
+  background: linear-gradient(to left, #f5af19, #f12711);
+}
+
+.video-loading-bar {
+  background: #00f260;
+  background: -webkit-linear-gradient(to right, #0575e6, #00f260);
+  background: linear-gradient(to right, #0575e6, #00f260);
 }
 
 .card-header {

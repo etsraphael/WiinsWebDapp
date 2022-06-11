@@ -22,7 +22,19 @@ describe('FeedPublicationCardComponent', () => {
             onChangeImgPreview: () => {
               return null;
             },
+            onChangePosterPreview: () => {
+              return null;
+            },
+            onChangeVideoPreview: () => {
+              return null;
+            },
             getImgPreviewProgress: () => {
+              return of(0);
+            },
+            getVideoPreviewProgress: () => {
+              return of(0);
+            },
+            getPosterPreviewProgress: () => {
               return of(0);
             },
           },

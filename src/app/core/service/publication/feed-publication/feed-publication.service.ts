@@ -51,7 +51,34 @@ export class FeedPublicationService {
           progress: (event: number) =>
             this.feedPublicationCardService.setImgPreviewProgress(event),
         };
+        this.storageService.sendFileToStorageWithProgress(payload);
+      });
 
+    this.feedPublicationCardService
+      .getPosterPreview()
+      .subscribe((data: File[]) => {
+        const payload: ISendFileToStorageWithProgress = {
+          files: data,
+          progress: (event: number) => {
+            console.log(event);
+            return this.feedPublicationCardService.setPosterPreviewProgress(
+              event
+            );
+          },
+        };
+        this.storageService.sendFileToStorageWithProgress(payload);
+      });
+
+    this.feedPublicationCardService
+      .getVideoPreview()
+      .subscribe((data: File[]) => {
+        const payload: ISendFileToStorageWithProgress = {
+          files: data,
+          progress: (event: number) => {
+            console.log(event);
+            this.feedPublicationCardService.setVideoPreviewProgress(event);
+          },
+        };
         this.storageService.sendFileToStorageWithProgress(payload);
       });
   }

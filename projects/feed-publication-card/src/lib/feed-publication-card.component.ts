@@ -47,6 +47,8 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
 
   // sub
   getImgPreviewProgressSub: Subscription;
+  getVideoPreviewProgressSub: Subscription;
+  getPosterPreviewProgressSub: Subscription;
 
   constructor(
     public postService: PostService,
@@ -60,13 +62,36 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.getImgPreviewProgressSub)
+    if (this.getImgPreviewProgressSub) {
       this.getImgPreviewProgressSub.unsubscribe();
+    }
+    if (this.getPosterPreviewProgressSub) {
+      this.getPosterPreviewProgressSub.unsubscribe();
+    }
+    if (this.getVideoPreviewProgressSub) {
+      this.getVideoPreviewProgressSub.unsubscribe();
+    }
   }
 
   generateSubscription(): void {
     this.getImgPreviewProgressSub = this.data
       .getImgPreviewProgress()
+      .subscribe((progress: number) => {
+        if (progress === 100) {
+          alert('uploaded');
+        }
+      });
+
+    this.getPosterPreviewProgressSub = this.data
+      .getPosterPreviewProgress()
+      .subscribe((progress: number) => {
+        if (progress === 100) {
+          alert('uploaded');
+        }
+      });
+
+    this.getPosterPreviewProgressSub = this.data
+      .getPosterPreviewProgress()
       .subscribe((progress: number) => {
         if (progress === 100) {
           alert('uploaded');
@@ -177,7 +202,7 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     reader.onload = () => {
       this.imgPreview = reader.result;
       const files = [new File([reader.result], event.addedFiles[0].name)];
-      // this.data.onChangeImgPreview(files);
+      this.data.onChangeImgPreview(files);
     };
   }
 
@@ -200,7 +225,7 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     reader.onload = () => {
       this.posterPreview = reader.result;
       const files = [new File([reader.result], event[0].name)];
-      // this.data.onChangeImgPreview(files);
+      this.data.onChangePosterPreview(files);
     };
   }
 
