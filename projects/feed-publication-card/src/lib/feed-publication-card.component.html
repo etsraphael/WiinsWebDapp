@@ -61,7 +61,6 @@
             class="loading-bar video-loading-bar h-100"
             [style.width.%]="data.getVideoPreviewProgress() | async"></div>
         </div>
-
         <!-- [Written Post Choice] -->
         <div
           class="col-6 written-post d-flex flex-column justify-content-center align-items-center"
@@ -72,7 +71,7 @@
               class="bi bi-pencil-square text-light"
               (click)="onSelectPublicationType('post')"></i>
           </div>
-          <div *ngIf="visualMode == 'post'" class="container">
+          <div *ngIf="visualMode == 'post'" class="container pt-3">
             <div class="row mx-0">
               <wiins-editable-content-event
                 [placeholder]="'Write your next post..'"
@@ -115,7 +114,6 @@
                 </button>
               </ngx-dropzone-label>
             </ngx-dropzone>
-
             <!-- Picture content -->
             <div *ngIf="visualMode == 'picture' && !!imgPreview">
               <div

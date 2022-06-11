@@ -5,7 +5,6 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { NgxDropzoneChangeEvent } from 'ngx-dropzone';
 import { Subscription } from 'rxjs';
 import { SpaceStoryCreatePostAnimation } from '../assets/animation/on-create-post-animation';
-import { linearBgPost } from '../data/linear-background-post-list';
 import { IFeedCard, IFeedPublicationConfig } from './interfaces';
 import {
   BackgroundPostModel,
@@ -29,8 +28,7 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     | VideoPublicationModel;
 
   visualMode = 'default'; // Picture/ Video / Post
-  backgroundPostList: BackgroundPostModel[] = linearBgPost;
-  bgSelected: BackgroundPostModel = linearBgPost[0];
+  bgSelected: BackgroundPostModel;
 
   // Comment & Hahstags
   commentInputValue = '';
@@ -59,6 +57,7 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.generateSubscription();
+    this.setUpDefaultBackground(this.data.backgroundSelected);
   }
 
   ngOnDestroy(): void {
@@ -97,6 +96,10 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
           alert('uploaded');
         }
       });
+  }
+
+  setUpDefaultBackground(index: number): void {
+    this.bgSelected = this.data.linearBackgroundList[index];
   }
 
   onChangebackground(value: BackgroundPostModel): void {

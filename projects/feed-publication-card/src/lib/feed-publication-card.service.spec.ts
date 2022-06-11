@@ -4,7 +4,6 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
-
 import { FeedPublicationCardService } from './feed-publication-card.service';
 
 describe('FeedPublicationCardService', () => {

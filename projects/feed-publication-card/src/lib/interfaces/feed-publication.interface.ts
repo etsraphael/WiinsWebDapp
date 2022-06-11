@@ -24,10 +24,12 @@ export interface IFeedCard {
 
 export interface IFeedPublicationPayload {
   linearBackgroundList: BackgroundPostModel[];
+  backgroundSelected: number;
 }
 
 export interface IFeedPublicationConfig {
   linearBackgroundList: BackgroundPostModel[];
+  backgroundSelected: number;
   onChangeImgPreview: (event: File[]) => void;
   getImgPreviewProgress: () => Observable<number>;
   onChangePosterPreview: (event: File[]) => void;
