@@ -33,8 +33,7 @@
           class="w-100 loading-bar-container-header p-0"
           *ngIf="
             !!(data.getImgPreviewProgress() | async) &&
-            (data.getImgPreviewProgress() | async) !== 0 &&
-            (data.getImgPreviewProgress() | async) !== 100
+            (data.getImgPreviewProgress() | async) !== 0
           ">
           <div
             class="loading-bar picture-loading-bar h-100"
@@ -45,8 +44,7 @@
           class="w-100 loading-bar-container-header p-0"
           *ngIf="
             !!(data.getPosterPreviewProgress() | async) &&
-            (data.getPosterPreviewProgress() | async) !== 0 &&
-            (data.getPosterPreviewProgress() | async) !== 100
+            (data.getPosterPreviewProgress() | async) !== 0
           ">
           <div
             class="loading-bar picture-loading-bar h-100"
@@ -57,8 +55,7 @@
           class="w-100 loading-bar-container-footer p-0"
           *ngIf="
             !!(data.getVideoPreviewProgress() | async) &&
-            (data.getVideoPreviewProgress() | async) !== 0 &&
-            (data.getVideoPreviewProgress() | async) !== 100
+            (data.getVideoPreviewProgress() | async) !== 0
           ">
           <div
             class="loading-bar video-loading-bar h-100"

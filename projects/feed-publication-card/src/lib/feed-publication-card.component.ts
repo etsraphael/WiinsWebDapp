@@ -90,8 +90,8 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
         }
       });
 
-    this.getPosterPreviewProgressSub = this.data
-      .getPosterPreviewProgress()
+    this.getVideoPreviewProgressSub = this.data
+      .getVideoPreviewProgress()
       .subscribe((progress: number) => {
         if (progress === 100) {
           alert('uploaded');
@@ -214,6 +214,8 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
       });
       const url = URL.createObjectURL(blob);
       this.videoPreview = this.sanatizer.bypassSecurityTrustResourceUrl(url);
+      const files = [new File([blob], event.addedFiles[0].name)];
+      this.data.onChangeVideoPreview(files);
     };
 
     reader.readAsArrayBuffer(event.addedFiles[0]);

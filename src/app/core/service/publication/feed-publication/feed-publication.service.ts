@@ -59,12 +59,8 @@ export class FeedPublicationService {
       .subscribe((data: File[]) => {
         const payload: ISendFileToStorageWithProgress = {
           files: data,
-          progress: (event: number) => {
-            console.log(event);
-            return this.feedPublicationCardService.setPosterPreviewProgress(
-              event
-            );
-          },
+          progress: (event: number) =>
+            this.feedPublicationCardService.setPosterPreviewProgress(event),
         };
         this.storageService.sendFileToStorageWithProgress(payload);
       });
@@ -75,7 +71,6 @@ export class FeedPublicationService {
         const payload: ISendFileToStorageWithProgress = {
           files: data,
           progress: (event: number) => {
-            console.log(event);
             this.feedPublicationCardService.setVideoPreviewProgress(event);
           },
         };
