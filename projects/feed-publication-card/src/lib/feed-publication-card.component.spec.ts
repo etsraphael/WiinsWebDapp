@@ -38,6 +38,9 @@ describe('FeedPublicationCardComponent', () => {
             getPosterPreviewProgress: () => {
               return of(0);
             },
+            resetProgess: () => {
+              return null;
+            },
             backgroundSelected: 0,
             linearBackgroundList: [
               new BackgroundPostModel(['#11998e', '#38ef7d'], {

@@ -53,12 +53,24 @@ export class FeedPublicationCardService {
       getPosterPreviewProgress: () => this.getPosterPreviewProgress(),
       onChangeVideoPreview: (event: File[]) => this.setVideoPreview(event),
       getVideoPreviewProgress: () => this.getVideoPreviewProgress(),
+      resetProgess: (type: string) => this.resetProgess(type),
     };
 
     return this.dialog.open(FeedPublicationCardComponent, {
       panelClass: ['col-3', 'p-0'],
       data: config,
     });
+  }
+
+  resetProgess(type: string): void {
+    switch (type) {
+      case 'picture':
+        return this.imgPreviewProgress.next(null);
+      case 'poster':
+        return this.posterPreviewProgress.next(null);
+      case 'video':
+        return this.videoPreviewProgress.next(null);
+    }
   }
 
   setImgPreviewProgress(value: number): void {

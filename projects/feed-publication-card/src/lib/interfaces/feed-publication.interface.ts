@@ -36,4 +36,5 @@ export interface IFeedPublicationConfig {
   getPosterPreviewProgress: () => Observable<number>;
   onChangeVideoPreview: (event: File[]) => void;
   getVideoPreviewProgress: () => Observable<number>;
+  resetProgess: (type: string) => void;
 }

@@ -26,6 +26,7 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     | PicturePublicationModel
     | PostPublicationModel
     | VideoPublicationModel;
+  publicationType: string;
 
   visualMode = 'default'; // Picture/ Video / Post
   bgSelected: BackgroundPostModel;
@@ -106,12 +107,11 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     this.bgSelected = value;
   }
 
-  // Select Type of Publication depending of the value
   onSelectPublicationType(value: string): void {
     this.visualMode = value;
+    if (value === 'post') this.publicationType = 'post';
   }
 
-  // Build the Publication
   publicationMaker(): IFeedCard | void {
     switch (this.visualMode) {
       case 'picture': {
@@ -135,8 +135,7 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     }
   }
 
-  // Submit Data for Create new Post (Simple test with gross value before i get access to Real Data)
-  onSubmit(commentInput: NgModel, hashtagInput: NgModel): void {
+  onSubmit2(commentInput: NgModel, hashtagInput: NgModel): void {
     // Retrieve and Assign Values
     this.commentInputValue = commentInput.value;
     this.hashtagsListsValues = hashtagInput.value;
@@ -152,6 +151,25 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     }
   }
 
+  onSubmit(): void {
+    console.log(this.publicationType);
+    // const errorFound: boolean = this.trueIfPublicationIsValid()
+    // console.log(errorFound);
+  }
+
+  trueIfPublicationIsValid(): boolean {
+    switch (this.publicationType) {
+      case 'post':
+        return true;
+      case 'picture':
+        return true;
+      case 'video':
+        return true;
+      default:
+        return true;
+    }
+  }
+
   // Check The Errors
   commentIsValid(): boolean {
     if (this.commentInputValue.trim().length < 4) {
@@ -163,16 +181,9 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     }
   }
 
-  // If user want to add some hashtags
-  hashtagsIsValid(hashtagInput: NgModel): void {
-    if (hashtagInput.value.length < 4) {
-      return;
-    }
-    this.hashtagsListsValues.push(hashtagInput.value);
-  }
-
   resetPublication(): void {
     this.visualMode = 'default';
+    this.publicationType = null;
     this.undoPicturePreview();
     this.undoVideoPreview();
   }
@@ -191,8 +202,10 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     switch (fileType) {
       case 'image/gif':
       case 'image/jpeg':
+        this.publicationType = 'picture';
         return this.setUpImageUpload(event);
       case 'video/mp4':
+        this.publicationType = 'video';
         return this.setUpVideoUpload(event);
       default:
         return null;
@@ -235,11 +248,14 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
   }
 
   undoPicturePreview(): void {
+    this.data.resetProgess('picture');
     this.imgPreview = null;
     this.files = [];
   }
 
   undoVideoPreview(): void {
+    this.data.resetProgess('video');
+    this.data.resetProgess('poster');
     this.videoPreview = null;
     this.posterPreview = null;
     this.files = [];
