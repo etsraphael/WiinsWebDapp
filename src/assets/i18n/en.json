@@ -46,6 +46,46 @@
       "button-buy-Pancake": "Buy in Pancake Swap",
       "button-buy-Sushi": "Buy in Sushi Swap"
     },
+    "space-subscription": {
+      "title": "Estimation of the subscription distribution",
+      "quote": "« If You're Not Paying for It, You're the Product »",
+      "description-one": "For the Wiinsers confort, intrusive ads will be prohibited on the platform.",
+      "description-two": "When it comes to the revenu of the content creators there will be a monthly/yearly subscription. The exact price is still being discussed and studied by our team. One thing is for sure, the Beta version of Wiin’s is, and will be free.",
+      "description-three": "In order to respect our transparency policy, here are some estimations of the future subscription",
+      "content-creators": "Content creators",
+      "legal-managers": "Legal managers",
+      "other-expenses": "Other charges",
+      "investments": "Investments",
+      "benefits": "Profits"
+    },
+    "space-step-by-step": {
+      "title": "Ti lamp Ti lamp (step by step)",
+      "description": "The final mission of 'Ti lamp Ti lamp' is to launch the platform in Canada and in France through a subscription. Here are our major steps to get there :",
+      "step-one": {
+        "title": "Creation",
+        "content": "The company Espace-Piin's Inc. , owner of the Wiin's platform, was created in 2017 in Canada by Raphael, Lévine andNathanael, the 3 partners."
+      },
+      "step-two": {
+        "title": "Landing page + TEA + Web3",
+        "content": "The creation of the showcase site to present the project. The creation of TEA, the crypto-currency (token) of the app. The migration to Web3 servers"
+      },
+      "step-three": {
+        "title": "The 1st Wiinser connected",
+        "content": "Launch of the features 'News Feed', 'Discover' and 'Profile' features for the web platform."
+      },
+      "step-four": {
+        "title": "Additional options",
+        "content": "Launching the 'Messenger' and and 'Advanced settings' features for the web platform."
+      },
+      "step-five": {
+        "title": "Launch of the App",
+        "content": "Once the web version of Wiin's is sufficient, the features available on the web will be available on the mobile application."
+      },
+      "step-six": {
+        "title": "Additional options",
+        "content": "Launch of the features 'Audio' and 'Video' features for the web and app platform."
+      }
+    },
     "space-white-paper": {
       "title": "White Paper"
     },
