@@ -350,6 +350,165 @@
 
       <!-- Section 9 -->
       <div
+        class="col-12 d-flex flex-column flex-lg-row justify-content-between mb-5">
+        <div
+          class="col-12 col-lg-5 d-flex align-items-center"
+          data-aos="fade-right">
+          <!-- Description -->
+          <div class="container-fluid descript px-xl-0">
+            <div class="row mx-0 mt-5 mt-lg-0">
+              <span
+                class="display-3 text-light col-12 text-center text-lg-start p-0">
+                <strong>{{
+                  'LANDING_PAGE.space-subscription.title' | translate
+                }}</strong>
+              </span>
+              <span class="mt-5 px-0 text-center text-lg-start">
+                <h2 class="ps-0 text-white">
+                  {{ 'LANDING_PAGE.space-subscription.quote' | translate }}
+                </h2>
+                <h2 class="ps-0 text-white">
+                  {{
+                    'LANDING_PAGE.space-subscription.description-one'
+                      | translate
+                  }}
+                </h2>
+                <h2 class="ps-0 text-white">
+                  {{
+                    'LANDING_PAGE.space-subscription.description-two'
+                      | translate
+                  }}
+                </h2>
+                <h2 class="ps-0 text-white">
+                  {{
+                    'LANDING_PAGE.space-subscription.description-three'
+                      | translate
+                  }}
+                </h2>
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- Chart -->
+        <div
+          class="col-12 col-lg-6 d-flex align-items-center"
+          data-aos="fade-left">
+          <div class="container-fluid descript px-xl-0">
+            <app-chart-subscription></app-chart-subscription>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 10 -->
+      <div
+        class="col-12 d-flex flex-column flex-lg-row justify-content-between my-5">
+        <div
+          class="col-12 col-lg-5 d-flex align-items-center"
+          data-aos="fade-right">
+          <!-- Description -->
+          <div class="container-fluid descript px-xl-0">
+            <div class="row mx-0 mt-5 mt-lg-0">
+              <span
+                class="display-3 text-light col-12 text-center text-lg-start p-0">
+                <strong>{{
+                  'LANDING_PAGE.space-step-by-step.title' | translate
+                }}</strong>
+              </span>
+              <span class="mt-5 px-0 text-center text-lg-start">
+                <h2 class="ps-0 text-white">
+                  {{
+                    'LANDING_PAGE.space-step-by-step.description' | translate
+                  }}
+                </h2>
+              </span>
+              <!-- Steps Number -->
+              <div class="steps-number d-flex justify-content-sm-center px-0">
+                <ul class="d-flex p-0">
+                  <li
+                    class="numbers d-flex justify-content-center align-items-center mx-3"
+                    *ngFor="let number of stepsNumber; let i = index">
+                    <button
+                      class="w-100"
+                      type="button"
+                      data-bs-target="#carouselExampleIndicators"
+                      [attr.data-bs-slide-to]="i">
+                      <span>{{ number.step }}</span>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+              <!-- Carousel -->
+              <div class="carousel px-0 mt-3">
+                <div
+                  id="carouselExampleIndicators"
+                  class="carousel slide d-flex justify-content-between"
+                  data-bs-ride="carousel">
+                  <button
+                    class="carousel-control-prev position-relative"
+                    type="button"
+                    data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                    <span
+                      class="carousel-control-prev-icon"
+                      aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <div class="carousel-inner pt-3">
+                    <!-- Active Card -->
+                    <div
+                      class="carousel-item position-relative px-3"
+                      *ngFor="let card of stepCards; let i = index"
+                      [ngClass]="{ active: i === 0 }">
+                      <div class="corner">
+                        <img
+                          src="../../../../assets/img/landing-page/corner.png"
+                          alt="Corner" />
+                      </div>
+                      <div class="card d-flex flex-row w-100 col-12">
+                        <div class="col-1 number text-center m-2 py-3 px-4">
+                          <span>{{ card.number }}</span>
+                        </div>
+                        <div class="col-8 content">
+                          <div class="title my-3 ms-2">
+                            {{ card.title | translate }}
+                          </div>
+                          <div class="description ms-2">
+                            {{ card.description | translate }}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    class="carousel-control-next position-relative"
+                    type="button"
+                    data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                    <span
+                      class="carousel-control-next-icon"
+                      aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Rocket -->
+        <div
+          class="col-12 col-lg-4 d-flex align-items-center mt-5"
+          data-aos="fade-left">
+          <div
+            class="d-flex justify-content-center step-by-step container-fluid descript px-xl-0">
+            <img
+              src="../../../../assets/img/landing-page/rocket.png"
+              alt="Rocket" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 9 -->
+      <div
         class="col-12 d-flex flex-column flex-lg-row justify-content-between container-papers-link">
         <div
           class="col-12 col-lg-6 d-flex align-items-center"
