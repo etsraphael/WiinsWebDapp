@@ -15,6 +15,7 @@ import {
 export class EditableContentEventComponent {
   @ViewChild('contentDiv') myDiv: ElementRef<HTMLDivElement>;
   @Output() onSendText = new EventEmitter<string>();
+  @Output() onWritting = new EventEmitter<string>();
   @Input() placeholder: string;
   @Input() theme = 'dark';
   @Input() maxLenght = 250;
@@ -38,8 +39,6 @@ export class EditableContentEventComponent {
   }
 
   listenerKeyboardEvent(char: string): void {
-    console.log(this.myDiv.nativeElement.innerText.length);
-
     switch (char) {
       case '#': {
         const myHastagId = (((1 + Math.random()) * 0x10000) | 0)
@@ -88,6 +87,7 @@ export class EditableContentEventComponent {
         break;
       }
     }
+    return this.onWritting.emit(this.myDiv.nativeElement.innerText);
   }
 
   sendText(): void {
@@ -96,5 +96,6 @@ export class EditableContentEventComponent {
 
   ngOnDestroy(): void {
     this.onSendText.unsubscribe();
+    this.onWritting.unsubscribe();
   }
 }

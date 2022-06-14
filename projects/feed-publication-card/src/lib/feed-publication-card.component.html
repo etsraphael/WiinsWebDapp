@@ -76,7 +76,7 @@
               <wiins-editable-content-event
                 theme="light"
                 [placeholder]="'Write your next post..'"
-                (onSendText)="onSendText($event)">
+                (onWritting)="onWrittingText($event)">
               </wiins-editable-content-event>
             </div>
             <div class="row d-flex justify-content-center my-2">
@@ -156,8 +156,7 @@
         <wiins-editable-content-event
           [maxLenght]="140"
           theme="dark"
-          [placeholder]="'Write your next post..'"
-          (onSendText)="onSendText($event)">
+          [placeholder]="'Write your next post..'">
         </wiins-editable-content-event>
       </div>
     </div>

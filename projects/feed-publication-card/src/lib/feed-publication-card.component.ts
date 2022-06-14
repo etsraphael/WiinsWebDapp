@@ -1,6 +1,10 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
-import { NgModel } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {
+  MatSnackBar,
+  MatSnackBarRef,
+  TextOnlySnackBar,
+} from '@angular/material/snack-bar';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { NgxDropzoneChangeEvent } from 'ngx-dropzone';
 import { Subscription } from 'rxjs';
@@ -32,9 +36,7 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
   bgSelected: BackgroundPostModel;
 
   // Comment & Hahstags
-  commentInputValue = '';
-  commenInputError = false;
-  hashtagsListsValues: string[] = [];
+  postContent: string;
 
   // Picture & File
   selectedImageFile: File;
@@ -52,6 +54,7 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
   constructor(
     public postService: PostService,
     private sanatizer: DomSanitizer,
+    private _snackBar: MatSnackBar,
     public dialogRef: MatDialogRef<FeedPublicationCardComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IFeedPublicationConfig
   ) {}
@@ -115,19 +118,14 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
   publicationMaker(): IFeedCard | void {
     switch (this.visualMode) {
       case 'picture': {
-        const title = this.commentInputValue;
-        const hashtags = this.hashtagsListsValues;
-        const imgUrl = this.selectedImage;
-        return new PicturePublicationModel(title, hashtags, imgUrl);
+        return new PicturePublicationModel(null, null, null);
       }
       case 'post': {
-        const title = this.commentInputValue;
-        const hashtags = this.hashtagsListsValues;
         const background = new BackgroundPostModel(['red', 'green'], {
           start: [0, 0],
           end: [1, 1],
         });
-        return new PostPublicationModel(title, hashtags, background);
+        return new PostPublicationModel(null, null, background);
       }
       case 'video': {
         return null;
@@ -135,31 +133,21 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     }
   }
 
-  onSubmit2(commentInput: NgModel, hashtagInput: NgModel): void {
-    // Retrieve and Assign Values
-    this.commentInputValue = commentInput.value;
-    this.hashtagsListsValues = hashtagInput.value;
-
-    // Check the Errors
-    if (!this.commentIsValid()) {
-      // this.snackbarService.openSnackBar('Comment field is invalid');
-    }
-
-    if (!this.publicationMaker()) {
-      // this.snackbarService.openSnackBar('An error has occurred, Try again');
-      return;
-    }
-  }
-
   onSubmit(): void {
-    console.log(this.publicationType);
-    // const errorFound: boolean = this.trueIfPublicationIsValid()
-    // console.log(errorFound);
+    const errorFound: boolean = this.trueIfPublicationIsValid();
+    if (!errorFound) return null;
+
+    const publication = this.publicationMaker();
+    console.log(publication);
   }
 
   trueIfPublicationIsValid(): boolean {
     switch (this.publicationType) {
       case 'post':
+        if (this.postContent.trim().length < 4) {
+          this.errorMessage('Post must be at least 4 characters long', 3);
+          return false;
+        }
         return true;
       case 'picture':
         return true;
@@ -170,17 +158,6 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     }
   }
 
-  // Check The Errors
-  commentIsValid(): boolean {
-    if (this.commentInputValue.trim().length < 4) {
-      this.commenInputError = true;
-      return false;
-    } else {
-      this.commenInputError = false;
-      return true;
-    }
-  }
-
   resetPublication(): void {
     this.visualMode = 'default';
     this.publicationType = null;
@@ -188,8 +165,8 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     this.undoVideoPreview();
   }
 
-  onSendText(event: string): void {
-    alert(event);
+  onWrittingText(event: string): void {
+    this.postContent = event;
   }
 
   onSelect(event: NgxDropzoneChangeEvent): void {
@@ -259,5 +236,14 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     this.videoPreview = null;
     this.posterPreview = null;
     this.files = [];
+  }
+
+  errorMessage(
+    message: string,
+    duration: number
+  ): MatSnackBarRef<TextOnlySnackBar> {
+    return this._snackBar.open(message, 'Close', {
+      duration: duration * 1000,
+    });
   }
 }

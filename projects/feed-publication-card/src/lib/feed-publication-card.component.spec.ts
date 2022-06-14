@@ -4,6 +4,7 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { of } from 'rxjs';
 import { FeedPublicationCardComponent } from './feed-publication-card.component';
@@ -15,7 +16,7 @@ describe('FeedPublicationCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BrowserAnimationsModule, MatDialogModule],
+      imports: [BrowserAnimationsModule, MatDialogModule, MatSnackBarModule],
       providers: [
         {
           provide: MAT_DIALOG_DATA,
