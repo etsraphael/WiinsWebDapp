@@ -125,12 +125,34 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
           start: [0, 0],
           end: [1, 1],
         });
-        return new PostPublicationModel(null, null, background);
+        const hastagList = this.generateSymbolList('@', this.postContent);
+        return new PostPublicationModel(
+          this.postContent,
+          hastagList,
+          background
+        );
       }
       case 'video': {
         return null;
       }
     }
+  }
+
+  generateSymbolList(symb: string, text: string): string[] {
+    const caption = [...text];
+    let list: string[] = [];
+
+    caption.forEach((value: string, index: number) => {
+      if (value == symb) {
+        const section = caption.slice(index);
+        list = [
+          ...list,
+          section.join('').split(' ')[0].replace(/\s/g, '').replace(symb, ''),
+        ];
+      }
+    });
+
+    return list;
   }
 
   onSubmit(): void {
