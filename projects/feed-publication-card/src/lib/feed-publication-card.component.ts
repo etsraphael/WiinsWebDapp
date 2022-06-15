@@ -39,8 +39,6 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
   postContent: string;
 
   // Picture & File
-  selectedImageFile: File;
-  selectedImage: string;
   files: File[] = [];
   imgPreview: string | ArrayBuffer;
   posterPreview: string | ArrayBuffer;
@@ -109,6 +107,7 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
   onSelectPublicationType(value: string): void {
     this.visualMode = value;
     if (value === 'post') this.publicationType = 'post';
+    if (value === 'picture') this.publicationType = 'picture-video';
   }
 
   publicationMaker():
@@ -118,15 +117,18 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     | void {
     switch (this.visualMode) {
       case 'picture': {
-        return new PicturePublicationModel(this.postContent, null, null, null);
+        return new PicturePublicationModel(
+          this.postContent,
+          this.generateSymbolList('@', this.postContent),
+          this.generateSymbolList('#', this.postContent),
+          this.files[0].name
+        );
       }
       case 'post': {
-        const hastagList = this.generateSymbolList('@', this.postContent);
-        const signAtList = this.generateSymbolList('#', this.postContent);
         return new PostPublicationModel(
           this.postContent,
-          hastagList,
-          signAtList,
+          this.generateSymbolList('@', this.postContent),
+          this.generateSymbolList('#', this.postContent),
           this.bgSelected
         );
       }
@@ -137,6 +139,8 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
   }
 
   generateSymbolList(symb: string, text: string): string[] {
+    if (!text) return [];
+
     const caption = [...text];
     let list: string[] = [];
 
@@ -165,8 +169,6 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
   }
 
   trueIfPublicationIsValid(): boolean {
-    console.log(this.publicationType);
-
     switch (this.publicationType) {
       case 'post':
         if (!this.postContent || this.postContent.trim().length < 4) {
@@ -186,8 +188,11 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
         return true;
       case 'video':
         return true;
+      case 'picture-video':
+        this.errorMessage('Please select a file', 3);
+        return false;
       default:
-        return true;
+        return false;
     }
   }
 
