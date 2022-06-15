@@ -7,7 +7,7 @@ import {
 } from '@angular/material/snack-bar';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { NgxDropzoneChangeEvent } from 'ngx-dropzone';
-import { Subscription } from 'rxjs';
+import { filter, Subscription } from 'rxjs';
 import { SpaceStoryCreatePostAnimation } from '../assets/animation/on-create-post-animation';
 import { IFeedPublicationConfig } from './interfaces';
 import {
@@ -51,6 +51,11 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
   getVideoPreviewProgressSub: Subscription;
   getPosterPreviewProgressSub: Subscription;
 
+  // uploaded file
+  imgUploaded = false;
+  posterUploaded = false;
+  videoUploaded = false;
+
   constructor(
     public postService: PostService,
     private sanatizer: DomSanitizer,
@@ -79,27 +84,18 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
   generateSubscription(): void {
     this.getImgPreviewProgressSub = this.data
       .getImgPreviewProgress()
-      .subscribe((progress: number) => {
-        if (progress === 100) {
-          alert('uploaded');
-        }
-      });
+      .pipe(filter((value: number) => value === 100))
+      .subscribe(() => (this.imgUploaded = true));
 
     this.getPosterPreviewProgressSub = this.data
       .getPosterPreviewProgress()
-      .subscribe((progress: number) => {
-        if (progress === 100) {
-          alert('uploaded');
-        }
-      });
+      .pipe(filter((value: number) => value === 100))
+      .subscribe(() => (this.posterUploaded = true));
 
     this.getVideoPreviewProgressSub = this.data
       .getVideoPreviewProgress()
-      .subscribe((progress: number) => {
-        if (progress === 100) {
-          alert('uploaded');
-        }
-      });
+      .pipe(filter((value: number) => value === 100))
+      .subscribe(() => (this.videoUploaded = true));
   }
 
   setUpDefaultBackground(index: number): void {
@@ -122,18 +118,16 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     | void {
     switch (this.visualMode) {
       case 'picture': {
-        return new PicturePublicationModel(null, null, null);
+        return new PicturePublicationModel(this.postContent, null, null, null);
       }
       case 'post': {
-        const background = new BackgroundPostModel(['red', 'green'], {
-          start: [0, 0],
-          end: [1, 1],
-        });
         const hastagList = this.generateSymbolList('@', this.postContent);
+        const signAtList = this.generateSymbolList('#', this.postContent);
         return new PostPublicationModel(
           this.postContent,
           hastagList,
-          background
+          signAtList,
+          this.bgSelected
         );
       }
       case 'video': {
@@ -171,14 +165,24 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
   }
 
   trueIfPublicationIsValid(): boolean {
+    console.log(this.publicationType);
+
     switch (this.publicationType) {
       case 'post':
-        if (this.postContent.trim().length < 4) {
+        if (!this.postContent || this.postContent.trim().length < 4) {
           this.errorMessage('Post must be at least 4 characters long', 3);
           return false;
         }
         return true;
       case 'picture':
+        if (!this.imgPreview) {
+          this.errorMessage('Please select an image', 3);
+          return false;
+        }
+        if (!this.imgUploaded) {
+          this.errorMessage('Please wait until the image is uploaded', 3);
+          return false;
+        }
         return true;
       case 'video':
         return true;
@@ -257,6 +261,7 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     this.data.resetProgess('picture');
     this.imgPreview = null;
     this.files = [];
+    this.imgUploaded = false;
   }
 
   undoVideoPreview(): void {
@@ -265,6 +270,8 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     this.videoPreview = null;
     this.posterPreview = null;
     this.files = [];
+    this.posterUploaded = false;
+    this.videoUploaded = false;
   }
 
   errorMessage(
