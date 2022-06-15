@@ -1,5 +1,11 @@
 import { Observable } from 'rxjs';
-import { BackgroundPostModel, ProfileModel } from '../models';
+import {
+  BackgroundPostModel,
+  PicturePublicationModel,
+  PostPublicationModel,
+  ProfileModel,
+  VideoPublicationModel,
+} from '../models';
 
 export interface IFeedCard {
   _id: string;
@@ -36,5 +42,11 @@ export interface IFeedPublicationConfig {
   getPosterPreviewProgress: () => Observable<number>;
   onChangeVideoPreview: (event: File[]) => void;
   getVideoPreviewProgress: () => Observable<number>;
+  saveFeedPublication: (
+    event:
+      | PicturePublicationModel
+      | PostPublicationModel
+      | VideoPublicationModel
+  ) => void;
   resetProgess: (type: string) => void;
 }

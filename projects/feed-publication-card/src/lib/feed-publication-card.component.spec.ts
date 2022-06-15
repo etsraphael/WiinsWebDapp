@@ -42,6 +42,9 @@ describe('FeedPublicationCardComponent', () => {
             resetProgess: () => {
               return null;
             },
+            saveFeedPublication: () => {
+              return null;
+            },
             backgroundSelected: 0,
             linearBackgroundList: [
               new BackgroundPostModel(['#11998e', '#38ef7d'], {

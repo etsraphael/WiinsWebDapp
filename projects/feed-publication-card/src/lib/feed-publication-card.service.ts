@@ -3,6 +3,11 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { BehaviorSubject, filter, Observable, skipWhile } from 'rxjs';
 import { FeedPublicationCardComponent } from './feed-publication-card.component';
 import { IFeedPublicationConfig, IFeedPublicationPayload } from './interfaces';
+import {
+  PicturePublicationModel,
+  PostPublicationModel,
+  VideoPublicationModel,
+} from './models';
 
 @Injectable({
   providedIn: 'root',
@@ -40,6 +45,16 @@ export class FeedPublicationCardService {
   private videoPreviewProgress$: Observable<number> =
     this.videoPreviewProgress.asObservable();
 
+  // save feed publication
+  private saveFeedPublication: BehaviorSubject<
+    PicturePublicationModel | PostPublicationModel | VideoPublicationModel
+  > = new BehaviorSubject<
+    PicturePublicationModel | PostPublicationModel | VideoPublicationModel
+  >(null);
+  private saveFeedPublication$: Observable<
+    PicturePublicationModel | PostPublicationModel | VideoPublicationModel
+  > = this.saveFeedPublication.asObservable();
+
   constructor(private dialog: MatDialog) {}
 
   openModalPublication(
@@ -53,6 +68,12 @@ export class FeedPublicationCardService {
       getPosterPreviewProgress: () => this.getPosterPreviewProgress(),
       onChangeVideoPreview: (event: File[]) => this.setVideoPreview(event),
       getVideoPreviewProgress: () => this.getVideoPreviewProgress(),
+      saveFeedPublication: (
+        event:
+          | PicturePublicationModel
+          | PostPublicationModel
+          | VideoPublicationModel
+      ) => this.setSaveFeedPublication(event),
       resetProgess: (type: string) => this.resetProgess(type),
     };
 
@@ -126,6 +147,24 @@ export class FeedPublicationCardService {
   getVideoPreview(): Observable<File[]> {
     return this.videoPreview$.pipe(
       skipWhile(x => x.length === 0),
+      filter(x => !!x)
+    );
+  }
+
+  private setSaveFeedPublication(
+    event:
+      | PicturePublicationModel
+      | PostPublicationModel
+      | VideoPublicationModel
+  ): void {
+    return this.saveFeedPublication.next(event);
+  }
+
+  getSaveFeedPublication(): Observable<
+    PicturePublicationModel | PostPublicationModel | VideoPublicationModel
+  > {
+    return this.saveFeedPublication$.pipe(
+      skipWhile(x => !x),
       filter(x => !!x)
     );
   }

@@ -89,5 +89,9 @@ export class FeedPublicationService {
         };
         this.storageService.sendFileToStorageWithProgress(payload);
       });
+
+    this.feedPublicationCardService
+      .getSaveFeedPublication()
+      .subscribe(console.log);
   }
 }

@@ -9,7 +9,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { NgxDropzoneChangeEvent } from 'ngx-dropzone';
 import { Subscription } from 'rxjs';
 import { SpaceStoryCreatePostAnimation } from '../assets/animation/on-create-post-animation';
-import { IFeedCard, IFeedPublicationConfig } from './interfaces';
+import { IFeedPublicationConfig } from './interfaces';
 import {
   BackgroundPostModel,
   PicturePublicationModel,
@@ -115,7 +115,11 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     if (value === 'post') this.publicationType = 'post';
   }
 
-  publicationMaker(): IFeedCard | void {
+  publicationMaker():
+    | PicturePublicationModel
+    | PostPublicationModel
+    | VideoPublicationModel
+    | void {
     switch (this.visualMode) {
       case 'picture': {
         return new PicturePublicationModel(null, null, null);
@@ -160,7 +164,10 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     if (!errorFound) return null;
 
     const publication = this.publicationMaker();
-    console.log(publication);
+
+    if (!publication) return null;
+
+    return this.data.saveFeedPublication(publication);
   }
 
   trueIfPublicationIsValid(): boolean {
