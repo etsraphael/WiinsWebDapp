@@ -133,7 +133,13 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
         );
       }
       case 'video': {
-        return null;
+        return new VideoPublicationModel(
+          this.postContent,
+          this.generateSymbolList('@', this.postContent),
+          this.generateSymbolList('#', this.postContent),
+          null,
+          null
+        );
       }
     }
   }
@@ -187,6 +193,22 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
         }
         return true;
       case 'video':
+        if (!this.videoPreview) {
+          this.errorMessage('Please select a video', 3);
+          return false;
+        }
+        if (!this.posterPreview) {
+          this.errorMessage('Please select a poster', 3);
+          return false;
+        }
+        if (!this.posterUploaded) {
+          this.errorMessage('Please wait until the poster is uploaded', 3);
+          return false;
+        }
+        if (!this.videoUploaded) {
+          this.errorMessage('Please wait until the video is uploaded', 3);
+          return false;
+        }
         return true;
       case 'picture-video':
         this.errorMessage('Please select a file', 3);
