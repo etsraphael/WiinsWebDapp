@@ -109,6 +109,7 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     this.visualMode = value;
     if (value === 'post') this.publicationType = 'post';
     if (value === 'picture') this.publicationType = 'picture-video';
+    console.log('onSelectPublicationType' + this.publicationType);
   }
 
   publicationMaker():
@@ -116,7 +117,7 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     | PostPublicationModel
     | VideoPublicationModel
     | void {
-    switch (this.visualMode) {
+    switch (this.publicationType) {
       case 'picture': {
         return new PicturePublicationModel(
           this.postContent,
@@ -176,6 +177,8 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
   }
 
   trueIfPublicationIsValid(): boolean {
+    console.log('trueIfPublicationIsValid : ' + this.publicationType);
+
     switch (this.publicationType) {
       case 'post':
         if (!this.postContent || this.postContent.trim().length < 4) {
@@ -232,6 +235,8 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
 
   onSelect(event: NgxDropzoneChangeEvent): void {
     this.files.push(...event.addedFiles);
+
+    console.log('onSelect : ' + this.publicationType);
 
     // get the type
     const fileType = this.files[0].type;

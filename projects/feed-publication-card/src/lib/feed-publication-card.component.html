@@ -94,8 +94,7 @@
         <!-- [Picture/Video Post Choice] -->
         <div
           class="container-picture-choice px-0 col-6 picture-post d-flex justify-content-center align-items-center"
-          [@onPicturePost]="visualMode"
-          (click)="onSelectPublicationType('picture')">
+          [@onPicturePost]="visualMode">
           <div
             class="w-100"
             [ngClass]="{ 'px-3': !imgPreview && !videoPreview }">
@@ -103,7 +102,10 @@
               class="d-flex justify-content-center"
               *ngIf="visualMode == 'default'"
               for="photo_upload">
-              <i class="bi bi-image text-light"></i>
+              <i
+                class="bi bi-image text-light"
+                (click)="onSelectPublicationType('picture')">
+              </i>
             </label>
             <ngx-dropzone
               class="w-100 dz-container"
