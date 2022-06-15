@@ -40,6 +40,7 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
 
   // Picture & File
   files: File[] = [];
+  extraFiles: File[] = [];
   imgPreview: string | ArrayBuffer;
   posterPreview: string | ArrayBuffer;
   videoPreview: SafeResourceUrl;
@@ -137,8 +138,8 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
           this.postContent,
           this.generateSymbolList('@', this.postContent),
           this.generateSymbolList('#', this.postContent),
-          null,
-          null
+          this.extraFiles[0].name,
+          this.files[0].name
         );
       }
     }
@@ -239,9 +240,12 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     switch (fileType) {
       case 'image/gif':
       case 'image/jpeg':
+      case 'image/png':
         this.publicationType = 'picture';
         return this.setUpImageUpload(event);
       case 'video/mp4':
+      case 'video/webm':
+      case 'video/ogg':
         this.publicationType = 'video';
         return this.setUpVideoUpload(event);
       default:
@@ -280,6 +284,7 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     reader.onload = () => {
       this.posterPreview = reader.result;
       const files = [new File([reader.result], event[0].name)];
+      this.extraFiles = [...files];
       this.data.onChangePosterPreview(files);
     };
   }
