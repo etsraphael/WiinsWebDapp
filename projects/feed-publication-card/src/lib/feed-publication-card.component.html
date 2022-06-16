@@ -154,14 +154,14 @@
           </div>
         </div>
       </div>
-      <div class="footer-container" *ngIf="visualMode == 'picture'">
-        <wiins-editable-content-event
-          [maxLenght]="140"
-          theme="dark"
-          (onWritting)="onWrittingText($event)"
-          [placeholder]="'Write your next post..'">
-        </wiins-editable-content-event>
-      </div>
+    </div>
+    <div class="footer-container" *ngIf="visualMode == 'picture'">
+      <wiins-editable-content-event
+        [maxLenght]="140"
+        theme="dark"
+        (onWritting)="onWrittingText($event)"
+        [placeholder]="'Write your next post..'">
+      </wiins-editable-content-event>
     </div>
   </div>
 </div>
