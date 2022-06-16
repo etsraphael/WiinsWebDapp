@@ -109,7 +109,6 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     this.visualMode = value;
     if (value === 'post') this.publicationType = 'post';
     if (value === 'picture') this.publicationType = 'picture-video';
-    console.log('onSelectPublicationType' + this.publicationType);
   }
 
   publicationMaker():
@@ -121,24 +120,24 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
       case 'picture': {
         return new PicturePublicationModel(
           this.postContent,
-          this.generateSymbolList('@', this.postContent),
           this.generateSymbolList('#', this.postContent),
+          this.generateSymbolList('@', this.postContent),
           this.files[0].name
         );
       }
       case 'post': {
         return new PostPublicationModel(
           this.postContent,
-          this.generateSymbolList('@', this.postContent),
           this.generateSymbolList('#', this.postContent),
+          this.generateSymbolList('@', this.postContent),
           this.bgSelected
         );
       }
       case 'video': {
         return new VideoPublicationModel(
           this.postContent,
-          this.generateSymbolList('@', this.postContent),
           this.generateSymbolList('#', this.postContent),
+          this.generateSymbolList('@', this.postContent),
           this.extraFiles[0].name,
           this.files[0].name
         );
@@ -177,8 +176,6 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
   }
 
   trueIfPublicationIsValid(): boolean {
-    console.log('trueIfPublicationIsValid : ' + this.publicationType);
-
     switch (this.publicationType) {
       case 'post':
         if (!this.postContent || this.postContent.trim().length < 4) {
@@ -235,8 +232,6 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
 
   onSelect(event: NgxDropzoneChangeEvent): void {
     this.files.push(...event.addedFiles);
-
-    console.log('onSelect : ' + this.publicationType);
 
     // get the type
     const fileType = this.files[0].type;
