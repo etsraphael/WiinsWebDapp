@@ -69,30 +69,24 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.getImgPreviewProgressSub) {
-      this.getImgPreviewProgressSub.unsubscribe();
-    }
-    if (this.getPosterPreviewProgressSub) {
-      this.getPosterPreviewProgressSub.unsubscribe();
-    }
-    if (this.getVideoPreviewProgressSub) {
-      this.getVideoPreviewProgressSub.unsubscribe();
-    }
+    this.getImgPreviewProgressSub.unsubscribe();
+    this.getPosterPreviewProgressSub.unsubscribe();
+    this.getVideoPreviewProgressSub.unsubscribe();
   }
 
   generateSubscription(): void {
     this.getImgPreviewProgressSub = this.data
-      .getImgPreviewProgress()
+      .getFileProgress('image')
       .pipe(filter((value: number) => value === 100))
       .subscribe(() => (this.imgUploaded = true));
 
     this.getPosterPreviewProgressSub = this.data
-      .getPosterPreviewProgress()
+      .getFileProgress('poster')
       .pipe(filter((value: number) => value === 100))
       .subscribe(() => (this.posterUploaded = true));
 
     this.getVideoPreviewProgressSub = this.data
-      .getVideoPreviewProgress()
+      .getFileProgress('video')
       .pipe(filter((value: number) => value === 100))
       .subscribe(() => (this.videoUploaded = true));
   }
@@ -259,7 +253,7 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     reader.onload = () => {
       this.imgPreview = reader.result;
       const files = [new File([reader.result], event.addedFiles[0].name)];
-      this.data.onChangeImgPreview(files);
+      this.data.onChangeFilePreview('image', files);
     };
   }
 
@@ -272,7 +266,7 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
       const url = URL.createObjectURL(blob);
       this.videoPreview = this.sanatizer.bypassSecurityTrustResourceUrl(url);
       const files = [new File([blob], event.addedFiles[0].name)];
-      this.data.onChangeVideoPreview(files);
+      this.data.onChangeFilePreview('video', files);
     };
 
     reader.readAsArrayBuffer(event.addedFiles[0]);
@@ -285,7 +279,7 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
       this.posterPreview = reader.result;
       const files = [new File([reader.result], event[0].name)];
       this.extraFiles = [...files];
-      this.data.onChangePosterPreview(files);
+      this.data.onChangeFilePreview('poster', files);
     };
   }
 

@@ -21,22 +21,10 @@ describe('FeedPublicationCardComponent', () => {
         {
           provide: MAT_DIALOG_DATA,
           useValue: {
-            onChangeImgPreview: () => {
+            onChangeFilePreview: () => {
               return null;
             },
-            onChangePosterPreview: () => {
-              return null;
-            },
-            onChangeVideoPreview: () => {
-              return null;
-            },
-            getImgPreviewProgress: () => {
-              return of(0);
-            },
-            getVideoPreviewProgress: () => {
-              return of(0);
-            },
-            getPosterPreviewProgress: () => {
+            getFileProgress: () => {
               return of(0);
             },
             resetProgess: () => {
