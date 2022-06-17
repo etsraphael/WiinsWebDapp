@@ -83,7 +83,7 @@ export class FeedPublicationCardService {
     });
   }
 
-  resetProgess(type: string): void {
+  private resetProgess(type: string): void {
     switch (type) {
       case 'picture':
         return this.imgPreviewProgress.next(null);
@@ -106,13 +106,6 @@ export class FeedPublicationCardService {
     return this.imgPreviewData.next(img);
   }
 
-  getImgPreview(): Observable<File[]> {
-    return this.imgPreview$.pipe(
-      skipWhile(x => x.length === 0),
-      filter(x => !!x)
-    );
-  }
-
   setPosterPreviewProgress(value: number): void {
     return this.posterPreviewProgress.next(value);
   }
@@ -123,13 +116,6 @@ export class FeedPublicationCardService {
 
   setPosterPreview(img: File[]): void {
     return this.posterPreviewData.next(img);
-  }
-
-  getPosterPreview(): Observable<File[]> {
-    return this.posterPreview$.pipe(
-      skipWhile(x => x.length === 0),
-      filter(x => !!x)
-    );
   }
 
   setVideoPreviewProgress(value: number): void {
@@ -144,13 +130,6 @@ export class FeedPublicationCardService {
     return this.videoPreviewData.next(img);
   }
 
-  getVideoPreview(): Observable<File[]> {
-    return this.videoPreview$.pipe(
-      skipWhile(x => x.length === 0),
-      filter(x => !!x)
-    );
-  }
-
   private setSaveFeedPublication(
     event:
       | PicturePublicationModel
@@ -160,11 +139,32 @@ export class FeedPublicationCardService {
     return this.saveFeedPublication.next(event);
   }
 
-  getSaveFeedPublication(): Observable<
+  get feedPublicationValue$(): Observable<
     PicturePublicationModel | PostPublicationModel | VideoPublicationModel
   > {
     return this.saveFeedPublication$.pipe(
       skipWhile(x => !x),
+      filter(x => !!x)
+    );
+  }
+
+  get imgPreviewValue$(): Observable<File[]> {
+    return this.imgPreview$.pipe(
+      skipWhile(x => x.length === 0),
+      filter(x => !!x)
+    );
+  }
+
+  get videoPreviewValue$(): Observable<File[]> {
+    return this.videoPreview$.pipe(
+      skipWhile(x => x.length === 0),
+      filter(x => !!x)
+    );
+  }
+
+  get posterPreviewValue$(): Observable<File[]> {
+    return this.posterPreview$.pipe(
+      skipWhile(x => x.length === 0),
       filter(x => !!x)
     );
   }

@@ -56,31 +56,30 @@ export class FeedPublicationService {
   }
 
   onUploadEvent(): void {
-    this.feedPublicationCardService
-      .getImgPreview()
-      .subscribe((data: File[]) => {
+    this.feedPublicationCardService.imgPreviewValue$.subscribe(
+      (data: File[]) => {
         const payload: ISendFileToStorageWithProgress = {
           files: data,
           progress: (event: number) =>
             this.feedPublicationCardService.setImgPreviewProgress(event),
         };
         this.storageService.sendFileToStorageWithProgress(payload);
-      });
+      }
+    );
 
-    this.feedPublicationCardService
-      .getPosterPreview()
-      .subscribe((data: File[]) => {
+    this.feedPublicationCardService.posterPreviewValue$.subscribe(
+      (data: File[]) => {
         const payload: ISendFileToStorageWithProgress = {
           files: data,
           progress: (event: number) =>
             this.feedPublicationCardService.setPosterPreviewProgress(event),
         };
         this.storageService.sendFileToStorageWithProgress(payload);
-      });
+      }
+    );
 
-    this.feedPublicationCardService
-      .getVideoPreview()
-      .subscribe((data: File[]) => {
+    this.feedPublicationCardService.videoPreviewValue$.subscribe(
+      (data: File[]) => {
         const payload: ISendFileToStorageWithProgress = {
           files: data,
           progress: (event: number) => {
@@ -88,10 +87,11 @@ export class FeedPublicationService {
           },
         };
         this.storageService.sendFileToStorageWithProgress(payload);
-      });
+      }
+    );
 
-    this.feedPublicationCardService
-      .getSaveFeedPublication()
-      .subscribe(console.log);
+    this.feedPublicationCardService.feedPublicationValue$.subscribe(
+      console.log
+    );
   }
 }
