@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { BehaviorSubject, filter, Observable, skipWhile } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import {
+  BehaviorSubject,
+  filter,
+  Observable,
+  skipWhile,
+  throwError,
+} from 'rxjs';
 import { FeedPublicationCardComponent } from './feed-publication-card.component';
 import { IFeedPublicationConfig, IFeedPublicationPayload } from './interfaces';
 import {
@@ -57,9 +63,7 @@ export class FeedPublicationCardService {
 
   constructor(private dialog: MatDialog) {}
 
-  openModalPublication(
-    data: IFeedPublicationPayload
-  ): MatDialogRef<FeedPublicationCardComponent> {
+  openModalPublication(data: IFeedPublicationPayload): void {
     const config: IFeedPublicationConfig = {
       ...data,
       onChangeImgPreview: (event: File[]) => this.setImgPreview(event),
@@ -77,7 +81,7 @@ export class FeedPublicationCardService {
       resetProgess: (type: string) => this.resetProgess(type),
     };
 
-    return this.dialog.open(FeedPublicationCardComponent, {
+    this.dialog.open(FeedPublicationCardComponent, {
       panelClass: ['col-3', 'p-0'],
       data: config,
     });
@@ -94,10 +98,6 @@ export class FeedPublicationCardService {
     }
   }
 
-  setImgPreviewProgress(value: number): void {
-    return this.imgPreviewProgress.next(value);
-  }
-
   getImgPreviewProgress(): Observable<number> {
     return this.imgPreviewProgress$.pipe(skipWhile(x => !x));
   }
@@ -106,20 +106,12 @@ export class FeedPublicationCardService {
     return this.imgPreviewData.next(img);
   }
 
-  setPosterPreviewProgress(value: number): void {
-    return this.posterPreviewProgress.next(value);
-  }
-
   getPosterPreviewProgress(): Observable<number> {
     return this.posterPreviewProgress$.pipe(skipWhile(x => !x));
   }
 
   setPosterPreview(img: File[]): void {
     return this.posterPreviewData.next(img);
-  }
-
-  setVideoPreviewProgress(value: number): void {
-    return this.videoPreviewProgress.next(value);
   }
 
   getVideoPreviewProgress(): Observable<number> {
@@ -148,24 +140,38 @@ export class FeedPublicationCardService {
     );
   }
 
-  get imgPreviewValue$(): Observable<File[]> {
-    return this.imgPreview$.pipe(
-      skipWhile(x => x.length === 0),
-      filter(x => !!x)
-    );
+  setProgressFileValue(type: string, value: number): void {
+    switch (type) {
+      case 'image':
+        return this.imgPreviewProgress.next(value);
+      case 'poster':
+        return this.posterPreviewProgress.next(value);
+      case 'video':
+        return this.videoPreviewProgress.next(value);
+      default:
+        return null;
+    }
   }
 
-  get videoPreviewValue$(): Observable<File[]> {
-    return this.videoPreview$.pipe(
-      skipWhile(x => x.length === 0),
-      filter(x => !!x)
-    );
-  }
-
-  get posterPreviewValue$(): Observable<File[]> {
-    return this.posterPreview$.pipe(
-      skipWhile(x => x.length === 0),
-      filter(x => !!x)
-    );
+  getfileValue(type: string): Observable<File[]> {
+    switch (type) {
+      case 'image':
+        return this.imgPreview$.pipe(
+          skipWhile(x => x.length === 0),
+          filter(x => !!x)
+        );
+      case 'poster':
+        return this.posterPreview$.pipe(
+          skipWhile(x => x.length === 0),
+          filter(x => !!x)
+        );
+      case 'video':
+        return this.videoPreview$.pipe(
+          skipWhile(x => x.length === 0),
+          filter(x => !!x)
+        );
+      default:
+        return throwError(() => 'Type not found');
+    }
   }
 }

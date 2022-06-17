@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
 import {
   BackgroundPostModel,
-  FeedPublicationCardComponent,
   FeedPublicationCardService,
   IFeedPublicationPayload,
 } from '@wiins/feed-publication-card';
@@ -44,7 +42,7 @@ export class FeedPublicationService {
     private storageService: StorageService
   ) {}
 
-  onCreatePublication(): MatDialogRef<FeedPublicationCardComponent> {
+  onCreatePublication(): void {
     this.onUploadEvent();
 
     const payload: IFeedPublicationPayload = {
@@ -56,39 +54,48 @@ export class FeedPublicationService {
   }
 
   onUploadEvent(): void {
-    this.feedPublicationCardService.imgPreviewValue$.subscribe(
-      (data: File[]) => {
+    this.feedPublicationCardService
+      .getfileValue('image')
+      .subscribe((data: File[]) => {
         const payload: ISendFileToStorageWithProgress = {
           files: data,
           progress: (event: number) =>
-            this.feedPublicationCardService.setImgPreviewProgress(event),
+            this.feedPublicationCardService.setProgressFileValue(
+              'image',
+              event
+            ),
         };
         this.storageService.sendFileToStorageWithProgress(payload);
-      }
-    );
+      });
 
-    this.feedPublicationCardService.posterPreviewValue$.subscribe(
-      (data: File[]) => {
+    this.feedPublicationCardService
+      .getfileValue('poster')
+      .subscribe((data: File[]) => {
         const payload: ISendFileToStorageWithProgress = {
           files: data,
           progress: (event: number) =>
-            this.feedPublicationCardService.setPosterPreviewProgress(event),
+            this.feedPublicationCardService.setProgressFileValue(
+              'poster',
+              event
+            ),
         };
         this.storageService.sendFileToStorageWithProgress(payload);
-      }
-    );
+      });
 
-    this.feedPublicationCardService.videoPreviewValue$.subscribe(
-      (data: File[]) => {
+    this.feedPublicationCardService
+      .getfileValue('video')
+      .subscribe((data: File[]) => {
         const payload: ISendFileToStorageWithProgress = {
           files: data,
           progress: (event: number) => {
-            this.feedPublicationCardService.setVideoPreviewProgress(event);
+            this.feedPublicationCardService.setProgressFileValue(
+              'video',
+              event
+            );
           },
         };
         this.storageService.sendFileToStorageWithProgress(payload);
-      }
-    );
+      });
 
     this.feedPublicationCardService.feedPublicationValue$.subscribe(
       console.log
