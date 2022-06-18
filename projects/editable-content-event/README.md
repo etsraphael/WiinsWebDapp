@@ -37,10 +37,10 @@ Import module:
 
 ## Properties
 
-| name        | type                 | description |
-| ----------- | -------------------- | ----------- |
-| theme       | string               | -------     |
-| placeholder | string               | -------     |
+| name        | type                  | description |
+| ----------- | --------------------- | ----------- |
+| theme       | string                | -------     |
+| placeholder | string                | -------     |
 | onWritting  | EventEmitter\<string> | -------     |
 
 ## Community
