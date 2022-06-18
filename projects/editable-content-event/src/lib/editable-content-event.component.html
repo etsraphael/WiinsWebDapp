@@ -1,6 +1,7 @@
 <div
   contenteditable="true"
-  class="form-control text-light textarea-post"
+  class="form-control textarea-post"
+  [ngClass]="theme"
   (click)="onPressed()"
   #contentDiv
   (keydown.enter)="(false)"

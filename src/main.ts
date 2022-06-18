@@ -9,6 +9,7 @@ if (environment.production) {
   enableProdMode();
 
   Sentry.init({
+    environment: environment.production ? 'production' : 'development',
     dsn: 'https://74f6bb44402140d39986bfccda006af2@o833200.ingest.sentry.io/6454131',
     integrations: [
       new BrowserTracing({

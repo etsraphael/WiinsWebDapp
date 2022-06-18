@@ -9,21 +9,32 @@
   overflow: hidden;
 }
 
-.loading-bar-container {
+.loading-bar-container-header,
+.loading-bar-container-footer {
   position: absolute;
   height: 0.4rem;
+  z-index: 100;
+}
 
-  .picture-loading-bar,
-  .video-loading-bar {
-    transition: width 0.5s;
-    border-radius: 15px;
-  }
+.loading-bar-container-footer {
+  bottom: 0;
+}
 
-  .picture-loading-bar {
-    background: #f12711;
-    background: -webkit-linear-gradient(to left, #f5af19, #f12711);
-    background: linear-gradient(to left, #f5af19, #f12711);
-  }
+.loading-bar {
+  transition: width 0.5s;
+  border-radius: 15px;
+}
+
+.picture-loading-bar {
+  background: #f12711;
+  background: -webkit-linear-gradient(to left, #f5af19, #f12711);
+  background: linear-gradient(to left, #f5af19, #f12711);
+}
+
+.video-loading-bar {
+  background: #00f260;
+  background: -webkit-linear-gradient(to right, #0575e6, #00f260);
+  background: linear-gradient(to right, #0575e6, #00f260);
 }
 
 .card-header {
@@ -82,6 +93,10 @@
   cursor: pointer;
 }
 
+.blockBox.active {
+  border: 2px solid white;
+}
+
 .dz-container {
   background-color: transparent;
 }
@@ -104,8 +119,26 @@
   height: 2rem;
   background-color: #888888;
   cursor: pointer;
+  z-index: 2;
 }
 
-.container-btn-undo:hover {
+.container-btn-poster {
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
+  background-color: #888888;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 34px;
+}
+
+.container-btn-undo:hover,
+.container-btn-poster:hover {
   background-color: #a4a4a4;
+}
+
+video {
+  width: 100%;
+  object-fit: cover;
+  display: block;
 }

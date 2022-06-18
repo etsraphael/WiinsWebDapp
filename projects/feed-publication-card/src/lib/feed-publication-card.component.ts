@@ -1,11 +1,15 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
-import { NgModel } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {
+  MatSnackBar,
+  MatSnackBarRef,
+  TextOnlySnackBar,
+} from '@angular/material/snack-bar';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { NgxDropzoneChangeEvent } from 'ngx-dropzone';
-import { Subscription } from 'rxjs';
+import { filter, Subscription } from 'rxjs';
 import { SpaceStoryCreatePostAnimation } from '../assets/animation/on-create-post-animation';
-import { linearBgPost } from '../data/linear-background-post-list';
-import { IFeedCard, IFeedPublicationConfig } from './interfaces';
+import { IFeedPublicationConfig } from './interfaces';
 import {
   BackgroundPostModel,
   PicturePublicationModel,
@@ -26,139 +30,282 @@ export class FeedPublicationCardComponent implements OnInit, OnDestroy {
     | PicturePublicationModel
     | PostPublicationModel
     | VideoPublicationModel;
+  publicationType: string;
 
   visualMode = 'default'; // Picture/ Video / Post
-  backgroundPostList: BackgroundPostModel[] = linearBgPost;
-  bgSelected: BackgroundPostModel = linearBgPost[0];
+  bgSelected: BackgroundPostModel;
 
   // Comment & Hahstags
-  commentInputValue = '';
-  commenInputError = false;
-  hashtagsListsValues: string[] = [];
+  postContent: string;
 
   // Picture & File
-  selectedImageFile: File;
-  selectedImage: string;
   files: File[] = [];
+  extraFiles: File[] = [];
   imgPreview: string | ArrayBuffer;
+  posterPreview: string | ArrayBuffer;
+  videoPreview: SafeResourceUrl;
 
   // sub
   getImgPreviewProgressSub: Subscription;
+  getVideoPreviewProgressSub: Subscription;
+  getPosterPreviewProgressSub: Subscription;
+
+  // uploaded file
+  imgUploaded = false;
+  posterUploaded = false;
+  videoUploaded = false;
 
   constructor(
     public postService: PostService,
+    private sanatizer: DomSanitizer,
+    private _snackBar: MatSnackBar,
     public dialogRef: MatDialogRef<FeedPublicationCardComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IFeedPublicationConfig
   ) {}
 
   ngOnInit(): void {
     this.generateSubscription();
+    this.setUpDefaultBackground(this.data.backgroundSelected);
   }
 
   ngOnDestroy(): void {
-    if (this.getImgPreviewProgressSub)
-      this.getImgPreviewProgressSub.unsubscribe();
+    this.getImgPreviewProgressSub.unsubscribe();
+    this.getPosterPreviewProgressSub.unsubscribe();
+    this.getVideoPreviewProgressSub.unsubscribe();
   }
 
   generateSubscription(): void {
     this.getImgPreviewProgressSub = this.data
-      .getImgPreviewProgress()
-      .subscribe((progress: number) => {
-        if (progress === 100) {
-          alert('uploaded');
-        }
-      });
+      .getFileProgress('image')
+      .pipe(filter((value: number) => value === 100))
+      .subscribe(() => (this.imgUploaded = true));
+
+    this.getPosterPreviewProgressSub = this.data
+      .getFileProgress('poster')
+      .pipe(filter((value: number) => value === 100))
+      .subscribe(() => (this.posterUploaded = true));
+
+    this.getVideoPreviewProgressSub = this.data
+      .getFileProgress('video')
+      .pipe(filter((value: number) => value === 100))
+      .subscribe(() => (this.videoUploaded = true));
+  }
+
+  setUpDefaultBackground(index: number): void {
+    this.bgSelected = this.data.linearBackgroundList[index];
   }
 
   onChangebackground(value: BackgroundPostModel): void {
     this.bgSelected = value;
   }
 
-  // Select Type of Publication depending of the value
   onSelectPublicationType(value: string): void {
     this.visualMode = value;
+    if (value === 'post') this.publicationType = 'post';
+    if (value === 'picture') this.publicationType = 'picture-video';
   }
 
-  // Build the Publication
-  publicationMaker(): IFeedCard | void {
-    switch (this.visualMode) {
+  publicationMaker():
+    | PicturePublicationModel
+    | PostPublicationModel
+    | VideoPublicationModel
+    | void {
+    switch (this.publicationType) {
       case 'picture': {
-        const title = this.commentInputValue;
-        const hashtags = this.hashtagsListsValues;
-        const imgUrl = this.selectedImage;
-        return new PicturePublicationModel(title, hashtags, imgUrl);
+        return new PicturePublicationModel(
+          this.postContent,
+          this.generateSymbolList('#', this.postContent),
+          this.generateSymbolList('@', this.postContent),
+          this.files[0].name
+        );
       }
       case 'post': {
-        const title = this.commentInputValue;
-        const hashtags = this.hashtagsListsValues;
-        const background = new BackgroundPostModel(['red', 'green'], {
-          start: [0, 0],
-          end: [1, 1],
-        });
-        return new PostPublicationModel(title, hashtags, background);
+        return new PostPublicationModel(
+          this.postContent,
+          this.generateSymbolList('#', this.postContent),
+          this.generateSymbolList('@', this.postContent),
+          this.bgSelected
+        );
       }
       case 'video': {
-        return null;
+        return new VideoPublicationModel(
+          this.postContent,
+          this.generateSymbolList('#', this.postContent),
+          this.generateSymbolList('@', this.postContent),
+          this.extraFiles[0].name,
+          this.files[0].name
+        );
       }
     }
   }
 
-  // Submit Data for Create new Post (Simple test with gross value before i get access to Real Data)
-  onSubmit(commentInput: NgModel, hashtagInput: NgModel): void {
-    // Retrieve and Assign Values
-    this.commentInputValue = commentInput.value;
-    this.hashtagsListsValues = hashtagInput.value;
+  generateSymbolList(symb: string, text: string): string[] {
+    if (!text) return [];
 
-    // Check the Errors
-    if (!this.commentIsValid()) {
-      // this.snackbarService.openSnackBar('Comment field is invalid');
-    }
+    const caption = [...text];
+    let list: string[] = [];
 
-    if (!this.publicationMaker()) {
-      // this.snackbarService.openSnackBar('An error has occurred, Try again');
-      return;
-    }
+    caption.forEach((value: string, index: number) => {
+      if (value == symb) {
+        const section = caption.slice(index);
+        list = [
+          ...list,
+          section.join('').split(' ')[0].replace(/\s/g, '').replace(symb, ''),
+        ];
+      }
+    });
+
+    return list;
   }
 
-  // Check The Errors
-  commentIsValid(): boolean {
-    if (this.commentInputValue.trim().length < 4) {
-      this.commenInputError = true;
-      return false;
-    } else {
-      this.commenInputError = false;
-      return true;
-    }
+  onSubmit(): void {
+    const errorFound: boolean = this.trueIfPublicationIsValid();
+    if (!errorFound) return null;
+
+    const publication = this.publicationMaker();
+
+    if (!publication) return null;
+
+    return this.data.saveFeedPublication(publication);
   }
 
-  // If user want to add some hashtags
-  hashtagsIsValid(hashtagInput: NgModel): void {
-    if (hashtagInput.value.length < 4) {
-      return;
+  trueIfPublicationIsValid(): boolean {
+    switch (this.publicationType) {
+      case 'post':
+        if (!this.postContent || this.postContent.trim().length < 4) {
+          this.errorMessage('Post must be at least 4 characters long', 3);
+          return false;
+        }
+        return true;
+      case 'picture':
+        if (!this.imgPreview) {
+          this.errorMessage('Please select an image', 3);
+          return false;
+        }
+        if (!this.imgUploaded) {
+          this.errorMessage('Please wait until the image is uploaded', 3);
+          return false;
+        }
+        return true;
+      case 'video':
+        if (!this.videoPreview) {
+          this.errorMessage('Please select a video', 3);
+          return false;
+        }
+        if (!this.posterPreview) {
+          this.errorMessage('Please select a poster', 3);
+          return false;
+        }
+        if (!this.posterUploaded) {
+          this.errorMessage('Please wait until the poster is uploaded', 3);
+          return false;
+        }
+        if (!this.videoUploaded) {
+          this.errorMessage('Please wait until the video is uploaded', 3);
+          return false;
+        }
+        return true;
+      case 'picture-video':
+        this.errorMessage('Please select a file', 3);
+        return false;
+      default:
+        return false;
     }
-    this.hashtagsListsValues.push(hashtagInput.value);
   }
 
   resetPublication(): void {
     this.visualMode = 'default';
+    this.publicationType = null;
+    this.undoPicturePreview();
+    this.undoVideoPreview();
   }
 
-  onSendText(event: string): void {
-    alert(event);
+  onWrittingText(event: string): void {
+    this.postContent = event;
   }
 
   onSelect(event: NgxDropzoneChangeEvent): void {
     this.files.push(...event.addedFiles);
+
+    // get the type
+    const fileType = this.files[0].type;
+
+    // set up the card
+    switch (fileType) {
+      case 'image/gif':
+      case 'image/jpeg':
+      case 'image/png':
+        this.publicationType = 'picture';
+        return this.setUpImageUpload(event);
+      case 'video/mp4':
+      case 'video/webm':
+      case 'video/ogg':
+        this.publicationType = 'video';
+        return this.setUpVideoUpload(event);
+      default:
+        return null;
+    }
+  }
+
+  setUpImageUpload(event: NgxDropzoneChangeEvent): void {
     const reader = new FileReader();
     reader.readAsDataURL(event.addedFiles[0]);
     reader.onload = () => {
       this.imgPreview = reader.result;
       const files = [new File([reader.result], event.addedFiles[0].name)];
-      this.data.onChangeImgPreview(files);
+      this.data.onChangeFilePreview('image', files);
+    };
+  }
+
+  setUpVideoUpload(event: NgxDropzoneChangeEvent): void {
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      const blob = new Blob([reader.result], {
+        type: event.addedFiles[0].type,
+      });
+      const url = URL.createObjectURL(blob);
+      this.videoPreview = this.sanatizer.bypassSecurityTrustResourceUrl(url);
+      const files = [new File([blob], event.addedFiles[0].name)];
+      this.data.onChangeFilePreview('video', files);
+    };
+
+    reader.readAsArrayBuffer(event.addedFiles[0]);
+  }
+
+  setUpPosterUpload(event: FileList): void {
+    const reader = new FileReader();
+    reader.readAsDataURL(event[0]);
+    reader.onload = () => {
+      this.posterPreview = reader.result;
+      const files = [new File([reader.result], event[0].name)];
+      this.extraFiles = [...files];
+      this.data.onChangeFilePreview('poster', files);
     };
   }
 
   undoPicturePreview(): void {
+    this.data.resetProgess('picture');
     this.imgPreview = null;
+    this.files = [];
+    this.imgUploaded = false;
+  }
+
+  undoVideoPreview(): void {
+    this.data.resetProgess('video');
+    this.data.resetProgess('poster');
+    this.videoPreview = null;
+    this.posterPreview = null;
+    this.files = [];
+    this.posterUploaded = false;
+    this.videoUploaded = false;
+  }
+
+  errorMessage(
+    message: string,
+    duration: number
+  ): MatSnackBarRef<TextOnlySnackBar> {
+    return this._snackBar.open(message, 'Close', {
+      duration: duration * 1000,
+    });
   }
 }

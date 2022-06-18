@@ -15,7 +15,10 @@ import {
 export class EditableContentEventComponent {
   @ViewChild('contentDiv') myDiv: ElementRef<HTMLDivElement>;
   @Output() onSendText = new EventEmitter<string>();
+  @Output() onWritting = new EventEmitter<string>();
   @Input() placeholder: string;
+  @Input() theme = 'dark';
+  @Input() maxLenght = 250;
   pressed = false;
 
   onPressed(): void {
@@ -23,6 +26,15 @@ export class EditableContentEventComponent {
   }
 
   onKeyUp(event: KeyboardEvent): void {
+    if (event.key === 'Backspace') {
+      return null;
+    }
+
+    if (this.myDiv.nativeElement.innerText.length > this.maxLenght) {
+      event.preventDefault();
+      return null;
+    }
+
     return this.listenerKeyboardEvent(event.key);
   }
 
@@ -75,6 +87,7 @@ export class EditableContentEventComponent {
         break;
       }
     }
+    return this.onWritting.emit(this.myDiv.nativeElement.innerText);
   }
 
   sendText(): void {
@@ -83,5 +96,6 @@ export class EditableContentEventComponent {
 
   ngOnDestroy(): void {
     this.onSendText.unsubscribe();
+    this.onWritting.unsubscribe();
   }
 }

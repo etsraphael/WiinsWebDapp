@@ -46,7 +46,7 @@ export class SpaceStoryComponent implements OnInit {
           },
           profileTagged: [],
           commentNumber: 15,
-          hastags: [],
+          hashtags: [],
           title: "Hey what's up !",
           type: 'PostPublication',
           background: {
@@ -75,7 +75,7 @@ export class SpaceStoryComponent implements OnInit {
           },
           profileTagged: [],
           commentNumber: 15,
-          hastags: [],
+          hashtags: [],
           title: 'What about the next step ?',
           type: 'PostPublication',
           background: {
@@ -104,7 +104,7 @@ export class SpaceStoryComponent implements OnInit {
           },
           profileTagged: [],
           commentNumber: 15,
-          hastags: [],
+          hashtags: [],
           title: 'What about the next step ?',
           type: 'PicturePublication',
           imgUrl:

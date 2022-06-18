@@ -1,5 +1,5 @@
 <!-- Feed Publication Creation -->
-<div class="container-fluid py-2" *ngIf="!false">
+<div class="container-fluid py-2">
   <!-- Avatar and description -->
   <div class="card-header">
     <div class="row">
@@ -17,7 +17,7 @@
       </div>
       <div
         class="col-4 container-btn-header d-flex align-items-center justify-content-end">
-        <i class="btn bi bi-check-circle text-success"></i>
+        <i class="btn bi bi-check-circle text-success" (click)="onSubmit()"></i>
         <i
           class="btn bi bi-arrow-left-circle text-secondary"
           (click)="resetPublication()"></i>
@@ -28,17 +28,38 @@
   <div class="card-body">
     <div class="position-relative body-container">
       <div class="row mx-0 choice-container">
-        <!-- Loading Bar -->
+        <!-- Picture Loading Bar -->
         <div
-          class="w-100 loading-bar-container p-0"
+          class="w-100 loading-bar-container-header p-0"
           *ngIf="
-            !!(data.getImgPreviewProgress() | async) &&
-            (data.getImgPreviewProgress() | async) !== 0 &&
-            (data.getImgPreviewProgress() | async) !== 100
+            !!(data.getFileProgress('image') | async) &&
+            (data.getFileProgress('image') | async) !== 0
           ">
           <div
-            class="picture-loading-bar h-100"
-            [style.width.%]="data.getImgPreviewProgress() | async"></div>
+            class="loading-bar picture-loading-bar h-100"
+            [style.width.%]="data.getFileProgress('image') | async"></div>
+        </div>
+        <!-- Poster Loading Bar -->
+        <div
+          class="w-100 loading-bar-container-header p-0"
+          *ngIf="
+            !!(data.getFileProgress('poster') | async) &&
+            (data.getFileProgress('poster') | async) !== 0
+          ">
+          <div
+            class="loading-bar picture-loading-bar h-100"
+            [style.width.%]="data.getFileProgress('poster') | async"></div>
+        </div>
+        <!-- Video Loading Bar -->
+        <div
+          class="w-100 loading-bar-container-footer p-0"
+          *ngIf="
+            !!(data.getFileProgress('video') | async) &&
+            (data.getFileProgress('video') | async) !== 0
+          ">
+          <div
+            class="loading-bar video-loading-bar h-100"
+            [style.width.%]="data.getFileProgress('video') | async"></div>
         </div>
         <!-- [Written Post Choice] -->
         <div
@@ -50,17 +71,19 @@
               class="bi bi-pencil-square text-light"
               (click)="onSelectPublicationType('post')"></i>
           </div>
-          <div *ngIf="visualMode == 'post'" class="container">
+          <div *ngIf="visualMode == 'post'" class="container pt-3">
             <div class="row mx-0">
               <wiins-editable-content-event
+                theme="light"
                 [placeholder]="'Write your next post..'"
-                (onSendText)="onSendText($event)">
+                (onWritting)="onWrittingText($event)">
               </wiins-editable-content-event>
             </div>
             <div class="row d-flex justify-content-center my-2">
               <span
-                class="blockBox m-2"
                 *ngFor="let bg of data.linearBackgroundList"
+                class="blockBox m-2"
+                [ngClass]="{ active: bg == bgSelected }"
                 (click)="onChangebackground(bg)"
                 [ngStyle]="{
                   background: postService.generateBackground(bg)
@@ -68,21 +91,25 @@
             </div>
           </div>
         </div>
-        <!-- [Picture Post Choice] -->
+        <!-- [Picture/Video Post Choice] -->
         <div
           class="container-picture-choice px-0 col-6 picture-post d-flex justify-content-center align-items-center"
-          [@onPicturePost]="visualMode"
-          (click)="onSelectPublicationType('picture')">
-          <div class="w-100" [ngClass]="{ 'px-3': !imgPreview }">
+          [@onPicturePost]="visualMode">
+          <div
+            class="w-100"
+            [ngClass]="{ 'px-3': !imgPreview && !videoPreview }">
             <label
               class="d-flex justify-content-center"
               *ngIf="visualMode == 'default'"
               for="photo_upload">
-              <i class="bi bi-image text-light"></i>
+              <i
+                class="bi bi-image text-light"
+                (click)="onSelectPublicationType('picture')">
+              </i>
             </label>
             <ngx-dropzone
               class="w-100 dz-container"
-              *ngIf="visualMode == 'picture' && !imgPreview"
+              *ngIf="visualMode == 'picture' && !imgPreview && !videoPreview"
               (change)="onSelect($event)">
               <ngx-dropzone-label>
                 <button class="btn text-light upload-btn">
@@ -91,6 +118,7 @@
                 </button>
               </ngx-dropzone-label>
             </ngx-dropzone>
+            <!-- Picture content -->
             <div *ngIf="visualMode == 'picture' && !!imgPreview">
               <div
                 (click)="undoPicturePreview()"
@@ -99,9 +127,41 @@
               </div>
               <img class="img-preview" [src]="imgPreview" alt="img_preview" />
             </div>
+            <!-- Video content -->
+            <div *ngIf="visualMode == 'picture' && !!videoPreview">
+              <div
+                (click)="undoVideoPreview()"
+                class="container-btn-undo p-2 d-flex justify-content-center align-items-center">
+                <i class="bi bi-x-lg text-light"></i>
+              </div>
+              <input
+                hidden
+                id="uploadPoster"
+                #poster
+                type="file"
+                accept="image/*"
+                (change)="setUpPosterUpload(poster.files)" />
+              <label
+                for="uploadPoster"
+                class="container-btn-poster d-flex justify-content-center align-items-center p-2">
+                <i class="bi bi-camera text-light mx-1"></i>
+                <span class="text-light px-1">Upload a picture</span>
+              </label>
+              <video controls [poster]="posterPreview">
+                <source [src]="videoPreview" type="video/mp4" />
+              </video>
+            </div>
           </div>
         </div>
       </div>
+    </div>
+    <div class="footer-container" *ngIf="visualMode == 'picture'">
+      <wiins-editable-content-event
+        [maxLenght]="140"
+        theme="dark"
+        (onWritting)="onWrittingText($event)"
+        [placeholder]="'Write your next post..'">
+      </wiins-editable-content-event>
     </div>
   </div>
 </div>

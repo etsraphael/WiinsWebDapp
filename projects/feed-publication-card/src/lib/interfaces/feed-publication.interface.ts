@@ -1,5 +1,11 @@
 import { Observable } from 'rxjs';
-import { BackgroundPostModel, ProfileModel } from '../models';
+import {
+  BackgroundPostModel,
+  PicturePublicationModel,
+  PostPublicationModel,
+  ProfileModel,
+  VideoPublicationModel,
+} from '../models';
 
 export interface IFeedCard {
   _id: string;
@@ -14,7 +20,7 @@ export interface IFeedCard {
   profile: ProfileModel;
   profileTagged: string[];
   commentNumber: number;
-  hastags: string[];
+  hashtags: string[];
   title: string;
   imgUrl?: string;
   background?: BackgroundPostModel;
@@ -24,10 +30,19 @@ export interface IFeedCard {
 
 export interface IFeedPublicationPayload {
   linearBackgroundList: BackgroundPostModel[];
+  backgroundSelected: number;
 }
 
 export interface IFeedPublicationConfig {
   linearBackgroundList: BackgroundPostModel[];
-  onChangeImgPreview: (event: File[]) => void;
-  getImgPreviewProgress: () => Observable<number>;
+  backgroundSelected: number;
+  onChangeFilePreview: (type: string, files: File[]) => void;
+  getFileProgress: (type: string) => Observable<number>;
+  saveFeedPublication: (
+    event:
+      | PicturePublicationModel
+      | PostPublicationModel
+      | VideoPublicationModel
+  ) => void;
+  resetProgess: (type: string) => void;
 }
