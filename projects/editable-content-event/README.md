@@ -1,6 +1,6 @@
 # EditableContentEvent
 
-A simple library to highlight the # and @ in a text. Feel free to make any suggestion in our [Discord's channel](https://discord.gg/rBaSrbJ6AT)
+A simple library to highlight the `#` and `@` in a text. Feel free to make any suggestions in our [Discord's channel](https://discord.gg/rBaSrbJ6AT)
 
 ## Sample
 
@@ -39,9 +39,9 @@ Import module:
 
 | name        | type                  | description |
 | ----------- | --------------------- | ----------- |
-| theme       | string                | -------     |
-| placeholder | string                | -------     |
-| onWritting  | EventEmitter\<string> | -------     |
+| theme       | string                | We can choose between `light` and `dark`|
+| placeholder | string                | The placeholder by default when the text is empty |
+| onWritting  | EventEmitter\<string> | A listener who's returning the current text for each new keydowns |
 
 ## Community
 
