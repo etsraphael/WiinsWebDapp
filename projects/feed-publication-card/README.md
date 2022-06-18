@@ -117,6 +117,8 @@ We can return 3 types of publications:
 | hashtags | string[] | The list of hashtags found in the publication text |
 | signAts | string[] | The list of signAts found in the publication text |
 
+<br>
+
 2 - The picture publication
 | name| type | description |
 | --- | ------ | ------- |
@@ -125,6 +127,8 @@ We can return 3 types of publications:
 | hashtags | string[] | The list of hashtags found in the publication text |
 | signAts | string[] | The list of signAts found in the publication text |
 | imgUrl | string | The name of the image file |
+
+<br>
 
 3 - The video publication
 | name| type | description |
