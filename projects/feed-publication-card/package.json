@@ -1,6 +1,6 @@
 {
   "name": "@wiins/feed-publication-card",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "peerDependencies": {
     "@angular/common": "^13.3.0",
     "@angular/core": "^13.3.0",
@@ -8,7 +8,7 @@
     "bootstrap": "^5.1.3",
     "bootstrap-icons": "^1.8.1",
     "ngx-dropzone": "^3.1.0",
-    "@wiins/editable-content-event": "^0.0.16"
+    "@wiins/editable-content-event": "^0.0.17"
   },
   "dependencies": {
     "tslib": "^2.3.0"
