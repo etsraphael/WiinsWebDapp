@@ -165,6 +165,6 @@ Join the Wiins community today and let's grow TEA's worth together 🚀
 
 <p align="center">
 <a href="https://discord.gg/bBE6xmR">
-<img src="./../../src/assets/img/readme/readme-banner.png" alt="Logo" width="380">
+<img src="https://bafybeietl6rjafvrc6dq6upt5qoxxobr4ems6if5yukwlrnb4j2j5awqba.ipfs.dweb.link/woufghwriofuwehfpe2ifjh2oipfh2efo280hf24970tgyh35024cg78thf582476gh.png" alt="Logo" width="380">
 </a>
 </p>
