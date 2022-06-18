@@ -13,7 +13,7 @@ export interface IFeedPublicationCard {
   profile: ProfileModel;
   profileTagged: string[];
   commentNumber: number;
-  hastags: string[];
+  hashtags: string[];
   title: string;
   imgUrl?: string;
   background?: BackgroundPostModel;

@@ -12,8 +12,8 @@ export abstract class FeedPublicationModel {
   profile: ProfileModel;
   profileTagged: string[];
   commentNumber: number;
-  hastags: string[];
-  signAt: string[];
+  hashtags: string[];
+  signAts: string[];
   title: string;
 
   constructor(public type: string) {}
@@ -22,43 +22,43 @@ export abstract class FeedPublicationModel {
 export class PicturePublicationModel extends FeedPublicationModel {
   constructor(
     title: string,
-    hastags: string[],
-    signAt: string[],
+    hashtags: string[],
+    signAts: string[],
     public imgUrl: string
   ) {
     super('PicturePublication');
     this.title = title;
-    this.hastags = hastags;
-    this.signAt = signAt;
+    this.hashtags = hashtags;
+    this.signAts = signAts;
   }
 }
 
 export class PostPublicationModel extends FeedPublicationModel {
   constructor(
     title: string,
-    hastags: string[],
-    signAt: string[],
+    hashtags: string[],
+    signAts: string[],
     public background: BackgroundPostModel
   ) {
     super('PostPublication');
     this.title = title;
-    this.hastags = hastags;
-    this.signAt = signAt;
+    this.hashtags = hashtags;
+    this.signAts = signAts;
   }
 }
 
 export class VideoPublicationModel extends FeedPublicationModel {
   constructor(
     title: string,
-    hastags: string[],
-    signAt: string[],
+    hashtags: string[],
+    signAts: string[],
     public posterUrl: string,
     public videoUrl: string
   ) {
     super('VideoPublication');
     this.title = title;
-    this.hastags = hastags;
-    this.signAt = signAt;
+    this.hashtags = hashtags;
+    this.signAts = signAts;
   }
 }
 

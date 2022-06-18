@@ -66,7 +66,7 @@ import {
           start: [0, 0],
           end: [1, 1],
         }),
-        // your others BackgroundPostModel...
+        // add more BackgroundPostModel...
     ];
 
     const payload: IFeedPublicationPayload = {
@@ -81,14 +81,14 @@ import {
 You can listen the event with these functions:
 
 ```ts
-// get the event file. Coud be an 'image', 'poster' or 'video'
+// get the event file, can be an 'image', 'poster' or 'video'
 this.feedPublicationCardService
   .getfileValue('image')
   .subscribe((data: File[]) => {
-    // catch the image selected here and send to your providers
+    // obtain the selected file here and send to your chosen providers
   });
 
-// optional, set up the progress bar at 50%. Coud be an 'image', 'poster' or 'video'
+// optional, set up the progress bar at e.g. 50%. Can be an 'image', 'poster' or 'video'
 this.feedPublicationCardService.setProgressFileValue('image', 50);
 
 this.feedPublicationCardService.feedPublicationValue$.subscribe(
@@ -98,7 +98,7 @@ this.feedPublicationCardService.feedPublicationValue$.subscribe(
       | PostPublicationModel
       | VideoPublicationModel
   ) => {
-    // your publication will be here after to save it
+    // your publication will be here after saving it
   }
 );
 ```
@@ -107,23 +107,23 @@ this.feedPublicationCardService.feedPublicationValue$.subscribe(
 
 ### FeedPublicationModel
 
-We can return 3 types of publication:
+We can return 3 types of publications:
 
 1 - The post publication
 | name| type | description |
 | --- | ------ | ------- |
 | type | string | The type will be `PostPublication` for this type |
 | title| string | The description of the publication |
-| hastags | string[] | The list of hastags found in the publication text |
-| signAt | string[] | The list of signAt found in the publication text |
+| hashtags | string[] | The list of hashtags found in the publication text |
+| signAts | string[] | The list of signAts found in the publication text |
 
 2 - The picture publication
 | name| type | description |
 | --- | ------ | ------- |
 | type | string | The type will be `PicturePublication` for this type |
 | title| string | The description of the publication |
-| hastags | string[] | The list of hastags found in the publication text |
-| signAt | string[] | The list of signAt found in the publication text |
+| hashtags | string[] | The list of hashtags found in the publication text |
+| signAts | string[] | The list of signAts found in the publication text |
 | imgUrl | string | The name of the image file |
 
 3 - The video publication
@@ -131,34 +131,34 @@ We can return 3 types of publication:
 | --- | ------ | ------- |
 | type | string | The type will be `VideoPublication` for this type |
 | title| string | The description of the publication |
-| hastags | string[] | The list of hastags found in the publication text |
-| signAt | string[] | The list of signAt found in the publication text |
+| hashtags | string[] | The list of hashtags found in the publication text |
+| signAts | string[] | The list of signAts found in the publication text |
 | posterUrl | string | The name of the poster file |
 | videoUrl | string | The name of the video file |
 
 ### BackgroundPostModel
 
-| name         | type                           | example                      | description                                                                |
-| ------------ | ------------------------------ | ---------------------------- | -------------------------------------------------------------------------- |
-| colors       | string[]                       | `['#11998e', '#38ef7d']`     | This list of colours will be implemented to the linear gradient background |
-| orientations | start: number[], end: number[] | `start: [0, 0], end: [1, 1]` | The orirentation of the linear gradient                                    |
+| name         | type                           | example                      | description                                                               |
+| ------------ | ------------------------------ | ---------------------------- | ------------------------------------------------------------------------- |
+| colors       | string[]                       | `['#11998e', '#38ef7d']`     | This list of colors will be implemented to the linear gradient background |
+| orientations | start: number[], end: number[] | `start: [0, 0], end: [1, 1]` | The orirentation of the linear gradient                                   |
 
 ### Progress bar (optional)
 
-| name                                              | type | description                                                                                                                                                               |
-| ------------------------------------------------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| setProgressFileValue(type: string, value: number) | void | This function will update the progress bar animation. 3 progress bar animations are implemented for each categorie of file. It could be an `image`, `poster` or a `video` |
+| name                                              | type | description                                                                                                                                                                |
+| ------------------------------------------------- | ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| setProgressFileValue(type: string, value: number) | void | This function will update the progress bar animation. 3 progress bar animations are implemented for each category of the file. It can be an `image`, `poster` or a `video` |
 
 ### Subscriptions Event
 
-| name                       | type                                                                                         | description                                                                       |
-| -------------------------- | -------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| feedPublicationValue$      | Observable<PicturePublicationModel &#124; PostPublicationModel &#124; VideoPublicationModel> | This will return the publication object only after to click on the send button    |
-| getfileValue(type: string) | Observable<File[]>                                                                           | This will return the file uploaded. It could be an `image`, `poster` or a `video` |
+| name                       | type                                                                                         | description                                                                     |
+| -------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| feedPublicationValue$      | Observable<PicturePublicationModel &#124; PostPublicationModel &#124; VideoPublicationModel> | This will return the publication object after clicking on the send button       |
+| getfileValue(type: string) | Observable<File[]>                                                                           | This will return the file uploaded. It can be an `image`, `poster` or a `video` |
 
 ## Community
 
-Join the winns comumnity today and lets grow TEA's worth together 🚀
+Join the Wiins community today and let's grow TEA's worth together 🚀
 <br />
 <br />
 <br />

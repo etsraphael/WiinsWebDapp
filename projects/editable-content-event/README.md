@@ -45,7 +45,7 @@ Import module:
 
 ## Community
 
-Join the winns comuntiy today and lets grow TEA worth together 🚀
+Join the Wiins community today and let's grow TEA's worth together 🚀
 <br />
 <br />
 <br />
