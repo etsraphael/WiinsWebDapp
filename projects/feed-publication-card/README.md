@@ -1,6 +1,6 @@
 # Feed publication card for angular
 
-A simple solution to post a publication card in a feed. Feel free to make any suggestion in our [Discord](https://discord.gg/dNmDYgX98H)
+A simple solution to post a publication card in a feed. Feel free to make any suggestion in our [Discord's channel](https://discord.gg/dNmDYgX98H)
 
 ## Sample
 
@@ -106,10 +106,11 @@ this.feedPublicationCardService.feedPublicationValue$.subscribe(
 ## Properties
 
 ### FeedPublicationModel
-We can return 3 types of publication: 
+
+We can return 3 types of publication:
 
 1 - The post publication
-| name| type  | description |
+| name| type | description |
 | --- | ------ | ------- |
 | type | string | ------- |
 | title| string | ------- |
@@ -117,7 +118,7 @@ We can return 3 types of publication:
 | signAt | string[] | ------- |
 
 2 - The picture publication
-| name| type  | description |
+| name| type | description |
 | --- | ------ | ------- |
 | type | string | ------- |
 | title| string | ------- |
@@ -126,7 +127,7 @@ We can return 3 types of publication:
 | imgUrl | string | ------- |
 
 3 - The video publication
-| name| type  | description |
+| name| type | description |
 | --- | ------ | ------- |
 | type | string | ------- |
 | title| string | ------- |
