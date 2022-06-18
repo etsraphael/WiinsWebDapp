@@ -37,7 +37,7 @@ export class ChartSubscriptionComponent {
   ];
   // Legend
   @Input() legend: ApexLegend = {
-    fontSize: '15px',
+    fontSize: '13px',
     itemMargin: {
       vertical: 5,
     },
@@ -45,9 +45,6 @@ export class ChartSubscriptionComponent {
   // Labels
   @Input() dataLabels: ApexDataLabels = {
     enabled: true,
-    style: {
-      fontSize: '18px',
-    },
   };
   public chartOptions: Partial<ChartOptions>;
 
@@ -61,15 +58,15 @@ export class ChartSubscriptionComponent {
         foreColor: 'white',
       },
       labels: [
-        'Content creators',
-        'Legal managers',
-        'Other expenses',
-        'Investments',
-        'Benefits',
+        'Content creators (65%)',
+        'Legal managers (15%)',
+        'Other expenses (9%)',
+        'Investments (9%)',
+        'Benefits (2%)',
       ],
       responsive: [
         {
-          breakpoint: 480,
+          breakpoint: 350,
           options: {
             chart: {
               width: 200,

@@ -60,6 +60,10 @@ export class OnBoardingMainComponent {
   stepCards: StepData[] = StepData;
   stepsNumber: { step: number }[] = StepsNumber;
 
+  // Step by Step
+  // eslint-disable-next-line @typescript-eslint/no-inferrable-types
+  selectedIndex: number = 0;
+
   constructor(
     public authService: AuthService,
     private translate: TranslationService,
@@ -128,6 +132,10 @@ export class OnBoardingMainComponent {
     }
 
     return false;
+  }
+
+  onSetIndex(index: number): number {
+    return (this.selectedIndex = index);
   }
 
   // focus on a section
