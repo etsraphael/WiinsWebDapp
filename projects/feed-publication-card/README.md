@@ -1,6 +1,6 @@
 # Feed publication card for angular
 
-A simple solution to post a publication card in a feed.
+A simple solution to post a publication card in a feed. Feel free to make any suggestion in our [Discord](https://discord.gg/dNmDYgX98H)
 
 ## Sample
 
@@ -105,6 +105,36 @@ this.feedPublicationCardService.feedPublicationValue$.subscribe(
 
 ## Properties
 
+### FeedPublicationModel
+We can return 3 types of publication: 
+
+1 - The post publication
+| name| type  | description |
+| --- | ------ | ------- |
+| type | string | ------- |
+| title| string | ------- |
+| hastags | string[] | ------- |
+| signAt | string[] | ------- |
+
+2 - The picture publication
+| name| type  | description |
+| --- | ------ | ------- |
+| type | string | ------- |
+| title| string | ------- |
+| hastags | string[] | ------- |
+| signAt | string[] | ------- |
+| imgUrl | string | ------- |
+
+3 - The video publication
+| name| type  | description |
+| --- | ------ | ------- |
+| type | string | ------- |
+| title| string | ------- |
+| hastags | string[] | ------- |
+| signAt | string[] | ------- |
+| posterUrl | string | ------- |
+| videoUrl | string | ------- |
+
 ### BackgroundPostModel
 
 | name         | type                           | default | description |
@@ -133,7 +163,7 @@ Join the winns comuntiy today and lets grow TEA worth together 🚀
 <br />
 
 <p align="center">
-<a href="https://discord.gg/JXs3MxAn">
+<a href="https://discord.gg/bBE6xmR">
 <img src="./../../src/assets/img/readme/readme-banner.png" alt="Logo" width="380">
 </a>
 </p>
