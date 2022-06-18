@@ -37,10 +37,10 @@ Import module:
 
 ## Properties
 
-| name        | type                  | description |
-| ----------- | --------------------- | ----------- |
-| theme       | string                | We can choose between `light` and `dark`|
-| placeholder | string                | The placeholder by default when the text is empty |
+| name        | type                  | description                                                       |
+| ----------- | --------------------- | ----------------------------------------------------------------- |
+| theme       | string                | We can choose between `light` and `dark`                          |
+| placeholder | string                | The placeholder by default when the text is empty                 |
 | onWritting  | EventEmitter\<string> | A listener who's returning the current text for each new keydowns |
 
 ## Community

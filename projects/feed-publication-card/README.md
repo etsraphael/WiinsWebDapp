@@ -1,6 +1,6 @@
 # Feed publication card for angular
 
-A simple solution to post a publication card in a feed. Feel free to make any suggestion in our [Discord's channel](https://discord.gg/dNmDYgX98H)
+A simple solution to post a publication card. Feel free to make any suggestions in our [Discord's channel](https://discord.gg/dNmDYgX98H)
 
 ## Sample
 
@@ -78,17 +78,17 @@ import {
   }
 ```
 
-You can listen the event with theses fonctions:
+You can listen the event with these functions:
 
 ```ts
-// get the event file. Coud be an image/poster/video
+// get the event file. Coud be an 'image', 'poster' or 'video'
 this.feedPublicationCardService
   .getfileValue('image')
   .subscribe((data: File[]) => {
     // catch the image selected here and send to your providers
   });
 
-// optional, set up the progress bar at 50%
+// optional, set up the progress bar at 50%. Coud be an 'image', 'poster' or 'video'
 this.feedPublicationCardService.setProgressFileValue('image', 50);
 
 this.feedPublicationCardService.feedPublicationValue$.subscribe(
@@ -112,53 +112,53 @@ We can return 3 types of publication:
 1 - The post publication
 | name| type | description |
 | --- | ------ | ------- |
-| type | string | ------- |
-| title| string | ------- |
-| hastags | string[] | ------- |
-| signAt | string[] | ------- |
+| type | string | The type will be `PostPublication` for this type |
+| title| string | The description of the publication |
+| hastags | string[] | The list of hastags found in the publication text |
+| signAt | string[] | The list of signAt found in the publication text |
 
 2 - The picture publication
 | name| type | description |
 | --- | ------ | ------- |
-| type | string | ------- |
-| title| string | ------- |
-| hastags | string[] | ------- |
-| signAt | string[] | ------- |
-| imgUrl | string | ------- |
+| type | string | The type will be `PicturePublication` for this type |
+| title| string | The description of the publication |
+| hastags | string[] | The list of hastags found in the publication text |
+| signAt | string[] | The list of signAt found in the publication text |
+| imgUrl | string | The name of the image file |
 
 3 - The video publication
 | name| type | description |
 | --- | ------ | ------- |
-| type | string | ------- |
-| title| string | ------- |
-| hastags | string[] | ------- |
-| signAt | string[] | ------- |
-| posterUrl | string | ------- |
-| videoUrl | string | ------- |
+| type | string | The type will be `VideoPublication` for this type |
+| title| string | The description of the publication |
+| hastags | string[] | The list of hastags found in the publication text |
+| signAt | string[] | The list of signAt found in the publication text |
+| posterUrl | string | The name of the poster file |
+| videoUrl | string | The name of the video file |
 
 ### BackgroundPostModel
 
-| name         | type                           | default | description |
-| ------------ | ------------------------------ | ------- | ----------- |
-| colors       | string[]                       |         | description |
-| orientations | start: number[], end: number[] |         | description |
+| name         | type                           | example                      | description                                                                |
+| ------------ | ------------------------------ | ---------------------------- | -------------------------------------------------------------------------- |
+| colors       | string[]                       | `['#11998e', '#38ef7d']`     | This list of colours will be implemented to the linear gradient background |
+| orientations | start: number[], end: number[] | `start: [0, 0], end: [1, 1]` | The orirentation of the linear gradient                                    |
 
 ### Progress bar (optional)
 
-| name                                              | type | description |
-| ------------------------------------------------- | ---- | ----------- |
-| setProgressFileValue(type: string, value: number) | void | description |
+| name                                              | type | description                                                                                                                                                               |
+| ------------------------------------------------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| setProgressFileValue(type: string, value: number) | void | This function will update the progress bar animation. 3 progress bar animations are implemented for each categorie of file. It could be an `image`, `poster` or a `video` |
 
 ### Subscriptions Event
 
-| name                       | type                                                                                         | description |
-| -------------------------- | -------------------------------------------------------------------------------------------- | ----------- |
-| feedPublicationValue$      | Observable<PicturePublicationModel &#124; PostPublicationModel &#124; VideoPublicationModel> | description |
-| getfileValue(type: string) | Observable<File[]>                                                                           | description |
+| name                       | type                                                                                         | description                                                                       |
+| -------------------------- | -------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| feedPublicationValue$      | Observable<PicturePublicationModel &#124; PostPublicationModel &#124; VideoPublicationModel> | This will return the publication object only after to click on the send button    |
+| getfileValue(type: string) | Observable<File[]>                                                                           | This will return the file uploaded. It could be an `image`, `poster` or a `video` |
 
 ## Community
 
-Join the winns comuntiy today and lets grow TEA worth together 🚀
+Join the winns comumnity today and lets grow TEA's worth together 🚀
 <br />
 <br />
 <br />
