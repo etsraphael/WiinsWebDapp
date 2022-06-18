@@ -112,7 +112,7 @@
                 </h2>
               </div>
               <!-- Button -->
-              <div class="mt-3 text-center text-lg-start ms-lg-3">
+              <div class="mt-3 text-center text-lg-start">
                 <button
                   class="btn btn-lg btn-block btn-primary btn-action-join-us px-5 border-0"
                   (click)="authService.login()">
@@ -158,22 +158,22 @@
             </div>
             <!-- Button -->
             <div
-              class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 text-center text-lg-start store-btn-contianer">
+              class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 text-center text-lg-start store-btn-container">
               <button
-                class="col-6 btn-lg btn-block btn-action"
+                class="col-6 btn-lg btn-block btn-action ps-lg-0"
                 (click)="notAvailableInYourCountry()">
                 <img
-                  src="../../../../../assets/img/landing-page/google-play.svg"
+                  src="../../../../../assets/img/landing-page/google-play.png"
                   alt="Google Play"
-                  class="w-100" />
+                  class="w-100 h-100" />
               </button>
               <button
                 class="col-6 btn-lg btn-block btn-action appStore"
                 (click)="notAvailableInYourCountry()">
                 <img
-                  src="../../../../../assets/img/landing-page/app-store.svg"
+                  src="../../../../../assets/img/landing-page/app-store.png"
                   alt="App Store"
-                  class="w-100" />
+                  class="w-100 h-100" />
               </button>
             </div>
           </div>
@@ -257,7 +257,7 @@
               <strong>{{ 'LANDING_PAGE.space-team.title' | translate }}</strong>
             </span>
             <!-- Collaborator -->
-            <p class="text-light col-12 mt-3 text-center text-lg-start p-0">
+            <p class="text-light col-12 text-center text-lg-start p-0">
               <span *ngFor="let item of firstCommunity; let last = last">
                 <span class="h3">{{ item }}</span>
                 <span *ngIf="!last">,&nbsp;</span>
@@ -426,10 +426,12 @@
               </span>
               <!-- Steps Number -->
               <div class="steps-number d-flex justify-content-sm-center px-0">
-                <ul class="d-flex p-0">
+                <ul class="d-flex px-2">
                   <li
-                    class="numbers d-flex justify-content-center align-items-center mx-3"
-                    *ngFor="let number of stepsNumber; let i = index">
+                    class="numbers d-flex justify-content-center align-items-center mx-2 mx-md-3"
+                    *ngFor="let number of stepsNumber; let i = index"
+                    (click)="onSetIndex(i)"
+                    [ngClass]="{ active: selectedIndex === i }">
                     <button
                       class="w-100"
                       type="button"
@@ -445,17 +447,7 @@
                 <div
                   id="carouselExampleIndicators"
                   class="carousel slide d-flex justify-content-between"
-                  data-bs-ride="carousel">
-                  <button
-                    class="carousel-control-prev position-relative"
-                    type="button"
-                    data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="prev">
-                    <span
-                      class="carousel-control-prev-icon"
-                      aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                  </button>
+                  data-interval="false">
                   <div class="carousel-inner pt-3">
                     <!-- Active Card -->
                     <div
@@ -467,11 +459,13 @@
                           src="../../../../assets/img/landing-page/corner.png"
                           alt="Corner" />
                       </div>
-                      <div class="card d-flex flex-row w-100 col-12">
-                        <div class="col-1 number text-center m-2 py-3 px-4">
+                      <div
+                        class="card d-flex flex-row text-center text-sm-start w-100 col-12 px-2 px-sm-0">
+                        <div
+                          class="col-1 number d-none d-sm-block text-center m-2 py-3 px-4">
                           <span>{{ card.number }}</span>
                         </div>
-                        <div class="col-8 content">
+                        <div class="col-12 col-sm-8 content">
                           <div class="title my-3 ms-2">
                             {{ card.title | translate }}
                           </div>
@@ -482,16 +476,6 @@
                       </div>
                     </div>
                   </div>
-                  <button
-                    class="carousel-control-next position-relative"
-                    type="button"
-                    data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="next">
-                    <span
-                      class="carousel-control-next-icon"
-                      aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                  </button>
                 </div>
               </div>
             </div>
@@ -499,7 +483,7 @@
         </div>
         <!-- Rocket -->
         <div
-          class="col-12 col-lg-4 d-flex align-items-center mt-5"
+          class="col-12 col-lg-4 d-none d-md-flex align-items-center mt-5"
           data-aos="fade-left">
           <div
             class="d-flex justify-content-center step-by-step container-fluid descript px-xl-0">

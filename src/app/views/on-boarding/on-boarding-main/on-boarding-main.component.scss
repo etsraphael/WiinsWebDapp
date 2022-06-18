@@ -77,7 +77,7 @@
   padding-top: 97px;
 }
 
-.store-btn-contianer {
+.store-btn-container {
   button {
     background: transparent;
     border: 0;
@@ -212,7 +212,6 @@
       border: none;
 
       span {
-        font-family: 'Montserrat';
         font-style: normal;
         font-weight: 600;
         line-height: 78px;
@@ -220,7 +219,8 @@
       }
     }
   }
-  .numbers:hover {
+  .numbers:hover,
+  .active {
     background-color: #fff;
   }
 }
@@ -251,12 +251,10 @@
         font-size: 35px;
         font-weight: 700;
         color: #fff;
-        font-family: 'Montserrat';
       }
     }
 
     .title {
-      font-family: 'Montserrat';
       font-style: normal;
       font-weight: 600;
       font-size: 20px;
@@ -440,6 +438,10 @@ nav .bi-list {
     width: 35px;
     height: 35px;
     font-size: 30px;
+  }
+
+  .description {
+    font-size: 13px;
   }
 
   .step-by-step img {
