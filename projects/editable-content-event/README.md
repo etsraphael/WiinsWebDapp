@@ -1,25 +1,57 @@
 # EditableContentEvent
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
+A simple library to highlight the # and @ in a text. Feel free to make any suggestion in our [Discord's channel](https://discord.gg/rBaSrbJ6AT)
 
-## Code scaffolding
+## Sample
 
-Run `ng generate component component-name --project editable-content-event` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project editable-content-event`.
+<img src="https://bafybeifgh5lndt75tm22shrh4cb7rqs6kpf25iz3gmxuokfsyqh5yi7d2a.ipfs.dweb.link/kfjbweofiuhwefhiuw2ebf9247tgh249fu4bf248hf8940fg24f3.png" alt="Logo" width="380">
+</a>
 
-> Note: Don't forget to add `--project editable-content-event` or else it will be added to the default project in your `angular.json` file.
+## Installation
 
-## Build
+Install the npm package.
 
-Run `ng build editable-content-event` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+  npm i @wiins/editable-content-event
+```
 
-## Publishing
+Import module:
 
-After building your library with `ng build editable-content-event`, go to the dist folder `cd dist/editable-content-event` and run `npm publish`.
+```ts
+  import { EditableContentEventModule } from '@wiins/editable-content-event';
 
-## Running unit tests
+  @NgModule({
+      imports: [EditableContentEventModule]
+  })
+```
 
-Run `ng test editable-content-event` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Usage
 
-## Further help
+```html
+<wiins-editable-content-event
+  theme="light"
+  [placeholder]="'Write your next post..'"
+  (onWritting)="onWrittingText($event)">
+</wiins-editable-content-event>
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Properties
+
+| name        | type                 | description |
+| ----------- | -------------------- | ----------- |
+| theme       | string               | -------     |
+| placeholder | string               | -------     |
+| onWritting  | EventEmitter\<string> | -------     |
+
+## Community
+
+Join the winns comuntiy today and lets grow TEA worth together 🚀
+<br />
+<br />
+<br />
+
+<p align="center">
+<a href="https://discord.gg/bBE6xmR">
+<img src="./../../src/assets/img/readme/readme-banner.png" alt="Logo" width="380">
+</a>
+</p>
