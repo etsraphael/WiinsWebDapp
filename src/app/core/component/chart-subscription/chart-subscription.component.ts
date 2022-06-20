@@ -1,13 +1,9 @@
 import { Component, Input, ViewChild } from '@angular/core';
-
 import { ApexDataLabels, ApexLegend, ChartComponent } from 'ng-apexcharts';
-
 import {
-  ApexNonAxisChartSeries,
-  ApexResponsive,
-  ApexChart,
-  ApexTheme,
-  ApexTitleSubtitle,
+  ApexChart, ApexNonAxisChartSeries,
+  ApexResponsive, ApexTheme,
+  ApexTitleSubtitle
 } from 'ng-apexcharts';
 
 export type ChartOptions = {
@@ -66,14 +62,15 @@ export class ChartSubscriptionComponent {
       ],
       responsive: [
         {
-          breakpoint: 350,
+          breakpoint: 415,
           options: {
-            chart: {
-              width: 200,
-            },
             legend: {
               position: 'bottom',
-            },
+              fontSize: '13px',
+              itemMargin: {
+                vertical: 5,
+              },
+            }
           },
         },
       ],
