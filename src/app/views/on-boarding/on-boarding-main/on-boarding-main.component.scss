@@ -77,7 +77,7 @@
   padding-top: 97px;
 }
 
-.store-btn-contianer {
+.store-btn-container {
   button {
     background: transparent;
     border: 0;
@@ -86,6 +86,7 @@
 
 .carourel-container {
   z-index: 100;
+
   .bi-arrow-left-circle,
   .bi-arrow-right-circle {
     font-size: 4rem;
@@ -140,6 +141,7 @@
   font-weight: 200;
 }
 
+// Token Space
 .container-token {
   .main-container {
     position: relative;
@@ -196,6 +198,73 @@
     left: 6em;
     z-index: 1;
   }
+}
+
+// Step by Step Space
+.steps-number {
+  .numbers {
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+
+    button {
+      background: transparent;
+      border: none;
+
+      span {
+        font-style: normal;
+        font-weight: 600;
+        line-height: 78px;
+        color: #539ce9;
+      }
+    }
+  }
+  .numbers:hover,
+  .active {
+    background-color: #fff;
+  }
+}
+
+.carousel-inner {
+  .corner {
+    position: absolute;
+    top: -1em;
+    left: 0;
+  }
+
+  .card {
+    height: 180px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #fff;
+
+    .number {
+      width: 70px;
+      height: 55px;
+      background-color: #ec6569;
+      border-top-left-radius: 50px;
+      border-bottom-left-radius: 50px;
+
+      span {
+        font-size: 35px;
+        font-weight: 700;
+        color: #fff;
+      }
+    }
+
+    .title {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
+}
+
+.step-by-step img {
+  width: 400px;
 }
 
 .container-papers-link {
@@ -359,5 +428,47 @@ nav .bi-list {
 
   li img {
     width: 2rem;
+  }
+
+  .steps-number {
+    justify-content: center;
+  }
+
+  .numbers {
+    width: 35px;
+    height: 35px;
+    font-size: 30px;
+  }
+
+  .description {
+    font-size: 13px;
+  }
+
+  .step-by-step img {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 577px) and (max-width: 992px) {
+  .numbers {
+    width: 60px;
+    height: 60px;
+    font-size: 40px;
+  }
+}
+
+@media screen and (min-width: 993px) and (max-width: 1200px) {
+  .numbers {
+    width: 30px;
+    height: 30px;
+    font-size: 25px;
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  .numbers {
+    width: 60px;
+    height: 60px;
+    font-size: 40px;
   }
 }

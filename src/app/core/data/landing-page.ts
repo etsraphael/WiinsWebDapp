@@ -22,8 +22,8 @@ export const dataSectionWithCarousel: landingPageSectionWithCarousel[] = [
     title: 'LANDING_PAGE.space-news-feed-disover.title',
     desc: 'LANDING_PAGE.space-news-feed-disover.text',
     imgList: [
-      '../../../../../assets/img/landing-page/news-feed.svg',
-      '../../../../../assets/img/landing-page/news-feed.svg',
+      '../../../../../assets/img/landing-page/news-feed-1.svg',
+      '../../../../../assets/img/landing-page/news-feed-2.svg',
     ],
   },
   {

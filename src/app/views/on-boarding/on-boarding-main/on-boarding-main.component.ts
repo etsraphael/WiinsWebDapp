@@ -23,6 +23,7 @@ import {
   socialLists,
   socialMediaLists,
 } from 'src/app/core/data/social-media-list';
+import { StepData, StepsNumber } from 'src/app/core/data/step-by-step';
 import { AuthService } from 'src/app/core/service/auth/auth.service';
 import { SnackBarService } from 'src/app/core/service/snackbar/snackbar.service';
 import { TranslationService } from 'src/app/core/service/translate/translate.service';
@@ -56,6 +57,12 @@ export class OnBoardingMainComponent {
   firstCommunity: string[] = firstCommunityData;
   repositoryList: repositoryLinkInterface[] = repositoryLinkData;
   socialLists: socialLists[] = socialMediaLists;
+  stepCards: StepData[] = StepData;
+  stepsNumber: { step: number }[] = StepsNumber;
+
+  // Step by Step
+  // eslint-disable-next-line @typescript-eslint/no-inferrable-types
+  selectedIndex: number = 0;
 
   constructor(
     public authService: AuthService,
@@ -125,6 +132,10 @@ export class OnBoardingMainComponent {
     }
 
     return false;
+  }
+
+  onSetIndex(index: number): number {
+    return (this.selectedIndex = index);
   }
 
   // focus on a section

@@ -19,6 +19,7 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { NgxMasonryModule } from 'ngx-masonry';
 import { AppRoutingModule } from './app-routing.module';
+import { NgApexchartsModule } from 'ng-apexcharts';
 import { AppComponent } from './app.component';
 import { ComingSoonFullScreenComponent } from './core/component/coming-soon-full-screen/coming-soon-full-screen.component';
 import { MainNavBarComponent } from './core/component/main-nav-bar/main-nav-bar.component';
@@ -32,6 +33,7 @@ import { SpaceMessengerComponent } from './views/space-messenger/space-messenger
 import { SpaceMusicComponent } from './views/space-music/space-music.component';
 import { SpaceStoryComponent } from './views/space-story/space-story.component';
 import { SpaceTubeComponent } from './views/space-tube/space-tube.component';
+import { ChartSubscriptionComponent } from './core/component/chart-subscription/chart-subscription.component';
 
 @NgModule({
   declarations: [
@@ -48,10 +50,12 @@ import { SpaceTubeComponent } from './views/space-tube/space-tube.component';
     SpaceMessengerComponent,
     SpaceExplorerComponent,
     ComingSoonFullScreenComponent,
+    ChartSubscriptionComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgApexchartsModule,
     HttpClientModule,
     NgxMasonryModule,
     MatSidenavModule,

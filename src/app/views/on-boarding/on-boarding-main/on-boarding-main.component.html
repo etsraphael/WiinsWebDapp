@@ -11,7 +11,7 @@
             src="./../assets/img/core/brand-icon.png"
             alt="logo" />
         </a>
-        <h2 class="d-inline-block mb-0 align-middle text-light px-4">
+        <h2 class="d-inline-block mb-0 align-middle text-light px-2 px-sm-4">
           <img
             class="brand-typo-img"
             src="../../../../assets/img/core/wiinsTypo.svg"
@@ -107,12 +107,12 @@
                   }}</strong>
                 </span>
                 <h2
-                  class="text-light col-12 py-3 mt-3 text-center text-lg-start">
+                  class="text-light col-12 py-3 mt-3 text-center text-lg-start p-0">
                   {{ 'LANDING_PAGE.space-lets-build-future.text' | translate }}
                 </h2>
               </div>
               <!-- Button -->
-              <div class="mt-3 text-center text-lg-start ms-lg-3">
+              <div class="mt-3 text-center text-lg-start">
                 <button
                   class="btn btn-lg btn-block btn-primary btn-action-join-us px-5 border-0"
                   (click)="authService.login()">
@@ -151,28 +151,29 @@
                   'LANDING_PAGE.space-imagine-early-access.title' | translate
                 }}</strong>
               </span>
-              <h2 class="text-light col-12 py-3 mt-3 text-center text-lg-start">
+              <h2
+                class="text-light col-12 py-3 mt-3 text-center text-lg-start p-0">
                 {{ 'LANDING_PAGE.space-imagine-early-access.text' | translate }}
               </h2>
             </div>
             <!-- Button -->
             <div
-              class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 text-center text-lg-start store-btn-contianer">
+              class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 text-center text-lg-start store-btn-container">
               <button
-                class="col-6 btn-lg btn-block btn-action"
+                class="col-6 btn-lg btn-block btn-action ps-lg-0"
                 (click)="notAvailableInYourCountry()">
                 <img
-                  src="../../../../../assets/img/landing-page/google-play.svg"
+                  src="../../../../../assets/img/landing-page/google-play.png"
                   alt="Google Play"
-                  class="w-100" />
+                  class="w-100 h-100" />
               </button>
               <button
                 class="col-6 btn-lg btn-block btn-action appStore"
                 (click)="notAvailableInYourCountry()">
                 <img
-                  src="../../../../../assets/img/landing-page/app-store.svg"
+                  src="../../../../../assets/img/landing-page/app-store.png"
                   alt="App Store"
-                  class="w-100" />
+                  class="w-100 h-100" />
               </button>
             </div>
           </div>
@@ -203,7 +204,8 @@
                 class="display-3 text-light col-12 text-center text-lg-start p-0">
                 <strong>{{ item.title | translate }}</strong>
               </span>
-              <h2 class="text-light col-12 py-3 mt-3 text-center text-lg-start">
+              <h2
+                class="text-light col-12 py-3 mt-3 text-center text-lg-start p-0">
                 {{ item.desc | translate }}
               </h2>
               <div class="my-5"></div>
@@ -255,7 +257,7 @@
               <strong>{{ 'LANDING_PAGE.space-team.title' | translate }}</strong>
             </span>
             <!-- Collaborator -->
-            <p class="text-light col-12 mt-3 text-center text-lg-start">
+            <p class="text-light col-12 text-center text-lg-start p-0">
               <span *ngFor="let item of firstCommunity; let last = last">
                 <span class="h3">{{ item }}</span>
                 <span *ngIf="!last">,&nbsp;</span>
@@ -327,7 +329,8 @@
                   'LANDING_PAGE.space-token.title' | translate
                 }}</strong>
               </span>
-              <h2 class="text-light col-12 py-3 mt-3 text-center text-lg-end">
+              <h2
+                class="text-light col-12 py-3 mt-3 text-center text-lg-end p-0">
                 {{ 'LANDING_PAGE.space-token.text' | translate }}
               </h2>
             </div>
@@ -350,6 +353,149 @@
 
       <!-- Section 9 -->
       <div
+        class="col-12 d-flex flex-column flex-lg-row justify-content-between mb-5">
+        <div
+          class="col-12 col-lg-5 d-flex align-items-center"
+          data-aos="fade-right">
+          <!-- Description -->
+          <div class="container-fluid descript px-xl-0">
+            <div class="row mx-0 mt-5 mt-lg-0">
+              <span
+                class="display-3 text-light col-12 text-center text-lg-start p-0">
+                <strong>{{
+                  'LANDING_PAGE.space-subscription.title' | translate
+                }}</strong>
+              </span>
+              <span class="mt-5 px-0 text-center text-lg-start p-0">
+                <h2 class="ps-0 text-white">
+                  {{ 'LANDING_PAGE.space-subscription.quote' | translate }}
+                </h2>
+                <h2 class="ps-0 text-white">
+                  {{
+                    'LANDING_PAGE.space-subscription.description-one'
+                      | translate
+                  }}
+                </h2>
+                <h2 class="ps-0 text-white">
+                  {{
+                    'LANDING_PAGE.space-subscription.description-two'
+                      | translate
+                  }}
+                </h2>
+                <h2 class="ps-0 text-white">
+                  {{
+                    'LANDING_PAGE.space-subscription.description-three'
+                      | translate
+                  }}
+                </h2>
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- Chart -->
+        <div
+          class="col-12 col-lg-6 d-flex align-items-center"
+          data-aos="fade-left">
+          <div class="container-fluid descript px-xl-0">
+            <app-chart-subscription></app-chart-subscription>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 10 -->
+      <div
+        class="col-12 d-flex flex-column flex-lg-row justify-content-between my-5">
+        <div
+          class="col-12 col-lg-5 d-flex align-items-center"
+          data-aos="fade-right">
+          <!-- Description -->
+          <div class="container-fluid descript px-xl-0">
+            <div class="row mx-0 mt-5 mt-lg-0">
+              <span
+                class="display-3 text-light col-12 text-center text-lg-start p-0">
+                <strong>{{
+                  'LANDING_PAGE.space-step-by-step.title' | translate
+                }}</strong>
+              </span>
+              <span class="mt-5 px-0 text-center text-lg-start p-0">
+                <h2 class="ps-0 text-white">
+                  {{
+                    'LANDING_PAGE.space-step-by-step.description' | translate
+                  }}
+                </h2>
+              </span>
+              <!-- Steps Number -->
+              <div class="steps-number d-flex justify-content-sm-center px-0">
+                <ul class="d-flex px-2">
+                  <li
+                    class="numbers d-flex justify-content-center align-items-center mx-2 mx-md-3"
+                    *ngFor="let number of stepsNumber; let i = index"
+                    (click)="onSetIndex(i)"
+                    [ngClass]="{ active: selectedIndex === i }">
+                    <button
+                      class="w-100"
+                      type="button"
+                      data-bs-target="#carouselExampleIndicators"
+                      [attr.data-bs-slide-to]="i">
+                      <span>{{ number.step }}</span>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+              <!-- Carousel -->
+              <div class="carousel px-0 mt-3">
+                <div
+                  id="carouselExampleIndicators"
+                  class="carousel slide d-flex justify-content-between"
+                  data-interval="false">
+                  <div class="carousel-inner pt-3">
+                    <!-- Active Card -->
+                    <div
+                      class="carousel-item position-relative px-3"
+                      *ngFor="let card of stepCards; let i = index"
+                      [ngClass]="{ active: i === 0 }">
+                      <div class="corner">
+                        <img
+                          src="../../../../assets/img/landing-page/corner.png"
+                          alt="Corner" />
+                      </div>
+                      <div
+                        class="card d-flex flex-row text-center text-sm-start w-100 col-12 px-2 px-sm-0">
+                        <div
+                          class="col-1 number d-none d-sm-block text-center m-2 py-3 px-4">
+                          <span>{{ card.number }}</span>
+                        </div>
+                        <div class="col-12 col-sm-8 content">
+                          <div class="title my-3 ms-2">
+                            {{ card.title | translate }}
+                          </div>
+                          <div class="description ms-2">
+                            {{ card.description | translate }}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Rocket -->
+        <div
+          class="col-12 col-lg-4 d-none d-md-flex align-items-center mt-5"
+          data-aos="fade-left">
+          <div
+            class="d-flex justify-content-center step-by-step container-fluid descript px-xl-0">
+            <img
+              src="../../../../assets/img/landing-page/rocket.png"
+              alt="Rocket" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 11 -->
+      <div
         class="col-12 d-flex flex-column flex-lg-row justify-content-between container-papers-link">
         <div
           class="col-12 col-lg-6 d-flex align-items-center"
@@ -363,7 +509,7 @@
                   'LANDING_PAGE.space-white-paper.title' | translate
                 }}</strong>
               </span>
-              <div class="text-light col-12 py-3 mt-3 text-start">
+              <div class="text-light col-12 py-3 mt-3 text-start p-0">
                 <h2
                   class="d-flex align-items-center container-link"
                   *ngFor="let rl of repositoryList">
@@ -387,7 +533,7 @@
         </div>
       </div>
 
-      <!-- Section 10 -->
+      <!-- Section 12 -->
       <div
         class="col-12 d-flex flex-column flex-lg-row justify-content-between container-contact-us on-section-loop">
         <a class="anchor" id="contact"></a>
@@ -403,7 +549,8 @@
                   'LANDING_PAGE.space-more-we-are.title' | translate
                 }}</strong>
               </span>
-              <h2 class="text-light col-12 py-3 mt-3 text-center text-lg-start">
+              <h2
+                class="text-light col-12 py-3 mt-3 text-center text-lg-start p-0">
                 {{ 'LANDING_PAGE.space-more-we-are.text' | translate }}
               </h2>
             </div>
