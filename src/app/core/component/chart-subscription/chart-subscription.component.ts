@@ -1,9 +1,11 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { ApexDataLabels, ApexLegend, ChartComponent } from 'ng-apexcharts';
 import {
-  ApexChart, ApexNonAxisChartSeries,
-  ApexResponsive, ApexTheme,
-  ApexTitleSubtitle
+  ApexChart,
+  ApexNonAxisChartSeries,
+  ApexResponsive,
+  ApexTheme,
+  ApexTitleSubtitle,
 } from 'ng-apexcharts';
 
 export type ChartOptions = {
@@ -70,7 +72,7 @@ export class ChartSubscriptionComponent {
               itemMargin: {
                 vertical: 5,
               },
-            }
+            },
           },
         },
       ],
