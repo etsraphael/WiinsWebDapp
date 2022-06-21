@@ -69,7 +69,7 @@ export class OnBoardingMainComponent {
     private translate: TranslationService,
     private changeDetector: ChangeDetectorRef,
     private snackBarService: SnackBarService
-  ) { }
+  ) {}
 
   ngAfterViewChecked(): void {
     this.changeDetector.detectChanges();
@@ -136,7 +136,7 @@ export class OnBoardingMainComponent {
 
   // For button cards
   onSetIndex(index: number): number {
-    return this.selectedIndex = index;
+    return (this.selectedIndex = index);
   }
 
   // For arrow cards

@@ -436,16 +436,24 @@
                       class="w-100"
                       type="button"
                       data-bs-target="#carouselExampleIndicators"
-                      [attr.data-bs-slide-to]="i" >
+                      [attr.data-bs-slide-to]="i">
                       <span>{{ number.step }}</span>
                     </button>
                   </li>
                 </ul>
               </div>
               <!-- Carousel -->
-              <div class="col-12 d-flex justify-content-center justify-content-lg-between carousel px-0 mt-3">
-                <button (click)="onDirectionCard('prev')" class="col-md-1 d-none d-md-block carousel-control-prev position-relative" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <div
+                class="col-12 d-flex justify-content-center justify-content-lg-between carousel px-0 mt-3">
+                <button
+                  (click)="onDirectionCard('prev')"
+                  class="col-md-1 d-none d-md-block carousel-control-prev position-relative"
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide="prev">
+                  <span
+                    class="carousel-control-prev-icon"
+                    aria-hidden="true"></span>
                   <span class="visually-hidden">Previous</span>
                 </button>
                 <div
@@ -481,8 +489,15 @@
                     </div>
                   </div>
                 </div>
-                <button (click)="onDirectionCard('next')" class="col-md-1 d-none d-md-block carousel-control-next position-relative" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <button
+                  (click)="onDirectionCard('next')"
+                  class="col-md-1 d-none d-md-block carousel-control-next position-relative"
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide="next">
+                  <span
+                    class="carousel-control-next-icon"
+                    aria-hidden="true"></span>
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
