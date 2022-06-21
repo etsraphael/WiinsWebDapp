@@ -69,7 +69,7 @@ export class OnBoardingMainComponent {
     private translate: TranslationService,
     private changeDetector: ChangeDetectorRef,
     private snackBarService: SnackBarService
-  ) {}
+  ) { }
 
   ngAfterViewChecked(): void {
     this.changeDetector.detectChanges();
@@ -134,8 +134,34 @@ export class OnBoardingMainComponent {
     return false;
   }
 
+  // For button cards
   onSetIndex(index: number): number {
-    return (this.selectedIndex = index);
+    return this.selectedIndex = index;
+  }
+
+  // For arrow cards
+  onDirectionCard(direction: string) {
+    switch (direction) {
+      case 'prev': {
+        if (this.selectedIndex === 0) {
+          this.selectedIndex = 5;
+        } else {
+          this.selectedIndex = this.selectedIndex - 1;
+        }
+        break;
+      }
+      case 'next': {
+        if (this.selectedIndex === 5) {
+          this.selectedIndex = 0;
+        } else {
+          this.selectedIndex = this.selectedIndex + 1;
+        }
+        break;
+      }
+      default: {
+        return;
+      }
+    }
   }
 
   // focus on a section
