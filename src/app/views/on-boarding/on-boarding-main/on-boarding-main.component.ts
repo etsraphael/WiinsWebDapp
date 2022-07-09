@@ -140,27 +140,22 @@ export class OnBoardingMainComponent {
   }
 
   // For arrow cards
-  onDirectionCard(direction: string) {
+  onDirectionCard(direction: string): void {
     switch (direction) {
       case 'prev': {
-        if (this.selectedIndex === 0) {
-          this.selectedIndex = 5;
-        } else {
-          this.selectedIndex = this.selectedIndex - 1;
-        }
+        if (this.selectedIndex === 0)
+          this.selectedIndex = this.stepCards.length - 1;
+        else --this.selectedIndex;
         break;
       }
       case 'next': {
-        if (this.selectedIndex === 5) {
+        if (this.selectedIndex === this.stepCards.length - 1)
           this.selectedIndex = 0;
-        } else {
-          this.selectedIndex = this.selectedIndex + 1;
-        }
+        else ++this.selectedIndex;
         break;
       }
-      default: {
+      default:
         return;
-      }
     }
   }
 
