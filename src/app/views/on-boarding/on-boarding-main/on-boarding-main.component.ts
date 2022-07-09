@@ -134,8 +134,29 @@ export class OnBoardingMainComponent {
     return false;
   }
 
+  // For button cards
   onSetIndex(index: number): number {
     return (this.selectedIndex = index);
+  }
+
+  // For arrow cards
+  onDirectionCard(direction: string): void {
+    switch (direction) {
+      case 'prev': {
+        if (this.selectedIndex === 0)
+          this.selectedIndex = this.stepCards.length - 1;
+        else --this.selectedIndex;
+        break;
+      }
+      case 'next': {
+        if (this.selectedIndex === this.stepCards.length - 1)
+          this.selectedIndex = 0;
+        else ++this.selectedIndex;
+        break;
+      }
+      default:
+        return;
+    }
   }
 
   // focus on a section

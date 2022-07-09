@@ -443,11 +443,23 @@
                 </ul>
               </div>
               <!-- Carousel -->
-              <div class="carousel px-0 mt-3">
+              <div
+                class="col-12 d-flex justify-content-center justify-content-lg-between carousel px-0 mt-3">
+                <button
+                  (click)="onDirectionCard('prev')"
+                  class="col-md-1 d-none d-md-block carousel-control-prev position-relative"
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide="prev">
+                  <span
+                    class="carousel-control-prev-icon"
+                    aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
                 <div
                   id="carouselExampleIndicators"
-                  class="carousel slide d-flex justify-content-between"
-                  data-interval="false">
+                  class="col-12 col-md-10 carousel"
+                  data-bs-interval="false">
                   <div class="carousel-inner pt-3">
                     <!-- Active Card -->
                     <div
@@ -477,6 +489,17 @@
                     </div>
                   </div>
                 </div>
+                <button
+                  (click)="onDirectionCard('next')"
+                  class="col-md-1 d-none d-md-block carousel-control-next position-relative"
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide="next">
+                  <span
+                    class="carousel-control-next-icon"
+                    aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
               </div>
             </div>
           </div>
