@@ -16,24 +16,25 @@ import { FeedCardModule } from '@wiins/feed-card';
 import { FeedPublicationCardModule } from '@wiins/feed-publication-card';
 import { WebStoreModule } from '@wiins/web-store';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
+import { NgApexchartsModule } from 'ng-apexcharts';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { NgxMasonryModule } from 'ngx-masonry';
 import { AppRoutingModule } from './app-routing.module';
-import { NgApexchartsModule } from 'ng-apexcharts';
 import { AppComponent } from './app.component';
+import { ChartSubscriptionComponent } from './core/component/chart-subscription/chart-subscription.component';
 import { ComingSoonFullScreenComponent } from './core/component/coming-soon-full-screen/coming-soon-full-screen.component';
 import { MainNavBarComponent } from './core/component/main-nav-bar/main-nav-bar.component';
 import { MainSearchBarComponent } from './core/component/main-search-bar/main-search-bar.component';
 import { MainSidebarComponent } from './core/component/main-sidebar/main-sidebar.component';
 import { HomeLayoutComponent } from './core/layout/home-layout/home-layout.component';
 import { SettingLayoutComponent } from './core/layout/setting-layout/setting-layout.component';
+import { GraphQLModule } from './graphql.module';
 import { OnBoardingMainComponent } from './views/on-boarding/on-boarding-main/on-boarding-main.component';
 import { SpaceExplorerComponent } from './views/space-explorer/space-explorer.component';
 import { SpaceMessengerComponent } from './views/space-messenger/space-messenger.component';
 import { SpaceMusicComponent } from './views/space-music/space-music.component';
 import { SpaceStoryComponent } from './views/space-story/space-story.component';
 import { SpaceTubeComponent } from './views/space-tube/space-tube.component';
-import { ChartSubscriptionComponent } from './core/component/chart-subscription/chart-subscription.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { ChartSubscriptionComponent } from './core/component/chart-subscription/
     NgxDropzoneModule,
     FeedPublicationCardModule,
     FeedCardModule,
+    GraphQLModule,
   ],
   providers: [
     {
