@@ -11,7 +11,7 @@
 ## Wiins.io
 
 <a href="https://discord.gg/JXs3MxAn">
-<img src="https://bafkreidprnykboxmqtpdaa3tfyjfoocqk3kiubugundqk6eevhnsrv5dxa.ipfs.dweb.link/?filename=readme-introduction.png" alt="Logo">
+<img src="https://bafkreidprnykboxmqtpdaa3tfyjfoocqk3kiubugundqk6eevhnsrv5dxa.ipfs.nftstorage.link/?filename=readme-introduction.png" alt="Logo">
 </a>
 
 Wiins is a social media with the particularity of centralizing all web functions to improve the entertainment, security, comfort and ease of use.
@@ -99,7 +99,7 @@ Join the winns comuntiy today and lets grow TEA worth together 🚀
 
 <p align="center">
 <a href="https://discord.gg/JXs3MxAn">
-<img src="https://bafybeiduul34hbu4f7rn4xpxmxjyr7oxw72tiktqla32wzotzuammycd4a.ipfs.dweb.link/?filename=readme-banner.png" alt="Logo" width="380">
+<img src="https://bafybeiduul34hbu4f7rn4xpxmxjyr7oxw72tiktqla32wzotzuammycd4a.ipfs.nftstorage.link/?filename=readme-banner.png" alt="Logo" width="380">
 </a>
 </p>
 <!-- MARKDOWN LINKS & IMAGES -->

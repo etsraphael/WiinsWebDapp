@@ -4,7 +4,7 @@ A simple library to highlight the `#` and `@` in a text. Feel free to make any s
 
 ## Sample
 
-<img src="https://bafybeifgh5lndt75tm22shrh4cb7rqs6kpf25iz3gmxuokfsyqh5yi7d2a.ipfs.dweb.link/kfjbweofiuhwefhiuw2ebf9247tgh249fu4bf248hf8940fg24f3.png" alt="Logo" width="380">
+<img src="https://bafybeifgh5lndt75tm22shrh4cb7rqs6kpf25iz3gmxuokfsyqh5yi7d2a.ipfs.nftstorage.link/kfjbweofiuhwefhiuw2ebf9247tgh249fu4bf248hf8940fg24f3.png" alt="Logo" width="380">
 </a>
 
 ## Installation
@@ -52,6 +52,6 @@ Join the Wiins community today and let's grow TEA's worth together 🚀
 
 <p align="center">
 <a href="https://discord.gg/bBE6xmR">
-<img src="https://bafybeietl6rjafvrc6dq6upt5qoxxobr4ems6if5yukwlrnb4j2j5awqba.ipfs.dweb.link/woufghwriofuwehfpe2ifjh2oipfh2efo280hf24970tgyh35024cg78thf582476gh.png" alt="Logo" width="380">
+<img src="https://bafybeietl6rjafvrc6dq6upt5qoxxobr4ems6if5yukwlrnb4j2j5awqba.ipfs.nftstorage.link/woufghwriofuwehfpe2ifjh2oipfh2efo280hf24970tgyh35024cg78thf582476gh.png" alt="Logo" width="380">
 </a>
 </p>

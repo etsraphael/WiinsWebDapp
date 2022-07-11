@@ -6,17 +6,17 @@ A simple solution to post a publication card. Feel free to make any suggestions 
 
 ### Home screen
 
-<img src="https://bafybeibxrhzysssvatep2736ef3kif6o7cc2q37qe5edvsieovthicsmka.ipfs.dweb.link/sdljgfnwerofin24mgpf924hgjwigponwg0phw4r9surfgmwqr9mvgwp%20orgbjwrp9bvwrhbvjliwsbvfprwpb3bvhkn.png" alt="Logo" width="380">
+<img src="https://bafybeibxrhzysssvatep2736ef3kif6o7cc2q37qe5edvsieovthicsmka.ipfs.nftstorage.link/sdljgfnwerofin24mgpf924hgjwigponwg0phw4r9surfgmwqr9mvgwp%20orgbjwrp9bvwrhbvjliwsbvfprwpb3bvhkn.png" alt="Logo" width="380">
 </a>
 
 ### Post mode
 
-<img src="https://bafybeibkfxm6iwp4wp5dzhtn3jbxi5wneu7cqjgoalfy3m4eapicoxf7xm.ipfs.dweb.link/nj438tgf24h9024hg408pgh208gpiwh8fcv743gf0hw45ghewg0.png" alt="Logo" width="380">
+<img src="https://bafybeibkfxm6iwp4wp5dzhtn3jbxi5wneu7cqjgoalfy3m4eapicoxf7xm.ipfs.nftstorage.link/nj438tgf24h9024hg408pgh208gpiwh8fcv743gf0hw45ghewg0.png" alt="Logo" width="380">
 </a>
 
 ### File mode
 
-<img src="https://bafybeib4prasiwvjx5jkyy3kofvyixqd7sfuwckoo2elpwehj66jngl32i.ipfs.dweb.link/smdlfpikjwnfoiwe%20nfw%20pfgjw4mgnmfgoweihg40238ghgpin035g835g3j5gv9.png" alt="Logo" width="380">
+<img src="https://bafybeib4prasiwvjx5jkyy3kofvyixqd7sfuwckoo2elpwehj66jngl32i.ipfs.nftstorage.link/smdlfpikjwnfoiwe%20nfw%20pfgjw4mgnmfgoweihg40238ghgpin035g835g3j5gv9.png" alt="Logo" width="380">
 </a>
 
 ## Installation
@@ -169,6 +169,6 @@ Join the Wiins community today and let's grow TEA's worth together 🚀
 
 <p align="center">
 <a href="https://discord.gg/bBE6xmR">
-<img src="https://bafybeietl6rjafvrc6dq6upt5qoxxobr4ems6if5yukwlrnb4j2j5awqba.ipfs.dweb.link/woufghwriofuwehfpe2ifjh2oipfh2efo280hf24970tgyh35024cg78thf582476gh.png" alt="Logo" width="380">
+<img src="https://bafybeietl6rjafvrc6dq6upt5qoxxobr4ems6if5yukwlrnb4j2j5awqba.ipfs.nftstorage.link/woufghwriofuwehfpe2ifjh2oipfh2efo280hf24970tgyh35024cg78thf582476gh.png" alt="Logo" width="380">
 </a>
 </p>
