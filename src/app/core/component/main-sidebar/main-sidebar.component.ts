@@ -10,22 +10,22 @@ export class MainSidebarComponent {
   sibarBtnDate: routeSideBarBtn[] = [
     {
       name: 'home',
-      icon: '../../../../assets/img/sidebar-btn-home/home.png',
+      icon: 'https://bafkreidraolsc7aztguujemhto2zacfyqjvsytw4iboboqbduautnhxbj4.ipfs.nftstorage.link/?filename=home.png',
       route: './SpaceStory',
     },
     {
       name: 'messenger',
-      icon: '../../../../assets/img/sidebar-btn-home/messenger.png',
+      icon: 'https://bafkreige35ehznt77dqcrypnnbvmg42gxs56kpkiren5ppi6kxpyaveytq.ipfs.nftstorage.link/?filename=messenger.png',
       route: './SpaceMessenger',
     },
     {
       name: 'video',
-      icon: '../../../../assets/img/sidebar-btn-home/tube.png',
+      icon: 'https://bafkreiafrvtfiwcv2qdjximimcug6joqrsr3zysaq546tdjgt2y4l7lnhm.ipfs.nftstorage.link/?filename=tube.png',
       route: './SpaceTube',
     },
     {
       name: 'discover',
-      icon: '../../../../assets/img/sidebar-btn-home/explorer.png',
+      icon: 'https://bafkreibtxfbg35xenpu4odnrrfb6luxbcosz4hitn65aa7u4d6vlnz36ue.ipfs.nftstorage.link/?filename=explorer.png',
       route: './SpaceExplorer',
     },
   ];
